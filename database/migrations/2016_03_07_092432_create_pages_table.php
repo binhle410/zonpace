@@ -17,9 +17,6 @@ class CreatePagesTable extends Migration
             $table->string('title');
             $table->string('slug');
             $table->text('content');
-            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            $table->timestamp('updated_at');
-            $table->timestamp('deleted_at');
 
             $table->timestamps();
         });
