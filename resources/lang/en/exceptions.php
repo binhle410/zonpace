@@ -54,6 +54,7 @@ return [
                 'role_needed' => 'You must choose at least one role.',
                 'update_error' => 'There was a problem updating this user. Please try again.',
                 'update_password_error' => 'There was a problem changing this users password. Please try again.',
+                'create_profile_error' => 'There was a problem creating this user profile, please try again.',
             ],
         ],
         'auth' => [

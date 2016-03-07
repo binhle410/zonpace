@@ -147,7 +147,7 @@
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">{{ trans('navs.backend.button') }}</a>
+                                <a href="{!! route('backend.profile') !!}" class="btn btn-default btn-flat">{{ trans('navs.backend.user.profile') }}</a>
                             </div>
                             <div class="pull-right">
                                 <a href="{!! route('auth.logout') !!}" class="btn btn-default btn-flat">{{ trans('navs.general.logout') }}</a>

@@ -39,4 +39,15 @@ trait UserRelationship
     {
         return $this->hasMany(SocialLogin::class);
     }
+
+
+    /**
+     * One-to-One relations with Profile.
+     *
+     * @return mixed
+     */
+    public function profile()
+    {
+        return $this->hasOne(\App\Models\Access\User\Profile::class);
+    }
 }
