@@ -1,31 +1,42 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Routes File
-|--------------------------------------------------------------------------
-|
-| Here is where you will register all of the routes in an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
+Route::group(['middleware' => 'web'], function() {
+    /**
+     * Switch between the included languages
+     */
+    Route::group(['namespace' => 'Language'], function () {
+        require (__DIR__ . '/Routes/Language/Language.php');
+    });
 
-Route::get('/', function () {
-    return view('welcome');
+    /**
+     * Frontend Routes
+     * Namespaces indicate folder structure
+     */
+    Route::group(['namespace' => 'Frontend'], function () {
+        require (__DIR__ . '/Routes/Frontend/Frontend.php');
+        require (__DIR__ . '/Routes/Frontend/Access.php');
+    });
 });
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| This route group applies the "web" middleware group to every route
-| it contains. The "web" middleware group is defined in your HTTP
-| kernel and includes session state, CSRF protection, and more.
-|
-*/
+/**
+ * Backend Routes
+ * Namespaces indicate folder structure
+ * Admin middleware groups web, auth, and routeNeedsPermission
+ */
+Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'middleware' => 'web'], function () {
+    require (__DIR__ . '/Routes/Backend/Backend.php');
 
-Route::group(['middleware' => ['web']], function () {
-    //
+    Route::group(['middleware' => 'admin'], function() {
+        /**
+         * These routes need view-backend permission
+         * (good if you want to allow more than one group in the backend,
+         * then limit the backend features by different roles or permissions)
+         *
+         * Note: Administrator has all permissions so you do not have to specify the administrator role everywhere.
+         */
+
+        require (__DIR__ . '/Routes/Backend/Dashboard.php');
+        require (__DIR__ . '/Routes/Backend/Access.php');
+        require (__DIR__ . '/Routes/Backend/LogViewer.php');
+    });
 });

@@ -16,6 +16,15 @@ return [
     'env' => env('APP_ENV', 'production'),
 
     /*
+	|--------------------------------------------------------------------------
+	| Application Name
+	|--------------------------------------------------------------------------
+	|
+	| The application name for use within the UI of the application
+	*/
+    'name' => 'AirCnc',
+
+    /*
     |--------------------------------------------------------------------------
     | Application Debug Mode
     |--------------------------------------------------------------------------
@@ -39,7 +48,7 @@ return [
     |
     */
 
-    'url' => 'http://localhost',
+    'url' => env('APP_URL'),
 
     /*
     |--------------------------------------------------------------------------
@@ -65,7 +74,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => env('APP_LOCALE', 'en'),
 
     /*
     |--------------------------------------------------------------------------
@@ -78,7 +87,18 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | PHP Locale Code
+    |--------------------------------------------------------------------------
+    |
+    | The PHP locale determines the default locale that will be used
+    | by the Carbon library when setting Carbon's localization.
+    |
+    */
+    'locale_php' => env('APP_LOCALE_PHP', 'en_US'),
 
     /*
     |--------------------------------------------------------------------------
@@ -108,7 +128,7 @@ return [
     |
     */
 
-    'log' => env('APP_LOG', 'single'),
+    'log' => env('APP_LOG', 'daily'),
 
     /*
     |--------------------------------------------------------------------------
@@ -151,11 +171,28 @@ return [
         /*
          * Application Service Providers...
          */
+        App\Providers\AccessServiceProvider::class,
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Third Party Providers
+         */
+        Arcanedev\LogViewer\LogViewerServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
+        Creativeorange\Gravatar\GravatarServiceProvider::class,
+        DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
+        Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class,
+        HieuLe\Active\ActiveServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
+
+        /*
+         * Has to override the Collective\Html\HtmlServiceProvider form singleton
+         */
+        App\Providers\MacroServiceProvider::class,
     ],
 
     /*
@@ -202,6 +239,16 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
 
+        /*
+         * Third Party Aliases
+         */
+        'Active'      => HieuLe\Active\Facades\Active::class,
+        'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
+        'Debugbar'    => Barryvdh\Debugbar\Facade::class,
+        'Form'        => Collective\Html\FormFacade::class,
+        'Gravatar'    => Creativeorange\Gravatar\Facades\Gravatar::class,
+        'Html'        => Collective\Html\HtmlFacade::class,
+        'Socialite'   => Laravel\Socialite\Facades\Socialite::class,
     ],
 
 ];

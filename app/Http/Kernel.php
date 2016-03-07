@@ -4,6 +4,10 @@ namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
+/**
+ * Class Kernel
+ * @package App\Http
+ */
 class Kernel extends HttpKernel
 {
     /**
@@ -29,6 +33,13 @@ class Kernel extends HttpKernel
             \Illuminate\Session\Middleware\StartSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
+            \App\Http\Middleware\LocaleMiddleware::class,
+        ],
+
+        'admin' => [
+            //'web',
+            'backend.auth',
+            'backend.access.routeNeedsPermission:view-backend',
         ],
 
         'api' => [
@@ -48,5 +59,15 @@ class Kernel extends HttpKernel
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        /**
+         * Access Middleware
+         */
+        'access.routeNeedsRole' => \App\Http\Middleware\RouteNeedsRole::class,
+        'access.routeNeedsPermission' => \App\Http\Middleware\RouteNeedsPermission::class,
+        /**
+         * Backend Middleware
+         */
+        'backend.auth' => \App\Http\Middleware\BackendAuthenticate::class,
+        'backend.access.routeNeedsPermission' => \App\Http\Middleware\BackendRouteNeedsPermission::class,
     ];
 }
