@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'env' => env('APP_ENV', 'production'),
+    'env' => env('APP_ENV', 'test'),
 
     /*
 	|--------------------------------------------------------------------------
@@ -188,6 +188,8 @@ return [
         Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class,
         HieuLe\Active\ActiveServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Appzcoder\CrudGenerator\CrudGeneratorServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
 
         /*
          * Has to override the Collective\Html\HtmlServiceProvider form singleton
@@ -245,10 +247,12 @@ return [
         'Active'      => HieuLe\Active\Facades\Active::class,
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
         'Debugbar'    => Barryvdh\Debugbar\Facade::class,
-        'Form'        => Collective\Html\FormFacade::class,
         'Gravatar'    => Creativeorange\Gravatar\Facades\Gravatar::class,
-        'Html'        => Collective\Html\HtmlFacade::class,
         'Socialite'   => Laravel\Socialite\Facades\Socialite::class,
+        //'Form'        => Collective\Html\FormFacade::class,
+        //'Html'        => Collective\Html\HtmlFacade::class,
+        'Form'        => Collective\Html\FormFacade::class,
+        'Html'        => Collective\Html\HtmlFacade::class
     ],
 
 ];
