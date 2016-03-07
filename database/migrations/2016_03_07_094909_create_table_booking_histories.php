@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableShippings extends Migration
+class CreateTableBookingHistories extends Migration
 {
     /**
      * Run the migrations.
@@ -12,15 +12,16 @@ class CreateTableShippings extends Migration
      */
     public function up()
     {
-        Schema::create('shippings', function (Blueprint $table) {
+        Schema::create('booking_histories', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('method', 50);
-            $table->string('service', 50);
-            $table->decimal('price', 10, 2)->default('0.00');
-            $table->decimal('discount', 12, 2)->default('0.00');
-            $table->tinyInteger('fee', false, true)->length(4);
+            $table->integer('booking_id', false, true)->length(10);
+            $table->string('status', 20);
             $table->text('data_serialized')->nullable();
             $table->timestamps();
+
+            $table->foreign('booking_id')
+                ->references('id')->on('bookings')
+                ->onDelete('cascade');
         });
     }
 
@@ -31,6 +32,6 @@ class CreateTableShippings extends Migration
      */
     public function down()
     {
-        Schema::drop('shippings');
+        Schema::drop('booking_histories');
     }
 }

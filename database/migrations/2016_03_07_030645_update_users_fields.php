@@ -36,8 +36,8 @@ class UpdateUsersFields extends Migration
     {
         Schema::table('users', function($table)
         {
-            $table->dropColumn(['username', 'first_name', 'last_name', 'phone', 'data_serialized']);
             $table->renameColumn('username', 'name');
+            $table->dropColumn(['first_name', 'last_name', 'phone', 'data_serialized']);
         });
     }
 }

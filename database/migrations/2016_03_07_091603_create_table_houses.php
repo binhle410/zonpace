@@ -14,7 +14,15 @@ class CreateTableHouses extends Migration
     {
         Schema::create('houses', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id', false, true)->length('10');
+            $table->string('name');
+            $table->string('display_name');
+            $table->integer('nor', false, true)->length(11);
+            $table->integer('max_guest', false, true)->length(10);
             $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')->on('users');
         });
     }
 
