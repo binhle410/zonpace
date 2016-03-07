@@ -1,8 +1,14 @@
 /vendor
 /node_modules
+/public/storage
 Homestead.yaml
 Homestead.json
 .env
+/.buildpath
+/.project
+/npm-shrinkwrap.json
+/.settings
+/public/build
 
 /public/css/frontend.css
 /public/css/frontend.css.map
