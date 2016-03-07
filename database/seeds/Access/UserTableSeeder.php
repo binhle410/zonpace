@@ -28,7 +28,7 @@ class UserTableSeeder extends Seeder
         $users = [
             [
                 'name'              => 'Admin Istrator',
-                'email'             => 'admin@aircnc.com',
+                'email'             => 'admin@zonpace.com',
                 'password'          => bcrypt('admin'),
                 'confirmation_code' => md5(uniqid(mt_rand(), true)),
                 'confirmed'         => true,
@@ -37,7 +37,7 @@ class UserTableSeeder extends Seeder
             ],
             [
                 'name'              => 'Default User',
-                'email'             => 'demo@aircnc.com',
+                'email'             => 'demo@zonpace.com',
                 'password'          => bcrypt('123456'),
                 'confirmation_code' => md5(uniqid(mt_rand(), true)),
                 'confirmed'         => true,
