@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1>Backend/page <a href="{{ url('admin/page/create') }}" class="btn btn-primary pull-right btn-sm">Add New Page</a></h1>
+    <h1>Page <a href="{{ url('admin/page/create') }}" class="btn btn-primary pull-right btn-sm">Add New Page</a></h1>
     <div class="table">
         <table class="table table-bordered table-striped table-hover">
             <thead>
