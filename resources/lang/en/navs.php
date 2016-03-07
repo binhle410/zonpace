@@ -15,6 +15,9 @@ return [
 
     'backend' => [
         'button' => 'Button',
+        'user' => [
+            'profile' => 'Profile'
+        ]
     ],
 
     'general' => [
@@ -31,7 +34,7 @@ return [
         'user' => [
             'administration' => 'Administration',
             'change_password' => 'Change Password',
-            'my_information' => 'My Information',
+            'my_information' => 'My Information'
         ],
     ],
 ];

@@ -27,7 +27,8 @@ class UserTableSeeder extends Seeder
         //Add the master administrator, user id of 1
         $users = [
             [
-                'name'              => 'Admin Istrator',
+                'first_name'        => 'Admin',
+                'last_name'         => 'Istrator',
                 'email'             => 'admin@aircnc.com',
                 'password'          => bcrypt('admin'),
                 'confirmation_code' => md5(uniqid(mt_rand(), true)),
@@ -36,7 +37,8 @@ class UserTableSeeder extends Seeder
                 'updated_at'        => Carbon::now(),
             ],
             [
-                'name'              => 'Default User',
+                'first_name'        => 'Default',
+                'last_name'         => 'User',
                 'email'             => 'demo@aircnc.com',
                 'password'          => bcrypt('123456'),
                 'confirmation_code' => md5(uniqid(mt_rand(), true)),

@@ -2,6 +2,7 @@
 
 namespace App\Repositories\Backend\User;
 
+use App\Models\Access\User\Profile;
 use App\Models\Access\User\User;
 use App\Exceptions\GeneralException;
 use App\Repositories\Backend\Role\RoleRepositoryContract;
@@ -39,7 +40,7 @@ class EloquentUserRepository implements UserContract
 
     /**
      * @param  $id
-     * @param  bool               $withRoles
+     * @param  bool $withRoles
      * @throws GeneralException
      * @return mixed
      */
@@ -60,9 +61,9 @@ class EloquentUserRepository implements UserContract
 
     /**
      * @param  $per_page
-     * @param  string      $order_by
-     * @param  string      $sort
-     * @param  int         $status
+     * @param  string $order_by
+     * @param  string $sort
+     * @param  int $status
      * @return mixed
      */
     public function getUsersPaginated($per_page, $status = 1, $order_by = 'id', $sort = 'asc')
@@ -83,8 +84,8 @@ class EloquentUserRepository implements UserContract
     }
 
     /**
-     * @param  string  $order_by
-     * @param  string  $sort
+     * @param  string $order_by
+     * @param  string $sort
      * @return mixed
      */
     public function getAllUsers($order_by = 'id', $sort = 'asc')
@@ -103,7 +104,7 @@ class EloquentUserRepository implements UserContract
      */
     public function create($input, $roles, $permissions)
     {
-        $user = $this->createUserStub($input);
+        $user = $this->_createUserStub($input);
 
         if ($user->save()) {
             //User Created, Validate Roles
@@ -141,7 +142,7 @@ class EloquentUserRepository implements UserContract
 
         if ($user->update($input)) {
             //For whatever reason this just wont work in the above call, so a second is needed for now
-            $user->status    = isset($input['status']) ? 1 : 0;
+            $user->status = isset($input['status']) ? 1 : 0;
             $user->confirmed = isset($input['confirmed']) ? 1 : 0;
             $user->save();
 
@@ -241,7 +242,7 @@ class EloquentUserRepository implements UserContract
             throw new GeneralException(trans('exceptions.backend.access.users.cant_deactivate_self'));
         }
 
-        $user         = $this->findOrThrowException($id);
+        $user = $this->findOrThrowException($id);
         $user->status = $status;
 
         if ($user->save()) {
@@ -337,15 +338,59 @@ class EloquentUserRepository implements UserContract
      * @param  $input
      * @return mixed
      */
-    private function createUserStub($input)
+    private function _createUserStub($input)
     {
-        $user                    = new User;
-        $user->name              = $input['name'];
-        $user->email             = $input['email'];
-        $user->password          = bcrypt($input['password']);
-        $user->status            = isset($input['status']) ? 1 : 0;
+        $user = new User;
+        $user->username = array_get($input, 'username');
+        $user->email = array_get($input, 'email');
+        $user->password = bcrypt($input['password']);
+        $user->status = array_get($input, 'status', 0);
         $user->confirmation_code = md5(uniqid(mt_rand(), true));
-        $user->confirmed         = isset($input['confirmed']) ? 1 : 0;
+        $user->confirmed = array_get($input, 'confirmed', 0);
         return $user;
+    }
+
+    private function _createProfileStub($input)
+    {
+        $profile = new Profile;
+        return $profile->fill([
+            'user_id' => access()->user()->id,
+            'work' => array_get($input, 'work'),
+            'timezone' => array_get($input, 'timezone'),
+            'locale' => array_get($input, 'locale')
+        ]);
+    }
+
+    public function updateProfile($input)
+    {
+        $continue = false;
+        /** @var \App\Models\Access\User\User $user */
+        $user = $this->findOrThrowException(access()->user()->id);
+        $userData = array_get($input, 'User');
+        $this->checkUserByEmail($userData, $user);
+        if ($userData && $user->update($userData)) {
+            $continue = true;
+        }
+
+        // If update user info has any error then thown exception
+        if (!$continue) {
+            throw new GeneralException(trans('exceptions.backend.access.users.update_error'));
+        }
+
+        if ($profileData = array_get($input, 'Profile')) {
+            $profile = $user->profile;
+            /** @var \App\Models\Access\User\Profile $profile */
+            if ($profile = $user->profile) {
+                $profile->update($profileData);
+            } else {
+                $profile = $this->_createProfileStub($profileData);
+            }
+
+            if ($profile->save()) {
+                return true;
+            }
+
+            throw new GeneralException(trans('exceptions.backend.access.users.create_profile_error'));
+        }
     }
 }
