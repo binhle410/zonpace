@@ -1,72 +1,60 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 2 | Log in</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Ionicons -->
-    {!! Html::style('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css') !!}
-    <!-- Theme style -->
-    {!! Html::style(elixir('css/backend.css')) !!}
-    <!-- iCheck -->
-    {!! Html::style('js/vendor/iCheck/square/blue.css') !!}
+@extends('backend.layouts.login')
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
-<body class="hold-transition login-page">
-<div class="login-box">
-    <div class="login-logo">
-        <a href="../../index2.html"><b>Airbnb</b> ver 2</a>
-    </div><!-- /.login-logo -->
-    <div class="login-box-body">
-        <p class="login-box-msg">Sign in to start your session</p>
-        {!! Form::open(['url' => route('backend.post-login')]) !!}
-            <div class="form-group has-feedback">
-                {!! Form::input('email', 'email', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.frontend.email')]) !!}
-                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-            </div>
-            <div class="form-group has-feedback">
-                {!! Form::input('password', 'password', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.frontend.password')]) !!}
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-            </div>
-            <div class="row">
-                <div class="col-xs-8">
-                    <div class="checkbox icheck">
-                        <label>
-                            <input type="checkbox"> Remember Me
-                        </label>
+@section('content')
+
+    <div class="row">
+
+        <div class="col-md-8 col-md-offset-2">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">{{ trans('labels.frontend.auth.login_box_title') }}</div>
+
+                <div class="panel-body">
+
+                    {!! Form::open(['url' => route('backend.post-login'), 'class' => 'form-horizontal']) !!}
+
+                        <div class="form-group">
+                            {!! Form::label('email', trans('validation.attributes.frontend.email'), ['class' => 'col-md-4 control-label']) !!}
+                            <div class="col-md-6">
+                                {!! Form::input('email', 'email', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.frontend.email')]) !!}
+                            </div><!--col-md-6-->
+                        </div><!--form-group-->
+
+                        <div class="form-group">
+                            {!! Form::label('password', trans('validation.attributes.frontend.password'), ['class' => 'col-md-4 control-label']) !!}
+                            <div class="col-md-6">
+                                {!! Form::input('password', 'password', null, ['class' => 'form-control', 'placeholder' => trans('validation.attributes.frontend.password')]) !!}
+                            </div><!--col-md-6-->
+                        </div><!--form-group-->
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <div class="checkbox">
+                                    <label>
+                                        {!! Form::checkbox('remember') !!} {{ trans('labels.frontend.auth.remember_me') }}
+                                    </label>
+                                </div>
+                            </div><!--col-md-6-->
+                        </div><!--form-group-->
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                {!! Form::submit(trans('labels.frontend.auth.login_button'), ['class' => 'btn btn-primary', 'style' => 'margin-right:15px']) !!}
+
+                                {!! link_to_route('backend.password.reset', trans('labels.frontend.passwords.forgot_password')) !!}
+                            </div><!--col-md-6-->
+                        </div><!--form-group-->
+
+                    {!! Form::close() !!}
+
+                    <div class="row text-center">
                     </div>
-                </div><!-- /.col -->
-                <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
-                </div><!-- /.col -->
-            </div>
-        {!! Form::close() !!}
-        <a href="#">I forgot my password</a><br>
-        <a href="register.html" class="text-center">Register a new membership</a>
+                </div><!-- panel body -->
 
-    </div><!-- /.login-box-body -->
-</div><!-- /.login-box -->
+            </div><!-- panel -->
 
-<!-- jQuery 2.1.4 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="{{asset('js/vendor/jquery/jquery-2.1.4.min.js')}}"><\/script>')</script>
-{!! Html::script('js/vendor/iCheck/icheck.min.js') !!}
-<script>
-    $(function () {
-        $('input').iCheck({
-            checkboxClass: 'icheckbox_square-blue',
-            radioClass: 'iradio_square-blue',
-            increaseArea: '20%' // optional
-        });
-    });
-</script>
-</body>
-</html>
+        </div><!-- col-md-8 -->
+
+    </div><!-- row -->
+
+@endsection
