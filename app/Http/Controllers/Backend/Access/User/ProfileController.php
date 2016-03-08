@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Backend;
+namespace App\Http\Controllers\Backend\Access\User;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\Backend\User\UserContract;
@@ -22,7 +22,6 @@ class ProfileController extends Controller
      */
     public function __construct(UserContract $users)
     {
-        $this->middleware('backend.auth');
         $this->users = $users;
     }
 
