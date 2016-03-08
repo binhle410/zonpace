@@ -183,13 +183,14 @@ return [
         Arcanedev\LogViewer\LogViewerServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-        Creativeorange\Gravatar\GravatarServiceProvider::class,
+//        Creativeorange\Gravatar\GravatarServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
         Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class,
         HieuLe\Active\ActiveServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
-        Appzcoder\CrudGenerator\CrudGeneratorServiceProvider::class,
+//        Appzcoder\CrudGenerator\CrudGeneratorServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
+        Pingpong\Generators\GeneratorsServiceProvider::class,
 
         /*
          * Has to override the Collective\Html\HtmlServiceProvider form singleton
@@ -247,10 +248,8 @@ return [
         'Active'      => HieuLe\Active\Facades\Active::class,
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
         'Debugbar'    => Barryvdh\Debugbar\Facade::class,
-        'Gravatar'    => Creativeorange\Gravatar\Facades\Gravatar::class,
+//        'Gravatar'    => Creativeorange\Gravatar\Facades\Gravatar::class,
         'Socialite'   => Laravel\Socialite\Facades\Socialite::class,
-        //'Form'        => Collective\Html\FormFacade::class,
-        //'Html'        => Collective\Html\HtmlFacade::class,
         'Form'        => Collective\Html\FormFacade::class,
         'Html'        => Collective\Html\HtmlFacade::class
     ],
