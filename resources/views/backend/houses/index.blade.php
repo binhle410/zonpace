@@ -40,7 +40,7 @@
                     @foreach ($houses as $house)
                         <tr>
                             <td>{!! $house->id !!}</td>
-                            <td>{!! link_to("#", $house->user->email) !!}</td>
+                            <td>{!! link_to(route('admin.access.users.edit', $house->user_id), $house->user->full_name) !!}</td>
                             <td>{!! $house->name !!}</td>
                             <td>{!! $house->display_name !!}</td>
                             <td>{!! $house->nor !!}</td>

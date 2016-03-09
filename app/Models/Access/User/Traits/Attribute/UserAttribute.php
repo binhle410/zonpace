@@ -25,6 +25,11 @@ trait UserAttribute
         return ! app('session')->has(config('access.socialite_session_name'));
     }
 
+    public function getFullNameAttribute()
+    {
+        return ucwords($this->first_name . ' ' . $this->last_name);
+    }
+
     /**
      * @return string
      */
