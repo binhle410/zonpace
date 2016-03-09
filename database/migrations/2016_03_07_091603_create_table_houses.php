@@ -23,6 +23,8 @@ class CreateTableHouses extends Migration
 
             $table->foreign('user_id')
                 ->references('id')->on('users');
+
+            $table->dropForeign('houses_user_id_foreign');
         });
     }
 

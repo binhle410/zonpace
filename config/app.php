@@ -188,9 +188,10 @@ return [
         Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class,
         HieuLe\Active\ActiveServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
-//        Appzcoder\CrudGenerator\CrudGeneratorServiceProvider::class,
+//        Appzczoder\CrudGenerator\CrudGeneratorServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-        Pingpong\Generators\GeneratorsServiceProvider::class,
+        AdamWathan\BootForms\BootFormsServiceProvider::class,
+        //Pingpong\Generators\GeneratorsServiceProvider::class,
 
         /*
          * Has to override the Collective\Html\HtmlServiceProvider form singleton
@@ -251,7 +252,8 @@ return [
 //        'Gravatar'    => Creativeorange\Gravatar\Facades\Gravatar::class,
         'Socialite'   => Laravel\Socialite\Facades\Socialite::class,
         'Form'        => Collective\Html\FormFacade::class,
-        'Html'        => Collective\Html\HtmlFacade::class
+        'Html'        => Collective\Html\HtmlFacade::class,
+        'BootForm'    => AdamWathan\BootForms\Facades\BootForm::class,
     ],
 
 ];

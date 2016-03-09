@@ -33,7 +33,8 @@ elixir(function(mix) {
       * Combine pre-processed frontend CSS files
       */
      .styles([
-        'frontend/app.css'
+        'frontend/app.css',
+         'select2/select2.min.css'
      ], 'public/css/frontend.css')
 
      /**
@@ -41,8 +42,10 @@ elixir(function(mix) {
       */
      .scripts([
         'plugin/sweetalert/sweetalert.min.js',
+         'plugin/select2/select2.min.js',
         'plugins.js',
-        'frontend/app.js'
+        'frontend/app.js',
+         'custom.js'
      ], 'public/js/frontend.js')
 
      /**
@@ -58,7 +61,8 @@ elixir(function(mix) {
       * Combine pre-processed backend CSS files
       */
      .styles([
-         'backend/app.css'
+         'backend/app.css',
+         'select2/select2.min.css'
      ], 'public/css/backend.css')
 
      /**
@@ -66,10 +70,12 @@ elixir(function(mix) {
       */
      .scripts([
          'plugin/sweetalert/sweetalert.min.js',
+         'plugin/select2/select2.min.js',
          'plugins.js',
          'backend/app.js',
          'backend/plugin/toastr/toastr.min.js',
-         'backend/custom.js'
+         'backend/custom.js',
+         'custom.js'
      ], 'public/js/backend.js')
 
     /**

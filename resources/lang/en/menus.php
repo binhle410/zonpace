@@ -61,6 +61,16 @@ return [
             'general' => 'General',
             'page' => 'Pages'
         ],
+
+        'houses' => [
+            'title' => 'House Management',
+            'all' => 'All Houses',
+            'create' => 'Create House',
+            'deactivated' => 'Deactivated Houses',
+            'deleted' => 'Deleted Houses',
+            'edit' => 'Edit House',
+            'main' => 'Houses',
+        ],
     ],
 
     'language-picker' => [
