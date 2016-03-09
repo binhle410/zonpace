@@ -10,5 +10,5 @@ use Collective\Html\FormBuilder;
  */
 class Macros extends FormBuilder
 {
-    use Dropdowns;
+    use Dropdowns, Links;
 }
