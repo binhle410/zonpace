@@ -81,3 +81,10 @@ if (! function_exists('getLanguageBlock')) {
         }
     }
 }
+
+if (! function_exists('getStatusList')) {
+    function getStatusList()
+    {
+        return [trans('labels.general.statuses.pending'), trans('labels.general.statuses.approved'), trans('labels.general.statuses.denied')];
+    }
+}

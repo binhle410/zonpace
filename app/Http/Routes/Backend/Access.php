@@ -25,6 +25,12 @@ Route::group([
             Route::get('password/change', 'UserController@changePassword')->name('admin.access.user.change-password');
             Route::post('password/change', 'UserController@updatePassword')->name('admin.access.user.change-password');
         });
+
+        /**
+         * User Profile
+         */
+        Route::get('profile', 'ProfileController@index')->name('backend.profile');
+        Route::post('profile', 'ProfileController@update')->name('backend.profile.update');
     });
 
     /**

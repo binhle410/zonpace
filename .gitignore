@@ -10,14 +10,13 @@ Homestead.json
 /.settings
 /public/build
 
-/public/css/frontend.css
-/public/css/frontend.css.map
-/public/css/backend.css
-/public/css/backend.css.map
-/public/js/frontend.js
-/public/js/frontend.js.map
-/public/js/backend.js
-/public/js/backend.js.map
+/public/css/*.css
+/public/css/*.css.map
+/public/js/*.js
+/public/js/*.js.map
+
+/resources/assets/css/frontend/
+/resources/assets/css/backend/
 
 .DS_Store
 Thumbs.db

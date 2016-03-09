@@ -40,6 +40,10 @@
                     <a href="{!!url('admin/access/users')!!}"><span>{{ trans('menus.backend.access.title') }}</span></a>
                 </li>
             @endauth
+
+            <li class="{{ Active::pattern('admin/house/*') }}">
+                <a href="{!! route('admin.houses.index') !!}"><span>{{ trans('menus.backend.houses.title') }}</span></a>
+            </li>
         
             <li class="{{ Active::pattern('admin/page') }}">
                 <a href="{!!url('admin/page')!!}"><span>{{ trans('menus.backend.sidebar.page') }}</span></a>

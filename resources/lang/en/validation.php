@@ -151,6 +151,16 @@ return [
                     ]
                 ],
             ],
+
+            'houses' => [
+                'active' => 'Active',
+                'user_id' => 'User',
+                'name' => 'Name',
+                'display_name' => 'Display Name',
+                'nor' => 'Number of Rooms',
+                'max_guest' => 'Max Guests',
+                'status' => 'Status',
+            ],
         ],
 
         'frontend' => [
@@ -164,4 +174,14 @@ return [
         ],
     ],
 
+    'models' => [
+        'house' => [
+            'user_id' => 'User ID',
+            'name' => 'Name',
+            'display_name' => 'Display Name',
+            'nor' => 'Number of Rooms',
+            'max_guest' => 'Max Guests',
+            'status' => 'Status',
+        ],
+    ],
 ];

@@ -56,6 +56,13 @@ return [
                 'update_password_error' => 'There was a problem changing this users password. Please try again.',
                 'create_profile_error' => 'There was a problem creating this user profile, please try again.',
             ],
+            'houses' => [
+                'not_found' => 'That house does not exist.',
+                'create_error' => 'There was a problem creating this house. Please try again.',
+                'update_error' => 'There was a problem updating this house. Please try again.',
+                'mark_error' => 'There was a problem updating this house. Please try again.',
+                'delete_error' => 'There was a problem deleting this house. Please try again.',
+            ],
         ],
         'auth' => [
             'permissions' => [

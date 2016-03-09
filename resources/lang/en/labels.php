@@ -27,6 +27,14 @@ return [
         'none' => 'None',
         'show' => 'Show',
         'toggle_navigation' => 'Toggle Navigation',
+
+        'status' => 'Status',
+
+        'statuses' => [
+            'pending' => 'Pending',
+            'approved' => 'Approved',
+            'denied' => 'Denied',
+        ],
     ],
 
     'backend' => [
@@ -119,6 +127,28 @@ return [
                     'roles' => 'Roles',
                     'total' => 'user total|users total',
                 ],
+            ],
+        ],
+
+        'houses' => [
+            'management' => 'House Management',
+            'active' => 'Active Houses',
+            'create' => 'Create House',
+            'edit' => 'Edit House',
+
+            'table' => [
+                'confirmed' => 'Confirmed',
+                'created' => 'Created',
+                'id' => 'ID',
+                'last_updated' => 'Last Updated',
+                'name' => 'Name',
+                'display_name' => 'Display Name',
+                'user_name' => 'User Name',
+                'nor' => 'Number of Rooms',
+                'max_guest' => 'Max Guests',
+                'no_deactivated' => 'No Deactivated Houses',
+                'users' => 'Users',
+                'total' => 'house total|hosues total',
             ],
         ],
     ],

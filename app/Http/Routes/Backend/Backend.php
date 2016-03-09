@@ -15,6 +15,3 @@ Route::group(['namespace' => 'Auth'], function () {
             ->name('backend.password.post-reset');
     });
 });
-
-Route::get('profile', 'ProfileController@index')->name('backend.profile');
-Route::post('profile', 'ProfileController@update')->name('backend.profile.update');

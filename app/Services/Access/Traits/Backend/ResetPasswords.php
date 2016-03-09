@@ -31,6 +31,7 @@ trait ResetPasswords
      */
     public function sendResetLinkEmail(SendResetLinkEmailRequest $request)
     {
+        #TODO: Need to find the right way to set default driver for change password link for each module
         Password::setDefaultDriver('backend');
 
         $response = Password::sendResetLink($request->only('email'), function (Message $message) {
