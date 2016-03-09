@@ -7,10 +7,5 @@ interface Presentable
     /**
      * @return mixed
      */
-    public function createdAt();
-
-    /**
-     * @return mixed
-     */
-    public function updatedAt();
+    public function present();
 }

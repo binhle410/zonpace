@@ -4,10 +4,11 @@ namespace App\Presenters;
 
 use App\Contracts\Presentable;
 
-class User extends Presenter implements Presentable
+class User extends Presenter
 {
     /**
      * Present the full name
+     * 
      * @return string
      */
     public function fullName()

@@ -8,6 +8,8 @@ abstract class Presenter
 
     /**
      * AbstractPresenter constructor.
+     *
+     * @param $entity
      */
     public function __construct($entity)
     {

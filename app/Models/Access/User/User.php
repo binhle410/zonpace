@@ -2,6 +2,7 @@
 
 namespace App\Models\Access\User;
 
+use App\Contracts\Presentable;
 use App\Models\Access\User\Traits\UserAccess;
 use App\Traits\PresentableTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -13,7 +14,7 @@ use App\Models\Access\User\Traits\Relationship\UserRelationship;
  * Class User
  * @package App\Models\Access\User
  */
-class User extends Authenticatable
+class User extends Authenticatable implements Presentable
 {
 
     use SoftDeletes, UserAccess, UserAttribute, UserRelationship, PresentableTrait;
