@@ -191,7 +191,7 @@ return [
 //        Appzczoder\CrudGenerator\CrudGeneratorServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         AdamWathan\BootForms\BootFormsServiceProvider::class,
-        //Pingpong\Generators\GeneratorsServiceProvider::class,
+        Pingpong\Generators\GeneratorsServiceProvider::class,
 
         /*
          * Has to override the Collective\Html\HtmlServiceProvider form singleton
