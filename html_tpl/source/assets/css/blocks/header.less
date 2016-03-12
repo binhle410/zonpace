@@ -1,0 +1,70 @@
+/**
+ * CSS HEADER
+ */
+.header-wrap {
+	position: relative;
+	z-index: 20;
+	background-color: #f7f7f7;
+	height: 60px;
+	.box-shadow(1px 0 5px rgba(0,0,0,0.5));
+	.header-logo {
+		h1 {
+			margin-bottom: 0;
+		}
+		img {
+			width: 190px;
+			margin-top: 3px;
+		}
+		a {
+			display: block;
+		}
+		span {
+			color: @red;
+			text-transform: uppercase;
+			border-left: 1px solid @red;
+			margin-left: 15px;
+			padding-left: 15px;
+			font-size: 16px;
+		}
+	}
+}
+.header-wrap {
+	.header-menu {
+		ul {
+			float: right;
+			margin-top: 14px;
+		}
+		li {
+			float: left;
+			margin-right: 20px;
+			&:last-child {
+				margin-right: 0;
+			}
+			a {
+				display: block;
+				background-color: transparent;
+				.border-radius(5px);
+				text-transform: uppercase;
+				padding: 5px 20px;
+				&:hover {
+					color: #fff;
+					background-color: @red;
+				}
+			}
+			&.active {
+				a {
+					color: #fff;
+					background-color: @red;	
+				}
+			}
+		}
+	}
+}
+.header-wrap {
+	&.hd-fixed {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+	}
+}

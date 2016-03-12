@@ -1,0 +1,23 @@
+section.blk-filter-wrap
+    .container
+        .inner
+            .row
+                form(class="frm-filter")
+                    section.filter-itm.col-md-3.col-sm-3.col-xs-6
+                        input(type="text", class="ipt", placeholder="Where do you want to go?")
+                    // END : ITM
+                    section.filter-itm.col-md-4.col-sm-4.col-xs-6
+                        .input-group.input-daterange
+                            .itm-ipt
+                                input(type="text", class="ipt", value="Check in")
+                                i.fa.fa-calendar
+                            .itm-ipt
+                                input(type="text", class="ipt", value="Check out")
+                                i.fa.fa-calendar
+                    // END : ITM
+                    section.filter-itm.col-md-3.col-sm-3.col-xs-6
+                        input(type="text", class="ipt", placeholder="Where do you want to go?")
+                    // END : ITM
+                    section.filter-itm.col-md-2.col-sm-2.col-xs-6
+                        input(type="submit", class="btn btn-red uppercase", value="search")
+                    // END : ITM
