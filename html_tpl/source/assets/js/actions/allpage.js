@@ -62,7 +62,7 @@ allpage_fn.datePicker = function () {
 
     $('.input-daterange input').each(function() {
         $(this).datepicker({
-            format: 'mm/dd/yyyy',
+            format: 'dd-mm-yyyy',
         });
     });
 };
@@ -92,7 +92,7 @@ $(document).ready(function($){
     allpage_fn.datePicker();
 
     // filter ranger
-    //allpage_fn.filterRanger('#slider-ranger');
+    allpage_fn.filterRanger('#slider-ranger');
 });
 /* OnLoad Window */
 var init = function () {   

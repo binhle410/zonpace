@@ -7083,9 +7083,13 @@ html[xmlns] .flexslider .slides {
 .blk-filter-wrap .filter-itm {
   position: relative;
 }
+.blk-filter-wrap .btn.btn-red {
+  width: 100%;
+}
 .blk-filter-wrap .input-daterange .itm-ipt {
   width: 48%;
   float: left;
+  height: 40px;
   -webkit-border-radius: 5px !important;
   -moz-border-radius: 5px !important;
   -ms-border-radius: 5px !important;
@@ -7120,6 +7124,60 @@ html[xmlns] .flexslider .slides {
 }
 .datepicker table tr td.active {
   background: #cf242a !important;
+}
+.blk-filter-wrap #slider-ranger.ui-rangeSlider {
+  padding-top: 0;
+}
+.blk-filter-wrap #slider-ranger.ui-rangeSlider .ui-rangeSlider-container,
+.blk-filter-wrap #slider-ranger.ui-rangeSlider .ui-rangeSlider-arrow {
+  height: 40px;
+  border-top: none;
+  border-bottom: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+}
+.blk-filter-wrap #slider-ranger.ui-rangeSlider .ui-rangeSlider-bar {
+  height: 38px;
+  background: #cf242a;
+}
+.blk-filter-wrap #slider-ranger.ui-rangeSlider .ui-rangeSlider-container,
+.blk-filter-wrap #slider-ranger.ui-rangeSlider .ui-rangeSlider-arrow,
+.blk-filter-wrap #slider-ranger.ui-rangeSlider .ui-rangeSlider-label {
+  background: #fff;
+}
+.blk-filter-wrap #slider-ranger.ui-rangeSlider .ui-rangeSlider-label {
+  color: #575757;
+}
+.blk-filter-wrap #slider-ranger.ui-rangeSlider .ui-rangeSlider-label-inner {
+  border-top: 10px solid #fff;
+}
+.blk-filter-wrap #slider-ranger.ui-rangeSlider .ui-rangeSlider-leftArrow {
+  border-left: none;
+}
+.blk-filter-wrap #slider-ranger.ui-rangeSlider .ui-rangeSlider-leftArrow .ui-rangeSlider-arrow-inner {
+  border-right: 10px solid #cf242a;
+}
+.blk-filter-wrap #slider-ranger.ui-rangeSlider .ui-rangeSlider-rightArrow {
+  border-right: none;
+}
+.blk-filter-wrap #slider-ranger.ui-rangeSlider .ui-rangeSlider-rightArrow .ui-rangeSlider-arrow-inner {
+  border-left: 10px solid #cf242a;
+}
+.blk-filter-wrap #slider-ranger.ui-rangeSlider.ui-rangeSlider-withArrows .ui-rangeSlider-container {
+  margin: 0 16px 0 14px;
+  width: 90% !important;
+}
+.blk-filter-wrap #slider-ranger .ui-rangeSlider-withArrows .ui-rangeSlider-container,
+.blk-filter-wrap #slider-ranger .ui-rangeSlider-noArrow .ui-rangeSlider-container,
+.blk-filter-wrap #slider-ranger .ui-rangeSlider-arrow {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
 }
 /**
  * CSS FOOTER
