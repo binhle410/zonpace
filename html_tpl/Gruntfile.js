@@ -38,6 +38,10 @@ module.exports = function(grunt) {
         src:  'source/assets/js/libs/jquery-2.1.1.min.js',
         dest: 'public/js/libs.js'
       },
+      jquery_ui: {
+        src: 'source/assets/js/libs/jquery-ui.min.js',
+        dest: 'public/js/libs/jquery-ui.min.js'
+      },
       plugins: {
         src: ['source/assets/js/plugins/*.js', 'source/assets/js/plugins/*/*.js'],
         dest: 'public/js/plugins.js'

@@ -72,7 +72,12 @@ allpage_fn.datePicker = function () {
 allpage_fn.filterRanger = function (itmRanger) {
     if(!$(itmRanger).length) { return; }
 
-    $(itmRanger).rangeSlider();    
+    $(itmRanger).rangeSlider({
+        wheelMode: "scroll",
+        wheelSpeed: 30,
+        bounds: {min: 0, max: 50},
+        defaultValues:{min: 0, max: 20}
+    });
 };
 /* ----------------------------------------------- */
 /* ----------------------------------------------- */
