@@ -1,0 +1,63 @@
+/**
+ * Page components
+ *
+ * Description: This is the most accessible LESS file. For creating stucture of a LESS project
+ * There're some simple rules: 
+ *  - use base rule on this file. E.g. every single rule/indent or each component. To generate the fast view for the parent components
+ *  - for children rules put it in matched folders and import it in parent's section
+ *  
+ */
+body {
+	.fontLato(400);
+	font-size: 14px;
+	line-height: 1.6;
+	color: #000;
+	background-color: #F4F4F4;
+}
+ul {
+	margin: 0;
+	padding: 0;
+	li {
+		list-style: none;
+	}
+}
+a {
+	color: #000;
+	.transition(all 0.2s ease);
+	&:hover {
+		color: @red;
+		text-decoration: none;
+	}	
+}
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 0;
+}
+.t-l {
+	text-align: left;
+}
+.t-r {
+	text-align: right;
+}
+.t-c {
+	text-align: center;
+}
+.uppercase {
+	text-transform: uppercase;
+}
+//** ------ {{ plugins }} ------------------------------------ 
+@import "blocks/plugins.less";
+
+//** ------ {{ header }} ------------------------------------ 
+@import "blocks/header.less";
+
+//** ------ {{ content }} ------------------------------------ 
+@import "blocks/main-slider.less";
+@import "blocks/blk-filter.less";
+@import "blocks/blk-area.less";
+
+//** ------ {{ footer }} ------------------------------------ 
+@import "blocks/footer.less";
+
+
+//** ------ {{ forms }} ------------------------------------ 
+ @import "blocks/form.less";
