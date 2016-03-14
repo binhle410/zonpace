@@ -3,20 +3,20 @@
  */
 .header-wrap {
 	position: relative;
-	z-index: 20;
+	z-index: 50;
 	background-color: #f7f7f7;
 	height: 60px;
 	.box-shadow(1px 0 5px rgba(0,0,0,0.5));
 	.header-logo {
 		h1 {
 			margin-bottom: 0;
+			a {
+				display: block;
+			}
 		}
 		img {
 			width: 190px;
 			margin-top: 3px;
-		}
-		a {
-			display: block;
 		}
 		span {
 			color: @red;
@@ -48,13 +48,13 @@
 				padding: 5px 20px;
 				&:hover {
 					color: #fff;
-					background-color: @red;
+					background-color: darken(@red, 10%);
 				}
 			}
 			&.active {
 				a {
 					color: #fff;
-					background-color: @red;	
+					background-color: @red;
 				}
 			}
 		}
@@ -66,5 +66,17 @@
 		top: 0;
 		left: 0;
 		right: 0;
+	}
+	.a_menu {
+		color: @red;
+		font-size: 24px;
+		position: absolute;
+		top: 13px;
+		left: 15px;
+		display: none;
+		.transition(all 0.3s ease);
+		&:hover {
+			color: darken(@red, 10%);
+		}
 	}
 }

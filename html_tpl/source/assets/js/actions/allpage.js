@@ -6,6 +6,7 @@
  * 3. JS Select2
  * 4. Datetime picker
  * 5. Filter Ranger
+ * 6. Show Menu Mobile
  */
 var allpage_fn = {};
 (function( $ ) {
@@ -62,7 +63,7 @@ allpage_fn.datePicker = function () {
 
     $('.input-daterange input').each(function() {
         $(this).datepicker({
-            format: 'dd-mm-yyyy',
+            format: 'dd/mm/yyyy',
         });
     });
 };
@@ -77,6 +78,32 @@ allpage_fn.filterRanger = function (itmRanger) {
         wheelSpeed: 30,
         bounds: {min: 0, max: 50},
         defaultValues:{min: 0, max: 20}
+    });
+};
+/**
+ * 6. Show Menu Mobile
+ */
+allpage_fn.showMenuMB = () => {
+    if(!$('.a_menu').length) { return; }
+
+    $('.a_menu').on('click', function () {
+        var $a_menu     =   $(this),
+            $menu       =   $a_menu.closest('.header-logo').siblings('.header-menu');
+
+        if($a_menu.hasClass('active')) {
+            $a_menu.removeClass('active');
+            $menu.hide();
+        } else {
+            $a_menu.addClass('active');
+            $menu.show();
+        }
+    });
+
+    // click out
+
+    $(".header-wrap").bind( "clickoutside", function(event){
+        $('.a_menu').removeClass('active');
+        $('.header-menu').hide();
     });
 };
 /* ----------------------------------------------- */
@@ -98,6 +125,9 @@ $(document).ready(function($){
 
     // filter ranger
     allpage_fn.filterRanger('#slider-ranger');
+
+    // menu mobile
+    allpage_fn.showMenuMB();
 });
 /* OnLoad Window */
 var init = function () {   

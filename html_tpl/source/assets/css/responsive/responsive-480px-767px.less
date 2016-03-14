@@ -3,6 +3,104 @@
  *
  * description: css rules for screen of new moderm smartphone
  */
-@media (min-width: 480px) and (max-width: 767px) {
-
+@media (max-width: 767px) {
+	/* CSS HEADER */
+	.header-wrap {
+		.header-logo {
+			text-align: center;
+		}
+		.header-menu  {
+			display: none;
+			position: absolute;
+			z-index: 10;
+			left: 0;
+			right: 0;
+			top: 100%;
+			background-color: #fff;
+			.box-shadow(0px 2px 3px rgba(0, 0, 0, 0.5));
+			li {
+				float: none;
+				margin-right: 0;
+				padding: 7px 0;
+			}
+			ul {
+				float: left;
+			}
+		}
+		.a_menu {
+			display: block;
+		}
+	}
+	/* CSS FOOTER */
+	.footer-wrap {
+		.footer-company, .footer-discover {
+			margin-bottom: 30px;
+		}
+	}
+}
+@media (max-width: 640px) {
+	/* CSS MAIN SLIDER */
+	.main-slider {
+		.slides {
+			li {
+				height: 300px;
+			}
+		}
+	}
+	/* CSS BLK FILTER */
+	.blk-filter-wrap {
+		margin-top: 30px;
+		margin-bottom: 30px;
+		.inner {
+			background-color: #fff;
+			height: auto;
+		}
+		.ipt {
+			background-color: #F4F4F4;
+		}
+		.input-daterange {
+			.itm-ipt {
+				.itm-ipt-w {
+					background-color: #F4F4F4;
+				}
+			}
+		}
+		#slider-ranger {
+			&.ui-rangeSlider {
+				.ui-rangeSlider-container, .ui-rangeSlider-arrow, .ui-rangeSlider-label {
+					background: #F4F4F4;
+				}
+				.ui-rangeSlider-label {
+					color: #575757;
+				    padding: 0px 5px;
+				    font-size: 14px;
+			        bottom: 45px;
+				}
+				.ui-rangeSlider-label-inner {
+					border-top: 5px solid #F4F4F4;
+					border-left: 5px solid transparent;
+					border-right: 5px solid transparent;
+					margin-left: -5px;
+				}
+			}
+		}
+	}
+	/* CSS FOOTER */
+	.footer-wrap {
+		.footer-choice {
+			.select2-container {
+				width: 100% !important;
+			}
+		}
+	}
+}
+@media (max-width: 540px) {
+	/* CSS BLK FILTER */
+	.blk-filter-wrap {
+		.filter-itm {
+			&:nth-of-type(1), &:nth-of-type(2) {
+				width: 100%;
+			}
+		}
+	}
 }

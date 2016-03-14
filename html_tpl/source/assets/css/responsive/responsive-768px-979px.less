@@ -3,6 +3,83 @@
  *
  * description: css rules for screen of tablets
  */
-@media (min-width: 768px) and (max-width: 1200px) {
-    
+@media (max-width: 992px) {
+    /* CSS HEADER */
+    .header-wrap {
+    	.header-menu {
+    		li {
+    			a {
+    				font-size: 12px;
+    				padding: 5px 15px;
+    			}
+    		}
+    	}
+    }
+}
+@media (max-width: 900px) {
+	/* CSS BLK AREA */
+	.blk-area-wrap {
+		.area-itm {
+			.area-img {
+				height: 140px;
+			}
+		}
+	}
+}
+@media (max-width: 820px) {
+	/* CSS HEADER */
+	.header-wrap {
+		.header-logo {
+			img {
+				width: 150px;
+				margin-top: 10px;
+			}
+		}
+	}
+	/* CSS MAIN SLIDER */
+	.main-slider {
+		.text-demo {
+			top: 70px;
+			margin-left: -238px;
+			h2 {
+				font-size: 44px;
+			}
+			h3 {
+				font-size: 18px;
+			}
+			.t-c {
+				a {
+					padding: 5px 15px;
+					font-size: 14px;
+				}
+			}
+		}
+	}
+	/* CSS BLK FILTER */
+	.blk-filter-wrap {
+		margin-top: -220px;
+		.filter-itm {
+			width: 50%;
+			margin-bottom: 20px;
+		}
+		.inner {
+			height: 184px;
+		}
+	}
+	/* CSS BLK AREA */
+	.blk-area-wrap {
+		.area-itm {
+			width: 50%;
+			margin-bottom: 30px;
+			&:nth-of-type(2) {
+				min-height: 460px;
+			}
+			.area-img {
+				height: 160px;
+				h3 {
+					font-size: 20px;
+				}
+			}
+		}
+	}
 }

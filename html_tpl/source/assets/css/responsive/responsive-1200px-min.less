@@ -4,7 +4,55 @@
  * description: css rules for screen of desktop
  */
 
-@media (min-width: 1200px) {
-
+@media (max-width: 1200px) {
+	.container {
+		width: auto;
+	}
 }
-
+@media (max-width: 1024px) {
+	/* CSS HEADER */
+	.header-wrap {
+		.header-menu {
+			li {
+				margin-right: 10px;
+			}
+		}
+		.header-logo {
+			span {
+				font-size: 14px;
+			}
+		}
+	}
+	/* CSS MAIN SLIDER */
+	.main-slider {
+		.slides {
+			li {
+				height: 550px;
+			}
+		}
+		.text-demo {
+			top: 100px;
+			margin-left: -256px;
+			h2 {
+				font-size: 60px;
+			}
+			h3 {
+				font-size: 20px;
+			}
+		}
+	}
+	/* CSS BLK AREA */
+	.blk-area-wrap {
+		h2.area-ttl {
+			font-size: 24px;
+		}
+		.area-itm {
+			.area-img {
+				height: 160px;
+				h3 {
+					font-size: 18px;
+				}
+			}
+		}
+	}
+}

@@ -4,25 +4,58 @@
 .main-slider {
 	margin-bottom: 0;
 	border: none;
+	position: relative;
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		background-color: rgba(0,0,0,0.2);
+		z-index: 10;
+	}
 	.slides {
 		li {
 			background-repeat: no-repeat;
 			background-size: cover;
 			height: 650px;
+			position: relative;
 			img {
 				display: none !important;
 			}
 		}
 	}
 	.text-demo {
-		color: #fff;
-		text-transform: uppercase;
-		font-weight: 700;
-		font-size: 80px;
 		position: absolute;
-		top: 50%;
+		top: 150px;
 		left: 50%;
-		z-index: 10;
-		margin: -64px 0 0 -334px;
+		z-index: 20;
+		margin: 0 0 0 -334px;
+		color: #fff;
+		text-align: center;
+		h2 {
+			text-transform: uppercase;
+			font-weight: 700;
+			font-size: 80px;
+			margin-bottom: 10px;
+		}
+		h3 {
+			font-weight: 500;
+			font-size: 24px;
+			line-height: 1.2;
+			margin-bottom: 20px;
+		}
+		.t-c {
+			a {
+				display: inline-block;
+				.border-radius(5px);
+				border: 2px solid #fff;
+				font-weight: 500;
+				font-size: 18px;
+				color: #fff;
+				padding: 5px 20px;
+			}
+		}
 	}
 }
