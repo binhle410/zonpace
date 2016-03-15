@@ -53,6 +53,10 @@ module.exports = function(grunt) {
       allpage: {
         src: 'source/assets/js/actions/allpage.js',
         dest: 'public/js/actions/allpage.js'
+      },
+      homepage: {
+        src: 'source/assets/js/actions/homepage.js',
+        dest: 'public/js/actions/homepage.js'
       }
     },
     copy: {
