@@ -122,6 +122,13 @@
 				    .border-radius(2px);
 				}
 			}
+			.ui-rangeSlider-label-value {
+				position: relative;
+				&::before {
+					content: "$";
+					display: inline-block;
+				}
+			}
 		}
 		.ui-rangeSlider-withArrows .ui-rangeSlider-container, .ui-rangeSlider-noArrow .ui-rangeSlider-container, .ui-rangeSlider-arrow {
 			.box-shadow(none);

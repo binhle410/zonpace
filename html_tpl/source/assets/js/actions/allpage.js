@@ -77,7 +77,12 @@ allpage_fn.filterRanger = function (itmRanger) {
         wheelMode: "scroll",
         wheelSpeed: 30,
         bounds: {min: 0, max: 50},
-        defaultValues:{min: 0, max: 20}
+        defaultValues:{min: 0, max: 20},
+        // formatter:function(val){
+        //     var value = Math.round(val * 5) / 5,
+        //     decimal = value - Math.round(val);
+        //     return decimal == 0 ? "$" + value.toString() : value.toString();
+        // }
     });
 };
 /**

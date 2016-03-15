@@ -7034,7 +7034,7 @@ html[xmlns] .flexslider .slides {
   color: #CF242A;
   font-size: 24px;
   position: absolute;
-  top: 13px;
+  top: 10px;
   left: 15px;
   display: none;
   -webkit-transition: all 0.3s ease;
@@ -7257,6 +7257,13 @@ html[xmlns] .flexslider .slides {
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
+}
+.blk-filter-wrap #slider-ranger.ui-rangeSlider .ui-rangeSlider-label-value {
+  position: relative;
+}
+.blk-filter-wrap #slider-ranger.ui-rangeSlider .ui-rangeSlider-label-value::before {
+  content: "$";
+  display: inline-block;
 }
 .blk-filter-wrap #slider-ranger .ui-rangeSlider-withArrows .ui-rangeSlider-container,
 .blk-filter-wrap #slider-ranger .ui-rangeSlider-noArrow .ui-rangeSlider-container,
@@ -7701,6 +7708,19 @@ html[xmlns] .flexslider .slides {
   }
 }
 @media (max-width: 540px) {
+  /* CSS HEADER */
+  .header-wrap .header-logo img {
+    width: 120px;
+    margin-top: 0;
+    margin-bottom: 2px;
+  }
+  .header-wrap .header-logo span {
+    font-size: 11px;
+    display: block;
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
+  }
   /* CSS BLK FILTER */
   .blk-filter-wrap .filter-itm:nth-of-type(1),
   .blk-filter-wrap .filter-itm:nth-of-type(2) {
@@ -7744,14 +7764,6 @@ html[xmlns] .flexslider .slides {
   }
 }
 @media (max-width: 380px) {
-  /* CSS HEADER */
-  .header-wrap .header-logo span {
-    display: none;
-  }
-  .header-wrap .header-logo img {
-    width: 120px;
-    margin-top: 15px;
-  }
   /* CSS MAIN SLIDER */
   .main-slider .text-demo {
     left: 10px;
