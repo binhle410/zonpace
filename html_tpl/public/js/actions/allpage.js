@@ -91,25 +91,31 @@ allpage_fn.filterRanger = function (itmRanger) {
 allpage_fn.showMenuMB = () => {
     if(!$('.a_menu').length) { return; }
 
+    var w_scroll_window = 0;
+    if (navigator.appVersion.indexOf("Win")!=-1) {
+        w_scroll_window = 20;
+    }
+
     $('.a_menu').on('click', function () {
         var $a_menu     =   $(this),
             $menu       =   $a_menu.closest('.header-logo').siblings('.header-menu');
 
         if($a_menu.hasClass('active')) {
             $a_menu.removeClass('active');
-            $menu.hide();
+            $menu.removeClass('shw');
         } else {
             $a_menu.addClass('active');
-            $menu.show();
+            $menu.addClass('shw');
         }
     });
 
     // click out
-
-    $(".header-wrap").bind( "clickoutside", function(event){
-        $('.a_menu').removeClass('active');
-        $('.header-menu').hide();
-    });
+    if(($(window).width() + w_scroll_window) < 767 ) {
+        $(".header-wrap").bind( "clickoutside", function(event){
+            $('.a_menu').removeClass('active');
+            $('.header-menu').removeClass('shw');
+        });
+    }
 };
 /* ----------------------------------------------- */
 /* ----------------------------------------------- */

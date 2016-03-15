@@ -7656,6 +7656,9 @@ html[xmlns] .flexslider .slides {
   .header-wrap .header-menu ul {
     float: left;
   }
+  .header-wrap .header-menu.shw {
+    display: block;
+  }
   .header-wrap .a_menu {
     display: block;
   }
