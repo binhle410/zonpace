@@ -1,8 +1,13 @@
 block vars
-  -title 	= "Zone & Space Rentals"
+  -title    = "Zone & Space Rentals"
   -homejs   = true
+  -catjs    = false
 extends layouts/layout
 block main
+    include blocks/main-slider.jade
+    // END : MAIN SLIDER
+    include blocks/blk-filter.jade
+    // END : FILTER
     include blocks/blk-area.jade
     // END : BLK AREA
     include blocks/blk-park-car.jade

@@ -2,6 +2,7 @@
  * ALLPAGE JS
  * START - ONLOAD - JS
  * 1. Show more popular areas
+ * 2. Scroll up blk parking car
  */
 var homepage_fn = {};
 (function( $ ) {
@@ -46,13 +47,31 @@ homepage_fn.morePopular = {
 		});
 	}
 };
+/**
+ * 2. Scroll up blk parking car
+ */
+homepage_fn.scrollUpBlkCar = () => {
+	if(!$('.how_works').length) { return; }
+
+	$('.how_works').on('click', function (e) {
+		$('html, body').animate({
+            scrollTop: $('#blk-park-car').offset().top - 120
+        },{
+            queue: false,
+            duration: 1000
+        });
+	});
+};
 /* ----------------------------------------------- */
 /* ----------------------------------------------- */
 /* OnLoad Page */
 $(document).ready(function($){
 	// show more popular areas
-	homepage_fn.morePopular.show();
-	homepage_fn.morePopular.checkList();
+	// homepage_fn.morePopular.show();
+	// homepage_fn.morePopular.checkList();
+	
+	// scroll up park car
+	homepage_fn.scrollUpBlkCar();
 });
 /* OnLoad Window */
 var init = function () {   

@@ -57,6 +57,10 @@ module.exports = function(grunt) {
       homepage: {
         src: 'source/assets/js/actions/homepage.js',
         dest: 'public/js/actions/homepage.js'
+      },
+      catpage: {
+        src: 'source/assets/js/actions/catpage.js',
+        dest: 'public/js/actions/catpage.js'
       }
     },
     copy: {
