@@ -122,7 +122,7 @@ allpage_fn.showMenuMB = function () {
  * 7. Show Menu Mobile
  */
 allpage_fn.hoverHelpBlk = function () {
-    console.log($( window ).width());
+    //console.log($( window ).width());
     if ($(window).width() <= 980) {return;}
     if (!$('.hover-help-blk').length) {return;}
    

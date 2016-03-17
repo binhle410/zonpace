@@ -55,7 +55,7 @@ homepage_fn.scrollUpBlkCar = () => {
 
 	$('.how_works').on('click', function (e) {
 		$('html, body').animate({
-            scrollTop: $('#blk-park-car').offset().top - 120
+            scrollTop: $('#blk-park-car').offset().top - 50
         },{
             queue: false,
             duration: 1000
