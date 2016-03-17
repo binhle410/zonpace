@@ -7,6 +7,7 @@
  * 4. Datetime picker
  * 5. Filter Ranger
  * 6. Show Menu Mobile
+ * 7. Hover Help Menu - Top Header
  */
 var allpage_fn = {};
 (function( $ ) {
@@ -16,7 +17,7 @@ var allpage_fn = {};
 /**
  * 1. Main slider
  */
-allpage_fn.mainSlider = (itmSlider) => {
+allpage_fn.mainSlider = function (itmSlider) {
     if(!$(itmSlider).length) { return; }
 
     $(itmSlider).flexslider({
@@ -33,14 +34,14 @@ allpage_fn.mainSlider = (itmSlider) => {
 /**
  * 2. Sticky header
  */
-allpage_fn.stickyHeader = function () {
+allpage_fn.stickyHeader = function (offsetTop) {
     var body            =   $('body'),
         $header_wrap    =   $('.header-wrap'),
         offsetHeader    =   body.offset();
 
     $(window).scroll(function(){
         var scrollTop  = $(window).scrollTop();
-        if(scrollTop > (offsetHeader.top + 100)){
+        if(scrollTop > (offsetHeader.top + offsetTop)){
             $header_wrap.addClass('hd-fixed');
         } else {
             $header_wrap.removeClass('hd-fixed');
@@ -88,7 +89,7 @@ allpage_fn.filterRanger = function (itmRanger) {
 /**
  * 6. Show Menu Mobile
  */
-allpage_fn.showMenuMB = () => {
+allpage_fn.showMenuMB = function () {
     if(!$('.a_menu').length) { return; }
 
     var w_scroll_window = 0;
@@ -117,6 +118,28 @@ allpage_fn.showMenuMB = () => {
         });
     }
 };
+/**
+ * 7. Show Menu Mobile
+ */
+allpage_fn.hoverHelpBlk = function () {
+    console.log($( window ).width());
+    if ($(window).width() <= 980) {return;}
+    if (!$('.hover-help-blk').length) {return;}
+   
+    $_this_hover = $('.hover-help-blk');
+
+    $_this_hover.hover(function(e) {
+
+        if ($(window).width() <= 980) {return;}
+        $_this_hover.find('.help-blk').show();
+    }, function() {
+        if ($(window).width() <= 980) {return;}
+        $_this_hover.find('.help-blk').hide();
+        return;
+    }, 250);
+}
+
+
 /* ----------------------------------------------- */
 /* ----------------------------------------------- */
 /* OnLoad Page */
@@ -125,7 +148,7 @@ $(document).ready(function($){
     allpage_fn.mainSlider ('.main-slider');
 
     // sticky header
-    allpage_fn.stickyHeader ();
+    allpage_fn.stickyHeader (0);
 
     // select 2
     allpage_fn.jsSelect2('.slect-lang');
@@ -139,6 +162,9 @@ $(document).ready(function($){
 
     // menu mobile
     allpage_fn.showMenuMB();
+
+    // Hover HELP MENU TOP BAR
+    allpage_fn.hoverHelpBlk();
 });
 /* OnLoad Window */
 var init = function () {   

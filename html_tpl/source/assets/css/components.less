@@ -28,8 +28,13 @@ ol {
 a {
 	color: #000;
 	.transition(all 0.2s ease);
+	outline: none;
 	&:hover {
 		color: @red;
+		text-decoration: none;
+	}
+	&:focus {
+		outline: none;
 		text-decoration: none;
 	}	
 }
