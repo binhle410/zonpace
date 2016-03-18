@@ -1,0 +1,143 @@
+/**
+ * CSS LOCATION
+ */
+.location-wrap {
+	.location-map {
+		width: 57%;
+		float: left;
+		height: 600px;
+	}
+	.location-list {
+		height: 600px;
+		width: 43%;
+		float: left;
+		.blk-head-locat {
+			background-color: #fff;
+			padding: 15px;
+			border-bottom: 1px solid #ccc;
+		}
+		.lct-head-title {
+			position: relative;
+		    padding-right: 120px;
+			h2 {
+				font-weight: 300;
+				font-size: 24px;
+				margin-bottom: 15px;
+				i {
+					color: @red;
+					font-size: 25px;
+					margin-right: 10px;
+				}
+			}
+			.a_filter {
+				color: @red;
+				text-decoration: underline;
+				position: absolute;
+				right: 0;
+				top: 5px;
+				.transition(all 0.3s ease);
+				&:hover {
+					color: lighten(@red, 10%)
+				}
+			}
+		}
+	}
+}
+.location-wrap {
+	.location-header {
+		margin-bottom: 80px;
+	}
+	.location-list {
+		.lct-type {
+			.row {
+				margin-left: -5px;
+				margin-right: -5px;
+				.type-itm {
+					padding-left: 5px;
+					padding-right: 5px;
+				}
+			}
+			.box {
+			    border: 2px solid lighten(@red, 20%);
+			    padding: 4px 30px;
+			    .border-radius(3px);
+			    cursor: pointer;
+			    font-size: 16px;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				input[type="checkbox"] {
+					vertical-align: -2px;
+					display: none;
+				}
+				input[type="checkbox"] + label {
+					font-weight: 700;
+					margin-bottom: 0;
+					cursor: pointer;
+				}
+				input[type="checkbox"] + label::before {
+					.fontAwesome();
+					font-size: 20px;
+					content: "\f0c8 ";
+					color: lighten(@red, 20%);
+					margin-right: 10px;
+					vertical-align: -1px;
+				}
+				input[type="checkbox"]:checked + label::before {
+					content: "\f046 ";
+				}
+			}
+		}
+	}
+}
+.location-wrap {
+	.content-location {
+		margin-bottom: 30px;
+		h3 {
+			display: block;
+			font-size: 18px;
+			font-weight: 300;
+			margin: 0 0 20px;
+		}
+		.ct-itm {
+			font-weight: 300;
+			margin-bottom: 30px;
+			.ftd {
+				padding: 15px 0;
+				border-bottom: 1px solid #C9C9C8;
+				vertical-align: middle;
+				position: relative;
+				&:first-child {
+					font-weight: 700;
+				}
+			}
+			i {
+				color: @red;
+			}
+			.ftr {
+				.transition(all 0.3s ease);
+				&:hover {
+					background-color: #d7e7f3;
+					color: #000;
+				}
+			}
+			.tbl-statis {
+				th, td {
+					padding: 15px;
+					border-top: none;
+				}
+				th {
+					font-weight: 700;
+				}
+				tr {
+					&:last-child {
+						td, th {
+							background-color: #d7e7f3;
+						}
+					}
+				}
+			}
+		}
+	}
+}

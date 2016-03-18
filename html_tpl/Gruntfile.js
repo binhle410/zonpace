@@ -61,6 +61,10 @@ module.exports = function(grunt) {
       catpage: {
         src: 'source/assets/js/actions/catpage.js',
         dest: 'public/js/actions/catpage.js'
+      },
+      location: {
+        src: 'source/assets/js/actions/location.js',
+        dest: 'public/js/actions/location.js'
       }
     },
     copy: {

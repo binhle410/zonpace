@@ -1,0 +1,27 @@
+header.location-header.clearfix
+    section.location-map#location-map
+    // END: MAPs
+    section.location-list
+        .inner
+            section.blk-head-locat
+                section.lct-head-title
+                    h2
+                        i.fa.fa-map-marker
+                        | Cardiff Airport Parking
+                    a(href="javascript:;", class="a_filter") Advanced Filters
+                // END : TTL
+                section.lct-type
+                    .row
+                        section.col-xs-6.type-itm
+                            .box
+                                input(type="checkbox", name="fil-month", id="fil-month")
+                                label(for="fil-month") Monthly Parking
+                        // END : ITM
+                        section.col-xs-6.type-itm
+                            .box
+                                input(type="checkbox", name="fil-short", id="fil-short")
+                                label(for="fil-short") Short-term Parking
+                        // END : ITM
+                // END : TYPE
+            section.list
+    // END: LIST
