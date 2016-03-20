@@ -1,7 +1,46 @@
 header.location-header.clearfix
-    section.location-map#location-map
+    section.location-map
+        #location-map
+        a(href="javascript:;", class="btn btn-red view_space") View space list
     // END: MAPs
     section.location-list
+        .box-filter
+            a(href="javascript:;", class="a_filter_close") Hide Filters
+            .box-inner
+                form(class="frm-adv-filer")
+                    .section-filter
+                        h3 Type of Space:
+                        ul
+                            li
+                                input(type="radio", name="rd-space", id="rd-parking")
+                                label(for="rd-parking") Parking
+                            li
+                                input(type="radio", name="rd-space", id="rd-garages")
+                                label(for="rd-garages") Garages
+                            li
+                                input(type="radio", name="rd-space", id="rd-all", checked="checked")
+                                label(for="rd-all") All Spaces
+                    // END : FILTER
+                    .section-filter
+                        h3 Only show spaces with:
+                        ul
+                            li
+                                input(type="checkbox", name="chk-space", id="chk-access")
+                                label(for="chk-access") 24/7 Access
+                            li
+                                input(type="checkbox", name="chk-space", id="chk-shelter")
+                                label(for="chk-shelter") Sheltered parking
+                            li
+                                input(type="checkbox", name="chk-space", id="chk-security")
+                                label(for="chk-security") Security Gates
+                            li
+                                input(type="checkbox", name="chk-space", id="chk-airport")
+                                label(for="chk-airport") Airport transfes
+                            li
+                                input(type="checkbox", name="chk-space", id="chk-all")
+                                label(for="chk-all") Allocated space
+                    // END : FILTER
+        // END: FILTER ADVANCES
         .inner
             section.blk-head-locat
                 section.lct-head-title
@@ -42,7 +81,7 @@ header.location-header.clearfix
                                         .blk-ttl.clearfix
                                             .distance 2.8 miles
                                             h3 Summerfield Gardens, LS13
-                                        .desc Driveway on Summerfield Gardens that can park 2...
+                                        .desc Driveway on Summerfield Gardens that can park 2
                                         ul.features.clearfix
                                             li.available
                                                 i.fa.fa-check
@@ -62,7 +101,7 @@ header.location-header.clearfix
                                             .price
                                                 strong £93.75
                                                 | per month
-                                            .price.book-button.hidden-xs
+                                            .price.book-button
                                                 span(class="btn btn-red uppercase") book now
                                     // END : PRICEs
                                 // END : INFO
@@ -84,7 +123,7 @@ header.location-header.clearfix
                                         .blk-ttl.clearfix
                                             .distance 2.8 miles
                                             h3 Summerfield Gardens, LS13
-                                        .desc Driveway on Summerfield Gardens that can park 2...
+                                        .desc Driveway on Summerfield Gardens that can park 2
                                         ul.features.clearfix
                                             li.available
                                                 i.fa.fa-check
@@ -104,7 +143,7 @@ header.location-header.clearfix
                                             .price
                                                 strong £93.75
                                                 | per month
-                                            .price.book-button.hidden-xs
+                                            .price.book-button
                                                 span(class="btn btn-red uppercase") book now
                                     // END : PRICEs
                                 // END : INFO
@@ -126,7 +165,7 @@ header.location-header.clearfix
                                         .blk-ttl.clearfix
                                             .distance 2.8 miles
                                             h3 Summerfield Gardens, LS13
-                                        .desc Driveway on Summerfield Gardens that can park 2...
+                                        .desc Driveway on Summerfield Gardens that can park 2
                                         ul.features.clearfix
                                             li.available
                                                 i.fa.fa-check
@@ -146,7 +185,7 @@ header.location-header.clearfix
                                             .price
                                                 strong £93.75
                                                 | per month
-                                            .price.book-button.hidden-xs
+                                            .price.book-button
                                                 span(class="btn btn-red uppercase") book now
                                     // END : PRICEs
                                 // END : INFO
@@ -168,7 +207,7 @@ header.location-header.clearfix
                                         .blk-ttl.clearfix
                                             .distance 2.8 miles
                                             h3 Summerfield Gardens, LS13
-                                        .desc Driveway on Summerfield Gardens that can park 2...
+                                        .desc Driveway on Summerfield Gardens that can park 2
                                         ul.features.clearfix
                                             li.available
                                                 i.fa.fa-check
@@ -188,7 +227,7 @@ header.location-header.clearfix
                                             .price
                                                 strong £93.75
                                                 | per month
-                                            .price.book-button.hidden-xs
+                                            .price.book-button
                                                 span(class="btn btn-red uppercase") book now
                                     // END : PRICEs
                                 // END : INFO
@@ -210,7 +249,7 @@ header.location-header.clearfix
                                         .blk-ttl.clearfix
                                             .distance 2.8 miles
                                             h3 Summerfield Gardens, LS13
-                                        .desc Driveway on Summerfield Gardens that can park 2...
+                                        .desc Driveway on Summerfield Gardens that can park 2
                                         ul.features.clearfix
                                             li.available
                                                 i.fa.fa-check
@@ -230,7 +269,7 @@ header.location-header.clearfix
                                             .price
                                                 strong £93.75
                                                 | per month
-                                            .price.book-button.hidden-xs
+                                            .price.book-button
                                                 span(class="btn btn-red uppercase") book now
                                     // END : PRICEs
                                 // END : INFO
@@ -252,7 +291,7 @@ header.location-header.clearfix
                                         .blk-ttl.clearfix
                                             .distance 2.8 miles
                                             h3 Summerfield Gardens, LS13
-                                        .desc Driveway on Summerfield Gardens that can park 2...
+                                        .desc Driveway on Summerfield Gardens that can park 2
                                         ul.features.clearfix
                                             li.available
                                                 i.fa.fa-check
@@ -272,7 +311,7 @@ header.location-header.clearfix
                                             .price
                                                 strong £93.75
                                                 | per month
-                                            .price.book-button.hidden-xs
+                                            .price.book-button
                                                 span(class="btn btn-red uppercase") book now
                                     // END : PRICEs
                                 // END : INFO
@@ -294,7 +333,7 @@ header.location-header.clearfix
                                         .blk-ttl.clearfix
                                             .distance 2.8 miles
                                             h3 Summerfield Gardens, LS13
-                                        .desc Driveway on Summerfield Gardens that can park 2...
+                                        .desc Driveway on Summerfield Gardens that can park 2
                                         ul.features.clearfix
                                             li.available
                                                 i.fa.fa-check
@@ -314,7 +353,7 @@ header.location-header.clearfix
                                             .price
                                                 strong £93.75
                                                 | per month
-                                            .price.book-button.hidden-xs
+                                            .price.book-button
                                                 span(class="btn btn-red uppercase") book now
                                     // END : PRICEs
                                 // END : INFO
@@ -336,7 +375,7 @@ header.location-header.clearfix
                                         .blk-ttl.clearfix
                                             .distance 2.8 miles
                                             h3 Summerfield Gardens, LS13
-                                        .desc Driveway on Summerfield Gardens that can park 2...
+                                        .desc Driveway on Summerfield Gardens that can park 2
                                         ul.features.clearfix
                                             li.available
                                                 i.fa.fa-check
@@ -356,7 +395,7 @@ header.location-header.clearfix
                                             .price
                                                 strong £93.75
                                                 | per month
-                                            .price.book-button.hidden-xs
+                                            .price.book-button
                                                 span(class="btn btn-red uppercase") book now
                                     // END : PRICEs
                                 // END : INFO

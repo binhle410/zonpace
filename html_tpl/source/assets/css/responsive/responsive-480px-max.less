@@ -61,6 +61,18 @@
 			height: 300px;
 		}
 	}
+	/* CSS PAGE LOCATION DETAIL */
+	.location-wrap {
+		.location-list {
+			.list {
+				.location-itm {
+					.locat-img {
+						height: 180px;
+					}
+				}
+			}
+		}
+	}
 }
 @media (max-width: 420px) {
 	/* CSS BLK FILTER */
@@ -135,6 +147,63 @@
 		.modal-dialog {
 			width: 90%;
 			margin-top: 30px;
+		}
+	}
+	/* CSS PAGE LOCATION DETAIL */
+	.location-wrap {
+		.location-list {
+			.list {
+				.location-itm {
+					.details {
+						.desc {
+							width: 100%;
+						}
+					}
+					.prices {
+						display: block;
+						.price {
+							display: block;
+							border-left: none;
+							&:nth-of-type(1), &:nth-of-type(2) {
+								display: none;
+							}
+							&.book-button {
+								border-top: 1px solid #ccc;
+								.btn-red {
+									width: 100%;
+								}
+							}
+						}
+					}
+				}
+			}
+			.lct-type {
+				.row {
+					.type-itm {
+						width: 100%;
+						&:nth-of-type(1) {
+							margin-bottom: 15px;
+						}
+					}
+				}
+			}
+			.lct-head-title {
+				padding-right: 0;
+				h2 {
+					margin-bottom: 10px;
+					font-size: 18px;
+				}
+				.a_filter {
+					position: relative;
+					display: block;
+					margin-bottom: 20px;
+				}
+			}
+			.location-itm {
+				.ftable {
+					display: block;
+				}
+			}
 		}
 	}
 }

@@ -1,6 +1,7 @@
 /**
  * CATPAGE JS
  * 1. MAPs
+ * 2. Blk Filter Advances
  */
 var location_fn = {};
 (function( $ ) {
@@ -79,13 +80,78 @@ location_fn.MAPs = {
         map.fitBounds(latlngbounds);
 	}
 };
+/**
+ * 2. Blk Filter Advances
+ */
+location_fn.blkFilterAdvance = {
+	/**
+	 * [show description]
+	 * @return {[type]} [description]
+	 */
+	show: function () {
+		if(!$('.a_filter').length ) { return; }
+
+		$('.a_filter').on('click', function (e) {
+			var $a_show		=	$(this),
+				$blk_adv 	=	$a_show.closest('.inner').siblings('.box-filter'),
+				$a_close	=	$blk_adv.find('.a_filter_close');
+
+			if(!$a_show.hasClass('active')) {
+				$a_show.addClass('active');
+				$blk_adv.addClass('shw');
+				$a_close.removeClass('active');
+			}
+		});
+	},
+
+	/**
+	 * [hide description]
+	 * @return {[type]} [description]
+	 */
+	hide: function () {
+		if(!$('.a_filter_close').length) { return; }
+
+		$('.a_filter_close').on('click', function (e) {
+			var $a_close 	=	$(this),
+				$blk_adv	=	$a_close.closest('.box-filter'),
+				$a_show		=	$blk_adv.siblings('.inner').find('.a_filter');
+
+			if(!$a_close.hasClass('active')) {
+				$a_close.addClass('active');
+				$blk_adv.removeClass('shw');
+				$a_show.removeClass('active');
+			}
+		});
+	},
+
+	blkLocationList : function () {
+		if(!$('.view_space').length) { return; }
+
+		$('.view_space').on('click', function (e) {
+			var $a_view		=	$(this),
+				$list		=	$a_view.closest('.location-map').siblings('.location-list');
+
+			if($a_view.hasClass('active')) {
+				$a_view.removeClass('active');
+				$list.removeClass('shw');
+			} else {
+				$a_view.addClass('active');
+				$list.addClass('shw');
+			}
+		});	
+	}
+};
 /* ----------------------------------------------- */
 /* ----------------------------------------------- */
 /* OnLoad Page */
 $(document).ready(function($){
-
 	// maps
 	location_fn.MAPs.init();
+
+	// blk advances filter
+	location_fn.blkFilterAdvance.show();
+	location_fn.blkFilterAdvance.hide();
+	location_fn.blkFilterAdvance.blkLocationList();
 });
 /* OnLoad Window */
 var init = function () {   

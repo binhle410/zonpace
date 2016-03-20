@@ -65,6 +65,41 @@
 			height: 350px;
 		}
 	}
+	/* CSS PAGE LOCATION DETAIL */
+	.location-wrap {
+		.location-map, .location-list {
+			width: 100%;
+			float: none;
+			height: auto;
+		}
+		.location-map {
+			display: none;
+		}
+		.location-header {
+			margin-bottom: 30px;
+		}
+		.location-list {
+			> .inner {
+				height: auto;
+			}
+			.list {
+				.location-itm {
+					margin-top: 20px;
+					.locat-img, .locat-info {
+						display: block;
+						width: 100%;
+					}
+					.locat-img {
+						height: 220px;
+					}
+				}
+			}
+			.box-filter {
+				position: fixed;
+				top: 60px;
+			}
+		}
+	}
 }
 @media (max-width: 640px) {
 	/* CSS MAIN SLIDER */
