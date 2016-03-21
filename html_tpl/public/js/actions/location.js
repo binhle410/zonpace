@@ -1,5 +1,5 @@
 /**
- * CATPAGE JS
+ * LOCATION JS
  * 1. MAPs
  * 2. Blk Filter Advances
  */

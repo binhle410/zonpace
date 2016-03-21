@@ -1,0 +1,28 @@
+//- Modal SIgn Up
+.modal.fade(id="myModalComment", tabindex="-1" ,role="dialog", aria-labelledby="myModalComment")
+    .modal-dialog(role="document")
+        .modal-content
+            span(class="close", data-dismiss="modal" ,aria-label="Close" ,aria-hidden="true") &times;
+            .modal-body
+                h2 Enquire about this space:
+                form(class="frm-comment")
+                    p
+                        input(type="text", class="ipt", placeholder="First name...")
+                    p
+                        input(type="text", class="ipt", placeholder="Last name...")
+                    p
+                        input(type="email", class="ipt", placeholder="Email address...")
+                    p
+                        input(type="text", class="ipt", placeholder="Phone number...")
+                    p
+                        input(type="radio", name="rd-choice", id="short-term")
+                        label(for="short-term") Short Term
+                        input(type="radio", name="rd-choice", id="long-term", checked="checked")
+                        label(for="long-term") Long Term
+                    p
+                        textarea(class='txt', placeholder="Your message – please provide your car make/model, if you’d require Mon-Fri or Mon-Sun access, and any questions that you have about the space.")
+                    p
+                        label Select Your Start Date:
+                        input(type="text", class="ipt")
+                    p
+                        button(type="submit", class="btn btn-red") Submit

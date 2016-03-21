@@ -65,6 +65,10 @@ module.exports = function(grunt) {
       location: {
         src: 'source/assets/js/actions/location.js',
         dest: 'public/js/actions/location.js'
+      },
+      detail: {
+        src: 'source/assets/js/actions/detail.js',
+        dest: 'public/js/actions/detail.js'
       }
     },
     copy: {

@@ -22,6 +22,7 @@
 		display: inline-block;
 		width: 30px;
 		height: 30px;
+		z-index: 1;
 		.border-radius(50%);
 		cursor: pointer;
 		.transition(all 0.3s ease);
@@ -131,6 +132,10 @@
 		border-bottom: 1px solid #ddd;
 		a {
 			color: @red;
+			display: inline-block;
+			height: auto;
+			line-height: normal;
+			margin-bottom: 0;
 			&:hover {
 				text-decoration: underline;
 			}
@@ -154,6 +159,10 @@
 		margin-bottom: 10px;
 		position: relative;
 		.transition(all 0.3s ease);
+		&.n-bd {
+			border: none;
+			.border-radius(0);
+		}
 		.ipt {
 			background-color: transparent;
 			border: none;
@@ -236,8 +245,114 @@
 				}
 				input[type="checkbox"]:checked + label::before {
 					content: "\f046";
+					color: @red;
 				}
 			}
 		}
+		&.w100 {
+			span {
+				width: 100%;
+			}
+		}
+	}
+}
+.myPopup {
+	.head-signup {
+		a {
+			color: @red;
+		}
+	}
+	.itm-ipt {
+		&.n-bd {
+			.slect {
+				border: 1px solid #ddd;
+				width: 31%;
+				display: inline-block;
+			}
+		}
+	}
+	.blk-birth {
+		margin-bottom: 0;
+		color: #565a5c;
+		i {
+			position: relative;
+			margin-left: 10px;
+			background-color: transparent;
+			font-size: 14px;
+			color: #565a5c;
+		}
+	}
+	.frm-signup-email {
+		.terms {
+			border-bottom: none;
+			margin-bottom: 0;
+		}
+		border-bottom: 1px solid #ccc;
+		margin-bottom: 20px;
+	}
+}
+#myGuard {
+	.modal-dialog {
+		width: 800px;
+	}
+	.modal-body {
+		padding: 0;
+	}
+	.m-header {
+	    text-align: center;
+	    color: #203542;
+	    background-color: #f1f7f9;
+        padding: 30px 45px;
+        img {
+    	    margin-bottom: 0;
+		    display: inline-block;
+		    margin-right: 10px;
+		    width: auto;
+        }
+        h3 {
+    	    margin: 0;
+		    font-weight: 700;
+		    font-size: 22px;
+		    display: inline-block;
+        }
+	}
+	.m-body {
+		padding: 30px 45px;
+    	font-size: 16px;
+    	p {
+    		margin-bottom: 20px;
+    		&:last-child {
+    			margin-bottom: 0;
+    		}
+    	}
+    	a {
+    		color: @red;
+    		&.btn-red {
+    			color: #fff;
+    		}
+    	}
+	}
+}
+#myModalComment {
+	.ipt {
+		border: 1px solid #ccc;
+		&:focus {
+			border-color: #999;
+		}
+	}
+	label {
+		font-weight: 700;
+	}
+	input[type="radio"] {
+		margin-right: 5px;
+		vertical-align: -2px;
+	}
+	input[type="radio"] + label {
+		margin-right: 20px;
+		cursor: pointer;
+	}
+	h2 {
+		font-size: 20px;
+		margin-bottom: 20px;
 	}
 }

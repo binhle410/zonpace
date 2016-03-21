@@ -377,7 +377,7 @@
           <div class="modal-body">
             <div class="social-button"><a href="#" class="facebook"><i class="fa fa-facebook"></i><span>Sign up with Facebook</span></a><a href="#" class="google"><i class="ico-google"></i><span>Sign up with Google</span></a></div>
             <div class="sepe"> <span>or</span></div>
-            <div class="social-button sc-email"><a href="#" class="email btn btn-red"><i class="fa fa-envelope-o"></i><span>Sign up with Email</span></a></div>
+            <div class="social-button sc-email"><a data-dismiss="modal" data-toggle="modal" data-target="#mySignUpEmail" class="email btn btn-red"><i class="fa fa-envelope-o"></i><span>Sign up with Email</span></a></div>
             <div class="terms">By signing up, I agree to Zonepace's <a href="#">Terms of Service</a>, <a href="#">Privacy Policy</a>, <a href="#">Guest Refund Policy</a>, and <a href="#">Host Guarantee Terms.</a></div>
             <div class="blk-redir">Already an Zonepace member? <a href="#" data-toggle="modal" data-target="#myLogin" data-dismiss="modal">Log in</a></div>
           </div>
@@ -385,11 +385,111 @@
       </div>
     </div>
     <!-- END : MODAL SIGN UP-->
+    <div id="mySignUpEmail" tabindex="-1" role="dialog" aria-labelledby="mySignUpEmail" class="modal fade myPopup">
+      <div role="document" class="modal-dialog">
+        <div class="modal-content"><span data-dismiss="modal" aria-label="Close" aria-hidden="true" class="close">&times;</span>
+          <div class="modal-body">
+            <div class="t-c head-signup">Sign up with <a href="#">Facebook </a>or <a href="#">Google</a></div>
+            <div class="sepe"> <span>or</span></div>
+            <div class="social-button sc-email">
+              <form class="frm-signup-email">
+                <div class="itm-ipt">
+                  <input type="text" placeholder="First name" class="ipt"><i class="fa fa-user"></i>
+                </div>
+                <div class="itm-ipt">
+                  <input type="text" placeholder="Last name" class="ipt"><i class="fa fa-user"></i>
+                </div>
+                <div class="itm-ipt">
+                  <input type="email" placeholder="Email Address" class="ipt"><i class="fa fa-envelope-o"></i>
+                </div>
+                <div class="itm-ipt">
+                  <input type="password" placeholder="Password" class="ipt"><i class="fa fa-lock"></i>
+                </div>
+                <div class="itm-ipt n-bd">
+                  <label class="blk-birth">
+                     
+                    Birthday<i title="To sign up, you must be 18 or order. Other people won't see your birthday" data-toggle="tooltip" data-placement="top" class="fa fa-question-circle"></i>
+                  </label>
+                  <div class="blk-select">
+                    <select class="slect sl-month">
+                      <option value="">Month</option>
+                      <option value="1">January</option>
+                      <option value="2">February</option>
+                      <option value="3">March</option>
+                      <option value="4">April</option>
+                      <option value="5">May</option>
+                      <option value="6">June</option>
+                      <option value="7">July</option>
+                      <option value="8">August</option>
+                      <option value="9">September</option>
+                      <option value="10">October</option>
+                      <option value="11">November</option>
+                      <option value="12">December</option>
+                    </select>
+                    <select class="slect sl-date">
+                      <option value="">Day</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                      <option value="13">13</option>
+                      <option value="14">14</option>
+                      <option value="15">15</option>
+                      <option value="16">16</option>
+                      <option value="17">17</option>
+                      <option value="18">18</option>
+                      <option value="19">19</option>
+                      <option value="20">20</option>
+                      <option value="21">21</option>
+                      <option value="22">22</option>
+                      <option value="23">23</option>
+                      <option value="24">24</option>
+                      <option value="25">25</option>
+                      <option value="26">26</option>
+                      <option value="27">27</option>
+                      <option value="28">28</option>
+                      <option value="29">29</option>
+                      <option value="30">30</option>
+                      <option value="31">31</option>
+                    </select>
+                    <select class="slect sl-year">
+                      <option value="">Year</option>
+                      <option value="2016">2016</option>
+                      <option value="2015">2015</option>
+                      <option value="2014">2014</option>
+                      <option value="2013">2013</option>
+                      <option value="2012">2012</option>
+                      <option value="2011">2011</option>
+                      <option value="2011">2010</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="itm-remem w100"><span class="remem">
+                    <input type="checkbox" id="like_coupons">
+                    <label for="like_coupons">I’d like to receive coupons and inspiration</label></span></div>
+                <div class="terms">By signing up, I agree to Zonepace's <a href="#">Terms of Service</a>, <a href="#">Privacy Policy</a>, <a href="#">Guest Refund Policy</a>, and <a href="#">Host Guarantee Terms.</a></div>
+                <button class="btn btn-red w100">Sign Up</button>
+              </form>
+            </div>
+            <div class="blk-redir">Already an Zonepace member? <a href="#" data-toggle="modal" data-target="#myLogin" data-dismiss="modal">Log in</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END : MODAL SIGN UP EMAIL-->
     <div id="myLogin" tabindex="-1" role="dialog" aria-labelledby="myLogin" class="modal fade myPopup">
       <div role="document" class="modal-dialog">
         <div class="modal-content"><span data-dismiss="modal" aria-label="Close" aria-hidden="true" class="close">&times;</span>
           <div class="modal-body">
-            <div class="social-button"><a href="#" class="facebook"><i class="fa fa-facebook"></i><span>Sign up with Facebook</span></a><a href="#" class="google"><i class="ico-google"></i><span>Sign up with Google</span></a></div>
+            <div class="social-button"><a href="#" class="facebook"><i class="fa fa-facebook"></i><span>Log in with Facebook</span></a><a href="#" class="google"><i class="ico-google"></i><span>Log in with Google</span></a></div>
             <div class="sepe"> <span>or</span></div>
             <div class="social-button sc-email">
               <form class="frm-login">
@@ -441,5 +541,6 @@
     <script src="js/actions/homepage.js"></script>
     <!-- CATPAGE JS-->
     <!-- LOCATION JS-->
+    <!-- DETAIL JS-->
   </body>
 </html>

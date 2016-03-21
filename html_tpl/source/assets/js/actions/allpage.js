@@ -165,6 +165,9 @@ $(document).ready(function($){
 
     // Hover HELP MENU TOP BAR
     allpage_fn.hoverHelpBlk();
+
+    // bootstrap tooltip
+    $('[data-toggle="tooltip"]').tooltip();
 });
 /* OnLoad Window */
 var init = function () {   

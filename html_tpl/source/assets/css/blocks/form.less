@@ -34,6 +34,9 @@
 			background-color: darken(@red, 10%)
 		}
 	}
+	&.w100 {
+		width: 100%;
+	}
 }
 .ftable {
 	width: 100%;
@@ -44,4 +47,17 @@
 }
 .ftd {
 	display: table-cell;
+}
+.txt {
+	border: 1px solid #ccc;
+	.border-radius(5px);
+	resize: none;
+	min-height: 100px;
+	padding: 10px;
+	.transition(all 0.3s ease);
+	width: 100%;
+	outline: none;
+	&:focus {
+		border-color: #999;
+	}
 }
