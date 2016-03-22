@@ -1,16 +1,30 @@
 section.detail-content-wrap
     .container
         .row
-            section.col-md-4.col-sm-4.col-xs-12.detail-itm
+            section.col-md-4.col-sm-12.col-xs-12.detail-itm
                 h2 Description & Features
                 .desc Parking in the Great Northern Warehouse in Manchester available. Located within the entertainment complex so ideal for visitors or someone working in the area. 6 minutes from Deansgate station. 24/7 access from Monday to Sunday. Parking available for hourly, daily and long-term rentals.
-                .timing
-                    i.fa.fa-clock-o
-                    | 24/7 Access
+                ul.timing
+                    li
+                        i.fa.fa-clock-o
+                        | 24/7 Access
+                    li
+                        i.fa.fa-map-marker
+                        | Allocated Space  
+                .thumbnails.gal-box
+                    .thumbnail
+                        a(class="gl-item", href="uploads/gallery/gal-1.jpeg")
+                            img(src="uploads/gallery/gal-1.jpeg", alt="")
+                    .thumbnail
+                        a(class="gl-item", href="uploads/gallery/gal-2.jpeg")
+                            img(src="uploads/gallery/gal-2.jpeg", alt="")
+                    .thumbnail
+                        a(class="gl-item", href="uploads/gallery/gal-3.jpeg")
+                            img(src="uploads/gallery/gal-3.jpeg", alt="")
                 .button-comment
                     a(class="btn btn-red w100" , data-toggle="modal", data-target="#myModalComment") Have a question about this space?
             // END : ITM
-            section.col-md-4.col-sm-4.col-xs-12.detail-itm
+            section.col-md-4.col-sm-6.col-xs-12.detail-itm
                 .blk-inner
                     h2 How It Works
                     .desc This car park uses number plate recognition technology. On arrival at the car park your number plate will be automatically recognised and you'll be issued a ticket.
@@ -30,7 +44,7 @@ section.detail-content-wrap
                         a(href="#") Why is there a deposit?
                 // END: BLK
             // END : ITM
-            section.col-md-4.col-sm-4.col-xs-12.detail-itm
+            section.col-md-4.col-sm-6.col-xs-12.detail-itm
                 .access-times
                     h3 Access Times
                     table

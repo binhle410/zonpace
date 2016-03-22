@@ -1,0 +1,67 @@
+section.summary-form
+    form(class="actual-booking-form")
+        .header.with-back-button.border-bottom
+            a(href="javascript:;", class='back-state') 
+                i.fa.fa-arrow-left
+                | Back
+            h2 Your Booking Overview
+            .login
+                | Already have an account? 
+                a(href="#", data-toggle="modal", data-target="#myLogin") Log in
+        // END : HEADER
+        .divided-content.with-icon.border-bottom.blue-bg
+            .row
+                .left-content
+                    i.fa.fa-tag
+                    | Price
+                .right-content £80.00
+        // END : ITM
+        .divided-content.with-icon.border-bottom.blue-bg
+            .row
+                .left-content
+                    i.fa.fa-calendar
+                    | Start date
+                .right-content Thursday 24/03/2016
+        // END : ITM
+        .text.border-bottom
+            | This is the one month deposit. The first month's rent is charged on the rental start date, with subsequent rental payments paid on the same day of each month.
+        // END : TEXT
+        .inputs.clearfix
+            h3.form-subtitle Your details
+            .input
+                label(for="user[first_name]") First name
+                .input-with-icon
+                    i.fa.fa-user
+                    input(type="text", id="user[first_name]", name="user[first_name]")
+            .input
+                label(for="user[last_name]") Last name
+                .input-with-icon
+                    i.fa.fa-user
+                    input(type="text", id="user[last_name]", name="user[last_name]")
+            .input
+                label(for="user[mobile]") Phone number
+                .input-with-icon
+                    i.fa.fa-phone
+                    input(type="text", id="user[mobile]", name="user[mobile]")
+            .input
+                label(for="user[email]") Email
+                .input-with-icon
+                    i.fa.fa-envelope-o
+                    input(type="text", id="user[email]", name="user[email]")
+            .input
+                label(for="vehicle_registration") Vehicle registration
+                .help
+                    a(href="#", title="This enables the landlord to validate that you are permitted to park in the space. If you don’t know your vehicle registration just enter ‘TBC’ - you can always login and enter the correct vehicle registration at any point before the booking begins.", data-toggle="tooltip", data-placement="top") Why?
+                .input-with-icon
+                    i.fa.fa-car
+                    input(type="text", id="vehicle_registration", name="vehicle_registration")
+        .terms-blk
+            input(type="checkbox", id="chk-term")
+            label(for="chk-term") I agree to the YourParkingSpace 
+                a(href='#', data-toggle="modal", data-target="#myTerm") Terms & Conditions
+        .footer
+            .button
+                .button-inner
+                    button(type="button", class="btn btn-red")
+                        | Proceed to payment
+                        i.fa.fa-arrow-right                    

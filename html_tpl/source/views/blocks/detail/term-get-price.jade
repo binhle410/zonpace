@@ -1,0 +1,38 @@
+section.get-price-form
+    h3.ct-tab-ttl Parking on Clos Dewi Sant, CF11 Cardiff
+    .tab-pricing
+        strong £80.00 
+        | per month
+    .start-date
+        .left-content
+            label(for="start_date") Arrival date:
+        .right-content
+            .input-with-icon
+                i.fa.fa-calendar
+                input(type="text", class="ipt-date date-now", name="start_date")
+    .feature-blocks-container
+        .features-block
+            .feature Monthly rolling contract
+            .feature Deposit taken is equal to 1st month’s rent
+        .features-block
+            .feature Automatically recurring each month until cancellation
+            .feature View full terms 
+                a(href="#", data-toggle="modal", data-target="#myTerm") here
+    .footer
+        ul.features.clearfix
+            li.available
+                i.fa.fa-check
+                | Space available
+            li.instant
+                i.fa.fa-bolt
+                | Instant book
+        .button
+            .button-inner
+                button(type="button", class="btn btn-red book-now")
+                    | Book now
+                    i.fa.fa-arrow-right
+    // END : FOOTER
+    .enquire
+        i.fa.fa-question-circle
+        |  Have a question before booking?
+        a(href="#", data-toggle="modal", data-target="#myModalComment") Get in touch
