@@ -1,4 +1,22 @@
 header.detail-map
-	#detail-map(data-lat="10.8028983", data-lng="106.6794993")
-	a(class="a_guard", data-toggle="modal", data-target="#myGuard")
-		img(src="uploads/box_guarantee.png", alt="")
+    #detail-map(data-lat="37.869260", data-lng="-122.254811")
+    #street-map(data-lat="37.869260", data-lng="-122.254811", class="hiden")
+    a(class="a_guard", data-toggle="modal", data-target="#myGuard")
+        .box-inner
+            img(src="uploads/guarantee.png", alt="")
+            h2 YOU'RE ALWAYS PROTECTED
+            h3 View our booking
+    // END
+    section.blk-frm-term
+        .container
+            .term-wrap
+                ul.nav.nav-tabs(role="tablist")
+                    li(role="presentation", class="active short-term")
+                        a(href="#short-term", aria-controls="short-term", role="tab" data-toggle="tab") short term
+                    li(role="presentation", class="long-term")
+                        a(href="#long-term", aria-controls="long-term", role="tab" data-toggle="tab") long term
+                .tab-content
+                    include tab-short-term.jade
+                    // END: SHORT TERM
+                    include tab-long-term.jade
+                    // END: LONG TERM

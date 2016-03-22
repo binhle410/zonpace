@@ -238,38 +238,6 @@
 						text-overflow: ellipsis;
 						width: 300px;
 					}
-					ul.features {
-					    padding-left: 0;
-					    list-style: none;
-					    margin: 0;
-					    color: #85898a;
-					    li {
-							display: inline-block;
-							margin-right: 10px;
-							margin-bottom: 6px;
-							i {
-								width: 21px;
-								height: 21px;
-								border-radius: 50%;
-								display: inline-block;
-								text-align: center;
-								margin-right: 10px;
-								line-height: 21px;
-							}
-							&.available {
-								i {
-									background-color: #D2F9F9;
-    								color: #3498DB;
-								}
-							}
-							&.instant {
-								i {
-									background-color: lighten(@red, 40%);
-									color: @red;
-								}
-							}
-					    }
-					}
 				}
 			}
 		}
@@ -422,4 +390,36 @@
 			}
 		}
 	}
+}
+ul.features {
+    padding-left: 0;
+    list-style: none;
+    margin: 0;
+    color: #85898a;
+    li {
+		display: inline-block;
+		margin-right: 10px;
+		margin-bottom: 6px;
+		i {
+			width: 21px;
+			height: 21px;
+			border-radius: 50%;
+			display: inline-block;
+			text-align: center;
+			margin-right: 10px;
+			line-height: 21px;
+		}
+		&.available {
+			i {
+				background-color: #D2F9F9;
+				color: #3498DB;
+			}
+		}
+		&.instant {
+			i {
+				background-color: lighten(@red, 40%);
+				color: @red;
+			}
+		}
+    }
 }

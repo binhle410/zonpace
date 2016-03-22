@@ -62,7 +62,7 @@ allpage_fn.jsSelect2 = function (itmSelect) {
 allpage_fn.datePicker = function () {
     //if(!$('.input-daterange').length) { return; }
 
-    $('.input-daterange input').each(function() {
+    $('.ipt-date').each(function() {
         $(this).datepicker({
             format: 'dd/mm/yyyy',
         });
