@@ -1,0 +1,73 @@
+section.profile-content.col-md-9.col-sm-8.col-xs-12
+    h2.prof-ttl-page
+        i.fa.fa-user
+        | My Account
+    .prof-content
+        form(class="frm-my-account")
+            div(class="alert alert-warning alert-dismissible", role="alert")
+                button(type="button", class="close" ,data-dismiss="alert", aria-label="Close")
+                    span(aria-hidden="true") &times;
+                | Update this information to ensure your account is up to date
+            .frow.row
+                section.frm-col.col-md-3.col-sm-4.col-xs-12
+                    label(for="ipt-firstname") First name
+                section.frm-col.col-md-9.col-sm-8.col-xs-12
+                    input(type="text", class="ipt", id="ipt-firstname")
+            // END : FROW
+            .frow.row
+                section.frm-col.col-md-3.col-sm-4.col-xs-12
+                    label(for="ipt-lastname") Last name
+                section.frm-col.col-md-9.col-sm-8.col-xs-12
+                    input(type="text", class="ipt", id="ipt-lastname")
+            // END : FROW
+            .frow.row
+                section.frm-col.col-md-3.col-sm-4.col-xs-12
+                    label(for="ipt-city") City
+                section.frm-col.col-md-9.col-sm-8.col-xs-12
+                    input(type="text", class="ipt", id="ipt-city")
+            // END : FROW
+            .frow.row
+                section.frm-col.col-md-3.col-sm-4.col-xs-12
+                    label(for="ipt-postcode") Post Code
+                section.frm-col.col-md-9.col-sm-8.col-xs-12
+                    input(type="text", class="ipt", id="ipt-postcode")
+            // END : FROW
+            .frow.row
+                section.frm-col.col-md-3.col-sm-4.col-xs-12
+                    label(for="ipt-phone") Phone number
+                section.frm-col.col-md-9.col-sm-8.col-xs-12
+                    input(type="text", class="ipt", id="ipt-phone")
+            // END : FROW
+            .frow.row
+                section.frm-col.col-md-3.col-sm-4.col-xs-12
+                    label(for="ipt-mobile") Mobile number
+                section.frm-col.col-md-9.col-sm-8.col-xs-12
+                    input(type="text", class="ipt", id="ipt-mobile")
+            // END : FROW
+            .frow.row
+                section.frm-col.col-md-3.col-sm-4.col-xs-12
+                    label(for="ipt-email") Email address
+                section.frm-col.col-md-9.col-sm-8.col-xs-12
+                    input(type="email", class="ipt", id="ipt-email")
+            // END : FROW
+            .frow.row
+                section.frm-col.col-md-3.col-sm-4.col-xs-12
+                    label Password
+                section.frm-col.col-md-9.col-sm-8.col-xs-12
+                    | *********
+                    a(href="#", class="chg-pass") Change password
+            // END : FROW
+            .frow.row
+                section.frm-col.col-md-3.col-sm-4.col-xs-12
+                    label(for="ipt-file") Picture
+                section.frm-col.col-md-9.col-sm-8.col-xs-12
+                    input(type="file", id="ipt-file")
+            // END : FROW
+            .frow
+                input(type="checkbox", id="chk-message")
+                label(for="chk-message") Enable SMS message alerts
+            // END : FROW
+            .frow.t-r
+                button(type="submit",class="btn btn-red uppercase") Save
+                button(type="submit",class="btn btn-red btn-verify uppercase") Save & Verify Phone
+            // END : FROW

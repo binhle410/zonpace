@@ -9,6 +9,9 @@
 		.header-logo {
 			text-align: center;
 		}
+		&.z-ind {
+			z-index: 60;
+		}
 		.header-menu  {
 			display: none;
 			position: absolute;
@@ -28,10 +31,21 @@
 						display: inline-block;
 						font-size: 14px;
 					}
+					&.blk-has-login {
+						a {
+							background-color: transparent;
+							&:hover {
+								background-color: transparent;
+							}
+						}
+					}
 				}				
 			}
 			ul {
 				float: none;
+				margin-top: 0;
+				padding-top: 15px;
+				padding-bottom: 15px;
 			}
 			&.shw {
 				display: block;
@@ -182,3 +196,4 @@
 	}
 }
 @import 'responsive-detail-480px-767px.less';
+@import 'responsive-profile-480px-767px.less';

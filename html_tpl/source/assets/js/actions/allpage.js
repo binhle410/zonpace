@@ -65,6 +65,7 @@ allpage_fn.datePicker = function () {
     $('.ipt-date').each(function() {
         $(this).datepicker({
             format: 'dd/mm/yyyy',
+            autoclose: true
         });
     });
 };
@@ -99,14 +100,17 @@ allpage_fn.showMenuMB = function () {
 
     $('.a_menu').on('click', function () {
         var $a_menu     =   $(this),
-            $menu       =   $a_menu.closest('.header-logo').siblings('.header-menu');
+            $menu       =   $a_menu.closest('.header-logo').siblings('.header-menu'),
+            $header     =   $a_menu.closest('.header-wrap');
 
         if($a_menu.hasClass('active')) {
             $a_menu.removeClass('active');
             $menu.removeClass('shw');
+            $header.removeClass('z-ind');
         } else {
             $a_menu.addClass('active');
             $menu.addClass('shw');
+            $header.addClass('z-ind');
         }
     });
 
