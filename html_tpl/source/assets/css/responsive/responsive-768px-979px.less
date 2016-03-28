@@ -38,11 +38,14 @@
     /* CSS HEADER */
     .header-wrap {
     	.header-menu {
-    		li {
-    			a {
-    				font-size: 12px;
-    				padding: 5px 10px;
-    			}
+    		.menu {
+    			> li {
+    				margin-right: 10px;
+	    			> a {
+	    				font-size: 12px;
+	    				padding: 5px 10px;
+	    			}
+	    		}
     		}
     	}
     	.header-logo {
@@ -52,11 +55,10 @@
     			}
     		}
     		img {
-    			width: 150px;
-    			margin-top: 7px;
+    			width: 120px;
+    			margin-top: 13px;
     		}
     	}
-
     }
     /* CSS BLK PARKING */
     .blk-park-car {
@@ -118,24 +120,20 @@
 	}
 }
 @media (max-width: 900px) {
-	/* CSS HEADER */
-	.header-wrap {
-		.header-logo {
-			img {
-				width: 150px;
-				margin-top: 10px;
-			}
-			span {
-				font-size: 12px;
-			}
-		}
-	}
 	/* CSS BLK AREA */
 	.blk-area-wrap {
 		.area-itm {
 			.area-img {
 				height: 140px;
 			}
+		}
+	}
+}
+@media (max-width: 860px) {
+	.header-wrap {
+		.header-search{
+		    margin-left: 10px;
+		    width: 200px;
 		}
 	}
 }

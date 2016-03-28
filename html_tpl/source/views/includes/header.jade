@@ -1,19 +1,27 @@
 header.header
     .header-wrap
-        .container
+        .container-fluid
             .row
-                section.header-logo.col-md-5.col-sm-4.col-xs-12
+                section.header-logo.col-md-6.col-sm-6.col-xs-12
                     a(href="javascript:;", class="a_menu")
                         i.fa.fa-bars
+                    a(href="javascript:;", class="a_search")
+                        i.fa.fa-search
                     h1.logo
                         a(href="index.html", title="Zone & Pace Rentals")
                             img(src="images/zonpace-logo.png", alt="")
                             span zone & space rentals
+                    section.header-search(data-href="ajax/countries.json")
+                        form(class="frm-search", name="frm-search")
+                            button(type="submit")
+                                i.fa.fa-search
+                            input(type="text", placeholder="Zone & space rentals", name="title")
+                    // END : SEARCH
                 // END : LOGO
-                section.header-menu.col-md-7.col-sm-8.col-xs-12
+                section.header-menu.col-md-6.col-sm-6.col-xs-12
                     ul.menu.clearfix
                         li.active
-                            a(href="#") become a host
+                            a(href="#") Lease my space
                         li.hover-help-blk
                             a(href="#") Help
                             include ../blocks/topheader/help-blk.jade

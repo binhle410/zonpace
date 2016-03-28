@@ -17,15 +17,22 @@
   <body class="body-css "> 
     <header class="header">
       <div class="header-wrap">
-        <div class="container">
+        <div class="container-fluid">
           <div class="row">
-            <section class="header-logo col-md-5 col-sm-4 col-xs-12"><a href="javascript:;" class="a_menu"><i class="fa fa-bars"></i></a>
+            <section class="header-logo col-md-6 col-sm-6 col-xs-12"><a href="javascript:;" class="a_menu"><i class="fa fa-bars"></i></a><a href="javascript:;" class="a_search"><i class="fa fa-search"></i></a>
               <h1 class="logo"><a href="index.html" title="Zone &amp; Pace Rentals"><img src="images/zonpace-logo.png" alt=""><span>zone & space rentals</span></a></h1>
+              <section data-href="ajax/countries.json" class="header-search">
+                <form name="frm-search" class="frm-search">
+                  <button type="submit"><i class="fa fa-search"></i></button>
+                  <input type="text" placeholder="Zone &amp; space rentals" name="title">
+                </form>
+              </section>
+              <!-- END : SEARCH-->
             </section>
             <!-- END : LOGO-->
-            <section class="header-menu col-md-7 col-sm-8 col-xs-12">
+            <section class="header-menu col-md-6 col-sm-6 col-xs-12">
               <ul class="menu clearfix">
-                <li class="active"><a href="#">become a host</a></li>
+                <li class="active"><a href="#">Lease my space</a></li>
                 <li class="hover-help-blk"><a href="#">Help</a>
                   <div class="help-blk">
                     <div class="help-ct">
@@ -125,7 +132,7 @@
       <!-- END : FILTER-->
       <section class="blk-area-wrap">
         <div class="container">
-          <h2 class="area-ttl">Popular Areas</h2>
+          <h2 class="area-ttl">POPULAR VENUES</h2>
           <div class="row">
             <section class="area-itm col-md-3 col-sm-3 col-xs-6"><a href="category.html">
                 <figure style="background-image: url(uploads/la.jpg);" class="area-img">
@@ -371,6 +378,10 @@
       <!-- END : FOOTER FOLLOW-->
     </footer>
     <!-- END: FOOTER-->
+    <section class="blk-suggest-login">
+      <div class="container">Join the millions of hosts and guests in Zonepace's trusted community.<a href="#" data-toggle="modal" data-target="#myLogin" class="sg-login">Log In</a><a href="#" data-toggle="modal" data-target="#mySignUp" class="sg-signup">Sign Up</a></div>
+    </section>
+    <!-- END: SUGGESTION LOGIN-->
     <div id="mySignUp" tabindex="-1" role="dialog" aria-labelledby="mySignUp" class="modal fade myPopup">
       <div role="document" class="modal-dialog">
         <div class="modal-content"><span data-dismiss="modal" aria-label="Close" aria-hidden="true" class="close">&times;</span>
@@ -540,8 +551,8 @@
     <!-- HOMEPAGE JS-->
     <script src="js/actions/homepage.js"></script>
     <!-- CATPAGE JS-->
-    <!-- LOCATION JS-->
-    <!-- DETAIL JS-->
+    <!-- LOCATION LIST JS-->
+    <!-- LOCATION DETAIL JS-->
     <!-- PROFILE JS-->
   </body>
 </html>
