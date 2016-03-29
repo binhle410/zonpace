@@ -61,13 +61,18 @@
 			height: 300px;
 		}
 	}
-	/* CSS PAGE LOCATION DETAIL */
+	/* CSS PAGE LOCATION LIST */
 	.location-wrap {
 		.location-list {
 			.list {
 				.location-itm {
+					margin-top: 20px;
 					.locat-img {
-						height: 180px;
+						height: 220px;
+					}
+					.locat-img, .locat-info {
+						display: block;
+						width: 100%;
 					}
 				}
 			}
@@ -207,11 +212,14 @@
 			width: 85%;
 		}
 	}
-	/* CSS PAGE LOCATION DETAIL */
+	/* CSS PAGE LOCATION LIST */
 	.location-wrap {
 		.location-list {
 			.list {
 				.location-itm {
+					.locat-img {
+						height: 180px;
+					}
 					.details {
 						.desc {
 							width: 100%;
@@ -339,6 +347,20 @@
 	.inputs {
 		.input {
 			width: 100%;
+		}
+	}
+}
+@media (max-width: 340px) {
+	/* CSS PAGE LOCATION LIST */
+	.location-wrap {
+		.location-list {
+			.list {
+				.location-itm {
+					.locat-img {
+						height: 150px;
+					}
+				}
+			}
 		}
 	}
 }

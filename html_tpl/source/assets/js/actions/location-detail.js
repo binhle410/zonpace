@@ -20,28 +20,34 @@ detail_fn.MAPs = {
 	 * @return {[type]} [description]
 	 */
 	init: function () {
-		var data_lat = $('#detail-map').data('lat'),
-			data_lng = $('#detail-map').data('lng');
+		var data_lat 		= $('#detail-map').data('lat'),
+			data_lng 		= $('#detail-map').data('lng'),
+			data_location	= $('#detail-map').data('href');
 
-        var myLatlng = new google.maps.LatLng(data_lat, data_lng);
-		var mapOptions = {
-		  zoom: 15,
-		  center: myLatlng,
-		  scrollwheel: false,
-		  mapTypeControl: false,
-		};
-
-		var map = new google.maps.Map(document.getElementById("detail-map"), mapOptions);
-
-		var marker = new google.maps.Marker({
-		    position: myLatlng,
-		    title:"Zonepace Maps"
+		var map = new google.maps.Map(document.getElementById('detail-map'), {
+		    zoom: 17,
+		    center: {lat: data_lat, lng: data_lng},
+		    scrollwheel: false,
+		    mapTypeId: google.maps.MapTypeId.TERRAIN
 		});
 
-		// To add the marker to the map, call setMap();
-		marker.setMap(map);
+		// get data location
+		$.ajax({
+			url      : data_location,
+		}).done(function(data) {
+			if (!data || data == undefined) { return; }
+			// Construct the polygon.
+			var bermudaTriangle = new google.maps.Polygon({
+				paths: data,
+				strokeColor: '#CF242A',
+				strokeOpacity: 0.8,
+				strokeWeight: 3,
+				fillColor: '#D4666A',
+				fillOpacity: 0.35
+			});
+			bermudaTriangle.setMap(map);
+		});
 	},
-
 	/**
 	 * [streetView description]
 	 * @return {[type]} [description]
@@ -52,7 +58,7 @@ detail_fn.MAPs = {
 
 		var panorama = new google.maps.StreetViewPanorama(
 			document.getElementById('street-map'), {
-				position: {lat: 37.869260, lng: -122.254811},
+				position: {lat: data_lat, lng: data_lng},
 				addressControlOptions: {
 				  position: google.maps.ControlPosition.TOP_LEFT
 				},
@@ -230,7 +236,7 @@ detail_fn.galleryBox = function () {
         scale: 1,
         keypress: true,
         download: false
-	}); 
+	});
 };
 /* ----------------------------------------------- */
 /* ----------------------------------------------- */
@@ -255,7 +261,7 @@ $(document).ready(function($){
 	detail_fn.galleryBox();
 });
 /* OnLoad Window */
-var init = function () {   
+var init = function () {
 
 };
 window.onload = init;

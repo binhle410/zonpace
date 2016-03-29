@@ -5,7 +5,7 @@
 	.detail-map {
 		height: 520px;
 		position: relative;
-		.transition(all 0.4s ease);
+		.transition(opacity 0.4s ease);
 		&.h-580 {
 			height: 580px;
 		}
@@ -22,10 +22,12 @@
 		#detail-map {
 			height: 100%;
 			width: 100%;
+			z-index: 2;
 		}
 		#street-map {
 			width: 100%;
 			height: 100%;
+			z-index: 2;
 		}
 		#detail-map, #street-map {
 			&.shw {
@@ -305,16 +307,28 @@
 .detail-wrap {
 	.detail-map {
 		.blk-frm-term {
-			position: absolute;
-			top: 20px;
-			right: 0;
-			left: 0;
-			z-index: 2;
+			// position: absolute;
+			// top: 20px;
+			// right: 0;
+			// left: 0;
+			// z-index: 2;
+			margin-top: -490px;
+		}
+		&.h-580 {
+			.blk-frm-term {
+				margin-top: -550px;
+			}
+		}
+		&.h-720 {
+			.blk-frm-term {
+				margin-top: -690px;
+			}
 		}
 		.term-wrap {
 			position: relative;
 			width: 500px;
 			float: right;
+			z-index: 2;
 			ul.nav {
 				border: none;
 				li{

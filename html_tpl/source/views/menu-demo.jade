@@ -1,0 +1,20 @@
+block vars
+  -title    = "Zone & Space Rentals"
+  -homejs   = false
+  -catjs    = false
+  -locatjs  = false
+  -detailjs = false
+extends layouts/layout
+block main
+    .container
+        ul(style="margin: 30px 0;")
+            li(style='list-style: disc inside; margin-left: 15px; margin-bottom: 10px;')
+                a(target="_blank", href="/") Homepage
+            li(style='list-style: disc inside; margin-left: 15px; margin-bottom: 10px;')
+                a(target="_blank", href="location-category.html") Location category
+            li(style='list-style: disc inside; margin-left: 15px; margin-bottom: 10px;')
+                a(target="_blank", href="location-list.html") Location list
+            li(style='list-style: disc inside; margin-left: 15px; margin-bottom: 10px;')
+                a(target="_blank", href="location-detail.html") Location detail
+            li(style='list-style: disc inside; margin-left: 15px; margin-bottom: 10px;')
+                a(target="_blank", href="my-account.html") My account

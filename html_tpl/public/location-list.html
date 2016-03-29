@@ -75,7 +75,7 @@
       <section class="location-wrap">
         <header class="location-header clearfix">
           <section class="location-map">
-            <div id="location-map"></div><a href="javascript:;" class="btn btn-red view_space">View space list</a>
+            <div id="location-map" data-href="ajax/map/data-maker.json"></div><a href="javascript:;" class="btn btn-red view_space">View space list</a>
           </section>
           <!-- END: MAPs-->
           <section class="location-list">
@@ -160,7 +160,7 @@
                 <div class="inner">
                   <div class="location-itm"><a href="#"><span class="num">a</span>
                       <div class="ftable">
-                        <div style="background-image: url('uploads/location-img.jpg')" class="ftd locat-img">
+                        <div style="background-image: url('uploads/location-img-1.jpg')" class="ftd locat-img">
                           <div class="blk-time"><span><i class="fa fa-clock-o"></i>Daily</span><span><i class="fa fa-calendar"></i>Monthly</span></div>
                         </div>
                         <div class="ftd locat-info">
@@ -400,6 +400,20 @@
                   <!-- END : ITM-->
                 </div>
               </section>
+              <div class="pagination-wrap">
+                <div class="results_count">1 – 18 of 300+ Rentals</div>
+                <div class="pagination">
+                  <ul class="list-unstyled">
+                    <li class="active"><a rel="start" target="1" href="#">1</a></li>
+                    <li><a rel="next" target="2" href="#">2</a></li>
+                    <li><a rel="3" target="3" href="#">3</a></li>
+                    <li class="gap"><span class="gap">...</span></li>
+                    <li><a rel="10" target="10" href="#">10</a></li>
+                    <li class="next next_page"><a rel="next" target="2" href="#"><i class="fa fa-caret-right"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+              <!-- END : PAGINATION-->
             </div>
           </section>
           <!-- END: LIST-->
@@ -728,8 +742,16 @@
     <!-- HOMEPAGE JS-->
     <!-- CATPAGE JS-->
     <!-- LOCATION LIST JS-->
-    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-    <script src="js/actions/location.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script>
+      var script = '<script src="js/libs/richmarker';
+      if (document.location.search.indexOf('compiled') !== -1) {
+        script += '-compiled';
+      }
+      script += '.js"><' + '/script>';
+      document.write(script);
+    </script>
+    <script src="js/actions/location-list.js"></script>
     <!-- LOCATION DETAIL JS-->
     <!-- PROFILE JS-->
   </body>

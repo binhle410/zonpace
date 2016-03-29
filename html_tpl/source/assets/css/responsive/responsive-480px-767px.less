@@ -87,20 +87,21 @@
 			.easy-autocomplete {
 				width: 100% !important;
 			}
-			.easy-autocomplete-container {
-				ul {
-					.box-shadow(0px 2px 5px rgba(0, 0, 0, 0.5));
-				}
-			}
 			&.shw {
 				display: block;
 			}
 		}
 	}
+	.blk-suggest-login {
+		display: none;
+	}
 	/* CSS FOOTER */
 	.footer-wrap {
 		.footer-company, .footer-discover {
 			margin-bottom: 30px;
+		}
+		.footer-follow {
+			padding-bottom: 40px;
 		}
 	}
 	/* CSS BLK PARKING */
@@ -121,7 +122,7 @@
 			height: 350px;
 		}
 	}
-	/* CSS PAGE LOCATION DETAIL */
+	/* CSS PAGE LOCATION LIST */
 	.location-wrap {
 		.location-map, .location-list {
 			width: 100%;
@@ -138,21 +139,23 @@
 			> .inner {
 				height: auto;
 			}
-			.list {
-				.location-itm {
-					margin-top: 20px;
-					.locat-img, .locat-info {
-						display: block;
-						width: 100%;
-					}
-					.locat-img {
-						height: 220px;
-					}
-				}
-			}
 			.box-filter {
 				position: fixed;
 				top: 60px;
+			}
+		}
+	}
+	.pagination-wrap {
+		ul {
+			li {
+				&:not(.prev):not(.next) {
+					display: none;
+				}
+				&.next , &.prev {
+					a {
+						margin-left: 0;
+					}
+				}
 			}
 		}
 	}

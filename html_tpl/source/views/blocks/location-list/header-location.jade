@@ -1,6 +1,6 @@
 header.location-header.clearfix
     section.location-map
-        #location-map
+        #location-map(data-href="ajax/map/data-maker.json")
         a(href="javascript:;", class="btn btn-red view_space") View space list
     // END: MAPs
     section.location-list
@@ -68,7 +68,7 @@ header.location-header.clearfix
                         a(href="#")
                             span.num a
                             .ftable
-                                .ftd.locat-img(style="background-image: url('uploads/location-img.jpg')")
+                                .ftd.locat-img(style="background-image: url('uploads/location-img-1.jpg')")
                                     .blk-time
                                         span
                                             i.fa.fa-clock-o
@@ -376,4 +376,22 @@ header.location-header.clearfix
                                     // END : PRICEs
                                 // END : INFO
                     // END : ITM
+            .pagination-wrap
+                .results_count 1 – 18 of 300+ Rentals
+                .pagination
+                    ul.list-unstyled
+                        li.active
+                            a(rel="start", target="1", href="#") 1
+                        li
+                            a(rel="next", target="2", href="#") 2
+                        li
+                            a(rel="3", target="3", href="#") 3
+                        li.gap
+                            span.gap ...
+                        li
+                            a(rel="10", target="10", href="#") 10
+                        li.next.next_page
+                            a(rel="next", target="2", href="#")
+                                i.fa.fa-caret-right
+            // END : PAGINATION
     // END: LIST
