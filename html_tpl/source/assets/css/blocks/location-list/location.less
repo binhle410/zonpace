@@ -428,10 +428,12 @@ ul.features {
 .location-wrap {
 	.my-marker {
 		position: relative;
-		height: 40px;
-		line-height: 40px;
+		height: 30px;
 		color: #fff;
+		line-height: 30px;
+		background-color: #2B2B2B;
 		text-align: center;
+		.border-radius(5px);
 		&::after {
 			content: "";
 			position: absolute;
@@ -447,22 +449,18 @@ ul.features {
 		.d-letter {
 			background-color: @red;
 			display: inline-block;
-			width: 40px;
-			height: 40px;
-			font-size: 20px;
+			width: 30px;
+			height: 30px;
+			font-size: 16px;
 			text-transform: uppercase;
 			font-weight: 900;
 			.border-radius(5px 0 0 5px);
 		}
 		.d-kilo {
-			font-size: 16px;
-			background-color: #2B2B2B;
+			font-size: 14px;
 			display: inline-block;
-			height: 40px;
-			line-height: 42px;
-			padding-left: 20px;
-			padding-right: 20px;
-			.border-radius(0 5px 5px 0);
+			padding-left: 10px;
+			padding-right: 10px;
 		}
 	}
 }
