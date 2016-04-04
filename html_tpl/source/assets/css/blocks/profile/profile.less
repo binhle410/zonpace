@@ -42,12 +42,18 @@
 							margin-right: 0;
 							margin-left: 20px;
 							font-size: 16px;
+							display: none;
 						}
 					}
 				}
 				&.active {
 					a {
 						font-weight: 700;
+						i {
+							&.right {
+								display: inline-block;
+							}
+						}
 					}
 				}
 			}
@@ -96,7 +102,7 @@
 			}
 			.btn-red {
 				font-weight: 700;
-				font-size: 16px;
+				font-size: 14px;
 			}
 			.btn-verify {
 				margin-left: 20px;
@@ -132,5 +138,115 @@
 .blk-profile-wrap {
 	.profile-mb-menu {
 		display: none;
+	}
+}
+.blk-profile-wrap {
+	.profile-content {
+		strong, b {
+			font-weight: 900;
+		}
+		.td-action {
+			a {
+				display: block;
+				margin-bottom: 5px;
+			}
+		}
+		table {
+			td, th {
+				vertical-align: middle;
+			}
+		}
+		.prof-sts {
+			margin-bottom: 20px;
+			a {
+				margin-right: 10px;
+				&:last-child {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+}
+.blk-profile-wrap {
+	.profile-content {
+		.list-avt {
+			.avt {
+				width: 260px;
+				height: 260px;
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-color: #ccc;
+				margin: 0 auto;
+				margin-bottom: 30px;
+			}
+		}
+		.list-info {
+			h3 {
+				font-size: 18px;
+				font-weight: 700;
+			}
+			.info-right {
+				a {
+					display: block;
+					margin-bottom: 10px;
+				}
+			}
+			.info-sts {
+				margin-top: 30px;
+				span {
+					margin-right: 10px;
+					margin-bottom: 10px;
+				}
+				.btn {
+					height: 32px;
+					line-height: 32px;
+					background-color: #ebf3f9;	
+					padding-top: 0;
+					font-weight: 300;
+					padding-bottom: 0;
+					&.btn-lred {
+						background-color: lighten(@red, 40%);	
+						&:hover {
+							color: @red;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.blk-profile-wrap {
+	.profile-content {
+		.btn {
+			&.btn-red, &.btn-lred {
+				height: 32px;
+				line-height: 32px;
+			}
+		}
+	}
+	.blk-pending {
+		.pending-itm {
+			margin-bottom: 30px;
+		}
+		.inner {
+			background-color: #ebf3f9;
+			padding: 10px;
+			h3 {
+				font-size: 14px;
+				font-weight: 300;
+				i {
+					color: @red;
+					margin-left: 10px;
+				}
+			}
+			.price {
+				color: @red;
+				font-size: 18px;
+				font-weight: 700;
+			}
+		}
+	}
+	.blk-booking {
+		margin-bottom: 30px;
 	}
 }

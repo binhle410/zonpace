@@ -79,11 +79,11 @@
                 <li class="account"><a href="#">Account</a>
                   <ul>
                     <li class="switch"><a href="#">Switch to tenant account</a></li>
-                    <li><a href="#">Overview</a></li>
-                    <li><a href="#">My Listings</a></li>
-                    <li><a href="#">My Booking</a></li>
-                    <li><a href="#">Payment Preferences</a></li>
-                    <li class="active"><a href="#">My Account</a></li>
+                    <li><a href="my-overview.html">Overview</a></li>
+                    <li><a href="my-listing.html">My Listings</a></li>
+                    <li><a href="my-booking.html">My Booking</a></li>
+                    <li><a href="my-payment.html">Payment Preferences</a></li>
+                    <li class="active"><a href="my-account.html">My Account</a></li>
                     <li><a href="#">Logout</a></li>
                   </ul>
                 </li>
@@ -93,118 +93,120 @@
         </section>
         <!-- END : MENU PROFILE MOBILE-->
         <div class="container">
-          <section class="profile-menu col-md-3 col-sm-4 col-xs-12">
-            <h2 class="prof-menu-ttl">Navigation</h2>
-            <div class="switch-acc"><a href="#">Swith to tenant account</a></div>
-            <ul class="prof-menu">
-              <li><a href="#"><i class="fa fa-bar-chart"></i>Overview</a></li>
-              <li><a href="#"><i class="fa fa-list-ul"></i>My Listings</a></li>
-              <li><a href="#"><i class="fa fa-calendar"></i>My Booking</a></li>
-              <li><a href="#"><i class="fa fa-credit-card"></i>Payment Preferences<i class="fa fa-chevron-right right"></i></a></li>
-              <li class="active"><a href="#"><i class="fa fa-user"></i>My Account<i class="fa fa-chevron-right right"></i></a></li>
-              <li><a href="#"><i class="fa fa-sign-out"></i>Logout</a></li>
-            </ul>
-          </section>
-          <!-- END : MENU PROFILE-->
-          <section class="profile-content col-md-9 col-sm-8 col-xs-12">
-            <h2 class="prof-ttl-page"><i class="fa fa-user"></i>My Account</h2>
-            <div class="prof-content">
-              <form class="frm-my-account">
-                <div role="alert" class="alert alert-warning alert-dismissible">
-                  <button type="button" data-dismiss="alert" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button>Update this information to ensure your account is up to date
-                </div>
-                <div class="frow row">
-                  <section class="frm-col col-md-3 col-sm-4 col-xs-12">
-                    <label for="ipt-firstname">First name</label>
-                  </section>
-                  <section class="frm-col col-md-9 col-sm-8 col-xs-12">
-                    <input type="text" id="ipt-firstname" class="ipt">
-                  </section>
-                </div>
-                <!-- END : FROW-->
-                <div class="frow row">
-                  <section class="frm-col col-md-3 col-sm-4 col-xs-12">
-                    <label for="ipt-lastname">Last name</label>
-                  </section>
-                  <section class="frm-col col-md-9 col-sm-8 col-xs-12">
-                    <input type="text" id="ipt-lastname" class="ipt">
-                  </section>
-                </div>
-                <!-- END : FROW-->
-                <div class="frow row">
-                  <section class="frm-col col-md-3 col-sm-4 col-xs-12">
-                    <label for="ipt-address">Address</label>
-                  </section>
-                  <section class="frm-col col-md-9 col-sm-8 col-xs-12">
-                    <input type="text" id="ipt-address" class="ipt">
-                  </section>
-                </div>
-                <!-- END : FROW-->
-                <div class="frow row">
-                  <section class="frm-col col-md-3 col-sm-4 col-xs-12">
-                    <label for="ipt-city">City</label>
-                  </section>
-                  <section class="frm-col col-md-9 col-sm-8 col-xs-12">
-                    <input type="text" id="ipt-city" class="ipt">
-                  </section>
-                </div>
-                <!-- END : FROW-->
-                <div class="frow row">
-                  <section class="frm-col col-md-3 col-sm-4 col-xs-12">
-                    <label for="ipt-postcode">Post Code</label>
-                  </section>
-                  <section class="frm-col col-md-9 col-sm-8 col-xs-12">
-                    <input type="text" id="ipt-postcode" class="ipt">
-                  </section>
-                </div>
-                <!-- END : FROW-->
-                <div class="frow row">
-                  <section class="frm-col col-md-3 col-sm-4 col-xs-12">
-                    <label for="ipt-phone">Phone number</label>
-                  </section>
-                  <section class="frm-col col-md-9 col-sm-8 col-xs-12">
-                    <input type="text" id="ipt-phone" class="ipt">
-                  </section>
-                </div>
-                <div class="frow row">
-                  <section class="frm-col col-md-3 col-sm-4 col-xs-12">
-                    <label for="ipt-email">Email address</label>
-                  </section>
-                  <section class="frm-col col-md-9 col-sm-8 col-xs-12">
-                    <input type="email" id="ipt-email" class="ipt">
-                  </section>
-                </div>
-                <!-- END : FROW-->
-                <div class="frow row">
-                  <section class="frm-col col-md-3 col-sm-4 col-xs-12">
-                    <label>Password</label>
-                  </section>
-                  <section class="frm-col col-md-9 col-sm-8 col-xs-12">*********<a href="#" class="chg-pass">Change password</a></section>
-                </div>
-                <!-- END : FROW-->
-                <div class="frow row">
-                  <section class="frm-col col-md-3 col-sm-4 col-xs-12">
-                    <label for="ipt-file">Picture</label>
-                  </section>
-                  <section class="frm-col col-md-9 col-sm-8 col-xs-12">
-                    <input type="file" id="ipt-file">
-                  </section>
-                </div>
-                <!-- END : FROW-->
-                <div class="frow">
-                  <input type="checkbox" id="chk-message">
-                  <label for="chk-message">Enable SMS message alerts</label>
-                </div>
-                <!-- END : FROW-->
-                <div class="frow t-r">
-                  <button type="submit" class="btn btn-red uppercase btn-save">Save</button>
-                  <button type="submit" class="btn btn-red btn-verify uppercase">Save & Verify Phone</button>
-                </div>
-                <!-- END : FROW-->
-              </form>
-            </div>
-          </section>
-          <!-- END : PROFILE MY ACCOUNT-->
+          <div class="row">
+            <section class="profile-menu col-md-3 col-sm-4 col-xs-12">
+              <h2 class="prof-menu-ttl">Navigation</h2>
+              <div class="switch-acc"><a href="#">Swith to tenant account</a></div>
+              <ul class="prof-menu">
+                <li><a href="my-overview.html"><i class="fa fa-bar-chart"></i>Overview<i class="fa fa-chevron-right right"></i></a></li>
+                <li><a href="my-listing.html"><i class="fa fa-list-ul"></i>My Listings<i class="fa fa-chevron-right right"></i></a></li>
+                <li><a href="my-booking.html"><i class="fa fa-calendar"></i>My Booking<i class="fa fa-chevron-right right"></i></a></li>
+                <li><a href="my-payment.html"><i class="fa fa-credit-card"></i>Payment Preferences<i class="fa fa-chevron-right right"></i></a></li>
+                <li class="active"><a href="my-account.html"><i class="fa fa-user"></i>My Account<i class="fa fa-chevron-right right"></i></a></li>
+                <li><a href="#"><i class="fa fa-sign-out"></i>Logout</a></li>
+              </ul>
+            </section>
+            <!-- END : MENU PROFILE-->
+            <section class="profile-content col-md-9 col-sm-8 col-xs-12">
+              <h2 class="prof-ttl-page"><i class="fa fa-user"></i>My Account</h2>
+              <div class="prof-content">
+                <form class="frm-my-account">
+                  <div role="alert" class="alert alert-warning alert-dismissible">
+                    <button type="button" data-dismiss="alert" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button>Update this information to ensure your account is up to date
+                  </div>
+                  <div class="frow row">
+                    <section class="frm-col col-md-3 col-sm-4 col-xs-12">
+                      <label for="ipt-firstname">First name</label>
+                    </section>
+                    <section class="frm-col col-md-9 col-sm-8 col-xs-12">
+                      <input type="text" id="ipt-firstname" class="ipt">
+                    </section>
+                  </div>
+                  <!-- END : FROW-->
+                  <div class="frow row">
+                    <section class="frm-col col-md-3 col-sm-4 col-xs-12">
+                      <label for="ipt-lastname">Last name</label>
+                    </section>
+                    <section class="frm-col col-md-9 col-sm-8 col-xs-12">
+                      <input type="text" id="ipt-lastname" class="ipt">
+                    </section>
+                  </div>
+                  <!-- END : FROW-->
+                  <div class="frow row">
+                    <section class="frm-col col-md-3 col-sm-4 col-xs-12">
+                      <label for="ipt-address">Address</label>
+                    </section>
+                    <section class="frm-col col-md-9 col-sm-8 col-xs-12">
+                      <input type="text" id="ipt-address" class="ipt">
+                    </section>
+                  </div>
+                  <!-- END : FROW-->
+                  <div class="frow row">
+                    <section class="frm-col col-md-3 col-sm-4 col-xs-12">
+                      <label for="ipt-city">City</label>
+                    </section>
+                    <section class="frm-col col-md-9 col-sm-8 col-xs-12">
+                      <input type="text" id="ipt-city" class="ipt">
+                    </section>
+                  </div>
+                  <!-- END : FROW-->
+                  <div class="frow row">
+                    <section class="frm-col col-md-3 col-sm-4 col-xs-12">
+                      <label for="ipt-postcode">Post Code</label>
+                    </section>
+                    <section class="frm-col col-md-9 col-sm-8 col-xs-12">
+                      <input type="text" id="ipt-postcode" class="ipt">
+                    </section>
+                  </div>
+                  <!-- END : FROW-->
+                  <div class="frow row">
+                    <section class="frm-col col-md-3 col-sm-4 col-xs-12">
+                      <label for="ipt-phone">Phone number</label>
+                    </section>
+                    <section class="frm-col col-md-9 col-sm-8 col-xs-12">
+                      <input type="text" id="ipt-phone" class="ipt">
+                    </section>
+                  </div>
+                  <div class="frow row">
+                    <section class="frm-col col-md-3 col-sm-4 col-xs-12">
+                      <label for="ipt-email">Email address</label>
+                    </section>
+                    <section class="frm-col col-md-9 col-sm-8 col-xs-12">
+                      <input type="email" id="ipt-email" class="ipt">
+                    </section>
+                  </div>
+                  <!-- END : FROW-->
+                  <div class="frow row">
+                    <section class="frm-col col-md-3 col-sm-4 col-xs-12">
+                      <label>Password</label>
+                    </section>
+                    <section class="frm-col col-md-9 col-sm-8 col-xs-12">*********<a href="#" class="chg-pass">Change password</a></section>
+                  </div>
+                  <!-- END : FROW-->
+                  <div class="frow row">
+                    <section class="frm-col col-md-3 col-sm-4 col-xs-12">
+                      <label for="ipt-file">Picture</label>
+                    </section>
+                    <section class="frm-col col-md-9 col-sm-8 col-xs-12">
+                      <input type="file" id="ipt-file">
+                    </section>
+                  </div>
+                  <!-- END : FROW-->
+                  <div class="frow">
+                    <input type="checkbox" id="chk-message">
+                    <label for="chk-message">Enable SMS message alerts</label>
+                  </div>
+                  <!-- END : FROW-->
+                  <div class="frow t-r">
+                    <button type="submit" class="btn btn-red uppercase btn-save">Save</button>
+                    <button type="submit" class="btn btn-red btn-verify uppercase">Save & Verify Phone</button>
+                  </div>
+                  <!-- END : FROW-->
+                </form>
+              </div>
+            </section>
+            <!-- END : PROFILE MY ACCOUNT-->
+          </div>
         </div>
       </section>
       <!-- END : BLK PROFILE-->

@@ -93,6 +93,60 @@
 		.profile-menu {
 			display: none;
 		}
+		.pay-button {
+			button {
+				display: block;
+				margin-bottom: 10px;
+				width: 100%;
+			}
+		}
+	}
+}
+@media (max-width: 480px) {
+	.blk-profile-wrap {
+		.list-info {
+			.info-sts {
+				margin-bottom: 30px;
+			}
+			.info-left, .info-right {
+				width: 100%;
+			}
+			.info-right {
+				a {
+					width: 48%;
+					float: left;
+					&:nth-of-type(2n) {
+						float: right;
+					}
+				}
+			}
+		}
+		.profile-content {
+			h2.prof-ttl-page {
+				font-size: 16px;
+				i {
+					font-size: 20px;
+					margin-right: 10px;
+				}
+			}
+		}
+	}
+}
+@media (max-width: 380px) {
+	.blk-profile-wrap {
+		.blk-pending {
+			.pending-itm {
+				width: 100%;
+			}
+		}
+		.profile-content {
+			.list-avt {
+				.avt {
+					width: 200px;
+					height: 200px;
+				}
+			}
+		}
 	}
 }
 @media (max-width: 360px) {

@@ -14,25 +14,18 @@
     <link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
   </head>
-  <body>
+  <body class="body-css ">
     <header class="header">
       <div class="header-wrap">
-        <div class="container-fluid">
+        <div class="container">
           <div class="row">
-            <section class="header-logo col-md-6 col-sm-6 col-xs-12"><a href="javascript:;" class="a_menu"><i class="fa fa-bars"></i></a><a href="javascript:;" class="a_search"><i class="fa fa-search"></i></a>
+            <section class="header-logo col-md-5 col-sm-4 col-xs-12"><a href="javascript:;" class="a_menu"><i class="fa fa-bars"></i></a>
               <h1 class="logo"><a href="index.html" title="Zone &amp; Pace Rentals"><img src="images/zonpace-logo.png" alt=""><span>zone & space rentals</span></a></h1>
-              <section data-href="ajax/countries.json" class="header-search">
-                <form name="frm-search" class="frm-search">
-                  <button type="submit"><i class="fa fa-search"></i></button>
-                  <input type="text" placeholder="Zone &amp; space rentals" name="title">
-                </form>
-              </section>
-              <!-- END : SEARCH-->
             </section>
             <!-- END : LOGO-->
-            <section class="header-menu col-md-6 col-sm-6 col-xs-12">
+            <section class="header-menu col-md-7 col-sm-8 col-xs-12">
               <ul class="menu clearfix">
-                <li class="active"><a href="#">Lease my space</a></li>
+                <li class="active"><a href="#">become a host</a></li>
                 <li class="hover-help-blk"><a href="#">Help</a>
                   <div class="help-blk">
                     <div class="help-ct">
@@ -61,8 +54,9 @@
                     </div>
                   </div>
                 </li>
-                <li><a href="#" data-toggle="modal" data-target="#mySignUp">Sign up</a></li>
-                <li><a href="#" data-toggle="modal" data-target="#myLogin">log in</a></li>
+                <li class="blk-has-login"><a href="#">
+                    <figure class="user-avt"><img src="uploads/ava_1.jpg" alt=""></figure>
+                    <div class="user-name">zonepace admin</div></a></li>
               </ul>
             </section>
             <!-- END : LOGO-->
@@ -72,303 +66,71 @@
     </header>
     <!-- END : HEADER-->
     <section class="main">
-      <section class="blk-category-wrap">
-        <header style="background-image: url('uploads/banner/los-angeles.jpg')" class="blk-cat-title">
-          <div class="container"><i class="ico"></i>
-            <h2>Los Angeles</h2>
+      <section class="blk-profile-wrap">
+        <section class="profile-mb-menu">
+          <div class="prof-mb-title">
+            <div class="container">
+              <h2>Account</h2>
+            </div><a href="javascript:;" class="prof-mb"><i class="fa fa-angle-down"></i></a>
           </div>
-        </header>
-        <!-- END : TITLE-->
-        <section class="blk-category">  
-          <div class="container">
-            <div class="blk-popular"><i class="fa fa-star"></i>Most Popular Venues</div>
-            <div class="row">
-              <div class="grid-cate">
-                <section class="grid-itm col-md-4 col-sm-6 col-xs-6">
-                  <div class="inner">
-                    <h3>A</h3>
-                    <ul>
-                      <li><a href="location-list.html">Afc Wimbledon</a></li>
-                      <li><a href="location-list.html">American Express Stadium</a></li>
-                      <li><a href="location-list.html">Anfield</a></li>
-                      <li><a href="location-list.html">Anfield Stadium</a></li>
-                      <li><a href="location-list.html">Ashton Gate</a></li>
-                      <li><a href="location-list.html">Wycombe Wanderers</a></li>
-                    </ul>
-                  </div>
-                </section>
-                <!-- END : ITM-->
-                <section class="grid-itm col-md-4 col-sm-6 col-xs-6">
-                  <div class="inner">
-                    <h3>B</h3>
-                    <ul>
-                      <li><a href="location-list.html">Bescot Stadium</a></li>
-                      <li><a href="location-list.html">Birmingham Hippodrome</a></li>
-                      <li><a href="location-list.html">Bloomfield Road</a></li>
-                      <li><a href="location-list.html">Blundell Park</a></li>
-                      <li><a href="location-list.html">Boundary Park</a></li>
-                      <li><a href="location-list.html">Bramall Lane</a></li>
-                      <li><a href="location-list.html">Britannia Stadium</a></li>
-                      <li><a href="location-list.html">Britannia Stadium</a></li>
-                      <li><a href="location-list.html">Broadfield Stadium</a></li>
-                      <li><a href="location-list.html">Brunton Park</a></li>
-                      <li><a href="location-list.html">York City</a></li>
-                    </ul>
-                  </div>
-                </section>
-                <!-- END : ITM-->
-                <section class="grid-itm col-md-4 col-sm-6 col-xs-6">
-                  <div class="inner">
-                    <h3>c</h3>
-                    <ul>
-                      <li><a href="location-list.html">Cardiff City Stadium</a></li>
-                      <li><a href="location-list.html">Carrow Road</a></li>
-                      <li><a href="location-list.html">Celtic Park</a></li>
-                      <li><a href="location-list.html">Clydebank</a></li>
-                      <li><a href="location-list.html">The County Ground</a></li>
-                    </ul>
-                  </div>
-                </section>
-                <!-- END : ITM-->
-                <section class="grid-itm col-md-4 col-sm-6 col-xs-6">
-                  <div class="inner">
-                    <h3>d</h3>
-                    <ul>
-                      <li><a href="location-list.html">Deepdale</a></li>
-                      <li><a href="location-list.html">DeepdaleDW Stadium</a></li>
-                    </ul>
-                  </div>
-                </section>
-                <!-- END : ITM-->
-                <section class="grid-itm col-md-4 col-sm-6 col-xs-6">
-                  <div class="inner">
-                    <h3>e</h3>
-                    <ul>
-                      <li><a href="location-list.html">City Of Manchester Stadium</a></li>
-                      <li><a href="location-list.html">Ebb Stadium</a></li>
-                      <li><a href="location-list.html">Elland Road</a></li>
-                      <li><a href="location-list.html">Elm Park</a></li>
-                      <li><a href="location-list.html">Etihad Stadium</a></li>
-                      <li><a href="location-list.html">Ewood Park</a></li>
-                      <li><a href="location-list.html">Exeter City Football Club</a></li>
-                    </ul>
-                  </div>
-                </section>
-                <!-- END : ITM-->
-                <section class="grid-itm col-md-4 col-sm-6 col-xs-6">
-                  <div class="inner">
-                    <h3>f</h3>
-                    <ul>
-                      <li><a href="location-list.html">Falkirk Stadium</a></li>
-                      <li><a href="location-list.html">Fleetwood Town</a></li>
-                      <li><a href="location-list.html">Fratton Park</a></li>
-                    </ul>
-                  </div>
-                </section>
-                <!-- END : ITM-->
-                <section class="grid-itm col-md-4 col-sm-6 col-xs-6">
-                  <div class="inner">
-                    <h3>g</h3>
-                    <ul>
-                      <li><a href="location-list.html">Galpharm Stadium</a></li>
-                      <li><a href="location-list.html">Gigg Lane Stadium</a></li>
-                      <li><a href="location-list.html">Gmex</a></li>
-                      <li><a href="location-list.html">Goodison Park</a></li>
-                      <li><a href="location-list.html">Greenhous Meadow</a></li>
-                      <li><a href="location-list.html">Gresty Road</a></li>
-                      <li><a href="location-list.html">Griffin Park</a></li>
-                    </ul>
-                  </div>
-                </section>
-                <!-- END : ITM-->
-                <section class="grid-itm col-md-4 col-sm-6 col-xs-6">
-                  <div class="inner">
-                    <h3>h</h3>
-                    <ul>
-                      <li><a href="location-list.html">Hammersmith Apollo</a></li>
-                      <li><a href="location-list.html">Hampden Park</a></li>
-                      <li><a href="location-list.html">Hillsborough</a></li>
-                      <li><a href="location-list.html">Home Park</a></li>
-                      <li><a href="location-list.html">Huish Park</a></li>
-                      <li><a href="location-list.html">Victoria Park Hartlepool</a></li>
-                    </ul>
-                  </div>
-                </section>
-                <!-- END : ITM-->
-                <section class="grid-itm col-md-4 col-sm-6 col-xs-6">
-                  <div class="inner">
-                    <h3>i</h3>
-                    <ul>
-                      <li><a href="location-list.html">Ibrox Stadium</a></li>
-                    </ul>
-                  </div>
-                </section>
-                <!-- END : ITM-->
-                <section class="grid-itm col-md-4 col-sm-6 col-xs-6">
-                  <div class="inner">
-                    <h3>k</h3>
-                    <ul>
-                      <li><a href="location-list.html">Kassam Stadium</a></li>
-                      <li><a href="location-list.html">Kc Stadium</a></li>
-                      <li><a href="location-list.html">Keepmoat Stadium</a></li>
-                    </ul>
-                  </div>
-                </section>
-                <!-- END : ITM-->
-                <section class="grid-itm col-md-4 col-sm-6 col-xs-6">
-                  <div class="inner">
-                    <h3>l</h3>
-                    <ul>
-                      <li><a href="location-list.html">Liberty Stadium</a></li>
-                      <li><a href="location-list.html">Loftus Road</a></li>
-                      <li><a href="location-list.html">London Road Stadium</a></li>
-                      <li><a href="location-list.html">The Echo Arena</a></li>
-                    </ul>
-                  </div>
-                </section>
-                <!-- END : ITM-->
-                <section class="grid-itm col-md-4 col-sm-6 col-xs-6">
-                  <div class="inner">
-                    <h3>m</h3>
-                    <ul>
-                      <li><a href="location-list.html">Leyton Orient</a></li>
-                      <li><a href="location-list.html">Madejski Stadium</a></li>
-                      <li><a href="location-list.html">Meadow Lane</a></li>
-                      <li><a href="location-list.html">Memorial Stadium</a></li>
-                      <li><a href="location-list.html">Millennium Stadium</a></li>
-                      <li><a href="location-list.html">Molineux Stadium</a></li>
-                      <li><a href="location-list.html">Murrayfield Stadium</a></li>
-                    </ul>
-                  </div>
-                </section>
-                <!-- END : ITM-->
-                <section class="grid-itm col-md-4 col-sm-6 col-xs-6">
-                  <div class="inner">
-                    <h3>n</h3>
-                    <ul>
-                      <li><a href="location-list.html">Nottingham Playhouse</a></li>
-                    </ul>
-                  </div>
-                </section>
-                <!-- END : ITM-->
-                <section class="grid-itm col-md-4 col-sm-6 col-xs-6">
-                  <div class="inner">
-                    <h3>o</h3>
-                    <ul>
-                      <li><a href="location-list.html">Oakwell Stadium</a></li>
-                      <li><a href="location-list.html">Old Trafford Stadium</a></li>
-                    </ul>
-                  </div>
-                </section>
-                <!-- END : ITM-->
-                <section class="grid-itm col-md-4 col-sm-6 col-xs-6">
-                  <div class="inner">
-                    <h3>p</h3>
-                    <ul>
-                      <li><a href="location-list.html">Emirates Stadium</a></li>
-                      <li><a href="location-list.html">Phones 4u Arena</a></li>
-                      <li><a href="location-list.html">Pirelli Stadium</a></li>
-                      <li><a href="location-list.html">Pittodrie Stadium</a></li>
-                      <li><a href="location-list.html">Plainmoor</a></li>
-                      <li><a href="location-list.html">Portman Road Stadium</a></li>
-                      <li><a href="location-list.html">Prenton Park</a></li>
-                      <li><a href="location-list.html">Pride Park</a></li>
-                      <li><a href="location-list.html">Priestfield Stadium</a></li>
-                      <li><a href="location-list.html">Proact Stadium</a></li>
-                      <li><a href="location-list.html">Stamford Bridge</a></li>
-                      <li><a href="location-list.html">White Hart Lane</a></li>
-                    </ul>
-                  </div>
-                </section>
-                <!-- END : ITM-->
-                <section class="grid-itm col-md-4 col-sm-6 col-xs-6">
-                  <div class="inner">
-                    <h3>r</h3>
-                    <ul>
-                      <li><a href="location-list.html">Reebok Stadium</a></li>
-                      <li><a href="location-list.html">Ricoh Arena</a></li>
-                      <li><a href="location-list.html">Riverside Stadium</a></li>
-                      <li><a href="location-list.html">Roots Hall</a></li>
-                      <li><a href="location-list.html">Rotherham United</a></li>
-                      <li><a href="location-list.html">Rugby Park</a></li>
-                    </ul>
-                  </div>
-                </section>
-                <!-- END : ITM-->
-                <section class="grid-itm col-md-4 col-sm-6 col-xs-6">
-                  <div class="inner">
-                    <h3>s</h3>
-                    <ul>
-                      <li><a href="location-list.html">Selhurst Park</a></li>
-                      <li><a href="location-list.html">Sixfields Stadium</a></li>
-                      <li><a href="location-list.html">St Andrews Stadium</a></li>
-                      <li><a href="location-list.html">St Helens</a></li>
-                      <li><a href="location-list.html">St James Park</a></li>
-                      <li><a href="location-list.html">St Marys Stadium</a></li>
-                      <li><a href="location-list.html">Stadium MK</a></li>
-                      <li><a href="location-list.html">Stadium Of Light</a></li>
-                    </ul>
-                  </div>
-                </section>
-                <!-- END : ITM-->
-                <section class="grid-itm col-md-4 col-sm-6 col-xs-6">
-                  <div class="inner">
-                    <h3>t</h3>
-                    <ul>
-                      <li><a href="location-list.html">Hawthorns</a></li>
-                      <li><a href="location-list.html">Lamex Stadium</a></li>
-                      <li><a href="location-list.html">Tannadice Park</a></li>
-                      <li><a href="location-list.html">The City Ground</a></li>
-                      <li><a href="location-list.html">The Crown Ground</a></li>
-                      <li><a href="location-list.html">The Den Stadium</a></li>
-                      <li><a href="location-list.html">The National Indoor Arena</a></li>
-                      <li><a href="location-list.html">The Valley Stadium</a></li>
-                      <li><a href="location-list.html">Turf Moor Stadium</a></li>
-                      <li><a href="location-list.html">Twickenham Stadium</a></li>
-                    </ul>
-                  </div>
-                </section>
-                <!-- END : ITM-->
-                <section class="grid-itm col-md-4 col-sm-6 col-xs-6">
-                  <div class="inner">
-                    <h3>u</h3>
-                    <ul>
-                      <li><a href="location-list.html">Underhill</a></li>
-                    </ul>
-                  </div>
-                </section>
-                <!-- END : ITM-->
-                <section class="grid-itm col-md-4 col-sm-6 col-xs-6">
-                  <div class="inner">
-                    <h3>v</h3>
-                    <ul>
-                      <li><a href="location-list.html">Vale Park</a></li>
-                      <li><a href="location-list.html">Valley Parade Stadium</a></li>
-                      <li><a href="location-list.html">Vicarage Road</a></li>
-                      <li><a href="location-list.html">Villa Park</a></li>
-                    </ul>
-                  </div>
-                </section>
-                <!-- END : ITM-->
-                <section class="grid-itm col-md-4 col-sm-6 col-xs-6">
-                  <div class="inner">
-                    <h3>w</h3>
-                    <ul>
-                      <li><a href="location-list.html">Wembley Stadium & Arena</a></li>
-                      <li><a href="location-list.html">Weston Homes Community Stadium</a></li>
-                    </ul>
-                  </div>
-                </section>
-                <!-- END : ITM-->
-              </div>
+          <div class="prof-mb-menu">
+            <div class="container">
+              <ul>
+                <li class="account"><a href="#">Account</a>
+                  <ul>
+                    <li class="switch"><a href="#">Switch to tenant account</a></li>
+                    <li><a href="my-overview.html">Overview</a></li>
+                    <li><a href="my-listing.html">My Listings</a></li>
+                    <li><a href="my-booking.html">My Booking</a></li>
+                    <li><a href="my-payment.html">Payment Preferences</a></li>
+                    <li class="active"><a href="my-account.html">My Account</a></li>
+                    <li><a href="#">Logout</a></li>
+                  </ul>
+                </li>
+              </ul>
             </div>
           </div>
         </section>
-        <!-- END : GRID CATE-->
-        <section id="blk-map" class="blk-map"></section>
-        <!-- END : MAPs-->
+        <!-- END : MENU PROFILE MOBILE-->
+        <div class="container">
+          <div class="row">
+            <section class="profile-menu col-md-3 col-sm-4 col-xs-12">
+              <h2 class="prof-menu-ttl">Navigation</h2>
+              <div class="switch-acc"><a href="#">Swith to tenant account</a></div>
+              <ul class="prof-menu">
+                <li><a href="my-overview.html"><i class="fa fa-bar-chart"></i>Overview<i class="fa fa-chevron-right right"></i></a></li>
+                <li><a href="my-listing.html"><i class="fa fa-list-ul"></i>My Listings<i class="fa fa-chevron-right right"></i></a></li>
+                <li><a href="my-booking.html"><i class="fa fa-calendar"></i>My Booking<i class="fa fa-chevron-right right"></i></a></li>
+                <li><a href="my-payment.html"><i class="fa fa-credit-card"></i>Payment Preferences<i class="fa fa-chevron-right right"></i></a></li>
+                <li class="active"><a href="my-account.html"><i class="fa fa-user"></i>My Account<i class="fa fa-chevron-right right"></i></a></li>
+                <li><a href="#"><i class="fa fa-sign-out"></i>Logout</a></li>
+              </ul>
+            </section>
+            <!-- END : MENU PROFILE-->
+            <section class="profile-content col-md-9 col-sm-8 col-xs-12">
+              <h2 class="prof-ttl-page"><i class="fa fa-calendar"></i>My Bookings</h2>
+              <div class="prof-content">
+                <p><strong>Recent Bookings</strong></p>
+                <p class="prof-sts"><a href="#" class="btn btn-lred">0 Active</a><a href="#" class="btn btn-red">0 Complete</a></p>
+                <div class="table-responsive">
+                  <table class="table table-striped table-bordered table-hover">
+                    <tr>
+                      <th>Customer</th>
+                      <th>From</th>
+                      <th>To</th>
+                      <th>Status</th>
+                      <th>Vehicle Reg</th>
+                      <th>Price</th>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </section>
+            <!-- END : PROFILE MY BOOKING-->
+          </div>
+        </div>
       </section>
-      <!-- END : CATEGORY-->
+      <!-- END : BLK PROFILE-->
     </section>
     <!-- END : MAIN CONTENT-->
     <footer class="footer-wrap">
@@ -453,10 +215,6 @@
       <!-- END : FOOTER FOLLOW-->
     </footer>
     <!-- END: FOOTER-->
-    <section class="blk-suggest-login">
-      <div class="container">Join the millions of hosts and guests in Zonepace's trusted community.<a href="#" data-toggle="modal" data-target="#myLogin" class="sg-login">Log In</a><a href="#" data-toggle="modal" data-target="#mySignUp" class="sg-signup">Sign Up</a></div>
-    </section>
-    <!-- END: SUGGESTION LOGIN-->
     <div id="mySignUp" tabindex="-1" role="dialog" aria-labelledby="mySignUp" class="modal fade myPopup">
       <div role="document" class="modal-dialog">
         <div class="modal-content"><span data-dismiss="modal" aria-label="Close" aria-hidden="true" class="close">&times;</span>
@@ -625,10 +383,9 @@
     <script src="js/actions/allpage.js"></script>
     <!-- HOMEPAGE JS-->
     <!-- CATPAGE JS-->
-    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-    <script src="js/actions/catpage.js"></script>
     <!-- LOCATION LIST JS-->
     <!-- LOCATION DETAIL JS-->
     <!-- PROFILE JS-->
+    <script src="js/actions/profile.js"></script>
   </body>
 </html>

@@ -1,0 +1,31 @@
+section.profile-content.col-md-9.col-sm-8.col-xs-12
+    h2.prof-ttl-page
+        i.fa.fa-credit-card
+        | My Payments
+    .prof-content
+        p
+            strong My Withdrawal Methods
+        p For daily bookings, you'll receive payments on the first of every month for all completed bookings from the previous month. For monthly bookings, payouts are made at the end of every month.
+        form(class="frm-my-payment")
+            .frow.row
+                section.frm-col.col-md-3.col-sm-4.col-xs-12
+                    label(for="ipt-holders") Account holders name
+                section.frm-col.col-md-9.col-sm-8.col-xs-12
+                    input(type="text", class="ipt", id="ipt-holders")
+            // END : FROW
+            .frow.row
+                section.frm-col.col-md-3.col-sm-4.col-xs-12
+                    label(for="ipt-number") Account number
+                section.frm-col.col-md-9.col-sm-8.col-xs-12
+                    input(type="text", class="ipt", id="ipt-number")
+            // END : FROW
+            .frow.row
+                section.frm-col.col-md-3.col-sm-4.col-xs-12
+                    label(for="ipt-sortcode") Sort Code
+                section.frm-col.col-md-9.col-sm-8.col-xs-12
+                    input(type="text", class="ipt", id="ipt-sortcode")
+            // END : FROW
+            .frow.t-r.pay-button
+                button(type="submit",class="btn btn-red uppercase btn-update") Update bank details
+                button(type="submit",class="btn btn-red uppercase") I wish to be paid via Paypal instead
+            // END : FROW

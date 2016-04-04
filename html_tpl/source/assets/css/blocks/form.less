@@ -32,11 +32,37 @@
 		color: #fff;
 		height: 40px;
 		line-height: 40px;
-		color: #fff;
 		font-weight: 700;
 		&:hover {
 			background-color: darken(@red, 10%)
 		}
+	}
+	&.btn-dred {
+		background-color: darken(@red, 20%);
+		padding-top: 0;
+		padding-bottom: 0;
+		text-align: center;
+		color: #fff;
+		height: 40px;
+		line-height: 40px;
+		font-weight: 700;
+		&:hover {
+			background-color: darken(@red, 30%)
+		}
+	}
+	&.btn-lred {
+		background-color: lighten(@red, 40%);
+		padding-top: 0;
+		padding-bottom: 0;
+		text-align: center;
+		color: @red;
+		height: 40px;
+		line-height: 40px;
+		font-weight: 700;
+		&:hover {
+			background-color: lighten(@red, 10%);
+			color: #fff;
+		}	
 	}
 	&:focus, &:hover {
 		outline: none;
