@@ -11,14 +11,14 @@ var catpage_fn = {};
 /**
  * 1. js layout masonry
  */
-catpage_fn.gridLayout = () => {
+catpage_fn.gridLayout = function () {
 	if(!$('.grid-cate .grid-itm').length) { return; }
 
 	$('.grid-cate').masonry({
 		// set itemSelector so .grid-sizer is not used in layout
 		itemSelector: '.grid-itm',
 		percentPosition: true
-	})
+	});
 };
 /**
  * MAPs

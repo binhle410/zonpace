@@ -279,17 +279,19 @@
 .header-wrap {
 	.header-search {
 		display: inline-block;
-		height: 50px;
-	    line-height: 50px;
+		height: 60px;
+	    line-height: 65px;
 	    margin-left: 20px;
+	    border-left: 1px solid #ddd;
+	    border-right: 1px solid #ddd;
 	    width: 300px;
 		position: relative;
 		button {
 			background-color: transparent;
 			border: none;
 			position: absolute;
-			top: 13px;
-			left: 5px;
+			top: 22px;
+			left: 15px;
 			padding: 0;
 			line-height: normal;
 			outline: none;
@@ -304,8 +306,9 @@
 			background-color: transparent;
 			border: none;
 			padding: 0;
-			padding-left: 35px;
+			padding-left: 45px;
 			outline: none;
+			line-height: normal;
 			.box-shadow(none);
 		}
 	}
@@ -333,6 +336,13 @@
 					}
 				}
 			}
+		}
+	}
+}
+.home {
+	.header-wrap {
+		.header-search {
+			display: none;
 		}
 	}
 }

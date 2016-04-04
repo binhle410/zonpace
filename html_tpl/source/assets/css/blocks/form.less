@@ -16,6 +16,9 @@
 	&:focus {
 		border-color: #999;
 	}
+	&.error {
+		border-color: @red;
+	}
 }
 .btn {
 	.border-radius(5px);
@@ -34,6 +37,9 @@
 		&:hover {
 			background-color: darken(@red, 10%)
 		}
+	}
+	&:focus, &:hover {
+		outline: none;
 	}
 	&.w100 {
 		width: 100%;
@@ -121,6 +127,9 @@
 		border-color: #ddd;
 		&:focus {
 			border-color: #999;
+		}
+		&.error {
+			border-color: @red;
 		}
 	}
 }
