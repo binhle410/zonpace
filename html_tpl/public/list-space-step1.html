@@ -14,22 +14,29 @@
     <link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
   </head>
-  <body class="body-css ">
+  <body>
     <header class="header">
       <div class="header-wrap">
-        <div class="container">
+        <div class="container-fluid">
           <div class="row">
-            <section class="header-logo col-md-5 col-sm-4 col-xs-12"><a href="javascript:;" class="a_menu"><i class="fa fa-bars"></i></a>
+            <section class="header-logo col-md-6 col-sm-6 col-xs-12"><a href="javascript:;" class="a_menu"><i class="fa fa-bars"></i></a><a href="javascript:;" class="a_search"><i class="fa fa-search"></i></a>
               <h1 class="logo"><a href="index.html" title="Zone &amp; Pace Rentals"><img src="images/zonpace-logo.png" alt=""><span>zone & space rentals</span></a></h1>
+              <section data-href="ajax/countries.json" class="header-search">
+                <form name="frm-search" class="frm-search">
+                  <button type="submit"><i class="fa fa-search"></i></button>
+                  <input type="text" placeholder="Zone &amp; space rentals" name="title">
+                </form>
+              </section>
+              <!-- END : SEARCH-->
             </section>
             <!-- END : LOGO-->
-            <section class="header-menu col-md-7 col-sm-8 col-xs-12">
+            <section class="header-menu col-md-6 col-sm-6 col-xs-12">
               <ul class="menu clearfix">
-                <li class="active"><a href="#">become a host</a></li>
+                <li class="active"><a href="#">Lease my space</a></li>
                 <li class="hover-help-blk"><a href="#">Help</a>
                   <div class="help-blk">
                     <div class="help-ct">
-                      <div class="help-search"> 
+                      <div class="help-search">
                         <form><i class="fa fa-search"></i>
                           <input type="text" placeholder="How can we help you?" class="ipt ipt-search-help">
                         </form>
@@ -54,9 +61,8 @@
                     </div>
                   </div>
                 </li>
-                <li class="blk-has-login"><a href="#">
-                    <figure class="user-avt"><img src="uploads/ava_1.jpg" alt=""></figure>
-                    <div class="user-name">zonepace admin</div></a></li>
+                <li><a href="#" data-toggle="modal" data-target="#mySignUp">Sign up</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#myLogin">log in</a></li>
               </ul>
             </section>
             <!-- END : LOGO-->
@@ -66,76 +72,100 @@
     </header>
     <!-- END : HEADER-->
     <section class="main">
-      <section class="blk-profile-wrap">
-        <section class="profile-mb-menu">
-          <div class="prof-mb-title">
-            <div class="container">
-              <h2>Account</h2>
-            </div><a href="javascript:;" class="prof-mb"><i class="fa fa-angle-down"></i></a>
+      <section class="blk-list-space">
+        <header class="header-list-space">
+          <div class="container">
+            <h2><i class="fa fa-edit"></i>List Your Space</h2>
+            <div class="desc">You are a couple of minutes away from joining over 20,000 people across the UK who are making money by renting out their parking space, driveway or garage. Just fill in the details below to register your space.</div>
           </div>
-          <div class="prof-mb-menu">
-            <div class="container">
+        </header>
+        <!-- END : HEADER-->
+        <section class="space-details">
+          <div class="container">
+            <div class="steps">
               <ul>
-                <li class="account"><a href="#">Account</a>
-                  <ul>
-                    <li class="switch"><a href="#">Switch to tenant account</a></li>
-                    <li><a href="my-overview.html">Overview</a></li>
-                    <li><a href="my-listing.html">My Listings</a></li>
-                    <li><a href="my-booking.html">My Booking</a></li>
-                    <li><a href="my-payment.html">Payment Preferences</a></li>
-                    <li class="active"><a href="my-account.html">My Account</a></li>
-                    <li><a href="#">Logout</a></li>
-                  </ul>
-                </li>
+                <li class="active"><a href="#"><span>1</span><span>About your space</span></a></li>
+                <li><a href="#"><span>2</span><span>Photos</span></a></li>
+                <li><a href="#"><span>3</span><span>Availability</span></a></li>
               </ul>
             </div>
-          </div>
-        </section>
-        <!-- END : MENU PROFILE MOBILE-->
-        <div class="container">
-          <div class="row">
-            <section class="profile-menu col-md-3 col-sm-4 col-xs-12">
-              <h2 class="prof-menu-ttl">Navigation</h2>
-              <div class="switch-acc"><a href="#">Swith to tenant account</a></div>
-              <ul class="prof-menu">
-                <li><a href="my-overview.html"><i class="fa fa-bar-chart"></i>Overview<i class="fa fa-chevron-right right"></i></a></li>
-                <li><a href="my-listing.html"><i class="fa fa-list-ul"></i>My Listings<i class="fa fa-chevron-right right"></i></a></li>
-                <li><a href="my-booking.html"><i class="fa fa-calendar"></i>My Booking<i class="fa fa-chevron-right right"></i></a></li>
-                <li><a href="my-payment.html"><i class="fa fa-credit-card"></i>Payment Preferences<i class="fa fa-chevron-right right"></i></a></li>
-                <li class="active"><a href="my-account.html"><i class="fa fa-user"></i>My Account<i class="fa fa-chevron-right right"></i></a></li>
-                <li><a href="#"><i class="fa fa-sign-out"></i>Logout</a></li>
-              </ul>
-            </section>
-            <!-- END : MENU PROFILE-->
-            <section class="profile-content col-md-9 col-sm-8 col-xs-12">
-              <h2 class="prof-ttl-page"><i class="fa fa-list-ul"></i>My Listings</h2>
-              <div class="prof-content">
-                <div class="row">
-                  <section class="list-avt col-md-4 col-sm-12 col-xs-12">
-                    <figure style="background-image: url('uploads/ava_1.jpg')" class="avt"></figure>
-                  </section>
-                  <!-- END : AVATAR-->
-                  <section class="list-info col-md-8 col-sm-12 col-xs-12">
-                    <div class="row">
-                      <section class="col-md-8 col-sm-8 col-xs-8 info-left">
-                        <h3>Parking on 85 Yersin.</h3>
-                        <div class="add">85 Yersin, nha trang, 650000</div>
-                        <div class="info-sts"><span class="btn btn-lred">Active</span><span class="btn"> <b>Daily Price </b>£5.00 </span></div>
-                      </section>
-                      <!-- END : LEFT-->
-                      <section class="col-md-4 col-sm-4 col-xs-4 info-right"><a href="#" class="btn btn-red t-c">Edit</a><a href="#" class="btn btn-red t-c">Availability</a><a href="#" class="btn btn-red t-c">Picture(0)</a><a href="#" class="btn btn-red t-c">Disable</a><a href="#" class="btn btn-red t-c">View Space</a></section>
-                      <!-- END : LEFT-->
+            <!-- END : STEPs-->
+            <form class="list-form">
+              <div class="step-1">
+                <div class="details">
+                  <div class="detail location clearfix">
+                    <div class="detail-label">
+                      <label for="address_1"><i class="fa fa-map-marker"></i>Location</label>
                     </div>
-                  </section>
-                  <!-- END : INFO-->
+                    <div class="detail-inputs">
+                      <div class="inputs location clearfix">
+                        <div class="street add-tick">
+                          <input type="text" placeholder="Street name…" required="required" name="address_1"><i class="fa fa-check"></i>
+                        </div>
+                        <div class="town">
+                          <div class="pop-to-front">
+                            <input type="text" placeholder="Town or City…" required="required" name="city"><i class="fa fa-check"></i>
+                          </div>
+                        </div>
+                        <div class="postcode">
+                          <input type="text" placeholder="Postcode…" required="required" name="postcode"><i class="fa fa-check"></i>
+                        </div>
+                        <div class="submit-location"><a href="#" id="map-find">Find on map</a></div>
+                      </div>
+                      <div class="space-map">
+                        <div class="inner">
+                          <div id="location_map" data-lat="-34.397" data-lng="150.644"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- END : ITM-->
+                  <div class="detail description clearfix">
+                    <div class="detail-label">
+                      <label for="description"><i class="fa fa-pencil"></i>Description</label>
+                    </div>
+                    <div class="detail-inputs">
+                      <textarea placeholder="Please enter a description of your space, including its location, nearby landmarks or stations, and details about the type of space (driveway, underground parking, lock-up garage etc)" id="description" required="required" name="description" cols="50" rows="10" aria-required="true"></textarea><i class="fa fa-check"></i>
+                    </div>
+                  </div>
+                  <!-- END : ITM-->
+                  <div class="detail type-of-rental clearfix">
+                    <div class="detail-label">
+                      <label for="rentalType"><i class="fa fa-cogs"></i>Type of rental</label>
+                    </div>
+                    <div class="detail-inputs">
+                      <div class="inputs">
+                        <div class="input">
+                          <label class="fake-button add-tick">
+                            <input data-no-style="data-no-style" data-rental-type="daily" name="rental_type[daily]" type="checkbox" value="daily_rental" aria-invalid="false">
+                            <div class="actual-label"><i class="fa fa-calendar"></i>Daily<i class="fa fa-check"></i></div>
+                          </label>
+                        </div>
+                        <!-- END -->
+                        <div class="input">
+                          <label class="fake-button add-tick">
+                            <input data-no-style="data-no-style" data-rental-type="monthly" name="rental_type[monthly]" type="checkbox" value="monthly_rental" aria-invalid="false">
+                            <div class="actual-label"><i class="fa fa-calendar-o"></i>Monthly (long term)<i class="fa fa-check"></i></div>
+                          </label>
+                        </div>
+                        <!-- END -->
+                        <div class="input">
+                          <div class="rental-tooltip"><i data-toggle="tooltip" data-placement="bottom" title="" data-original-title="A monthly rental is recommended in most instances, especially if a key fob is required to access your space, but if you’re located near a stadium, event or airport then we’d recommend opting for a daily rental. You can also opt for both." class="fa fa-info-circle"></i></div>
+                        </div>
+                        <!-- END -->
+                      </div>
+                    </div>
+                  </div>
+                  <!-- END : ITM-->
                 </div>
               </div>
-            </section>
-            <!-- END : PROFILE MY LISTING-->
+              <!-- END : STEP 1-->
+            </form>
           </div>
-        </div>
+        </section>
+        <!-- END : DETAIL-->
       </section>
-      <!-- END : BLK PROFILE-->
+      <!-- END : LIST YOUR SPACE-->
     </section>
     <!-- END : MAIN CONTENT-->
     <footer class="footer-wrap">
@@ -220,6 +250,10 @@
       <!-- END : FOOTER FOLLOW-->
     </footer>
     <!-- END: FOOTER-->
+    <section class="blk-suggest-login">
+      <div class="container">Join the millions of hosts and guests in Zonepace's trusted community.<a href="#" data-toggle="modal" data-target="#myLogin" class="sg-login">Log In</a><a href="#" data-toggle="modal" data-target="#mySignUp" class="sg-signup">Sign Up</a></div>
+    </section>
+    <!-- END: SUGGESTION LOGIN-->
     <div id="mySignUp" tabindex="-1" role="dialog" aria-labelledby="mySignUp" class="modal fade myPopup">
       <div role="document" class="modal-dialog">
         <div class="modal-content"><span data-dismiss="modal" aria-label="Close" aria-hidden="true" class="close">&times;</span>
@@ -256,7 +290,7 @@
                 </div>
                 <div class="itm-ipt n-bd">
                   <label class="blk-birth">
-                     
+
                     Birthday<i title="To sign up, you must be 18 or order. Other people won't see your birthday" data-toggle="tooltip" data-placement="top" class="fa fa-question-circle"></i>
                   </label>
                   <div class="blk-select">
@@ -391,7 +425,8 @@
     <!-- LOCATION LIST JS-->
     <!-- LOCATION DETAIL JS-->
     <!-- PROFILE JS-->
-    <script src="js/actions/profile.js"></script>
     <!-- LIST YOUR PAGE JS-->
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script src="js/actions/listspace.js"></script>
   </body>
 </html>

@@ -1,0 +1,29 @@
+section.blk-list-space
+    header.header-list-space
+        .container
+            h2
+                i.fa.fa-edit
+                | List Your Space
+            .desc You are a couple of minutes away from joining over 20,000 people across the UK who are making money by renting out their parking space, driveway or garage. Just fill in the details below to register your space.
+    // END : HEADER
+    section.space-details
+        .container
+            .steps
+                ul
+                    li.active
+                        a(href="#")
+                            span 1
+                            span About your space
+                    li
+                        a(href="#")
+                            span 2
+                            span Photos
+                    li
+                        a(href="#")
+                            span 3
+                            span Availability
+            // END : STEPs
+            form(class="list-form")
+                include step-1.jade
+                // END : STEP 1
+    // END : DETAIL

@@ -1,12 +1,12 @@
 block vars
   -title    = "Zone & Space Rentals"
+  -cls      = ""
   -homejs   = false
   -catjs    = false
   -locatjs  = false
-  -detailjs = true
-  -profjs   = false
-  -spacejs  = false
+  -detailjs = false
+  -spacejs  = true
 extends layouts/layout
 block main
-    include blocks/location-detail/detail-wrap.jade
-    // END : BLK DETAIL
+    include blocks/list-your-space/list-your-space.jade
+    // END : LIST YOUR SPACE

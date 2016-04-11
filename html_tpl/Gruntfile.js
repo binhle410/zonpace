@@ -81,6 +81,10 @@ module.exports = function(grunt) {
       profile: {
         src: 'source/assets/js/actions/profile.js',
         dest: 'public/js/actions/profile.js'
+      },
+      listspace: {
+        src: 'source/assets/js/actions/listspace.js',
+        dest: 'public/js/actions/listspace.js'
       }
     },
     copy: {
