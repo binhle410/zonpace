@@ -1,0 +1,149 @@
+.step-3
+    .row
+        section.col-md-3.col-sm-3.col-xs-12.option-sider
+            .opt-inner
+                h2.opt-ttl.active options
+                .opt-content.opt-shw
+                    .opt-group
+                        h3
+                            i.fa.fa-calendar
+                            | Day selection
+                        ul
+                            li
+                                input(type="radio", name="rd-day", id="mon-sun", checked="checked")
+                                label(for="mon-sun") Monday - Sunday
+                            li
+                                input(type="radio", name="rd-day", id="mon-fri")
+                                label(for="mon-fri") Monday - Friday
+                    // END : OPT
+                    .opt-group
+                        h3
+                            i.fa.fa-clock-o
+                            | Time selection
+                        ul
+                            li
+                                input(type="radio", name="rd-time", id="rd-24")
+                                label(for="rd-24") 24 Hour
+                            li
+                                input(type="radio", name="rd-time", id="rd-cus")
+                                label(for="rd-cus") Custom
+                                .custom-options
+                                    .custom-inner
+                                        ul
+                                            li
+                                                label Start Time:
+                                                .select
+                                                    select(name="schedule_time_start")
+                                                        option(value="00:00") 00:00
+                                                        option(value="00:30") 00:30
+                                                        option(value="01:00") 01:00
+                                                        option(value="01:30") 01:30
+                                                        option(value="02:00") 02:00
+                                                        option(value="02:30") 02:30
+                                                        option(value="03:00") 03:00
+                                                        option(value="03:30") 03:30
+                                                        option(value="04:00") 04:00
+                                                        option(value="04:30") 04:30
+                                                        option(value="05:00") 05:00
+                                                        option(value="05:30") 05:30
+                                                        option(value="06:00") 06:00
+                                                        option(value="06:30") 06:30
+                                                        option(value="07:00") 07:00
+                                                        option(value="07:30") 07:30
+                                                        option(value="08:00") 08:00
+                                                        option(value="08:30") 08:30
+                                                        option(value="09:00") 09:00
+                                                        option(value="09:30") 09:30
+                                                        option(value="10:00") 10:00
+                                                        option(value="10:30") 10:30
+                                                        option(value="11:00") 11:00
+                                                        option(value="11:30") 11:30
+                                                        option(value="12:00") 12:00
+                                                        option(value="12:30") 12:30
+                                                        option(value="13:00") 13:00
+                                                        option(value="13:30") 13:30
+                                                        option(value="14:00") 14:00
+                                                        option(value="14:30") 14:30
+                                                        option(value="15:00") 15:00
+                                                        option(value="15:30") 15:30
+                                                        option(value="16:00") 16:00
+                                                        option(value="16:30") 16:30
+                                                        option(value="17:00") 17:00
+                                                        option(value="17:30") 17:30
+                                                        option(value="18:00") 18:00
+                                                        option(value="18:30") 18:30
+                                                        option(value="19:00") 19:00
+                                                        option(value="19:30") 19:30
+                                                        option(value="20:00") 20:00
+                                                        option(value="20:30") 20:30
+                                                        option(value="21:00") 21:00
+                                                        option(value="21:30") 21:30
+                                                        option(value="22:00") 22:00
+                                                        option(value="22:30") 22:30
+                                                        option(value="23:00") 23:00
+                                                        option(value="23:30") 23:30
+                                            li
+                                                label End Time:
+                                                .select
+                                                    select(name="schedule_time_end")
+                                                        option(value="00:00") 00:00
+                                                        option(value="00:30") 00:30
+                                                        option(value="01:00") 01:00
+                                                        option(value="01:30") 01:30
+                                                        option(value="02:00") 02:00
+                                                        option(value="02:30") 02:30
+                                                        option(value="03:00") 03:00
+                                                        option(value="03:30") 03:30
+                                                        option(value="04:00") 04:00
+                                                        option(value="04:30") 04:30
+                                                        option(value="05:00") 05:00
+                                                        option(value="05:30") 05:30
+                                                        option(value="06:00") 06:00
+                                                        option(value="06:30") 06:30
+                                                        option(value="07:00") 07:00
+                                                        option(value="07:30") 07:30
+                                                        option(value="08:00") 08:00
+                                                        option(value="08:30") 08:30
+                                                        option(value="09:00") 09:00
+                                                        option(value="09:30") 09:30
+                                                        option(value="10:00") 10:00
+                                                        option(value="10:30") 10:30
+                                                        option(value="11:00") 11:00
+                                                        option(value="11:30") 11:30
+                                                        option(value="12:00") 12:00
+                                                        option(value="12:30") 12:30
+                                                        option(value="13:00") 13:00
+                                                        option(value="13:30") 13:30
+                                                        option(value="14:00") 14:00
+                                                        option(value="14:30") 14:30
+                                                        option(value="15:00") 15:00
+                                                        option(value="15:30") 15:30
+                                                        option(value="16:00") 16:00
+                                                        option(value="16:30") 16:30
+                                                        option(value="17:00") 17:00
+                                                        option(value="17:30") 17:30
+                                                        option(value="18:00") 18:00
+                                                        option(value="18:30") 18:30
+                                                        option(value="19:00") 19:00
+                                                        option(value="19:30") 19:30
+                                                        option(value="20:00") 20:00
+                                                        option(value="20:30") 20:30
+                                                        option(value="21:00") 21:00
+                                                        option(value="21:30") 21:30
+                                                        option(value="22:00") 22:00
+                                                        option(value="22:30") 22:30
+                                                        option(value="23:00") 23:00
+                                                        option(value="23:30") 23:30
+                    // END : OPT
+        // END : SIDE BAR
+        section.col-md-9.col-sm-9.col-xs-12.option-calendar
+            #clndr
+            // calendar
+            .helper-text
+                p
+                    strong Please Note:
+                    | once you register your space will be available to be booked instantly, so if your space does become unavailable at some point in the future please do remember to hide your space.
+        // END : CALENDAR
+        .next
+            .t-r
+                input(type="submit", value="Save", class="btn btn-red")
