@@ -2756,11 +2756,13 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
     vertical-align: middle;
     text-align: center;
     font-weight: 400;
+    float: left;
+    width: calc(100% / 7);
 }
 .clndr .clndr-table .header-days .header-day {
     padding-bottom: 20px;
 }
-.clndr .clndr-table tr .adjacent-month, .clndr .clndr-table tr .empty, .clndr .clndr-table tr .my-adjacent-month, .clndr .clndr-table tr .my-empty {
+.clndr .clndr-table .adjacent-month, .clndr .clndr-table .empty, .clndr .clndr-table .my-adjacent-month, .clndr .clndr-table .my-empty {
     border-left: 1px solid #E1EBF4;
     border-top: 1px solid #E1EBF4;
     width: 100%;
@@ -2770,13 +2772,13 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
     vertical-align: middle;
     position: relative
 }
-.clndr .clndr-table tr .day .day-contents {
-    padding: 8px;
+.clndr .clndr-table .day .day-contents {
+    padding: 0 8px;
     font-size: 18px;
     text-align: center;
     font-weight: 400;
 }
-.clndr .clndr-table tr .day span.selected {
+.clndr .clndr-table .day span.selected {
     position: absolute;
     top: 0;
     right: 2px;
@@ -2786,15 +2788,32 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
     transition: .25s;
     font-size: 12px;
 }
-.clndr .clndr-table tr .day span.selected {
-    top: 5px;
-    right: 10px;
+.clndr .clndr-table .day span.selected {
+    top: 0;
+    right: 5px;
     font-size: inherit;
+    line-height: normal;
 }
-.clndr .clndr-table tr .day span.selected.day-in-past {
+.clndr .clndr-table .day:hover {
+  background: #eee;
+}
+.clndr .clndr-table tr .adjacent-month:hover, .clndr .clndr-table tr .empty:hover, .clndr .clndr-table tr .my-adjacent-month:hover, .clndr .clndr-table tr .my-empty:hover {
+  background: #fff;
+}
+.clndr .clndr-table .day span.selected .fa-check {
+  .opacity(1);
+  color: inherit;
+  position: relative;
+  top: auto;
+  right: auto;
+}
+.clndr .clndr-table .day span.selected.day-in-past {
+    color: @red;
+}
+.clndr .clndr-table .past span.selected.day-in-past {
     color: #CECECE;
 }
-.clndr .clndr-table tr .day {
+.clndr .clndr-table .day {
     border-left: 1px solid #E1EBF4;
     border-top: 1px solid #E1EBF4;
     width: 100%;
@@ -2802,11 +2821,13 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
     background: #FFF;
     vertical-align: middle;
     position: relative;
+    width: calc(100% / 7);
+    float: left;
 }
-.clndr .clndr-table tr .day.my-today:hover, .clndr .clndr-table tr .day.today:hover {
+.clndr .clndr-table .day.my-today:hover, .clndr .clndr-table .day.today:hover {
     background: #72c6d8;
 }
-.clndr .clndr-table tr .day.my-today, .clndr .clndr-table tr .day.today {
+.clndr .clndr-table .day.my-today, .clndr .clndr-table .day.today {
     background: #9AD6E3;
 }
 .clndr .clndr-controls .clndr-control-button .clndr-previous-button::before {
@@ -2824,4 +2845,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   color: @red;
   line-height: 31px;
   display: block;
+}
+.clndr .clndr-table .day .day-contents {
+  line-height: 100px;
 }

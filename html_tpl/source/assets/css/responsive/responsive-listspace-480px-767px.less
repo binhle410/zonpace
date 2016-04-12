@@ -70,18 +70,18 @@
 			}
 		}
 	}
-	.clndr .clndr-table tr .day {
-		height: 80px;
-	}
 }
 @media (max-width: 480px) {
-	.clndr .clndr-table tr .day {
+	.clndr .clndr-table .day {
 		height: 60px;
+	}
+	.clndr .clndr-table .day .day-contents {
+	  line-height: 60px;
 	}
 	.clndr .clndr-controls .month {
 		font-size: 18px;
 	}
-	.clndr .clndr-table tr .day .day-contents {
+	.clndr .clndr-table .day .day-contents {
 		font-size: 14px;
 	}
 	.clndr .clndr-controls .clndr-control-button .clndr-next-button::before,
@@ -90,7 +90,29 @@
 	}
 }
 @media (max-width: 380px) {
-	.clndr .clndr-table tr .day {
+	.clndr .clndr-table .day {
+		height: 45px;
+	}
+	.clndr .clndr-table .day .day-contents {
+	  line-height: 45px;
+	}
+	.clndr .clndr-controls .clndr-control-button .clndr-next-button::before,
+	.clndr .clndr-controls .clndr-control-button .clndr-previous-button::before {
+		font-size: 16px;
+	}
+	.clndr .clndr-table .day span.selected {
+		right: 3px;
+		top: -2px;
+	}
+	.clndr .clndr-table .day span.selected .fa-check {
+		font-size: 10px;
+	}
+}
+@media (max-width: 340px) {
+	.clndr .clndr-table .day {
 		height: 40px;
+	}
+	.clndr .clndr-table .day .day-contents {
+	  line-height: 40px;
 	}
 }

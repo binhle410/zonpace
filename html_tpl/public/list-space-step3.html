@@ -36,7 +36,7 @@
                 <li class="hover-help-blk"><a href="#">Help</a>
                   <div class="help-blk">
                     <div class="help-ct">
-                      <div class="help-search">
+                      <div class="help-search"> 
                         <form><i class="fa fa-search"></i>
                           <input type="text" placeholder="How can we help you?" class="ipt ipt-search-help">
                         </form>
@@ -246,7 +246,38 @@
                   </section>
                   <!-- END : SIDE BAR-->
                   <section class="col-md-9 col-sm-9 col-xs-12 option-calendar">
-                    <div id="clndr"></div>
+                    <div id="clndr">
+                        <script type="text/template" id="template-calendar">
+                         <div class="clndr-controls">
+                           <div class="clndr-control-button">
+                                <span class="clndr-previous-button">‹</span>
+                            </div>
+                           <div class="month"><%= month %></div>
+                           <div class="clndr-control-button t-r">
+                                <span class="clndr-next-button">›</span>
+                           </div>
+                         </div>
+                         <div class="clndr-table" border="0" cellspacing="0" cellpadding="0">
+                           <div class="header-days">
+                               <% _.each(daysOfTheWeek, function(day) { %>
+                                  <div class="header-day"><%= day %></div>
+                               <% }); %>
+                           </div>
+                           <div class="days">
+                           <% _.each(days, function(day) { %>
+                                    <div class="<%= day.classes %>">
+                                        <div class="day-contents">
+                                            <span class="selected day-in-past">
+                                                <i class="fa fa-check"></i>
+                                            </span>
+                                            <%= day.day %>
+                                        </div>
+                                    </div>  
+                           <% }); %> 
+                           </div>
+                         </div>
+                        </script>
+                    </div>
                     <!-- calendar-->
                     <div class="helper-text">
                       <p><strong>Please Note:</strong>once you register your space will be available to be booked instantly, so if your space does become unavailable at some point in the future please do remember to hide your space.</p>
@@ -391,7 +422,7 @@
                 </div>
                 <div class="itm-ipt n-bd">
                   <label class="blk-birth">
-
+                     
                     Birthday<i title="To sign up, you must be 18 or order. Other people won't see your birthday" data-toggle="tooltip" data-placement="top" class="fa fa-question-circle"></i>
                   </label>
                   <div class="blk-select">

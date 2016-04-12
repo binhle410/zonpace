@@ -81,8 +81,29 @@ listspace_fn.showOptCalendar = function () {
  */
 listspace_fn.calendar = {
 	init : function () {
+		if(!$('#clndr').length) { return; }
 		$('#clndr').clndr({
 			daysOfTheWeek: ['Sun', 'Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat'],
+			template: $('#template-calendar').html(),
+		});
+	},
+	unChecked : function () {
+		$('body').on('click', '.day .selected', function (e) {
+			var $selected 	=	$(this),
+				$icon 		=	$selected.find('.fa'),
+				$parent		=	$selected.closest('.day');
+
+			if($parent.hasClass('past')) { return; }
+
+			if($selected.hasClass('active')) {
+				$selected.removeClass('active');
+				$icon.addClass('fa-check');
+				$icon.removeClass('fa-times');
+			} else {
+				$selected.addClass('active');
+				$icon.removeClass('fa-check');
+				$icon.addClass('fa-times');
+			}
 		});
 	}
 };
@@ -102,6 +123,7 @@ $(document).ready(function($){
 
 	// calendar
 	listspace_fn.calendar.init();
+	listspace_fn.calendar.unChecked();
 });
 /* OnLoad Window */
 var init = function () {
