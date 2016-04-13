@@ -148,7 +148,7 @@
                 |           <span class="clndr-next-button">›</span>
                 |      </div>
                 |    </div>
-                |    <div class="clndr-table" border="0" cellspacing="0" cellpadding="0">
+                |    <div class="clndr-table">
                 |      <div class="header-days">
                 |          <% _.each(daysOfTheWeek, function(day) { %>
                 |             <div class="header-day"><%= day %></div>
@@ -174,6 +174,6 @@
                     strong Please Note:
                     | once you register your space will be available to be booked instantly, so if your space does become unavailable at some point in the future please do remember to hide your space.
         // END : CALENDAR
-        .next
+        .next.col-xs-12
             .t-r
                 input(type="submit", value="Save", class="btn btn-red")
