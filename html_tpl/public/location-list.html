@@ -87,7 +87,7 @@
                     <ul>
                       <li>
                         <input type="radio" name="rd-space" id="rd-parking">
-                        <label for="rd-parking">Parking</label>
+                        <label for="rd-parking">Leasing</label>
                       </li>
                       <li>
                         <input type="radio" name="rd-space" id="rd-garages">
@@ -109,7 +109,7 @@
                       </li>
                       <li>
                         <input type="checkbox" name="chk-space" id="chk-shelter">
-                        <label for="chk-shelter">Sheltered parking</label>
+                        <label for="chk-shelter">Sheltered leasing</label>
                       </li>
                       <li>
                         <input type="checkbox" name="chk-space" id="chk-security">
@@ -133,7 +133,7 @@
             <div class="inner">
               <section class="blk-head-locat">
                 <section class="lct-head-title">
-                  <h2><i class="fa fa-map-marker"></i>Cardiff Airport Parking</h2><a href="javascript:;" class="a_filter">Advanced Filters</a>
+                  <h2><i class="fa fa-map-marker"></i>Cardiff Airport Leasing</h2><a href="javascript:;" class="a_filter">Advanced Filters</a>
                 </section>
                 <!-- END : TTL-->
                 <section class="lct-type">
@@ -141,20 +141,33 @@
                     <section class="col-xs-6 type-itm">
                       <div class="box">
                         <input type="checkbox" name="fil-month" id="fil-month">
-                        <label for="fil-month">Monthly Parking</label>
+                        <label for="fil-month">Monthly Leasing</label>
                       </div>
                     </section>
                     <!-- END : ITM-->
                     <section class="col-xs-6 type-itm">
                       <div class="box">
                         <input type="checkbox" name="fil-short" id="fil-short">
-                        <label for="fil-short">Short-term Parking</label>
+                        <label for="fil-short">Short-term Leasing</label>
                       </div>
                     </section>
                     <!-- END : ITM-->
                   </div>
                 </section>
                 <!-- END : TYPE-->
+                <section class="lct-ranger">
+                  <div class="lct-price-ranger clearfix">
+                    <label>Price per 100 square feet</label>
+                    <div id="price-ranger" data-min="20" data-max="50"></div>
+                  </div>
+                  <!-- END : PRICE-->
+                  <div class="lct-square-ranger clearfix">
+                    <label>Square feet</label>
+                    <div id="square-ranger" data-min="20000" data-max="50000"></div>
+                  </div>
+                  <!-- END : PRICE-->
+                </section>
+                <!-- END : RANGER-->
               </section>
               <section class="list">
                 <div class="inner">
@@ -179,6 +192,7 @@
                           <div class="prices-row">
                             <div class="prices">
                               <div class="price"><strong>£5.00</strong>per day</div>
+                              <div class="price"><strong>£5.00</strong>per week</div>
                               <div class="price"><strong>£93.75</strong>per month</div>
                               <div class="price book-button"><span class="btn btn-red uppercase">book now</span></div>
                             </div>
@@ -209,6 +223,7 @@
                           <div class="prices-row">
                             <div class="prices">
                               <div class="price"><strong>£5.00</strong>per day</div>
+                              <div class="price"><strong>£5.00</strong>per week</div>
                               <div class="price"><strong>£93.75</strong>per month</div>
                               <div class="price book-button"><span class="btn btn-red uppercase">book now</span></div>
                             </div>
@@ -239,6 +254,7 @@
                           <div class="prices-row">
                             <div class="prices">
                               <div class="price"><strong>£5.00</strong>per day</div>
+                              <div class="price"><strong>£5.00</strong>per week</div>
                               <div class="price"><strong>£93.75</strong>per month</div>
                               <div class="price book-button"><span class="btn btn-red uppercase">book now</span></div>
                             </div>
@@ -269,6 +285,7 @@
                           <div class="prices-row">
                             <div class="prices">
                               <div class="price"><strong>£5.00</strong>per day</div>
+                              <div class="price"><strong>£5.00</strong>per week</div>
                               <div class="price"><strong>£93.75</strong>per month</div>
                               <div class="price book-button"><span class="btn btn-red uppercase">book now</span></div>
                             </div>
@@ -299,6 +316,7 @@
                           <div class="prices-row">
                             <div class="prices">
                               <div class="price"><strong>£5.00</strong>per day</div>
+                              <div class="price"><strong>£5.00</strong>per week</div>
                               <div class="price"><strong>£93.75</strong>per month</div>
                               <div class="price book-button"><span class="btn btn-red uppercase">book now</span></div>
                             </div>
@@ -329,6 +347,7 @@
                           <div class="prices-row">
                             <div class="prices">
                               <div class="price"><strong>£5.00</strong>per day</div>
+                              <div class="price"><strong>£5.00</strong>per week</div>
                               <div class="price"><strong>£93.75</strong>per month</div>
                               <div class="price book-button"><span class="btn btn-red uppercase">book now</span></div>
                             </div>
@@ -359,6 +378,7 @@
                           <div class="prices-row">
                             <div class="prices">
                               <div class="price"><strong>£5.00</strong>per day</div>
+                              <div class="price"><strong>£5.00</strong>per week</div>
                               <div class="price"><strong>£93.75</strong>per month</div>
                               <div class="price book-button"><span class="btn btn-red uppercase">book now</span></div>
                             </div>
@@ -389,6 +409,7 @@
                           <div class="prices-row">
                             <div class="prices">
                               <div class="price"><strong>£5.00</strong>per day</div>
+                              <div class="price"><strong>£5.00</strong>per week</div>
                               <div class="price"><strong>£93.75</strong>per month</div>
                               <div class="price book-button"><span class="btn btn-red uppercase">book now</span></div>
                             </div>
@@ -450,11 +471,11 @@
               <!-- END: ITM-->
               <section class="col-md-4 col-sm-6 col-xs-12 ct-itm">
                 <h3>Rent Out Your Temple Meads Space</h3>
-                <p>Having an empty driveway or parking spaces near Temple Meads railway station is one of the best places to have one in Bristol. You can earn around £100 per month from each space. Commuters travelling from Bristol Temple Meads are always on the lookout for affordable parking. Garages can also be rented out.</p>
+                <p>Having an empty driveway or leasing spaces near Temple Meads railway station is one of the best places to have one in Bristol. You can earn around £100 per month from each space. Commuters travelling from Bristol Temple Meads are always on the lookout for affordable leasing. Garages can also be rented out.</p>
               </section>
               <!-- END: ITM-->
               <section class="col-md-4 col-sm-12 col-xs-12 ct-itm">
-                <h3>Temple Meads Railway Station Parking Statistics</h3>
+                <h3>Temple Meads Railway Station Leasing Statistics</h3>
                 <table class="table tbl-statis">
                   <tr>
                     <th></th>

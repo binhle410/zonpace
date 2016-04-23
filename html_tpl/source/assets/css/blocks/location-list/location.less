@@ -61,6 +61,7 @@
 	}
 	.location-list {
 		.lct-type {
+			margin-bottom: 15px;
 			.row {
 				margin-left: -5px;
 				margin-right: -5px;
@@ -477,5 +478,106 @@ ul.features {
 		.list {
 			padding-bottom: 100px;
 		}
+		.lct-ranger {
+			label {
+				display: block;
+				margin-bottom: 0;
+				color: #000;
+				// width: 25%;
+				// float: left;
+				// padding-left: 10px;
+				// padding-right: 10px;
+			}
+			#price-ranger, #square-ranger {
+				// width: 75%;
+				// float: left;
+				&.ui-rangeSlider {
+					padding-top: 27px;
+					height: 40px;
+					.ui-rangeSlider-container, .ui-rangeSlider-arrow {
+						height: 10px;
+						border-top: none;
+						border-bottom: none;
+						.box-shadow(none);
+					}
+					.ui-rangeSlider-bar {
+						height: 10px;
+						background: @red;
+						.box-shadow(none);
+						margin: 0;
+						.border-radius(2px);
+					}
+					.ui-rangeSlider-container, .ui-rangeSlider-arrow, .ui-rangeSlider-label {
+						background: #eee;
+					}
+					.ui-rangeSlider-label {
+						color: #575757;
+					    padding: 0px 5px;
+					    font-size: 14px;
+				        bottom: 45px;
+					}
+					.ui-rangeSlider-label-inner {
+						border-top: 5px solid #eee;
+						border-left: 5px solid transparent;
+						border-right: 5px solid transparent;
+						margin-left: -5px;
+					}
+					.ui-rangeSlider-leftArrow {
+						border-left: none;
+						display: none;
+						.ui-rangeSlider-arrow-inner {
+						    border-right: 10px solid @red;
+						}
+					}
+					.ui-rangeSlider-rightArrow {
+						border-right: none;
+						display: none;
+						.ui-rangeSlider-arrow-inner {
+						    border-left: 10px solid @red;
+						}
+					}
+					&.ui-rangeSlider-withArrows {
+						.ui-rangeSlider-container {
+						    margin: 0 1px;
+						    width: 100% !important;
+						    .border-radius(2px);
+						}
+					}
+					.ui-rangeSlider-label-value {
+						position: relative;
+						&::before {
+							content: "$";
+							display: inline-block;
+						}
+					}
+				}
+				.ui-rangeSlider-withArrows .ui-rangeSlider-container, .ui-rangeSlider-noArrow .ui-rangeSlider-container, .ui-rangeSlider-arrow {
+					.box-shadow(none);
+				}
+			}
+			#square-ranger {
+				&.ui-rangeSlider {
+					.ui-rangeSlider-label-value {
+						&::before {
+							content: "";
+						}
+					}
+				}
+			}
+		}
+	}
+}
+.location-wrap {
+	.location-list {
+		.lct-price-ranger, .lct-square-ranger {
+			margin-bottom: -20px;
+			// margin-left: -10px;
+			// margin-right: -10px;
+		}
+		// .lct-square-ranger {
+		// 	label {
+		// 		line-height: 40px;
+		// 	}
+		// }
 	}
 }

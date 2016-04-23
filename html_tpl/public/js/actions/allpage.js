@@ -79,12 +79,13 @@ allpage_fn.datePicker = function () {
  */
 allpage_fn.filterRanger = function (itmRanger) {
     if(!$(itmRanger).length) { return; }
-
+    var data_min = $(itmRanger).data('min'),
+        data_max = $(itmRanger).data('max');
     $(itmRanger).rangeSlider({
         wheelMode: "scroll",
         wheelSpeed: 30,
-        bounds: {min: 0, max: 50},
-        defaultValues:{min: 0, max: 20},
+        bounds: {min: 0, max: data_max},
+        defaultValues:{min: 0, max: data_min},
         // formatter:function(val){
         //     var value = Math.round(val * 5) / 5,
         //     decimal = value - Math.round(val);

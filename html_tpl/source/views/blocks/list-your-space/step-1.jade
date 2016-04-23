@@ -29,7 +29,7 @@
                     i.fa.fa-pencil
                     | Description
             .detail-inputs
-                textarea(placeholder="Please enter a description of your space, including its location, nearby landmarks or stations, and details about the type of space (driveway, underground parking, lock-up garage etc)", id="description" ,required="required", name="description", cols="50" rows="10" aria-required="true")
+                textarea(placeholder="Please enter a description of your space, including its location, nearby landmarks or stations, and details about the type of space (driveway, underground leasing, lock-up garage etc)", id="description" ,required="required", name="description", cols="50" rows="10" aria-required="true")
                 i.fa.fa-check
         // END : ITM
         .detail.type-of-rental.clearfix
@@ -226,7 +226,7 @@
                         label.fake-button.add-tick
                             input(name="space_feature[sheltered_parking]", type="checkbox", value="1" ,aria-invalid="false")
                             .actual-label
-                                | Sheltered Parking
+                                | Sheltered Leasing
                                 i.fa.fa-check
                     // END
                     .input
@@ -289,7 +289,7 @@
                         label.fake-button.add-tick
                             input(name="space_feature[underground_parking]", type="checkbox", value="1" ,aria-invalid="false")
                             .actual-label
-                                | Underground Parking
+                                | Underground Leasing
                                 i.fa.fa-check
                     // END
                     .input
@@ -308,7 +308,7 @@
                     .rental-tooltip
                         i(class="fa fa-info-circle", data-toggle="tooltip", data-placement="bottom", title="", data-original-title="Your address will not be made public on the website, and will only be given to paying customers")
             .detail-inputs
-                textarea(placeholder="Please provide the full address of the parking space along with any additional details required to access the space (e.g. contact details for collecting a permit, key fob etc).)", id="post_booking_info" ,required="required", name="description", cols="50" rows="10" aria-required="true")
+                textarea(placeholder="Please provide the full address of the leasing space along with any additional details required to access the space (e.g. contact details for collecting a permit, key fob etc).)", id="post_booking_info" ,required="required", name="description", cols="50" rows="10" aria-required="true")
                 i.fa.fa-check
         // END : ITM
     .next

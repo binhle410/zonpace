@@ -68,3 +68,61 @@
 		}
 	}
 }
+.pagination-container {
+	text-align: center;
+	.pagination {
+	    display: inline-block;
+	    padding-left: 0;
+	    margin: 20px 0 0 0;
+	    border-radius: 4px;
+	    > li {
+		    display: inline;
+		    > a, > span {
+	    	    margin-left: 1px;
+    	        padding: 5px 10px;
+    			font-size: 12px;
+			    position: relative;
+			    float: left;
+			    line-height: 1.42857;
+			    text-decoration: none;
+			    color: #333;
+			    background-color: #fff;
+			    border: 1px solid #fff;
+		    }
+		    > a {
+	    	    cursor: pointer
+		    }
+		    &.active, &:hover {
+		    	> a, > span {
+	    		    color: #fff;
+				    background-color: @red;
+				    border-color: @red;
+				    cursor: default;
+		    	}
+		    }
+		    &:hover {
+		    	> a, > span {
+		    		cursor: pointer;
+		    	}
+		    }
+		    &.disabled {
+		    	> a, > span {
+				    cursor: not-allowed;
+				    color: #333;
+				    background-color: #fff;
+			    	border: 1px solid #fff;
+		    	}
+		    }
+		    &:first-child {
+		    	> a, > span {
+		    		.border-radius(2px 0 0 2px);
+		    	}
+		    }
+		    &:last-child {
+		    	> a, > span {
+		    		.border-radius(0 2px 2px 0);
+		    	}
+		    }
+		}
+	}
+}

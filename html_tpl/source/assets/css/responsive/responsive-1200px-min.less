@@ -3,10 +3,28 @@
  *
  * description: css rules for screen of desktop
  */
-
+@media (min-width: 1540px) {
+	/* CSS PAGE LOCATION DETAIL */
+	.detail-wrap {
+		.detail-map {
+			height: 550px;
+		}
+	}
+}
 @media (max-width: 1200px) {
 	.container {
 		width: auto;
+	}
+}
+@media (max-width: 1110px) {
+	/* CSS HEADER */
+	.header-wrap {
+		.header-search {
+			width: 250px;
+			input[type="text"] {
+				width: 250px;
+			}
+		}
 	}
 }
 @media (max-width: 1024px) {
@@ -20,12 +38,6 @@
 		.header-logo {
 			span {
 				font-size: 14px;
-			}
-		}
-		.header-search {
-			width: 250px;
-			input[type="text"] {
-				width: 250px;
 			}
 		}
 	}

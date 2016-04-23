@@ -13,7 +13,7 @@ header.location-header.clearfix
                         ul
                             li
                                 input(type="radio", name="rd-space", id="rd-parking")
-                                label(for="rd-parking") Parking
+                                label(for="rd-parking") Leasing
                             li
                                 input(type="radio", name="rd-space", id="rd-garages")
                                 label(for="rd-garages") Garages
@@ -29,7 +29,7 @@ header.location-header.clearfix
                                 label(for="chk-access") 24/7 Access
                             li
                                 input(type="checkbox", name="chk-space", id="chk-shelter")
-                                label(for="chk-shelter") Sheltered parking
+                                label(for="chk-shelter") Sheltered leasing
                             li
                                 input(type="checkbox", name="chk-space", id="chk-security")
                                 label(for="chk-security") Security Gates
@@ -46,7 +46,7 @@ header.location-header.clearfix
                 section.lct-head-title
                     h2
                         i.fa.fa-map-marker
-                        | Cardiff Airport Parking
+                        | Cardiff Airport Leasing
                     a(href="javascript:;", class="a_filter") Advanced Filters
                 // END : TTL
                 section.lct-type
@@ -54,14 +54,24 @@ header.location-header.clearfix
                         section.col-xs-6.type-itm
                             .box
                                 input(type="checkbox", name="fil-month", id="fil-month")
-                                label(for="fil-month") Monthly Parking
+                                label(for="fil-month") Monthly Leasing
                         // END : ITM
                         section.col-xs-6.type-itm
                             .box
                                 input(type="checkbox", name="fil-short", id="fil-short")
-                                label(for="fil-short") Short-term Parking
+                                label(for="fil-short") Short-term Leasing
                         // END : ITM
                 // END : TYPE
+                section.lct-ranger
+                    .lct-price-ranger.clearfix
+                        label Price per 100 square feet
+                        #price-ranger(data-min="20", data-max="50")
+                    // END : PRICE
+                    .lct-square-ranger.clearfix
+                        label Square feet
+                        #square-ranger(data-min="20000", data-max="50000")
+                    // END : PRICE
+                // END : RANGER
             section.list
                 .inner
                     .location-itm
@@ -95,6 +105,9 @@ header.location-header.clearfix
                                             .price
                                                 strong £5.00
                                                 | per day
+                                            .price
+                                                strong £5.00
+                                                | per week
                                             .price
                                                 strong £93.75
                                                 | per month
@@ -135,6 +148,9 @@ header.location-header.clearfix
                                                 strong £5.00
                                                 | per day
                                             .price
+                                                strong £5.00
+                                                | per week
+                                            .price
                                                 strong £93.75
                                                 | per month
                                             .price.book-button
@@ -173,6 +189,9 @@ header.location-header.clearfix
                                             .price
                                                 strong £5.00
                                                 | per day
+                                            .price
+                                                strong £5.00
+                                                | per week
                                             .price
                                                 strong £93.75
                                                 | per month
@@ -213,6 +232,9 @@ header.location-header.clearfix
                                                 strong £5.00
                                                 | per day
                                             .price
+                                                strong £5.00
+                                                | per week
+                                            .price
                                                 strong £93.75
                                                 | per month
                                             .price.book-button
@@ -251,6 +273,9 @@ header.location-header.clearfix
                                             .price
                                                 strong £5.00
                                                 | per day
+                                            .price
+                                                strong £5.00
+                                                | per week
                                             .price
                                                 strong £93.75
                                                 | per month
@@ -291,6 +316,9 @@ header.location-header.clearfix
                                                 strong £5.00
                                                 | per day
                                             .price
+                                                strong £5.00
+                                                | per week
+                                            .price
                                                 strong £93.75
                                                 | per month
                                             .price.book-button
@@ -330,6 +358,9 @@ header.location-header.clearfix
                                                 strong £5.00
                                                 | per day
                                             .price
+                                                strong £5.00
+                                                | per week
+                                            .price
                                                 strong £93.75
                                                 | per month
                                             .price.book-button
@@ -368,6 +399,9 @@ header.location-header.clearfix
                                             .price
                                                 strong £5.00
                                                 | per day
+                                            .price
+                                                strong £5.00
+                                                | per week
                                             .price
                                                 strong £93.75
                                                 | per month

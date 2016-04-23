@@ -2,6 +2,7 @@
  * LOCATION LIST JS
  * 1. MAPs
  * 2. Blk Filter Advances
+ * 3. Set height blk maps
  */
 var location_fn = {};
 (function( $ ) {
@@ -49,7 +50,7 @@ location_fn.MAPs = {
 					draggable: false,
 					content: '<div class="my-marker">' +
 								'<div class="d-letter"> '+ data.letter + ' </div>' +
-								'<div class="d-kilo"> '  + data.kilometer + ' miles </div>' +
+								'<div class="d-kilo"> '  + data.kilometer + ' Sq. Ft </div>' +
 								'</div>'
 		        });
 				marker.setFlat(!marker.getFlat());
@@ -122,6 +123,26 @@ location_fn.blkFilterAdvance = {
 		});
 	}
 };
+/**
+ * 3. Set height blk maps
+ */
+location_fn.setHeight = {
+	init : function () {
+		var $w_height	=	$(window).height();
+
+		$('.location-wrap .location-map').css('height', $w_height);
+		$('.location-wrap .location-list').css('height', $w_height);
+	},
+
+	resizeWidth : function (){
+		location_fn.setHeight.init();
+		$( window ).resize($.debounce(300, function(e){
+            location_fn.setHeight.init();
+            // maps
+			location_fn.MAPs.init();
+        }));
+	}
+}
 /* ----------------------------------------------- */
 /* ----------------------------------------------- */
 /* OnLoad Page */
@@ -133,6 +154,13 @@ $(document).ready(function($){
 	location_fn.blkFilterAdvance.show();
 	location_fn.blkFilterAdvance.hide();
 	location_fn.blkFilterAdvance.blkLocationList();
+
+	// set height
+	location_fn.setHeight.resizeWidth();
+
+	// filter ranger
+    allpage_fn.filterRanger('#price-ranger');
+    allpage_fn.filterRanger('#square-ranger');
 });
 /* OnLoad Window */
 var init = function () {
