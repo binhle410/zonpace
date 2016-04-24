@@ -9,36 +9,129 @@ header.location-header.clearfix
             .box-inner
                 form(class="frm-adv-filer")
                     .section-filter
-                        h3 Type of Space:
+                        h3 Anniversary:
                         ul
                             li
-                                input(type="radio", name="rd-space", id="rd-parking")
-                                label(for="rd-parking") Leasing
+                                input(type="checkbox", name="chk-space", id="chk-banquet")
+                                label(for="chk-banquet") Banquet
                             li
-                                input(type="radio", name="rd-space", id="rd-garages")
-                                label(for="rd-garages") Garages
+                                input(type="checkbox", name="chk-space", id="chk-concert")
+                                label(for="chk-concert") Concert
                             li
-                                input(type="radio", name="rd-space", id="rd-all", checked="checked")
-                                label(for="rd-all") All Spaces
+                                input(type="checkbox", name="chk-space", id="chk-conference")
+                                label(for="chk-conference") Conference
+                            li
+                                input(type="checkbox", name="chk-space", id="chk-meeting")
+                                label(for="chk-meeting") Meeting
+                            li
+                                input(type="checkbox", name="chk-space", id="chk-corporate")
+                                label(for="chk-corporate") Party - corporate
+                            li
+                                input(type="checkbox", name="chk-space", id="chk-adults")
+                                label(for="chk-adults") Party - adults
+                            li
+                                input(type="checkbox", name="chk-space", id="chk-kids")
+                                label(for="chk-kids") Party -kids
+                            li
+                                input(type="checkbox", name="chk-space", id="chk-reception")
+                                label(for="chk-reception") Reception
+                            li
+                                input(type="checkbox", name="chk-space", id="chk-retreat")
+                                label(for="chk-retreat") Retreat
+                            li
+                                input(type="checkbox", name="chk-space", id="chk-reunion")
+                                label(for="chk-reunion") Reunion
                     // END : FILTER
                     .section-filter
-                        h3 Only show spaces with:
+                        h3 Event:
                         ul
                             li
-                                input(type="checkbox", name="chk-space", id="chk-access")
-                                label(for="chk-access") 24/7 Access
+                                input(type="checkbox", name="chk-space", id="chk-seminar")
+                                label(for="chk-seminar") Seminar
                             li
-                                input(type="checkbox", name="chk-space", id="chk-shelter")
-                                label(for="chk-shelter") Sheltered leasing
+                                input(type="checkbox", name="chk-space", id="chk-wedding")
+                                label(for="chk-wedding") Wedding
                             li
-                                input(type="checkbox", name="chk-space", id="chk-security")
-                                label(for="chk-security") Security Gates
+                                input(type="checkbox", name="chk-space", id="chk-camping")
+                                label(for="chk-camping") Camping
                             li
-                                input(type="checkbox", name="chk-space", id="chk-airport")
-                                label(for="chk-airport") Airport transfes
+                                input(type="checkbox", name="chk-space", id="chk-hunting")
+                                label(for="chk-hunting") Hunting
                             li
-                                input(type="checkbox", name="chk-space", id="chk-all")
-                                label(for="chk-all") Allocated space
+                                input(type="checkbox", name="chk-space", id="chk-parking")
+                                label(for="chk-parking") Parking
+                            li
+                                input(type="checkbox", name="chk-space", id="chk-adults")
+                                label(for="chk-adults") Party - adults
+                            li
+                                input(type="checkbox", name="chk-space", id="chk-kids")
+                                label(for="chk-kids") Party -kids
+                            li
+                                input(type="checkbox", name="chk-space", id="chk-reception")
+                                label(for="chk-reception") Reception
+                            li
+                                input(type="checkbox", name="chk-space", id="chk-retreat")
+                                label(for="chk-retreat") Retreat
+                            li
+                                input(type="checkbox", name="chk-space", id="chk-reunion")
+                                label(for="chk-reunion") Reunion
+                    // END : FILTER
+                    .section-filter
+                        h3 By Function:
+                        ul
+                            li
+                                input(type="checkbox", name="chk-space", id="chk-semi-constructional")
+                                label(for="chk-semi-constructional") Semi - constructional
+                            li
+                                input(type="checkbox", name="chk-space", id="chk-moving")
+                                label(for="chk-moving") Movie making
+                            li
+                                input(type="checkbox", name="chk-space", id="chk-photo")
+                                label(for="chk-photo") Photo shooting
+                            li
+                                input(type="checkbox", name="chk-space", id="chk-residental")
+                                label(for="chk-residental") Residental
+                            li
+                                input(type="checkbox", name="chk-space", id="chk-warehousing")
+                                label(for="chk-warehousing") Warehousing
+                            li
+                                input(type="checkbox", name="chk-space", id="chk-shows")
+                                label(for="chk-shows") Shows
+                            li
+                                input(type="checkbox", name="chk-space", id="chk-exhibition")
+                                label(for="chk-exhibition") Exhibition
+                            li
+                                input(type="checkbox", name="chk-space", id="chk-caterings")
+                                label(for="chk-caterings") Caterings
+                            li
+                                input(type="checkbox", name="chk-space", id="chk-product-demo")
+                                label(for="chk-product-demo") Product demo
+                            li
+                                input(type="checkbox", name="chk-space", id="chk-housedemo")
+                                label(for="chk-housedemo") House demo / Show house
+                    // END : FILTER
+                    .section-filter
+                        ul
+                            li
+                                label(for="land-size") Land size
+                                input(type="text", class="ipt", placeholder="54 Sq. Ft", id="land-size")
+                            li
+                                label(for="fil-rating") Rating
+                                select(class="slect", id="fil-rating")
+                                    option(value="1") 1
+                                    option(value="2") 2
+                                    option(value="3") 3
+                                    option(value="4") 4
+                                    option(value="5") 5
+                    // END : FILTER
+                    .section-filter
+                        ul
+                            li
+                                input(type="checkbox", name="chk-space", id="chk-instant")
+                                label(for="chk-instant") Instant booking
+                            li
+                                input(type="checkbox", name="chk-space", id="chk-review-booking")
+                                label(for="chk-review-booking") After host review booking
                     // END : FILTER
         // END: FILTER ADVANCES
         .inner

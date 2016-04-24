@@ -3,6 +3,20 @@
  * CSS RESPONSIVE PAGE LIST YOUR SPACE
  */
 @media (max-width: 767px) {
+	body {
+		&.bd-over {
+			overflow: hidden;
+		}
+	}
+	.location-wrap {
+		.location-list {
+			.box-filter {
+				position: fixed;
+				z-index: 100;
+				width: 90%;
+			}
+		}
+	}
 	.blk-list-space {
 		#streetview-map {
 			height: 250px;
@@ -90,6 +104,13 @@
 	}
 }
 @media (max-width: 380px) {
+	.location-wrap {
+		.location-list {
+			.box-filter {
+				width: 100%;
+			}
+		}
+	}
 	.clndr .clndr-table .day {
 		height: 45px;
 	}
@@ -106,6 +127,24 @@
 	}
 	.clndr .clndr-table .day span.selected .fa-check {
 		font-size: 10px;
+	}
+}
+@media (max-width: 360px) {
+	.location-wrap {
+		.location-list {
+			.box-filter {
+				.section-filter {
+					ul {
+						li {
+							width: 100%;
+							&:last-child {
+								margin-bottom: 0;
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 }
 @media (max-width: 340px) {

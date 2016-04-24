@@ -313,6 +313,27 @@
 			// left: 0;
 			// z-index: 2;
 			margin-top: -490px;
+			.container-fluid {
+				position: relative;
+				.a_minimize {
+					font-size: 14px;
+				    background-color: #fff;
+				    color: #333;
+				    width: 30px;
+				    height: 20px;
+				    text-align: center;
+				    position: absolute;
+				    top: 0;
+				    right: 15px;
+				    z-index: 10;
+				    line-height: 20px;
+				    .transition(all 0.4s ease);
+				    &:hover {
+				    	background-color: @red;
+				    	color: #fff;
+				    }
+				}
+			}
 		}
 		&.h-580 {
 			.blk-frm-term {

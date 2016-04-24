@@ -217,6 +217,39 @@ detail_fn.tabsTerm = {
     		$term_wrap.removeClass('shw-term-mb');
 			$body.removeClass('bd-fixed');
     	});
+	},
+
+	/**
+	 * [minimizeTerm description]
+	 * @return {[type]} [description]
+	 */
+	minimizeTerm : function () {
+		if(!$('.a_minimize').length) { return; }
+
+		var w_scroll_window = 0;
+	    if (navigator.appVersion.indexOf("Win")!=-1) {
+	        w_scroll_window = 20;
+	    }
+
+	    if(($(window).width() + w_scroll_window) > 767 ) {
+			$('.a_minimize').on('click', function (e) {
+				var $a_mini		=	$(this),
+					$icon		=	$a_mini.find('i.fa'),
+					$blk_term	=	$a_mini.siblings('.term-wrap');
+
+				if($a_mini.hasClass('active')) {
+					$a_mini.removeClass('active');
+					$blk_term.removeClass('term-hide');
+					$icon.addClass('fa-minus');
+					$icon.removeClass('fa-plus');
+				} else {
+					$a_mini.addClass('active');
+					$blk_term.addClass('term-hide');
+					$icon.removeClass('fa-minus');
+					$icon.addClass('fa-plus');
+				}
+			});
+		}
 	}
 };
 /**
@@ -256,6 +289,7 @@ $(document).ready(function($){
 	detail_fn.tabsTerm.closeSummary();
 	detail_fn.tabsTerm.showTermMB();
 	detail_fn.tabsTerm.closeTermMB();
+	detail_fn.tabsTerm.minimizeTerm();
 
 	// gallery
 	detail_fn.galleryBox();

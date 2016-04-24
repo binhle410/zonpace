@@ -76,12 +76,14 @@ location_fn.blkFilterAdvance = {
 		$('.a_filter').on('click', function (e) {
 			var $a_show		=	$(this),
 				$blk_adv 	=	$a_show.closest('.inner').siblings('.box-filter'),
-				$a_close	=	$blk_adv.find('.a_filter_close');
+				$a_close	=	$blk_adv.find('.a_filter_close'),
+				$body 		=	$a_show.closest('body');
 
 			if(!$a_show.hasClass('active')) {
 				$a_show.addClass('active');
 				$blk_adv.addClass('shw');
 				$a_close.removeClass('active');
+				$body.addClass('bd-over');
 			}
 		});
 	},
@@ -96,12 +98,14 @@ location_fn.blkFilterAdvance = {
 		$('.a_filter_close').on('click', function (e) {
 			var $a_close 	=	$(this),
 				$blk_adv	=	$a_close.closest('.box-filter'),
-				$a_show		=	$blk_adv.siblings('.inner').find('.a_filter');
+				$a_show		=	$blk_adv.siblings('.inner').find('.a_filter'),
+				$body		=	$a_close.closest('body');
 
 			if(!$a_close.hasClass('active')) {
 				$a_close.addClass('active');
 				$blk_adv.removeClass('shw');
 				$a_show.removeClass('active');
+				$body.removeClass('bd-over');
 			}
 		});
 	},
@@ -128,10 +132,12 @@ location_fn.blkFilterAdvance = {
  */
 location_fn.setHeight = {
 	init : function () {
-		var $w_height	=	$(window).height();
+		var $w_height	=	$(window).height(),
+			$h_filter	=	$('.a_filter_close').outerHeight();
 
 		$('.location-wrap .location-map').css('height', $w_height);
 		$('.location-wrap .location-list').css('height', $w_height);
+		$('.location-wrap .box-inner').css('height',($w_height - $h_filter) );
 	},
 
 	resizeWidth : function (){
