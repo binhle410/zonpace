@@ -12995,7 +12995,7 @@ ul.features li.instant i {
   color: #fff;
 }
 .btn.btn-blue {
-  background-color: #0000FF;
+  background-color: #3498DB;
   padding-top: 0;
   padding-bottom: 0;
   text-align: center;
@@ -13005,7 +13005,7 @@ ul.features li.instant i {
   font-weight: 700;
 }
 .btn.btn-blue:hover {
-  background-color: #0000cc;
+  background-color: #217dbb;
 }
 .btn:focus,
 .btn:hover {
