@@ -137,6 +137,7 @@ location_fn.setHeight = {
 
 		$('.location-wrap .location-map').css('height', $w_height);
 		$('.location-wrap .location-list').css('height', $w_height);
+		$('.location-wrap .location-list > .inner').css('height', $w_height);
 		$('.location-wrap .box-inner').css('height',($w_height - $h_filter) );
 	},
 

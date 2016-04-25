@@ -152,20 +152,27 @@ allpage_fn.hoverHelpBlk = function () {
  * 8. Header Search Autocomplete
  */
 allpage_fn.searchAutocomplete = function () {
-    if(!$('.header-search input').length) { return; }
+    if(!$('#ipt-search').length) { return; }
 
-    var options = {
-      url: $('.header-search').data('href'),
-      getValue: "name",
-      list: {
-        match: {
-          enabled: true
-        }
-      },
-      theme: "square"
-    };
+    var input = (document.getElementById('ipt-search'));
+    var autocomplete = new google.maps.places.Autocomplete(input);
 
-    $('.header-search input').easyAutocomplete(options);
+    autocomplete.addListener('place_changed', function() {
+        var place = autocomplete.getPlace();
+    });
+
+    // var options = {
+    //   url: $('.header-search').data('href'),
+    //   getValue: "name",
+    //   list: {
+    //     match: {
+    //       enabled: true
+    //     }
+    //   },
+    //   theme: "square"
+    // };
+
+    // $('.header-search input').easyAutocomplete(options);
 };
 /**
  * 9. Show Mobile Search
@@ -200,14 +207,26 @@ allpage_fn.showSearchMB = function () {
     });
 
     // click out
-    if(($(window).width() + w_scroll_window) < 767 ) {
-        $(".header-wrap").bind( "clickoutside", function(event){
-            $('.a_search').removeClass('active');
-            $('.header-search').removeClass('shw');
-            $('.a_search .fa').addClass('fa-search');
-            $('.a_search .fa').removeClass('fa-times');
-        });
-    }
+    // if(($(window).width() + w_scroll_window) < 767 ) {
+    //     $(document).on('click', function (e) {
+    //         if($(e.target).is('.header-search')
+    //             || $(e.target).is('.header-search *')
+    //             || $(e.target).is('.a_search')
+    //             || $(e.target).is('.a_search *')
+    //             || $(e.target).is('.pac-container')
+    //             || $(e.target).is('.pac-container *')) { return; }
+    //         $('.a_search').removeClass('active');
+    //         $('.header-search').removeClass('shw');
+    //         $('.a_search .fa').addClass('fa-search');
+    //         $('.a_search .fa').removeClass('fa-times');
+    //     });
+        // $(".header-wrap").bind( "clickoutside", function(event){
+        //     $('.a_search').removeClass('active');
+        //     $('.header-search').removeClass('shw');
+        //     $('.a_search .fa').addClass('fa-search');
+        //     $('.a_search .fa').removeClass('fa-times');
+        // });
+    //}
 };
 /* ----------------------------------------------- */
 /* ----------------------------------------------- */
