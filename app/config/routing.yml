@@ -2,6 +2,11 @@ app:
     resource: "@AppBundle/Controller/"
     type:     annotation
 
+# for SonataAdmin
+admin_area:
+    resource: "@SonataAdminBundle/Resources/config/routing/sonata_admin.xml"
+    prefix: /admin
+
 # for SonataMedia
 gallery:
     resource: '@SonataMediaBundle/Resources/config/routing/gallery.xml'

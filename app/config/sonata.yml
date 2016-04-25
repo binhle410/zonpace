@@ -2,7 +2,9 @@ sonata_core: ~
 sonata_notification:
     backend: sonata.notification.backend.runtime
     admin:
-        enabled: true
+        enabled: false
+        # change this to false and you will get
+        # An exception has been thrown during the rendering of a template ("Unable to generate a URL for the named route "admin_sonata_notification_message_list" as such route does not exist.") in SonataAdminBundle:Block:block_admin_list.html.twig at line 59
 sonata_block:
     default_contexts: [cms]
     blocks:
@@ -10,6 +12,24 @@ sonata_block:
         # enable the SonataAdminBundle block
         sonata.admin.block.admin_list:
             contexts:   [admin]
+
+        #sonata.admin_doctrine_orm.block.audit:
+        #    contexts:   [admin]
+
+#        sonata.block.service.text:
+#        sonata.block.service.rss:
+
+        # Some specific block from the SonataMediaBundle
+#        sonata.media.block.media:
+#        sonata.media.block.gallery:
+#        sonata.media.block.feature_media:
+
+        # Some block with different templates
+        #acme.demo.block.demo:
+        #    templates:
+        #       - { name: 'Simple', template: 'AcmeDemoBundle:Block:demo_simple.html.twig' }
+        #       - { name: 'Big',    template: 'AcmeDemoBundle:Block:demo_big.html.twig' }
+
 
 sonata_formatter:
     formatters:
