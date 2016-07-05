@@ -32,6 +32,8 @@ class AppKernel extends Kernel
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
             new Application\Sonata\ClassificationBundle\ApplicationSonataClassificationBundle(),
 
+            new FOS\UserBundle\FOSUserBundle(),
+
             new AppBundle\AppBundle(),
 
         ];
