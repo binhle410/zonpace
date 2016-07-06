@@ -1,14 +1,14 @@
 <?php
 // src/AppBundle/Entity/User.php
 
-namespace AppBundle\Entity;
+namespace AppBundle\Entity\Core;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="fos_user")
+ * @ORM\Table(name="core__user")
  */
 class User extends BaseUser
 {
