@@ -36,6 +36,64 @@ class Price
      */
     private $monthlyDiscount;
 
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return float
+     */
+    public function getDaily()
+    {
+        return $this->daily;
+    }
+
+    /**
+     * @param float $daily
+     */
+    public function setDaily($daily)
+    {
+        $this->daily = $daily;
+    }
+
+    /**
+     * @return float
+     */
+    public function getWeeklyDiscount()
+    {
+        return $this->weeklyDiscount;
+    }
+
+    /**
+     * @param float $weeklyDiscount
+     */
+    public function setWeeklyDiscount($weeklyDiscount)
+    {
+        $this->weeklyDiscount = $weeklyDiscount;
+    }
+
+    /**
+     * @return float
+     */
+    public function getMonthlyDiscount()
+    {
+        return $this->monthlyDiscount;
+    }
+
+    /**
+     * @param float $monthlyDiscount
+     */
+    public function setMonthlyDiscount($monthlyDiscount)
+    {
+        $this->monthlyDiscount = $monthlyDiscount;
+    }
+    
+    
+
 
 
 }
