@@ -1,0 +1,4 @@
+app_space:
+    resource: "@AppBundle/Resources/config/routing/space/routing.yml"
+    prefix:   /space
+

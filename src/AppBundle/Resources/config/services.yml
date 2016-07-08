@@ -1,0 +1,32 @@
+imports:
+#    - { resource: "services/accounting/payroll.yml" }
+
+
+services:
+    #global service
+    app.controller:
+            class: AppBundle\Services\Core\ControllerService
+            calls:
+                 - [setContainer, ["@service_container"]]
+
+    app.pagerfanta.view.default:
+            class: AppBundle\Services\Paging\CustomView
+            public: false
+            tags: [{ name: pagerfanta.view, alias: default }]
+    app.pagerfanta.view.ajax:
+            class: AppBundle\Services\Paging\CustomAjaxView
+            public: false
+            tags: [{ name: pagerfanta.view, alias: ajax }]
+
+    app.twig_extension:
+            class: AppBundle\Twig\TwigExtension
+            arguments: ["@service_container"]
+            public: false
+            tags:
+                - { name: twig.extension }
+
+
+
+
+
+

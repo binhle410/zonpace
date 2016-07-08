@@ -41,9 +41,24 @@ class Location
      * @ORM\Column(name="type_space",type="string",nullable=true)
      */
     private $typeSpace;
-//    private $city;
-//    private $state;
-//    private $zipCode;
+
+    /**
+     * @var string
+     * @ORM\Column(name="city",type="string",nullable=true)
+     */
+    private $city;
+
+    /**
+     * @var State
+     * @ORM\ManyToOne(targetEntity="State")
+     */
+    private $state;
+
+    /**
+     * @var string
+     * @ORM\Column(name="zip_code",type="string",nullable=true)
+     */
+    private $zipCode;
 
     /**
      * @var int
@@ -122,6 +137,56 @@ class Location
     {
         $this->squareFeet = $squareFeet;
     }
+
+    /**
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * @param string $city
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+    }
+
+    /**
+     * @return State
+     */
+    public function getState()
+    {
+        return $this->state;
+    }
+
+    /**
+     * @param State $state
+     */
+    public function setState($state)
+    {
+        $this->state = $state;
+    }
+
+    /**
+     * @return string
+     */
+    public function getZipCode()
+    {
+        return $this->zipCode;
+    }
+
+    /**
+     * @param string $zipCode
+     */
+    public function setZipCode($zipCode)
+    {
+        $this->zipCode = $zipCode;
+    }
+
+    
     
     
     

@@ -1,0 +1,3 @@
+app_space_create:
+    path: /create/step-{step}/{id}
+    defaults: { _controller: AppBundle:Space/Mgmt/SpaceManipulation:step, id: 0 }
