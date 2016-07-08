@@ -1,0 +1,37 @@
+{% extends 'AppBundle::layout.html.twig' %}
+{% form_theme form 'AppBundle:form:fields.html.twig' %}
+{% block content %}
+    <div class="breadcrumb-container">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li><i class="fa fa-home pr-10"></i><a href="index.html">Home</a></li>
+                <li class="active">Forms</li>
+            </ol>
+        </div>
+    </div>
+
+    <section class="main-container">
+
+        <div class="container">
+            <div class="row">
+                <div class="main col-md-6">
+                    <ul class="nav nav-pills" role="tablist">
+                        <li class="active"><a href="#pill-pr-1" role="tab" data-toggle="tab" title="Step 1" aria-expanded="false"><i class="fa fa-dot-circle-o pr-5"></i><strong>Location</strong></a></li>
+                        <li class=""><a href="#pill-pr-2" role="tab" data-toggle="tab" title="Step 2" aria-expanded="false"><i class="fa fa-dot-circle-o pr-5"></i> Space Detail</a></li>
+                        <li class=""><a href="#pill-pr-3" role="tab" data-toggle="tab" title="Step 3" aria-expanded="true"><i class="fa fa-dot-circle-o pr-5"></i> Review Your Space</a></li>
+                        <li class=""><a href="#pill-pr-3" role="tab" data-toggle="tab" title="Step 3" aria-expanded="true"><i class="fa fa-dot-circle-o pr-5"></i> Activate</a></li>
+                    </ul>
+                    <h3><strong>Location</strong></h3>
+                    <form role="form" method="post">
+                        {{ form_row(form._token) }}
+                        {{ form_widget(form.location) }}
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

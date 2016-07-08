@@ -37,7 +37,7 @@ class Space
     private $createdAt;
     /**
      * @var string
-     * @ORM\Column(name="name", type="string")
+     * @ORM\Column(name="name", type="string",nullable=true)
      */
     private $name;
 
@@ -63,6 +63,12 @@ class Space
      * @ORM\ManyToOne(targetEntity="Price",cascade={"persist","remove"})
      */
     private $price;
+
+    /**
+     * @var Country
+     * @ORM\ManyToOne(targetEntity="Country",cascade={"persist","remove"})
+     */
+    private $country;
 
     /**
      * @var DateBooking
@@ -251,6 +257,23 @@ class Space
     {
         $this->user = $user;
     }
+
+    /**
+     * @return Country
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * @param Country $country
+     */
+    public function setCountry($country)
+    {
+        $this->country = $country;
+    }
+    
     
 
 

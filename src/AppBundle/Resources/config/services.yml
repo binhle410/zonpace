@@ -25,6 +25,20 @@ services:
             tags:
                 - { name: twig.extension }
 
+    #form
+    app.form.type.location:
+            class: AppBundle\Form\LocationType
+            arguments:
+                - '@service_container'
+            tags:
+                - { name: form.type }
+    app.form.type.location:
+            class: AppBundle\Form\PriceType
+            arguments:
+                - '@service_container'
+            tags:
+                - { name: form.type }
+
 
 
 
