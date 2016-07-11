@@ -4,6 +4,7 @@ namespace AppBundle\Form;
 use AppBundle\Entity\Space\Location;
 use AppBundle\Entity\Space\State;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -24,7 +25,8 @@ class SpaceType extends AbstractType
             ->add('name', TextType::class)
             ->add('description', TextareaType::class)
             ->add('location', LocationType::class)
-            ->add('price', PriceType::class);
+            ->add('price', PriceType::class)
+            ->add('shape', HiddenType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver)

@@ -25,6 +25,7 @@
                     <form role="form" method="post">
                         {{ form_row(form._token) }}
                         {{ form_widget(form.location) }}
+                        {{ form_widget(form.shape) }}
                         <button type="submit" class="btn btn-default">Submit</button>
                     </form>
 
@@ -33,18 +34,18 @@
                 <div class="col-md-6">
                     <div class="map" id="map_in"></div>
                     <div style="text-align:center">
-                        <a href="http://jsfiddle.net/doktormolle/EdZk4/">[source]</a><input id="clear_shapes" value="clear shapes"
-                                                                                            type="button"/>
-                        <input id="save_encoded" value="save encoded(IO.IN(shapes,true))" type="button"/>
-                        <input id="save_raw" value="save raw(IO.IN(shapes,false))" type="button"/>
-                        <input id="data" value="" style="width:100%" readonly/>
-                        <input id="restore" value="restore(IO.OUT(array,map))" type="button"/>
+                        <input id="clear_shapes" class="btn btn-default" value="clear" type="button"/>
+                        <input id="save" class="btn btn-primary" value="Save" type="button"/>
                     </div>
-                    <div class="map" id="map_out"></div>
                 </div>
 
             </div>
         </div>
     </section>
+
+    <style>
+
+    </style>
+
 
 {% endblock %}
