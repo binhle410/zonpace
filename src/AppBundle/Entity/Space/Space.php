@@ -115,6 +115,30 @@ class Space
     }
 
     /**
+     * @var string
+     * @ORM\Column(name="shape",type="string",nullable=true)
+     */
+    private $shape;
+
+    /**
+     * @return string
+     */
+    public function getShape()
+    {
+        return $this->shape;
+    }
+
+    /**
+     * @param string $shape
+     */
+    public function setShape($shape)
+    {
+        $this->shape = $shape;
+    }
+
+
+
+    /**
      * @return int
      */
     public function getId()
