@@ -1,5 +1,5 @@
 {% extends 'AppBundle::layout.html.twig' %}
-{% form_theme form 'AppBundle:form:fields.html.twig' %}
+{% form_theme form 'AppBundle:form:space_fields_step2.html.twig' %}
 {% block content %}
     <div class="breadcrumb-container">
         <div class="container">
@@ -10,7 +10,7 @@
         </div>
     </div>
 
-    <section class="main-container">
+    <section class="main-container" data-space-create-step2="">
 
         <div class="container">
             <div class="row">
@@ -24,6 +24,8 @@
                     <h3>Space Detail</h3>
                     <form role="form" method="post">
                         {{ form_row(form._token) }}
+
+                        <!--info------------------------------------------------------------------------------------------>
                         <div class="form-group">
                             <label class="control-label">Name of Space</label>
                             {{ form_widget(form.name,{'attr':{'class':'form-control','placeholder':'Name of Space'}}) }}
@@ -33,52 +35,65 @@
                             {{ form_widget(form.description,{'attr':{'class':'form-control','placeholder':'Example: Apt, Suite, Bldg, etc'}}) }}
                         </div>
 
+                        <!--file------------------------------------------------------------------------------------------>
+                        <hr class="divider">
                         <div class="form-group">
                             <label for="exampleInputFile">File input</label>
                             <input type="file" id="exampleInputFile">
                         </div>
 
+                        <!--price------------------------------------------------------------------------------------------>
                         <hr class="divider">
                         {{ form_widget(form.price) }}
-                        <hr class="divider">
-                        <div class="form-group">
-                            <label for="exampleInputFile">Feature</label>
 
-                            <div class="form-group">
-                                <label for="exampleInputFile">Cate</label>
-                                <div class="row checkbox">
-                                    <div class="col-md-4">
-                                        <label>
-                                            <input type="checkbox" value="">
-                                            aaaaa
-                                        </label>
+                        <!--feature------------------------------------------------------------------------------------------>
+                        <hr class="divider">
+                        {{ form_widget(form.features) }}
+
+                        <!--callendar------------------------------------------------------------------------------------------>
+                        <hr class="divider">
+                        {{ form_widget(form.dateBooking) }}
+
+                        <div id="mini-clndr">
+
+                        </div>
+                        <script id="mini-clndr-template" type="text/template">
+
+                            <div class="controls">
+                                <div class="clndr-previous-button">&lsaquo;</div><div class="month"><%= month %></div><div class="clndr-next-button">&rsaquo;</div>
+                            </div>
+
+                            <div class="days-container">
+                                <div class="days">
+                                    <div class="headers">
+                                        <% _.each(daysOfTheWeek, function(day) { %><div class="day-header"><%= day %></div><% }); %>
+                                    </div>
+                                    <% _.each(days, function(day) { %><div class="<%= day.classes %>" id="<%= day.id %>"><%= day.day %></div><% }); %>
+                                </div>
+                                <div class="events">
+                                    <div class="headers">
+                                        <div class="x-button">x</div>
+                                        <div class="event-header">EVENTS</div>
+                                    </div>
+                                    <div class="events-list">
+                                        <% _.each(eventsThisMonth, function(event) { %>
+                                        <div class="event">
+                                            <a href="<%= event.url %>"><%= moment(event.date).format('MMMM Do') %>: <%= event.title %></a>
+                                        </div>
+                                        <% }); %>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <hr class="divider">
+                        </script>
+
+                        <!--button------------------------------------------------------------------------------------------>
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="control-label" for="inputError1">Available from</label>
-                                    <input type="text" class="form-control" id="inputWarning2">
-                                </div>
+                                <button type="button" onclick="window.location.href='{{ path('app_space_create',{'step':1,'space':space.id}) }}'" class="btn btn-default">Back</button>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="control-label" for="inputWarning2">Available to</label>
-                                    <input type="text" class="form-control" id="inputWarning2">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-
-                            <div class="col-md-6">
-                                <button type="submit" class="btn btn-default">Next</button>
-                            </div>
-                            <div class="col-md-6">
-                                <button type="submit" class="btn btn-default pull-right">Back</button>
+                                <button type="submit" class="btn btn-default pull-right">Next</button>
                             </div>
                         </div>
 

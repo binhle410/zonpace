@@ -58,45 +58,4 @@
     {% endspaceless %}
 {% endblock %}
 
-{% block app_space_price_widget %}
-    {% spaceless %}
-        <div class="form-group">
-            <label for="exampleInputFile">Price</label>
-            <div class="row checkbox">
-                <div class="col-md-3">
-                    <label>
-                        <input type="checkbox" value="">
-                        Daily
-                    </label>
-                </div>
-                <div class="col-md-6">
-                    {{ form_widget(form.daily,{'attr':{'class':'form-control','placeholder':'Price / Day'}}) }}
-                </div>
-            </div>
-            <div class="row checkbox">
-                <div class="col-md-3">
-                    <label>
-                        <input type="checkbox" value="">
-                        Weekly Discount
-                    </label>
-                </div>
-                <div class="col-md-6">
-                    {{ form_widget(form.weeklyDiscount,{'attr':{'class':'form-control','placeholder':'% Discount'}}) }}
-                </div>
-            </div>
-            <div class="row checkbox">
-                <div class="col-md-3">
-                    <label>
-                        <input type="checkbox" value="">
-                        Monthly Discount
-                    </label>
-                </div>
-                <div class="col-md-6">
-                    {{ form_widget(form.monthlyDiscount,{'attr':{'class':'form-control','placeholder':'% Discount'}}) }}
-                </div>
-            </div>
 
-        </div>
-
-    {% endspaceless %}
-{% endblock %}

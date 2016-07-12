@@ -28,6 +28,9 @@ class Space
     {
         $this->features = new ArrayCollection();
         $this->createdAt = new \DateTime();
+        $this->location = new Location();
+        $this->price = new Price();
+        $this->dateBooking = new DateBooking();
     }
 
     /**
