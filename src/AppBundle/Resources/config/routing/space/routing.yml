@@ -1,3 +1,7 @@
 app_space_create:
     path: /create/step-{step}/{space}
     defaults: { _controller: AppBundle:Space/Mgmt/SpaceManipulation:step,space: 0}
+
+app_space_upload_image:
+    path: /upload-image/{space}
+    defaults: { _controller: AppBundle:Space/Api/SpaceApi:spaceImage}

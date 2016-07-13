@@ -22,7 +22,7 @@
                         <li class=""><a href="#pill-pr-3" role="tab" data-toggle="tab" title="Step 3" aria-expanded="true"><i class="fa fa-dot-circle-o pr-5"></i> Activate</a></li>
                     </ul>
                     <h3>Space Detail</h3>
-                    <form role="form" method="post">
+                    <form role="form" id="form-space" method="post" enctype="multipart/form-data">
                         {{ form_row(form._token) }}
 
                         <!--info------------------------------------------------------------------------------------------>
@@ -38,8 +38,25 @@
                         <!--file------------------------------------------------------------------------------------------>
                         <hr class="divider">
                         <div class="form-group">
-                            <label for="exampleInputFile">File input</label>
-                            <input type="file" id="exampleInputFile">
+                            <label for="space-image">Photos</label>
+                            <input type="file" id="space-image" name="app_space_upload[image][binaryContent]" data-href="{{ path('app_space_upload_image',{'space':space.id}) }}"/>
+                        </div>
+                        <div class="row wrap-img-space">
+                            <div class="col-md-4" style="margin-top: 2px">
+                                <img src="{{ asset('bundles/app/images/blog-1.jpg') }}">
+                            </div>
+                            <div class="col-md-4" style="margin-top: 2px">
+                                <img src="{{ asset('bundles/app/images/blog-1.jpg') }}">
+                            </div>
+                            <div class="col-md-4" style="margin-top: 2px">
+                                <img src="{{ asset('bundles/app/images/blog-1.jpg') }}">
+                            </div>
+                            <div class="col-md-4" style="margin-top: 2px">
+                                <img src="{{ asset('bundles/app/images/blog-1.jpg') }}">
+                            </div>
+                            <div class="col-md-4" style="margin-top: 2px">
+                                <img src="{{ asset('bundles/app/images/blog-1.jpg') }}">
+                            </div>
                         </div>
 
                         <!--price------------------------------------------------------------------------------------------>
@@ -87,19 +104,25 @@
 
                         </script>
 
+                        <!--load shape------------------------------------------------>
+                        {{ form_widget(form.shape) }}
+
                         <!--button------------------------------------------------------------------------------------------>
                         <div class="row">
                             <div class="col-md-6">
-                                <button type="button" onclick="window.location.href='{{ path('app_space_create',{'step':1,'space':space.id}) }}'" class="btn btn-default">Back</button>
+                                <button type="submit" class="btn btn-default">Next</button>
                             </div>
-                            <div class="col-md-6">
-                                <button type="submit" class="btn btn-default pull-right">Next</button>
+                            <div class="col-md-6 back-link">
+                                <a href='{{ path('app_space_create',{'step':1,'space':space.id}) }}' class="pull-right">Back to Location</a>
                             </div>
                         </div>
 
 
                     </form>
 
+                </div>
+                <div class="col-md-6">
+                    <div class="map" id="map_in"></div>
                 </div>
 
             </div>

@@ -31,6 +31,12 @@ class Space
         $this->location = new Location();
         $this->price = new Price();
         $this->dateBooking = new DateBooking();
+        $gallery = new Gallery();
+        $gallery->setName('gallery_space');
+        $gallery->setContext('default');
+        $gallery->setDefaultFormat('default');
+        $gallery->setEnabled(1);
+        $this->photo = $gallery;
     }
 
     /**
