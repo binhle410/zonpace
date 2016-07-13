@@ -35,6 +35,15 @@ class UploadType extends AbstractType
                 'required'=> true
             ));
     }
+    /**
+     * {@inheritdoc}
+     */
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults(array(
+            'csrf_protection' => false
+        ));
+    }
 
 
     /**
