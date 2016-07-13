@@ -1,5 +1,12 @@
 jQuery(function () {
 
+    (function ($, window, document, undefined) {
+
+        $(".datepicker").datepicker({autoclose: true});
+
+
+    })(jQuery, window, document);
+
     /**
      *  @name  Job Type
      *  @description Map
@@ -12,7 +19,7 @@ jQuery(function () {
      *    init
      */
     (function ($, window, document, undefined) {
-        var pluginName = "space-create";
+        var pluginName = "space-create-step1";
         var map
         // The actual plugin constructor
         function Plugin(element, options) {
@@ -332,4 +339,205 @@ jQuery(function () {
         });
 
     })(jQuery, window, document);
+
+    /**
+     *  @name  Job Type
+     *  @description Map
+     *  @version 1.0
+     *  @options
+     *    option
+     *  @events
+     *    event
+     *  @methods
+     *    init
+     */
+    (function ($, window, document, undefined) {
+        var pluginName = "space-create-step2";
+        var map
+        // The actual plugin constructor
+        function Plugin(element, options) {
+            this.element = element;
+            this.options = $.extend({}, $.fn[pluginName].defaults, options);
+            this.calendar;
+            this.init();
+        }
+
+        Plugin.prototype = {
+            init: function () {
+                var that = this;
+                that.loadCalendar();
+                $('#app_space_space_dateBooking_dateFrom').change(function () {
+                    that.loadCalendar();
+                });
+                $('#app_space_space_dateBooking_dateTo').change(function () {
+                    that.loadCalendar();
+                });
+
+                that.checkPrice();
+            },
+            loadCalendar: function () {
+                var that = this;
+                var startDate = '2000-01-01';
+                var endDate = '2100-01-01';
+                if ($('#app_space_space_dateBooking_dateFrom').val() != '') {
+                    var startDateRaw = $('#app_space_space_dateBooking_dateFrom').val();
+                    startDateRaw = startDateRaw.split('/');
+                    startDate = startDateRaw[2] + '-' + startDateRaw[0] + '-' + startDateRaw[1];
+                }
+                if ($('#app_space_space_dateBooking_dateTo').val() != '') {
+                    var endDateRaw = $('#app_space_space_dateBooking_dateTo').val();
+                    endDateRaw = endDateRaw.split('/');
+                    endDate = endDateRaw[2] + '-' + endDateRaw[0] + '-' + endDateRaw[1];
+                }
+                if (that.calendar != undefined) {
+                    that.calendar.destroy();
+                }
+                that.initCalendar(startDate, endDate);
+            },
+            initCalendar: function (startDate, endDate) {
+                var that = this;
+                that.calendar = $('#mini-clndr').clndr({
+                    template: $('#mini-clndr-template').html(),
+                    // events: events,
+                    clickEvents: {
+                        click: function (target) {
+                            if($('#app_space_space_dateBooking_dateFrom').val() != '' && $('#app_space_space_dateBooking_dateTo').val() != '') {
+                                if ($(target.element).hasClass('inactive') === false) {
+                                    if ($(target.element).hasClass('inactive-by-hand')) {
+                                        $(target.element).removeClass('inactive-by-hand');
+                                        var blockedDate = $(target.element).attr('id');
+                                        that.updateBlockedDate(blockedDate, false);
+                                    } else {
+                                        $(target.element).addClass('inactive-by-hand');
+                                        var blockedDate = $(target.element).attr('id');
+                                        that.updateBlockedDate(blockedDate, true);
+                                    }
+                                }
+                            }
+                        },
+                        onMonthChange: function (month) {
+                            that.loadBlockedDate();
+                        },
+                        onYearChange: function (month) {
+                            that.loadBlockedDate();
+                        },
+                    },
+
+                    adjacentDaysChangeMonth: true,
+                    forceSixRows: true,
+                    constraints: {
+                        startDate: startDate,
+                        endDate: endDate
+                    },
+                });
+                that.loadBlockedDate();
+
+            },
+            updateBlockedDate: function(date,add){
+                var dateArr = date.split('-');
+                var year = dateArr[0];
+                var month = dateArr[1];
+                var blockedDateJson = $('#app_space_space_dateBooking_blockedDateBookings').val();
+                var blockedDateJsonParsed = JSON.parse(blockedDateJson.trim());
+                if(add){
+                    if(blockedDateJsonParsed[year] == undefined){
+                        blockedDateJsonParsed[year]={};
+                    }
+                    if(blockedDateJsonParsed[year][month] == undefined){
+                        blockedDateJsonParsed[year][month]={};
+                    }
+                    blockedDateJsonParsed[year][month][date]=date;
+                }else{
+                    delete blockedDateJsonParsed[year][month][date];
+                }
+                var stringJson = JSON.stringify(blockedDateJsonParsed);
+                $('#app_space_space_dateBooking_blockedDateBookings').val(stringJson);
+            },
+            loadBlockedDate: function () {
+                var blockedDateJson = $('#app_space_space_dateBooking_blockedDateBookings').val();
+                var blockedDateJsonParsed = JSON.parse(blockedDateJson);
+
+                var blockedDateArr = [];
+
+                $.each(blockedDateJsonParsed, function (index, year) {
+                    $.each(year, function (index, month) {
+                        $.each(month, function (index, date) {
+                            blockedDateArr.push(date);
+                        });
+                    });
+                });
+                if (blockedDateArr.length) {
+                    for (var i = 0; i < blockedDateArr.length; i++) {
+                        $('.calendar-day-' + blockedDateArr[i]).addClass('inactive-by-hand');
+                    }
+                }
+            },
+            checkPrice: function(){
+                var dailySel = $('#app_space_space_price_daily');
+                var weeklySel = $('#app_space_space_price_weeklyDiscount');
+                var monthlySel = $('#app_space_space_price_monthlyDiscount');
+                if(dailySel.val() != ''){
+                    dailySel.parents('div.checkbox').find(':checkbox').attr('checked',true);
+                }else{
+                    dailySel.attr('disabled',true);
+                    dailySel.parents('div.checkbox').find(':checkbox').attr('checked',false);
+                }
+                if(weeklySel.val() != ''){
+                    weeklySel.parents('div.checkbox').find(':checkbox').attr('checked',true);
+                }else{
+                    weeklySel.attr('disabled',true);
+                    weeklySel.parents('div.checkbox').find(':checkbox').attr('checked',false);
+                }
+                if(monthlySel.val() != ''){
+                    monthlySel.parents('div.checkbox').find(':checkbox').attr('checked',true);
+                }else{
+                    monthlySel.attr('disabled',true);
+                    monthlySel.parents('div.checkbox').find(':checkbox').attr('checked',false);
+                }
+
+                $('.price-daily').click(function(){
+                    if($(this).is(':checked')){
+                        dailySel.attr('disabled',false);
+                    }else{
+                        dailySel.val('');
+                        dailySel.attr('disabled',true);
+                    }
+                });
+                $('.price-weekly').click(function(){
+                    if($(this).is(':checked')){
+                        weeklySel.attr('disabled',false);
+                    }else{
+                        weeklySel.val('');
+                        weeklySel.attr('disabled',true);
+                    }
+                });
+                $('.price-monthly').click(function(){
+                    if($(this).is(':checked')){
+                        monthlySel.attr('disabled',false);
+                    }else{
+                        monthlySel.val('');
+                        monthlySel.attr('disabled',true);
+                    }
+                });
+            }
+        }
+
+        $.fn[pluginName] = function (options) {
+            return this.each(function () {
+                if (!$.data(this, pluginName)) {
+                    $.data(this, pluginName,
+                        new Plugin(this, options));
+                }
+            });
+        };
+        $.fn[pluginName].defaults = {
+            propertyName: 1
+        };
+        $(function () {
+            $('[data-' + pluginName + ']')[pluginName]();
+        });
+
+    })(jQuery, window, document);
+
+
 });
