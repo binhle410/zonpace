@@ -11,7 +11,7 @@ class Step2 extends Step
 
     public function process()
     {
-        $form = $this->createForm(SpaceType::class,$this->space);
+        $form = $this->createForm(SpaceType::class,$this->space,['dateBooking'=>$this->space->getDateBooking()]);
         $form->handleRequest($this->getRequest());
         if($form->isSubmitted() && $form->isValid()){
             $entityManager = $this->getDoctrine()->getManager();

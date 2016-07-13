@@ -1,20 +1,21 @@
 <?php
 namespace AppBundle\Form\Transformer;
 
+use AppBundle\Entity\Space\BlockedDateBooking;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Form\DataTransformerInterface;
 use Symfony\Component\Form\Exception\TransformationFailedException;
-use AppBundle\Entity\Accounting\Payroll\Salary;
-use AppBundle\Entity\Core\Classification\Tag;
 
 class DateTransformer implements DataTransformerInterface
 {
     private $manager;
+    private $dateBooking;
 
-    public function __construct(ObjectManager $manager)
+    public function __construct(ObjectManager $manager, $dateBooking)
     {
         $this->manager = $manager;
+        $this->dateBooking = $dateBooking;
     }
 
     /**
@@ -26,10 +27,13 @@ class DateTransformer implements DataTransformerInterface
     public function transform($data)
     {
         $arr = [];
-        foreach ($data as $item){
-            $arr[]= $item->getBlockedDate()->format('Y-m-d');
+        foreach ($data as $item) {
+            $date = $item->getBlockedDate()->format('Y-m-d');
+            $arr[$item->getBlockedDate()->format('Y')][$item->getBlockedDate()->format('m')][$date] = $date;
         }
-        return implode(',',$arr);
+        //for pass to client {} instead []
+        $arr = count($arr) == 0 ? new \stdClass() : $arr;
+        return json_encode($arr);
     }
 
     /**
@@ -41,24 +45,30 @@ class DateTransformer implements DataTransformerInterface
      */
     public function reverseTransform($data)
     {
-        // no issue number? It's optional, so that's ok
-        if (!$data) {
+
+        $data = json_decode($data, true);
+        if($data == null){
             return;
         }
-        $arrTagName = explode(',',$data);
-        $collectionTag = new ArrayCollection();
-        foreach ($arrTagName as $tagName){
-            $tag = $this->manager->getRepository('AppBundle:Core\Classification\Tag')->findOneByName($tagName);
-            if(!$tag){
-                $tag = new Tag();
-                $tag->setName($tagName);
-                $tag->setEnabled(true);
-                $tag->setCreatedAt(new \DateTime());
-                $tag->setUpdatedAt(new \DateTime());
+        $listBlockedDate = [];
+        foreach ($data as $year) {
+            foreach ($year as $month) {
+                foreach ($month as $date) {
+                    $listBlockedDate[] = $date;
+                }
             }
-            $collectionTag->add($tag);
         }
+        $collection = new ArrayCollection();
+        foreach ($listBlockedDate as $date) {
+            $blockedDateBooking = new BlockedDateBooking();
+            $blockedDateBooking->setBlockedDate(new \DateTime($date));
+            $blockedDateBooking->setDateBooking($this->dateBooking);
+            $this->manager->persist($blockedDateBooking);
+//            $collection->add($blockedDateBooking);
+        }
+        $this->manager->flush();
 
-        return $collectionTag;
+
+        return $collection;
     }
 }

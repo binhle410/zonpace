@@ -32,7 +32,7 @@ class SpaceType extends AbstractType
             ->add('location', LocationType::class)
             ->add('price', PriceType::class)
             ->add('shape', HiddenType::class)
-            ->add('dateBooking', DateBookingType::class)
+            ->add('dateBooking', DateBookingType::class,['dateBooking'=>$options['dateBooking']])
             ->add('features', EntityType::class, array(
                 'class' => 'AppBundle\Entity\Space\Feature',
                 'choice_label' => 'name',
@@ -47,7 +47,8 @@ class SpaceType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Space\Space'
+            'data_class' => 'AppBundle\Entity\Space\Space',
+            'dateBooking'=>null
         ));
     }
 

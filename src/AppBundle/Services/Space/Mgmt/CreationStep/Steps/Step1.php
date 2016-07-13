@@ -14,7 +14,7 @@ class Step1 extends Step
         $form->handleRequest($this->getRequest());
         if($form->isSubmitted() && $form->isValid()){
             $entityManager = $this->getDoctrine()->getManager();
-            $this->space->setUser($this->getUser());
+            $this->space->setUser($this->getUser());    
             $entityManager->persist($this->space);
             $entityManager->flush();
             return $this->redirectToRoute('app_space_create',['space' => $this->space->getId(),'step' => 2]);

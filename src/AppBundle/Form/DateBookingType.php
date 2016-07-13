@@ -34,13 +34,14 @@ class DateBookingType extends AbstractType
             ->add('dateFrom', DateType::class, ['format' => 'MM/dd/yyyy', 'widget' => 'single_text'])
             ->add('dateTo', DateType::class, ['format' => 'MM/dd/yyyy', 'widget' => 'single_text'])
             ->add('blockedDateBookings',HiddenType::class);
-        $builder->get('blockedDateBookings')->addModelTransformer(new DateTransformer($this->container->get('doctrine')->getManager()));
+        $builder->get('blockedDateBookings')->addModelTransformer(new DateTransformer($this->container->get('doctrine')->getManager(),$options['dateBooking']));
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Space\DateBooking'
+            'data_class' => 'AppBundle\Entity\Space\DateBooking',
+            'dateBooking'=>null
         ));
     }
 
