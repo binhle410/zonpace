@@ -134,15 +134,24 @@ sonata_media:
             formats:
                 small: { width: 100 , quality: 70}
                 big:   { width: 500 , quality: 70}
+                medium:   { width: 165 , quality: 70}
 
     cdn:
         server:
-            path: /uploads/media # http://media.sonata-project.org/
+#            path: /uploads/media # http://media.sonata-project.org/
+            path: http://%s3_region%/%s3_bucket_name% # this one is working
 
     filesystem:
         local:
             directory:  %kernel.root_dir%/../web/uploads/media
             create:     false
+        s3:
+            bucket: %s3_bucket_name%
+            accessKey: %s3_access_key%
+            secretKey: %s3_secret_key%
+            region: %s3_region%
+            directory: %s3_directory%
+
     providers:
         image:
             resizer: sonata.media.resizer.square

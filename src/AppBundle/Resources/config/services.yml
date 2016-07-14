@@ -25,6 +25,11 @@ services:
             tags:
                 - { name: twig.extension }
 
+    app.media.retriever:
+        class: AppBundle\Services\Core\MediaRetriever
+        calls:
+            - [setContainer,["@service_container"]]
+
     #form
     app.form.type.space:
             class: AppBundle\Form\SpaceType

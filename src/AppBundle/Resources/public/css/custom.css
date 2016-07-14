@@ -410,3 +410,9 @@
 }#mini-clndr .inactive-by-hand{
      background: grey;
  }
+.back-link{
+    line-height:55px;
+}
+.back-link a{
+    line-height:55px;
+}

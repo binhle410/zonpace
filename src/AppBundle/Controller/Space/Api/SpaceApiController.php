@@ -34,6 +34,8 @@ class SpaceApiController extends ControllerService
             $em->persist($galleryMedia);
             $em->flush();
 
+            $url = $this->get('app.media.retriever')->getPublicURL($media);
+
 //            $form = $this->createForm(UploadType::class);
 //            $form->handleRequest($request);
 //            if ($form->isValid()) {
@@ -42,9 +44,7 @@ class SpaceApiController extends ControllerService
 //                $em->persist($media);
 //                $em->flush();
 //            }
-            return new JsonResponse(array(
-                'name' => $media->getName(),
-            ));
+            return new JsonResponse(['status'=>true,'url'=>$url]);
         }
     }
 
