@@ -22,7 +22,7 @@ class SpaceApiController extends ControllerService
             $media = new Media;
             $media->setBinaryContent($file);
             $media->setContext('default'); // video related to the user
-            $media->setProviderName('sonata.media.provider.file');
+            $media->setProviderName('sonata.media.provider.image');
             $mediaManager->save($media);
 
             $gallery = $space->getPhoto();

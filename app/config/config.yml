@@ -136,11 +136,6 @@ sonata_media:
                 big:   { width: 500 , quality: 70}
                 medium:   { width: 165 , quality: 70}
 
-    cdn:
-        server:
-#            path: /uploads/media # http://media.sonata-project.org/
-            path: http://%s3_region%/%s3_bucket_name% # this one is working
-
     filesystem:
         local:
             directory:  %kernel.root_dir%/../web/uploads/media
@@ -155,17 +150,20 @@ sonata_media:
     providers:
         image:
             resizer: sonata.media.resizer.square
-#            filesystem: sonata.media.filesystem.s3
-            filesystem: sonata.media.filesystem.local
+            filesystem: sonata.media.filesystem.s3
+#            filesystem: sonata.media.filesystem.local
             allowed_extensions: ['png','jpg']
             allowed_mime_types: ['image/png','image/jpg','image/jpeg']
         file:
             resizer: false
-#            filesystem: sonata.media.filesystem.s3
-            filesystem: sonata.media.filesystem.local
+            filesystem: sonata.media.filesystem.s3
+#            filesystem: sonata.media.filesystem.local
             service:    sonata.media.provider.file
             allowed_extensions: ['pdf', 'txt', 'rtf', 'doc', 'docx', 'xls', 'xlsx', 'ppt', 'pptx', 'odt', 'odg', 'odp', 'ods', 'odc', 'odf', 'odb', 'csv', 'xml','png','jpg']
             allowed_mime_types: ['application/pdf', 'application/x-pdf', 'application/rtf', 'text/html', 'text/rtf', 'text/plain','application/json','image/png','image/jpg','image/jpeg','application/vnd.ms-excel','application/vnd.openxmlformats-officedocument.presentationml.presentation','application/vnd.openxmlformats-officedocument.spreadsheetml.sheet']
+    cdn:
+        server:
+            path: http://%s3_region%/%s3_bucket_name% # this is not run because it use default url
 
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'

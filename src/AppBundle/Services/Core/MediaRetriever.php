@@ -21,11 +21,18 @@ class MediaRetriever extends ControllerService
 
     public function getPublicURL(Media $media)
     {
-        $provider = $this->get('sonata.media.provider.file');
-        $dir = $this->get('sonata.media.adapter.filesystem.s3')->getDirectory();
-        $cdnPath = str_replace('http', 'https', $provider->getCdnPath($dir . '/' . $provider->generatePath($media), true));
-        $fileName = $media->getProviderReference();
-        return $cdnPath . '/' . $fileName;
+        $provider = $this->get('sonata.media.provider.image');
+        $urlNotTrue =  $provider->generatePublicUrl($media,'default_medium');
+        $dir = $this->getParameter('s3_directory');
+        $region = $this->getParameter('s3_region');
+        $host = 'https://s3-'.$region.'.amazonaws.com';
+        $bucket = $this->getParameter('s3_bucket_name');
+
+
+        $arr= explode($bucket,$urlNotTrue);
+        $endUrl =  $arr[1];
+        return $host.'/'.$bucket.'/'.$dir . $endUrl;
+
     }
 
 

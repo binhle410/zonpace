@@ -763,7 +763,7 @@ jQuery(function () {
                         success: function (response) {
                             if(response.status){
                                 var html = '<div class="col-md-4" style="margin-top: 2px"><img src="'+response.url+'"></div>';
-
+                                $('.wrap-img-space').append(html);
                             }
                         }
                     });
