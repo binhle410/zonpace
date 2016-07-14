@@ -4,145 +4,148 @@
 
     <section class="main-container">
 
-    <div class="container">
-        <div class="row">
+        <div class="container">
+            <div class="row">
 
-            <!-- main start -->
-            <!-- ================ -->
-            <div class="main col-md-8 col-lg-offset-1 col-md-push-4 col-lg-push-3">
+                <!-- main start -->
+                <!-- ================ -->
+                <div class="main col-md-8 col-lg-offset-1 col-md-push-4 col-lg-push-3">
 
-                <div class="light-gray-bg section">
-                    <div class="container">
-                        <!-- filters start -->
-                        <div class="sorting-filters text-center mb-20">
-                            <form class="form-inline">
-                                <div class="form-group">
-                                    <label>Type Space</label>
-                                    <select class="form-control">
-                                        <option selected="selected">Smartphones</option>
-                                        <option>Tablets</option>
-                                        <option>Smart Watches</option>
-                                        <option>Desktops</option>
-                                        <option>Software</option>
-                                        <option>Accessories</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label>Status</label>
-                                    <select class="form-control">
-                                        <option selected="selected">Smartphones</option>
-                                        <option>Tablets</option>
-                                        <option>Smart Watches</option>
-                                        <option>Desktops</option>
-                                        <option>Software</option>
-                                        <option>Accessories</option>
-                                    </select>
-                                </div>
-                            </form>
+                    <div class="light-gray-bg section">
+                        <div class="container">
+                            <!-- filters start -->
+                            <div class="sorting-filters text-center mb-20">
+                                <form class="form-inline">
+                                    <div class="form-group">
+                                        <label>Type Space</label>
+                                        <select class="form-control">
+                                            <option selected="selected">Smartphones</option>
+                                            <option>Tablets</option>
+                                            <option>Smart Watches</option>
+                                            <option>Desktops</option>
+                                            <option>Software</option>
+                                            <option>Accessories</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Status</label>
+                                        <select class="form-control">
+                                            <option selected="selected">Smartphones</option>
+                                            <option>Tablets</option>
+                                            <option>Smart Watches</option>
+                                            <option>Desktops</option>
+                                            <option>Software</option>
+                                            <option>Accessories</option>
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- filters end -->
                         </div>
-                        <!-- filters end -->
                     </div>
-                </div>
                     <!-- Tab panes -->
                     <div class="tab-content clear-style">
                         <div class="tab-pane active" id="pill-1">
                             {% for space in  spaces %}
-                            <div class="listing-item mb-20">
-                                <div class="row grid-space-0">
-                                    <div class="col-sm-6 col-md-3">
-                                        <div class="overlay-container">
-                                            <img src="{{ asset('bundles/app/images/product-1.jpg') }}" alt="">
+                                <div class="listing-item mb-20">
+                                    <div class="row grid-space-0">
+                                        <div class="col-sm-6 col-md-3">
+                                            <div class="overlay-container">
+                                                {% if space.spaceImage %}
+                                                    <img src="{{ getUrl(space.spaceImage) }}" alt="">
+                                                {% else %}
+                                                    <img src="{{ asset('bundles/app/images/product-1.jpg') }}" alt="">
+                                                {% endif %}
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-sm-6 col-md-7">
-                                        <div class="body">
-                                            <h3 class="margin-clear"><a href="shop-product.html">{{ space.name }}</a></h3>
-                                            <p>
-                                                <i class="fa fa-star text-default"></i>
-                                                <i class="fa fa-star text-default"></i>
-                                                <i class="fa fa-star text-default"></i>
-                                                <i class="fa fa-star text-default"></i>
-                                                <i class="fa fa-star"></i>
-                                                <a href="#" class="btn-sm-link"><i class="icon-heart pr-5"></i>Add to Wishlist</a>
-                                                <a href="#" class="btn-sm-link"><i class="icon-link pr-5"></i>View Details</a>
-                                            </p>
-                                            <div class="row" style="margin-left: 0px;">
-                                                <div class="col-sm-6"><span class="">Total Views: 11</span></div>
-                                                <div class="col-sm-6"><span class="">Total Reviews:  $150.00</span></div>
-                                            </div>
-                                            <div class="row" style="margin-left: 0px;">
-                                                <div class="col-sm-6"><span class="">Total Booking: $150.00</span></div>
-                                                <div class="col-sm-6"><span class="">Total Gross Earning: $150.00</span></div>
-                                            </div>
+                                        <div class="col-sm-6 col-md-7">
+                                            <div class="body">
+                                                <h3 class="margin-clear"><a
+                                                            href="shop-product.html">{{ space.name }}</a></h3>
+                                                <p>
+                                                    <i class="fa fa-star text-default"></i>
+                                                    <i class="fa fa-star text-default"></i>
+                                                    <i class="fa fa-star text-default"></i>
+                                                    <i class="fa fa-star text-default"></i>
+                                                    <i class="fa fa-star"></i>
+                                                    <a href="#" class="btn-sm-link"><i class="icon-heart pr-5"></i>Add
+                                                        to Wishlist</a>
+                                                    <a href="#" class="btn-sm-link"><i class="icon-link pr-5"></i>View
+                                                        Details</a>
+                                                </p>
+                                                <div class="row" style="margin-left: 0px;">
+                                                    <div class="col-sm-6"><span class="">Total Views: 11</span></div>
+                                                    <div class="col-sm-6"><span class="">Total Reviews:  $150.00</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row" style="margin-left: 0px;">
+                                                    <div class="col-sm-6"><span class="">Total Booking: $150.00</span>
+                                                    </div>
+                                                    <div class="col-sm-6"><span
+                                                                class="">Total Gross Earning: $150.00</span></div>
+                                                </div>
 
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="space-enabled"><strong>Enabled</strong></div>
+                                            <input type="button" value="Review"
+                                                   class="margin-clear btn btn-default btn-custom">
+                                            <input type="button" value="Manage"
+                                                   class="margin-clear btn btn-default btn-custom">
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
-                                        <div class="space-enabled"><strong>Enabled</strong></div>
-                                            <input type="button" value="Review" class="margin-clear btn btn-default btn-custom">
-                                            <input type="button" value="Manage" class="margin-clear btn btn-default btn-custom">
-                                        </div>
                                 </div>
-                            </div>
-                                {%  endfor %}
+                            {% endfor %}
                         </div>
                     </div>
-                        {% if spaces|length %}
-                    <nav class="text-right">
-                        {#<ul class="pagination">#}
-                        {#<li><a href="#" aria-label="Previous"><i class="fa fa-angle-left"></i></a></li>#}
-                        {#<li class="active"><a href="#">1</a></li>#}
-                        {#<li><a href="#">2</a></li>#}
-                        {#<li><a href="#">3</a></li>#}
-                        {#<li><a href="#">4</a></li>#}
-                        {#<li><a href="#">5</a></li>#}
-                        {#<li><a href="#" aria-label="Next"><i class="fa fa-angle-right"></i></a></li>#}
-                        {#</ul>#}
-                                    {{ pagerfanta(spaces) }}
-                    </nav>
-                        {% endif %}
-            </div>
-
-            <!-- sidebar start -->
-            <!-- ================ -->
-            <aside class="col-md-4 col-lg-3 col-md-pull-8 col-lg-pull-9">
-                <div class="sidebar">
-                    <div class="block clearfix">
-                        <h3 class="title">Menu</h3>
-                        <div class="separator-2"></div>
-                        <nav>
-                            <ul class="nav nav-pills nav-stacked">
-                                <li class="active"><a href="index.html">Profile</a></li>
-                                <li><a href="blog-large-image-right-sidebar.html">My Bookings</a></li>
-                                <li><a href="portfolio-grid-2-3-col.html">Wishlist</a></li>
-                                <li><a href="page-about.html">My Reviews</a></li>
-                                <li><a href="page-contact.html">Inbox</a></li>
-                                <li><a href="page-contact.html">Payment Methods</a></li>
-                                <li><a href="page-contact.html">Verifications</a></li>
-                                <li><a href="page-contact.html">Settings</a></li>
-                            </ul>
+                    {% if spaces|length %}
+                        <nav class="text-right">
+                            {{ pagerfanta(spaces) }}
                         </nav>
-                    </div>
-                    <div class="block clearfix">
-                        <h3 class="title">Host</h3>
-                        <div class="separator-2"></div>
-                        <nav>
-                            <ul class="nav nav-pills nav-stacked">
-                                <li class="active"><a href="index.html">Dashboard</a></li>
-                                <li><a href="{{ path('app_space_list') }}">Manage Listings</a></li>
-                                <li><a href="portfolio-grid-2-3-col.html">Manage Bookings</a></li>
-                                <li><a href="page-about.html">Reviews On My Listings</a></li>
-                                <li><a href="page-contact.html">Payment Methods</a></li>
-                                <li><a href="page-contact.html">Transaction History</a></li>
-                            </ul>
-                        </nav>
-                    </div>
+                    {% endif %}
                 </div>
-            </aside>
-            <!-- sidebar end -->
 
+                <!-- sidebar start -->
+                <!-- ================ -->
+                <aside class="col-md-4 col-lg-3 col-md-pull-8 col-lg-pull-9">
+                    <div class="sidebar">
+                        <div class="block clearfix">
+                            <h3 class="title">Menu</h3>
+                            <div class="separator-2"></div>
+                            <nav>
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li class="active"><a href="index.html">Profile</a></li>
+                                    <li><a href="blog-large-image-right-sidebar.html">My Bookings</a></li>
+                                    <li><a href="portfolio-grid-2-3-col.html">Wishlist</a></li>
+                                    <li><a href="page-about.html">My Reviews</a></li>
+                                    <li><a href="page-contact.html">Inbox</a></li>
+                                    <li><a href="page-contact.html">Payment Methods</a></li>
+                                    <li><a href="page-contact.html">Verifications</a></li>
+                                    <li><a href="page-contact.html">Settings</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="block clearfix">
+                            <h3 class="title">Host</h3>
+                            <div class="separator-2"></div>
+                            <nav>
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li class="active"><a href="index.html">Dashboard</a></li>
+                                    <li><a href="{{ path('app_space_list') }}">Manage Listings</a></li>
+                                    <li><a href="portfolio-grid-2-3-col.html">Manage Bookings</a></li>
+                                    <li><a href="page-about.html">Reviews On My Listings</a></li>
+                                    <li><a href="page-contact.html">Payment Methods</a></li>
+                                    <li><a href="page-contact.html">Transaction History</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </aside>
+                <!-- sidebar end -->
+
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
 {% endblock %}

@@ -32,6 +32,15 @@ jQuery(function () {
             init: function () {
 
             },
+            takeImage :function() {
+                $('#map_in').html2canvas({
+                    onrendered: function (canvas) {
+                        $('#app_space_space_spaceImageTmp').val(canvas.toDataURL("image/png"));
+                        // $('.img_val').attr('src',canvas.toDataURL("image/png"));
+                        // document.getElementById("myForm").submit();
+                    }
+                });
+            },
             searchPlace: function (map) {
                 var that = this;
                 // Create the search box and link it to the UI element.
@@ -163,6 +172,7 @@ jQuery(function () {
                     goo.event.addDomListener(byId('save'), 'click', function () {
                         var data = IO.IN(shapes, false);
                         byId('app_space_space_shape').value = JSON.stringify(data);
+                        that.takeImage();
                     });
                     if (byId('app_space_space_shape').value != '') {
                         shapes = IO.OUT(JSON.parse(byId('app_space_space_shape').value), map_in);
