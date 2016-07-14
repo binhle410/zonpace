@@ -417,3 +417,20 @@
      text-decoration: underline;
     color: darkgrey;
  }
+@media (min-width: 768px)
+{
+    .navbar-nav {
+        float: right !important;
+    }
+    .with-dropdown-buttons .navbar-default .navbar-collapse {
+         padding-right: 0px !important;
+    }
+    #map_in{
+        margin-top: 130px;
+    }
+}
+.logo-space{
+    color: red !important;
+    font-weight: bold;
+    font-size: 35px;
+}
