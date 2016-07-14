@@ -119,17 +119,17 @@
 #mini-clndr {
     font-family: Asap, Helvetica, Arial;
     margin: 0 auto;
-    width: 294px;
+    width: 315px;
     /*-moz-box-shadow: 4px 4px 0 #343434;*/
     /*-webkit-box-shadow: 4px 4px 0 #343434;*/
     /*box-shadow: 4px 4px 0 #343434;*/
 }
 #mini-clndr .clndr {
     overflow: hidden;
-    border-bottom: 7px solid #fba7a7;
+    /*border-bottom: 7px solid #69a776;*/
 }
 #mini-clndr .clndr .controls {
-    background-color: #ec0c17;
+    background-color: #69a776;
     color: white;
 }
 #mini-clndr .clndr .controls .clndr-previous-button,
@@ -160,7 +160,7 @@
     background-color: #528b5e;
 }
 #mini-clndr .clndr .controls .month {
-    width: 70%;
+    width: 67%;
     padding-top: 5px;
     padding-bottom: 5px;
     display: inline-block;
@@ -171,15 +171,15 @@
 }
 #mini-clndr .clndr .days-container {
     position: relative;
-    width: 294px;
-    height: 225px;
+    width: 315px;
+    height: 230px;
     display: inline-block;
 }
 #mini-clndr .clndr .days-container .days {
     position: absolute;
     left: 0;
-    width: 294px;
-    height: 230px;
+    width: 320px;
+    height: 235px;
     -webkit-transition: left 0.5s;
     -moz-transition: left 0.5s;
     -ms-transition: left 0.5s;
@@ -222,7 +222,7 @@
     vertical-align: bottom;
 }
 #mini-clndr .clndr .days-container .days .headers {
-    background-color: #fba7a7;
+    background-color: #97ce7f;
     padding-top: 5px;
     padding-bottom: 5px;
 }
@@ -234,7 +234,7 @@
 }
 #mini-clndr .clndr .days-container .events {
     position: absolute;
-    left: 294px;
+    left: 320px;
     width: 294px;
     height: 217px;
     -webkit-transition: left 0.5s;
@@ -403,16 +403,17 @@
     width: 14.2857%;
     height: 160px;
     overflow: scroll;
-    padding: 0.5px;
+    padding: 0.5em;
 }
 #mini-clndr .inactive{
     background: grey;
 }#mini-clndr .inactive-by-hand{
-     background: grey;
+    background: grey;
+}
+ .back-link{
+     line-height:55px;
  }
-.back-link{
-    line-height:55px;
-}
 .back-link a{
-    line-height:55px;
-}
+     text-decoration: underline;
+    color: darkgrey;
+ }

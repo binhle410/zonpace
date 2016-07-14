@@ -26,29 +26,35 @@ class SpaceType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('name', TextType::class)
-            ->add('description', TextareaType::class)
-            ->add('location', LocationType::class)
-            ->add('price', PriceType::class)
-            ->add('shape', HiddenType::class)
-            ->add('dateBooking', DateBookingType::class,['dateBooking'=>$options['dateBooking']])
-            ->add('features', EntityType::class, array(
-                'class' => 'AppBundle\Entity\Space\Feature',
-                'choice_label' => 'name',
-                'multiple' => true,
-                'expanded' => true,
-                'group_by' => function($val, $key, $index) {
-                    return $val->getCategory()->getName();
-                },
-            ));
+        if ($options['step'] == 1) {
+            $builder
+                ->add('location', LocationType::class)
+                ->add('shape', HiddenType::class);
+        } else {
+            $builder
+                ->add('name', TextType::class)
+                ->add('description', TextareaType::class)
+                ->add('price', PriceType::class)
+                ->add('shape', HiddenType::class)
+                ->add('dateBooking', DateBookingType::class, ['dateBooking' => $options['dateBooking']])
+                ->add('features', EntityType::class, array(
+                    'class' => 'AppBundle\Entity\Space\Feature',
+                    'choice_label' => 'name',
+                    'multiple' => true,
+                    'expanded' => true,
+                    'group_by' => function ($val, $key, $index) {
+                        return $val->getCategory()->getName();
+                    },
+                ));
+        }
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'data_class' => 'AppBundle\Entity\Space\Space',
-            'dateBooking'=>null
+            'dateBooking' => null,
+            'step'=>null,
         ));
     }
 

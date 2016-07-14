@@ -3,6 +3,8 @@
 namespace AppBundle\Twig;
 
 
+use Application\Sonata\MediaBundle\Entity\Media;
+
 class TwigExtension extends \Twig_Extension
 {
 
@@ -17,12 +19,15 @@ class TwigExtension extends \Twig_Extension
     }
 
 
-
+    public function getUrl(Media $media){
+        return $this->container->get('app.media.retriever')->getPublicURL($media);
+    }
 
     public function getFunctions()
     {
         return array(
             'getParameter' => new \Twig_Function_Method($this, 'getParameter', array('is_safe' => array('html'))),
+            'getUrl' => new \Twig_Function_Method($this, 'getUrl', array('is_safe' => array('html'))),
         );
     }
 

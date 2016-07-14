@@ -16,10 +16,16 @@
             <div class="row">
                 <div class="main col-md-6">
                     <ul class="nav nav-pills" role="tablist">
-                        <li class=""><a href="#pill-pr-1" role="tab" data-toggle="tab" title="Step 1" aria-expanded="false"><i class="fa fa-dot-circle-o pr-5"></i>Location</a></li>
-                        <li class="active"><a href="#pill-pr-2" role="tab" data-toggle="tab" title="Step 2" aria-expanded="false"><i class="fa fa-dot-circle-o pr-5"></i><strong>Space Detail</strong></a></li>
-                        <li class=""><a href="#pill-pr-3" role="tab" data-toggle="tab" title="Step 3" aria-expanded="true"><i class="fa fa-dot-circle-o pr-5"></i> Review Your Space</a></li>
-                        <li class=""><a href="#pill-pr-3" role="tab" data-toggle="tab" title="Step 3" aria-expanded="true"><i class="fa fa-dot-circle-o pr-5"></i> Activate</a></li>
+                        <li class=""><a href="#pill-pr-1" role="tab" data-toggle="tab" title="Step 1"
+                                        aria-expanded="false"><i class="fa fa-dot-circle-o pr-5"></i>Location</a></li>
+                        <li class="active"><a href="#pill-pr-2" role="tab" data-toggle="tab" title="Step 2"
+                                              aria-expanded="false"><i class="fa fa-dot-circle-o pr-5"></i><strong>Space
+                                    Detail</strong></a></li>
+                        <li class=""><a href="#pill-pr-3" role="tab" data-toggle="tab" title="Step 3"
+                                        aria-expanded="true"><i class="fa fa-dot-circle-o pr-5"></i> Review Your
+                                Space</a></li>
+                        <li class=""><a href="#pill-pr-3" role="tab" data-toggle="tab" title="Step 3"
+                                        aria-expanded="true"><i class="fa fa-dot-circle-o pr-5"></i> Activate</a></li>
                     </ul>
                     <h3>Space Detail</h3>
                     <form role="form" id="form-space" method="post" enctype="multipart/form-data">
@@ -39,24 +45,16 @@
                         <hr class="divider">
                         <div class="form-group">
                             <label for="space-image">Photos</label>
-                            <input type="file" id="space-image" name="app_space_upload[image][binaryContent]" data-href="{{ path('app_space_upload_image',{'space':space.id}) }}"/>
+                            <input type="file" id="space-image" name="app_space_upload[image][binaryContent]"
+                                   data-href="{{ path('app_space_upload_image',{'space':space.id}) }}"/>
                         </div>
                         <div class="row wrap-img-space">
-                            <div class="col-md-4" style="margin-top: 2px">
-                                <img src="{{ asset('bundles/app/images/blog-1.jpg') }}">
-                            </div>
-                            <div class="col-md-4" style="margin-top: 2px">
-                                <img src="{{ asset('bundles/app/images/blog-1.jpg') }}">
-                            </div>
-                            <div class="col-md-4" style="margin-top: 2px">
-                                <img src="{{ asset('bundles/app/images/blog-1.jpg') }}">
-                            </div>
-                            <div class="col-md-4" style="margin-top: 2px">
-                                <img src="{{ asset('bundles/app/images/blog-1.jpg') }}">
-                            </div>
-                            <div class="col-md-4" style="margin-top: 2px">
-                                <img src="{{ asset('bundles/app/images/blog-1.jpg') }}">
-                            </div>
+                            {% for galleryHasMedia in space.photo.galleryHasMedias %}
+                                <div class="col-md-4" style="margin-top: 2px">
+                                    <img src="{{ getUrl(galleryHasMedia.media) }}">
+                                </div>
+                            {% endfor %}
+
                         </div>
 
                         <!--price------------------------------------------------------------------------------------------>
@@ -77,15 +75,23 @@
                         <script id="mini-clndr-template" type="text/template">
 
                             <div class="controls">
-                                <div class="clndr-previous-button">&lsaquo;</div><div class="month"><%= month %></div><div class="clndr-next-button">&rsaquo;</div>
+                                <div class="clndr-previous-button">&lsaquo;</div>
+                                <div class="month"><%= month %></div>
+                                <div class="clndr-next-button">&rsaquo;</div>
                             </div>
 
                             <div class="days-container">
                                 <div class="days">
                                     <div class="headers">
-                                        <% _.each(daysOfTheWeek, function(day) { %><div class="day-header"><%= day %></div><% }); %>
+                                        <% _.each(daysOfTheWeek, function(day) { %>
+                                        <div class="day-header"><%= day %></div>
+                                        <% }); %>
                                     </div>
-                                    <% _.each(days, function(day) { %><div class="<%= day.classes %>" id="<%= moment(day.date).format('YYYY-MM-DD') %>"><%= day.day %></div><% }); %>
+                                    <% _.each(days, function(day) { %>
+                                    <div class="<%= day.classes %>" id="<%= moment(day.date).format('YYYY-MM-DD') %>">
+                                        <%= day.day %>
+                                    </div>
+                                    <% }); %>
                                 </div>
                                 <div class="events">
                                     <div class="headers">
@@ -95,7 +101,8 @@
                                     <div class="events-list">
                                         <% _.each(eventsThisMonth, function(event) { %>
                                         <div class="event">
-                                            <a href="<%= event.url %>"><%= moment(event.date).format('MMMM Do') %>: <%= event.title %></a>
+                                            <a href="<%= event.url %>"><%= moment(event.date).format('MMMM Do') %>: <%=
+                                                event.title %></a>
                                         </div>
                                         <% }); %>
                                     </div>
@@ -113,7 +120,8 @@
                                 <button type="submit" class="btn btn-default">Next</button>
                             </div>
                             <div class="col-md-6 back-link">
-                                <a href='{{ path('app_space_create',{'step':1,'space':space.id}) }}' class="pull-right">Back to Location</a>
+                                <a href='{{ path('app_space_create',{'step':1,'space':space.id}) }}' class="pull-right">Back
+                                    to Location</a>
                             </div>
                         </div>
 
