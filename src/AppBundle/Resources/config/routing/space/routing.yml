@@ -5,3 +5,7 @@ app_space_create:
 app_space_upload_image:
     path: /upload-image/{space}
     defaults: { _controller: AppBundle:Space/Api/SpaceApi:spaceImage}
+
+app_space_list:
+    path: /list
+    defaults: { _controller: AppBundle:Space/Mgmt/SpaceRetrieval:list}

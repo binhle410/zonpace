@@ -11,7 +11,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  *
  * @ORM\Table(name="space__space")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\SpaceRepository")
  */
 class Space
 {

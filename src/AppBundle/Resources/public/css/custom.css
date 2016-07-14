@@ -434,3 +434,14 @@
     font-weight: bold;
     font-size: 35px;
 }
+.btn-custom{
+    width: 92px;
+    margin-bottom: 5px!important;
+}
+.space-enabled{
+    text-align: center;
+    color: red;
+}
+.light-gray-bg {
+    margin-bottom: 10px;
+}
