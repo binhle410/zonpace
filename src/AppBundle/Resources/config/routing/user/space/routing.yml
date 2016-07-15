@@ -1,0 +1,11 @@
+app_user_space_create:
+    path: /create/step-{step}/{space}
+    defaults: { _controller: AppBundle:User/Space/Mgmt/SpaceManipulation:step,space: 0}
+
+app_uset_space_upload_image:
+    path: /upload-image/{space}
+    defaults: { _controller: AppBundle:User/Space/Api/SpaceApi:spaceImage}
+
+app_user_space_list:
+    path: /list
+    defaults: { _controller: AppBundle:User/Space/Mgmt/SpaceRetrieval:list}

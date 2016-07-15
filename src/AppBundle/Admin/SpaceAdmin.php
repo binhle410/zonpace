@@ -21,7 +21,12 @@ class SpaceAdmin extends AbstractAdmin
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->addIdentifier('name');
+        $listMapper
+            ->add('user', null, array(
+                'sortable' => 'context.username',
+            ))
+            ->addIdentifier('name')
+        ->add('enabled', null, array('editable' => true));
     }
     public function toString($object)
     {

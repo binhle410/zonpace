@@ -32,7 +32,7 @@ class Step1 extends Step
             $this->space->setSpaceImage($media);
             $entityManager->persist($this->space);
             $entityManager->flush();
-            return $this->redirectToRoute('app_space_create',['space' => $this->space->getId(),'step' => 2]);
+            return $this->redirectToRoute('app_user_space_create',['space' => $this->space->getId(),'step' => 2]);
         }
         return $this->render('AppBundle:Space/Steps:step1.html.twig', array(
             'space'=>$this->space,

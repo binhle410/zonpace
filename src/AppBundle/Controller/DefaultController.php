@@ -14,4 +14,11 @@ class DefaultController extends Controller
         return $this->render('AppBundle:Default:index.html.twig', [
         ]);
     }
+    public function searchSpacesAction(Request $request)
+    {
+        // replace this example code with whatever you need
+        
+        return $this->render('AppBundle:Default:search-spaces.html.twig', [
+        ]);
+    }
 }

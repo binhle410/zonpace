@@ -18,7 +18,7 @@ class Step2 extends Step
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($this->space);
             $entityManager->flush();
-            return $this->redirectToRoute('app_space_create',['space' => $this->space->getId(),'step' => 3]);
+            return $this->redirectToRoute('app_user_space_create',['space' => $this->space->getId(),'step' => 3]);
         }else{
 //            Debug::dump($form->getErrors());
         }

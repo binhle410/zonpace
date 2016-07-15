@@ -14,7 +14,7 @@ class Step5 extends Step
     {
         $form = $this->createForm(SpaceType::class,$this->space,['dateBooking'=>$this->space->getDateBooking()]);
         if($this->getRequest()->isMethod('post')){
-            return $this->redirectToRoute('app_space_create',['space' => $this->space->getId(),'step' => 6]);
+            return $this->redirectToRoute('app_user_space_create',['space' => $this->space->getId(),'step' => 6]);
         }
         return $this->render('AppBundle:Space/Steps:step5.html.twig', array(
             'space'=>$this->space,

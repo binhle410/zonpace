@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller\Space\Mgmt;
+namespace AppBundle\Controller\User\Space\Mgmt;
 
 use AppBundle\Entity\Space\Space;
 use Symfony\Component\HttpFoundation\Request;

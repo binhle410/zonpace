@@ -37,6 +37,7 @@ class Space
         $gallery->setDefaultFormat('default');
         $gallery->setEnabled(1);
         $this->photo = $gallery;
+        $this->enabled = true;
     }
 
     /**
@@ -106,6 +107,30 @@ class Space
      * @ORM\Column(length=255, unique=true)
      */
     private $slug;
+
+    /**
+     * @var boolean
+     * @ORM\Column(name="enabled",type="boolean")
+     */
+    private $enabled;
+
+    /**
+     * @return mixed
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * @param mixed $enabled
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+    }
+
+
 
     public function getSlug()
     {

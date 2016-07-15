@@ -38,7 +38,7 @@
                         <div class="form-group">
                             <label for="space-image">Photos</label>
                             <input type="file" id="space-image" name="app_space_upload[image][binaryContent]"
-                                   data-href="{{ path('app_space_upload_image',{'space':space.id}) }}"/>
+                                   data-href="{{ path('app_user_space_upload_image',{'space':space.id}) }}"/>
                         </div>
                         <div class="row wrap-img-space">
                             {% for galleryHasMedia in space.photo.galleryHasMedias %}

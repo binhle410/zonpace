@@ -2,7 +2,11 @@ app_default:
     path: /
     defaults: { _controller: AppBundle:Default:index}
 
-app_space:
-    resource: "@AppBundle/Resources/config/routing/space/routing.yml"
-    prefix:   /space
+app_search_space:
+    path: /search-spaces
+    defaults: { _controller: AppBundle:Default:searchSpaces}
+
+app_user:
+    resource: "@AppBundle/Resources/config/routing/user/routing.yml"
+    prefix:   /user
 

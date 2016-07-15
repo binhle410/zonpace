@@ -1,0 +1,576 @@
+{% extends 'AppBundle::layout.html.twig' %}
+{% block content %}
+
+
+    <section class="main-container">
+
+        <div class="container">
+            <div class="row">
+
+                <section class="location-wrap">
+                    <header class="location-header clearfix">
+                        <section class="location-map">
+                            <div id="location-map" data-href="ajax/map/data-maker.json"></div><a href="javascript:;" class="btn btn-red view_space">View space list</a>
+                        </section>
+                        <!-- END: MAPs-->
+                        <section class="location-list">
+                            <div class="box-filter"><a href="javascript:;" class="a_filter_close">Hide Filters</a>
+                                <div class="box-inner">
+                                    <form class="frm-adv-filer">
+                                        <div class="section-filter">
+                                            <h3>Anniversary:</h3>
+                                            <ul>
+                                                <li>
+                                                    <input type="checkbox" name="chk-space" id="chk-banquet">
+                                                    <label for="chk-banquet">Banquet</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="chk-space" id="chk-concert">
+                                                    <label for="chk-concert">Concert</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="chk-space" id="chk-conference">
+                                                    <label for="chk-conference">Conference</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="chk-space" id="chk-meeting">
+                                                    <label for="chk-meeting">Meeting</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="chk-space" id="chk-corporate">
+                                                    <label for="chk-corporate">Party - corporate</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="chk-space" id="chk-adults">
+                                                    <label for="chk-adults">Party - adults</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="chk-space" id="chk-kids">
+                                                    <label for="chk-kids">Party -kids</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="chk-space" id="chk-reception">
+                                                    <label for="chk-reception">Reception</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="chk-space" id="chk-retreat">
+                                                    <label for="chk-retreat">Retreat</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="chk-space" id="chk-reunion">
+                                                    <label for="chk-reunion">Reunion</label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!-- END : FILTER-->
+                                        <div class="section-filter">
+                                            <h3>Event:</h3>
+                                            <ul>
+                                                <li>
+                                                    <input type="checkbox" name="chk-space" id="chk-seminar">
+                                                    <label for="chk-seminar">Seminar</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="chk-space" id="chk-wedding">
+                                                    <label for="chk-wedding">Wedding</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="chk-space" id="chk-camping">
+                                                    <label for="chk-camping">Camping</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="chk-space" id="chk-hunting">
+                                                    <label for="chk-hunting">Hunting</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="chk-space" id="chk-parking">
+                                                    <label for="chk-parking">Parking</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="chk-space" id="chk-adults">
+                                                    <label for="chk-adults">Party - adults</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="chk-space" id="chk-kids">
+                                                    <label for="chk-kids">Party -kids</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="chk-space" id="chk-reception">
+                                                    <label for="chk-reception">Reception</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="chk-space" id="chk-retreat">
+                                                    <label for="chk-retreat">Retreat</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="chk-space" id="chk-reunion">
+                                                    <label for="chk-reunion">Reunion</label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!-- END : FILTER-->
+                                        <div class="section-filter">
+                                            <h3>By Function:</h3>
+                                            <ul>
+                                                <li>
+                                                    <input type="checkbox" name="chk-space" id="chk-semi-constructional">
+                                                    <label for="chk-semi-constructional">Semi - constructional</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="chk-space" id="chk-moving">
+                                                    <label for="chk-moving">Movie making</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="chk-space" id="chk-photo">
+                                                    <label for="chk-photo">Photo shooting</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="chk-space" id="chk-residental">
+                                                    <label for="chk-residental">Residental</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="chk-space" id="chk-warehousing">
+                                                    <label for="chk-warehousing">Warehousing</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="chk-space" id="chk-shows">
+                                                    <label for="chk-shows">Shows</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="chk-space" id="chk-exhibition">
+                                                    <label for="chk-exhibition">Exhibition</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="chk-space" id="chk-caterings">
+                                                    <label for="chk-caterings">Caterings</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="chk-space" id="chk-product-demo">
+                                                    <label for="chk-product-demo">Product demo</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="chk-space" id="chk-housedemo">
+                                                    <label for="chk-housedemo">House demo / Show house</label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!-- END : FILTER-->
+                                        <div class="section-filter">
+                                            <ul>
+                                                <li>
+                                                    <label for="land-size">Land size</label>
+                                                    <input type="text" placeholder="54 Sq. Ft" id="land-size" class="ipt">
+                                                </li>
+                                                <li>
+                                                    <label for="fil-rating">Rating</label>
+                                                    <select id="fil-rating" class="slect">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                    </select>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!-- END : FILTER-->
+                                        <div class="section-filter">
+                                            <ul>
+                                                <li>
+                                                    <input type="checkbox" name="chk-space" id="chk-instant">
+                                                    <label for="chk-instant">Instant booking</label>
+                                                </li>
+                                                <li>
+                                                    <input type="checkbox" name="chk-space" id="chk-review-booking">
+                                                    <label for="chk-review-booking">After host review booking</label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!-- END : FILTER-->
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- END: FILTER ADVANCES-->
+                            <div class="inner">
+                                <section class="blk-head-locat">
+                                    <section class="lct-head-title">
+                                        <h2><i class="fa fa-map-marker"></i>Cardiff Airport Leasing</h2><a href="javascript:;" class="a_filter">Advanced Filters</a>
+                                    </section>
+                                    <!-- END : TTL-->
+                                    <section class="lct-type">
+                                        <div class="row">
+                                            <section class="col-xs-6 type-itm">
+                                                <div class="box">
+                                                    <input type="checkbox" name="fil-month" id="fil-month">
+                                                    <label for="fil-month">Monthly Leasing</label>
+                                                </div>
+                                            </section>
+                                            <!-- END : ITM-->
+                                            <section class="col-xs-6 type-itm">
+                                                <div class="box">
+                                                    <input type="checkbox" name="fil-short" id="fil-short">
+                                                    <label for="fil-short">Short-term Leasing</label>
+                                                </div>
+                                            </section>
+                                            <!-- END : ITM-->
+                                        </div>
+                                    </section>
+                                    <!-- END : TYPE-->
+                                    <section class="lct-ranger">
+                                        <div class="lct-price-ranger clearfix">
+                                            <label>Price per 100 square feet</label>
+                                            <div id="price-ranger" data-min="20" data-max="50"></div>
+                                        </div>
+                                        <!-- END : PRICE-->
+                                        <div class="lct-square-ranger clearfix">
+                                            <label>Square feet</label>
+                                            <div id="square-ranger" data-min="20000" data-max="50000"></div>
+                                        </div>
+                                        <!-- END : PRICE-->
+                                    </section>
+                                    <!-- END : RANGER-->
+                                </section>
+                                <section class="list">
+                                    <div class="inner">
+                                        <div class="location-itm"><a href="#"><span class="num">a</span>
+                                                <div class="ftable">
+                                                    <div style="background-image: url('uploads/location-img-1.jpg')" class="ftd locat-img">
+                                                        <div class="blk-time"><span><i class="fa fa-clock-o"></i>Daily</span><span><i class="fa fa-calendar"></i>Monthly</span></div>
+                                                    </div>
+                                                    <div class="ftd locat-info">
+                                                        <div class="details">
+                                                            <div class="blk-ttl clearfix">
+                                                                <div class="distance">2.8 miles</div>
+                                                                <h3>Summerfield Gardens, LS13</h3>
+                                                            </div>
+                                                            <div class="desc">Driveway on Summerfield Gardens that can park 2</div>
+                                                            <ul class="features clearfix">
+                                                                <li class="available"><i class="fa fa-check"></i>Space available now</li>
+                                                                <li class="instant"><i class="fa fa-bolt"></i>Instant book</li>
+                                                            </ul>
+                                                        </div>
+                                                        <!-- END : DETAIL-->
+                                                        <div class="prices-row">
+                                                            <div class="prices">
+                                                                <div class="price"><strong>£5.00</strong>per day</div>
+                                                                <div class="price"><strong>£5.00</strong>per week</div>
+                                                                <div class="price"><strong>£93.75</strong>per month</div>
+                                                                <div class="price book-button"><span class="btn btn-red uppercase">book now</span></div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- END : PRICEs-->
+                                                    </div>
+                                                    <!-- END : INFO-->
+                                                </div></a></div>
+                                        <!-- END : ITM-->
+                                        <div class="location-itm"><a href="#"><span class="num">b</span>
+                                                <div class="ftable">
+                                                    <div style="background-image: url('uploads/location-img.jpg')" class="ftd locat-img">
+                                                        <div class="blk-time"><span><i class="fa fa-clock-o"></i>Daily</span><span><i class="fa fa-calendar"></i>Monthly</span></div>
+                                                    </div>
+                                                    <div class="ftd locat-info">
+                                                        <div class="details">
+                                                            <div class="blk-ttl clearfix">
+                                                                <div class="distance">2.8 miles</div>
+                                                                <h3>Summerfield Gardens, LS13</h3>
+                                                            </div>
+                                                            <div class="desc">Driveway on Summerfield Gardens that can park 2</div>
+                                                            <ul class="features clearfix">
+                                                                <li class="available"><i class="fa fa-check"></i>Space available now</li>
+                                                                <li class="instant"><i class="fa fa-bolt"></i>Instant book</li>
+                                                            </ul>
+                                                        </div>
+                                                        <!-- END : DETAIL-->
+                                                        <div class="prices-row">
+                                                            <div class="prices">
+                                                                <div class="price"><strong>£5.00</strong>per day</div>
+                                                                <div class="price"><strong>£5.00</strong>per week</div>
+                                                                <div class="price"><strong>£93.75</strong>per month</div>
+                                                                <div class="price book-button"><span class="btn btn-red uppercase">book now</span></div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- END : PRICEs-->
+                                                    </div>
+                                                    <!-- END : INFO-->
+                                                </div></a></div>
+                                        <!-- END : ITM-->
+                                        <div class="location-itm"><a href="#"><span class="num">c</span>
+                                                <div class="ftable">
+                                                    <div style="background-image: url('uploads/location-img.jpg')" class="ftd locat-img">
+                                                        <div class="blk-time"><span><i class="fa fa-clock-o"></i>Daily</span><span><i class="fa fa-calendar"></i>Monthly</span></div>
+                                                    </div>
+                                                    <div class="ftd locat-info">
+                                                        <div class="details">
+                                                            <div class="blk-ttl clearfix">
+                                                                <div class="distance">2.8 miles</div>
+                                                                <h3>Summerfield Gardens, LS13</h3>
+                                                            </div>
+                                                            <div class="desc">Driveway on Summerfield Gardens that can park 2</div>
+                                                            <ul class="features clearfix">
+                                                                <li class="available"><i class="fa fa-check"></i>Space available now</li>
+                                                                <li class="instant"><i class="fa fa-bolt"></i>Instant book</li>
+                                                            </ul>
+                                                        </div>
+                                                        <!-- END : DETAIL-->
+                                                        <div class="prices-row">
+                                                            <div class="prices">
+                                                                <div class="price"><strong>£5.00</strong>per day</div>
+                                                                <div class="price"><strong>£5.00</strong>per week</div>
+                                                                <div class="price"><strong>£93.75</strong>per month</div>
+                                                                <div class="price book-button"><span class="btn btn-red uppercase">book now</span></div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- END : PRICEs-->
+                                                    </div>
+                                                    <!-- END : INFO-->
+                                                </div></a></div>
+                                        <!-- END : ITM-->
+                                        <div class="location-itm"><a href="#"><span class="num">d</span>
+                                                <div class="ftable">
+                                                    <div style="background-image: url('uploads/location-img.jpg')" class="ftd locat-img">
+                                                        <div class="blk-time"><span><i class="fa fa-clock-o"></i>Daily</span><span><i class="fa fa-calendar"></i>Monthly</span></div>
+                                                    </div>
+                                                    <div class="ftd locat-info">
+                                                        <div class="details">
+                                                            <div class="blk-ttl clearfix">
+                                                                <div class="distance">2.8 miles</div>
+                                                                <h3>Summerfield Gardens, LS13</h3>
+                                                            </div>
+                                                            <div class="desc">Driveway on Summerfield Gardens that can park 2</div>
+                                                            <ul class="features clearfix">
+                                                                <li class="available"><i class="fa fa-check"></i>Space available now</li>
+                                                                <li class="instant"><i class="fa fa-bolt"></i>Instant book</li>
+                                                            </ul>
+                                                        </div>
+                                                        <!-- END : DETAIL-->
+                                                        <div class="prices-row">
+                                                            <div class="prices">
+                                                                <div class="price"><strong>£5.00</strong>per day</div>
+                                                                <div class="price"><strong>£5.00</strong>per week</div>
+                                                                <div class="price"><strong>£93.75</strong>per month</div>
+                                                                <div class="price book-button"><span class="btn btn-red uppercase">book now</span></div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- END : PRICEs-->
+                                                    </div>
+                                                    <!-- END : INFO-->
+                                                </div></a></div>
+                                        <!-- END : ITM-->
+                                        <div class="location-itm"><a href="#"><span class="num">e</span>
+                                                <div class="ftable">
+                                                    <div style="background-image: url('uploads/location-img.jpg')" class="ftd locat-img">
+                                                        <div class="blk-time"><span><i class="fa fa-clock-o"></i>Daily</span><span><i class="fa fa-calendar"></i>Monthly</span></div>
+                                                    </div>
+                                                    <div class="ftd locat-info">
+                                                        <div class="details">
+                                                            <div class="blk-ttl clearfix">
+                                                                <div class="distance">2.8 miles</div>
+                                                                <h3>Summerfield Gardens, LS13</h3>
+                                                            </div>
+                                                            <div class="desc">Driveway on Summerfield Gardens that can park 2</div>
+                                                            <ul class="features clearfix">
+                                                                <li class="available"><i class="fa fa-check"></i>Space available now</li>
+                                                                <li class="instant"><i class="fa fa-bolt"></i>Instant book</li>
+                                                            </ul>
+                                                        </div>
+                                                        <!-- END : DETAIL-->
+                                                        <div class="prices-row">
+                                                            <div class="prices">
+                                                                <div class="price"><strong>£5.00</strong>per day</div>
+                                                                <div class="price"><strong>£5.00</strong>per week</div>
+                                                                <div class="price"><strong>£93.75</strong>per month</div>
+                                                                <div class="price book-button"><span class="btn btn-red uppercase">book now</span></div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- END : PRICEs-->
+                                                    </div>
+                                                    <!-- END : INFO-->
+                                                </div></a></div>
+                                        <!-- END : ITM-->
+                                        <div class="location-itm"><a href="#"><span class="num">f</span>
+                                                <div class="ftable">
+                                                    <div style="background-image: url('uploads/location-img.jpg')" class="ftd locat-img">
+                                                        <div class="blk-time"><span><i class="fa fa-clock-o"></i>Daily</span><span><i class="fa fa-calendar"></i>Monthly</span></div>
+                                                    </div>
+                                                    <div class="ftd locat-info">
+                                                        <div class="details">
+                                                            <div class="blk-ttl clearfix">
+                                                                <div class="distance">2.8 miles</div>
+                                                                <h3>Summerfield Gardens, LS13</h3>
+                                                            </div>
+                                                            <div class="desc">Driveway on Summerfield Gardens that can park 2</div>
+                                                            <ul class="features clearfix">
+                                                                <li class="available"><i class="fa fa-check"></i>Space available now</li>
+                                                                <li class="instant"><i class="fa fa-bolt"></i>Instant book</li>
+                                                            </ul>
+                                                        </div>
+                                                        <!-- END : DETAIL-->
+                                                        <div class="prices-row">
+                                                            <div class="prices">
+                                                                <div class="price"><strong>£5.00</strong>per day</div>
+                                                                <div class="price"><strong>£5.00</strong>per week</div>
+                                                                <div class="price"><strong>£93.75</strong>per month</div>
+                                                                <div class="price book-button"><span class="btn btn-red uppercase">book now</span></div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- END : PRICEs-->
+                                                    </div>
+                                                    <!-- END : INFO-->
+                                                </div></a></div>
+                                        <!-- END : ITM-->
+                                        <div class="location-itm"><a href="#"><span class="num">g</span>
+                                                <div class="ftable">
+                                                    <div style="background-image: url('uploads/location-img.jpg')" class="ftd locat-img">
+                                                        <div class="blk-time"><span><i class="fa fa-clock-o"></i>Daily</span><span><i class="fa fa-calendar"></i>Monthly</span></div>
+                                                    </div>
+                                                    <div class="ftd locat-info">
+                                                        <div class="details">
+                                                            <div class="blk-ttl clearfix">
+                                                                <div class="distance">2.8 miles</div>
+                                                                <h3>Summerfield Gardens, LS13</h3>
+                                                            </div>
+                                                            <div class="desc">Driveway on Summerfield Gardens that can park 2</div>
+                                                            <ul class="features clearfix">
+                                                                <li class="available"><i class="fa fa-check"></i>Space available now</li>
+                                                                <li class="instant"><i class="fa fa-bolt"></i>Instant book</li>
+                                                            </ul>
+                                                        </div>
+                                                        <!-- END : DETAIL-->
+                                                        <div class="prices-row">
+                                                            <div class="prices">
+                                                                <div class="price"><strong>£5.00</strong>per day</div>
+                                                                <div class="price"><strong>£5.00</strong>per week</div>
+                                                                <div class="price"><strong>£93.75</strong>per month</div>
+                                                                <div class="price book-button"><span class="btn btn-red uppercase">book now</span></div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- END : PRICEs-->
+                                                    </div>
+                                                    <!-- END : INFO-->
+                                                </div></a></div>
+                                        <!-- END : ITM-->
+                                        <div class="location-itm"><a href="#"><span class="num">h</span>
+                                                <div class="ftable">
+                                                    <div style="background-image: url('uploads/location-img.jpg')" class="ftd locat-img">
+                                                        <div class="blk-time"><span><i class="fa fa-clock-o"></i>Daily</span><span><i class="fa fa-calendar"></i>Monthly</span></div>
+                                                    </div>
+                                                    <div class="ftd locat-info">
+                                                        <div class="details">
+                                                            <div class="blk-ttl clearfix">
+                                                                <div class="distance">2.8 miles</div>
+                                                                <h3>Summerfield Gardens, LS13</h3>
+                                                            </div>
+                                                            <div class="desc">Driveway on Summerfield Gardens that can park 2</div>
+                                                            <ul class="features clearfix">
+                                                                <li class="available"><i class="fa fa-check"></i>Space available now</li>
+                                                                <li class="instant"><i class="fa fa-bolt"></i>Instant book</li>
+                                                            </ul>
+                                                        </div>
+                                                        <!-- END : DETAIL-->
+                                                        <div class="prices-row">
+                                                            <div class="prices">
+                                                                <div class="price"><strong>£5.00</strong>per day</div>
+                                                                <div class="price"><strong>£5.00</strong>per week</div>
+                                                                <div class="price"><strong>£93.75</strong>per month</div>
+                                                                <div class="price book-button"><span class="btn btn-red uppercase">book now</span></div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- END : PRICEs-->
+                                                    </div>
+                                                    <!-- END : INFO-->
+                                                </div></a></div>
+                                        <!-- END : ITM-->
+                                    </div>
+                                </section>
+                                <div class="pagination-wrap">
+                                    <div class="results_count">1 – 18 of 300+ Rentals</div>
+                                    <div class="pagination">
+                                        <ul class="list-unstyled">
+                                            <li class="active"><a rel="start" target="1" href="#">1</a></li>
+                                            <li><a rel="next" target="2" href="#">2</a></li>
+                                            <li><a rel="3" target="3" href="#">3</a></li>
+                                            <li class="gap"><span class="gap">...</span></li>
+                                            <li><a rel="10" target="10" href="#">10</a></li>
+                                            <li class="next next_page"><a rel="next" target="2" href="#"><i class="fa fa-caret-right"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- END : PAGINATION-->
+                            </div>
+                        </section>
+                        <!-- END: LIST-->
+                    </header>
+                    <!-- END : HEADER-->
+                    <section class="content-location">
+                        <div class="container">
+                            <div class="row">
+                                <section class="col-md-4 col-sm-6 col-xs-12 ct-itm">
+                                    <h3>Nearby Featured Locations</h3>
+                                    <div class="ftable"><a href="#" class="ftr">
+                                            <div class="ftd">0.0 miles</div>
+                                            <div class="ftd">Temple Meads Railway Station</div>
+                                            <div class="ftd"><i class="fa fa-arrow-circle-right"></i></div></a>
+                                        <!-- END : ITM--><a href="#" class="ftr">
+                                            <div class="ftd">0.1 miles</div>
+                                            <div class="ftd">Bristol Temple Meads Railway Station</div>
+                                            <div class="ftd"><i class="fa fa-arrow-circle-right"></i></div></a>
+                                        <!-- END : ITM--><a href="#" class="ftr">
+                                            <div class="ftd">0.4 miles</div>
+                                            <div class="ftd">Bristol</div>
+                                            <div class="ftd"><i class="fa fa-arrow-circle-right"></i></div></a>
+                                        <!-- END : ITM--><a href="#" class="ftr">
+                                            <div class="ftd">0.6 miles</div>
+                                            <div class="ftd">Broadmead</div>
+                                            <div class="ftd"><i class="fa fa-arrow-circle-right"></i></div></a>
+                                        <!-- END : ITM--><a href="#" class="ftr">
+                                            <div class="ftd">0.6 miles</div>
+                                            <div class="ftd">Cabot Circus</div>
+                                            <div class="ftd"><i class="fa fa-arrow-circle-right"></i></div></a>
+                                        <!-- END : ITM-->
+                                    </div>
+                                </section>
+                                <!-- END: ITM-->
+                                <section class="col-md-4 col-sm-6 col-xs-12 ct-itm">
+                                    <h3>Rent Out Your Temple Meads Space</h3>
+                                    <p>Having an empty driveway or leasing spaces near Temple Meads railway station is one of the best places to have one in Bristol. You can earn around £100 per month from each space. Commuters travelling from Bristol Temple Meads are always on the lookout for affordable leasing. Garages can also be rented out.</p>
+                                </section>
+                                <!-- END: ITM-->
+                                <section class="col-md-4 col-sm-12 col-xs-12 ct-itm">
+                                    <h3>Temple Meads Railway Station Leasing Statistics</h3>
+                                    <table class="table tbl-statis">
+                                        <tbody><tr>
+                                            <th></th>
+                                            <th>Daily</th>
+                                            <th>Monthly</th>
+                                        </tr>
+                                        <tr>
+                                            <th>Highest Price</th>
+                                            <td>£25.00</td>
+                                            <td>£1000.00</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Lowest Price</th>
+                                            <td>£2.50</td>
+                                            <td>£25.00</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Average Price</th>
+                                            <td>£8.83</td>
+                                            <td>£133.98</td>
+                                        </tr>
+                                        </tbody></table>
+                                </section>
+                                <!-- END: ITM-->
+                            </div>
+                        </div>
+                    </section>
+                    <!-- END : CONTENT-->
+                </section>
+
+               
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

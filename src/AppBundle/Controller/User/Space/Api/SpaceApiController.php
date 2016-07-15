@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller\Space\Api;
+namespace AppBundle\Controller\User\Space\Api;
 
 use AppBundle\Entity\Space\Space;
 use AppBundle\Form\UploadType;
