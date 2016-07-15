@@ -16,7 +16,9 @@ class SpaceAdmin extends AbstractAdmin
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('name');
+        $datagridMapper->add('name')
+            ->add('enabled')
+            ->add('user');
     }
 
     protected function configureListFields(ListMapper $listMapper)

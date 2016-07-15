@@ -20,4 +20,10 @@ class SpaceRepository extends EntityRepository
         return $qb;
         
     }
+    public function searchSpaces(){
+        $expr= new Expr();
+        $qb = $this->createQueryBuilder('space');
+        return $qb;
+
+    }
 }

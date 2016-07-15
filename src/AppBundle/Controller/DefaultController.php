@@ -2,10 +2,11 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Services\Core\ControllerService;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class DefaultController extends Controller
+class DefaultController extends ControllerService
 {
 
     public function indexAction(Request $request)
@@ -16,9 +17,11 @@ class DefaultController extends Controller
     }
     public function searchSpacesAction(Request $request)
     {
-        // replace this example code with whatever you need
-        
-        return $this->render('AppBundle:Default:search-spaces.html.twig', [
-        ]);
+        $entityManager = $this->getDoctrine()->getManager();
+        $spaceRepo = $entityManager->getRepository('AppBundle:Space\Space');
+        $qb = $spaceRepo->searchSpaces();
+        $spaces = $this->pagingBuilder($request, $qb);
+
+        return $this->render('AppBundle:Default:search-spaces.html.twig',['spaces'=>$spaces]);
     }
 }
