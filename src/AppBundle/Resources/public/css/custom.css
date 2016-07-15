@@ -461,4 +461,15 @@
     padding: 10px;
     margin-bottom: 20px;
 }
+@media (min-width: 768px){
+    .main-navigation .navbar-nav > li {
+        border-right: 1px solid #f5eeee;
+    }
+}
+.navbar .navbar-nav {
+    font-family: serif !important;
+}
+.navbar .navbar-nav a:hover {
+    color: red !important;
+}
 

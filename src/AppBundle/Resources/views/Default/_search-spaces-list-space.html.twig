@@ -1,0 +1,57 @@
+{% for space in spaces %}
+
+<div class="row search-space-item">
+
+    <div class="row">
+        <div class="col-md-6">
+            <strong>{{ space.name }}</strong>
+        </div>
+        <div class="col-md-6 pull-right">
+            <span class="pull-right">Available</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            300 qsd vacand 2.7mile
+        </div>
+        <div class="col-md-6">
+            <span class="pull-right">Instant book</span>
+        </div>
+    </div>
+    <div class="separator-2"></div>
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{ asset('bundles/app/images/image_space.png') }}"/>
+        </div>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-12">
+                    {{ space.description }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <strong>${{ space.price.daily }}</strong><br>Per Day
+                </div>
+                <div class="col-md-4">
+                    <strong>${{ (space.price.daily*7)-((space.price.daily*7*space.price.weeklyDiscount)/100) }}</strong><br>Per Day
+                </div>
+                <div class="col-md-4">
+                    <strong>${{ (space.price.daily*30)-((space.price.daily*30*space.price.monthlyDiscount)/100) }}</strong><br>Per Day
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="button" value="Book Now"
+                           class="btn btn-danger btn-sm btn-custom">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+ {% if spaces|length %}
+     <nav class="text-right">
+         {{ pagerfanta(spaces) }}
+     </nav>
+ {% endif %}
