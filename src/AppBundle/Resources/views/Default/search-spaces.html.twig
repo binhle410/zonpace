@@ -2,54 +2,161 @@
 {% block content %}
 
 
-    <section class="main-container">
+    <section class="main-container" data-search-space="">
 
         <div class="container">
             <div class="row">
-                <div class="main col-md-6">
+                <div class="main col-md-7">
                 </div>
-                <div class="main col-md-6">
+                <div class="main col-md-5">
                     <div class="row">
-                        <div class="col-md-6">
-                            <strong>cach mahg thang 8</strong>
-                        </div>
-                        <div class="col-md-6 pull-right">
-                            <span class="pull-right">Available</span>
-                        </div>
+                        <form class="" role="form">
+                            <div class="form-group">
+                                <label class="control-label">Location</label>
+                                <input type="text" id="" name=""  class="form-control">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Date From</label>
+                                        <input type="text" id="" name=""  class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                        <label class="control-label">Date To</label>
+                                    <div class="form-group">
+                                        <input type="text" id="" name=""  class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label>
+                                            <input type="checkbox" id="" name="" value="">
+                                            <label for="">Daily</label>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label>
+                                            <input type="checkbox" id="" name="" value="">
+                                            <label for="">Weekly</label>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label>
+                                            <input type="checkbox" id="" name="" value="">
+                                            <label for="">Monthly</label>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layout-slider" style="width: 100%">
+                                Feet Square <span style="display: inline-block; width: 400px; padding: 0 5px;">
+                                    <input id="Slider1" type="slider" name="price" value="50" />
+                                </span>
+                            </div>
+                            <div class="layout-slider" style="width: 100%;margin-top: 20px;">
+                                Price Range <span style="display: inline-block; width: 400px; padding: 0 5px;">
+                                    <input id="Slider2" type="slider" name="price" value="50" />
+                                </span>
+                            </div>
+                        </form>
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            300 qsd vacand 2.7mile
+                    <div class="row search-space-item">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <strong>cach mahg thang 8</strong>
+                            </div>
+                            <div class="col-md-6 pull-right">
+                                <span class="pull-right">Available</span>
+                            </div>
                         </div>
-                        <div class="col-md-6">
-                            <span class="pull-right">instant book</span>
+                        <div class="row">
+                            <div class="col-md-6">
+                                300 qsd vacand 2.7mile
+                            </div>
+                            <div class="col-md-6">
+                                <span class="pull-right">instant book</span>
+                            </div>
                         </div>
-                    </div>
                         <div class="separator-2"></div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <img src="{{ asset('bundles/app/images/image_space.png') }}" />
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="{{ asset('bundles/app/images/image_space.png') }}"/>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <strong>$56</strong><br>Per Day
+                                    </div>
+                                    <div class="col-md-4">
+                                        <strong>$56</strong><br>Per Day
+                                    </div>
+                                    <div class="col-md-4">
+                                        <strong>$56</strong><br>Per Day
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="button" value="Book Now"
+                                               class="margin-clear btn btn-default btn-custom">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-8">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                                </div>
+                    </div>
+                    <div class="row search-space-item">
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <strong>cach mahg thang 8</strong>
                             </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <strong>$56</strong><br>Per Day
-                                </div>
-                                <div class="col-md-4">
-                                    <strong>$56</strong><br>Per Day
-                                </div>
-                                <div class="col-md-4">
-                                    <strong>$56</strong><br>Per Day
-                                </div>
+                            <div class="col-md-6 pull-right">
+                                <span class="pull-right">Available</span>
                             </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <input type="button" value="Book Now" class="margin-clear btn btn-default btn-custom">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                300 qsd vacand 2.7mile
+                            </div>
+                            <div class="col-md-6">
+                                <span class="pull-right">instant book</span>
+                            </div>
+                        </div>
+                        <div class="separator-2"></div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="{{ asset('bundles/app/images/image_space.png') }}"/>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <strong>$56</strong><br>Per Day
+                                    </div>
+                                    <div class="col-md-4">
+                                        <strong>$56</strong><br>Per Day
+                                    </div>
+                                    <div class="col-md-4">
+                                        <strong>$56</strong><br>Per Day
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="button" value="Book Now"
+                                               class="margin-clear btn btn-default btn-custom">
+                                    </div>
                                 </div>
                             </div>
                         </div>

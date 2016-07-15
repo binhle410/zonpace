@@ -1068,5 +1068,60 @@ jQuery(function () {
 
     })(jQuery, window, document);
 
+    /*  @name  Job Type
+    *  @description Map
+    *  @version 1.0
+    *  @options
+    *    option
+    *  @events
+    *    event
+    *  @methods
+    *    init
+    */
+    (function ($, window, document, undefined) {
+        var pluginName = "search-space";
+        var map
+        // The actual plugin constructor
+        function Plugin(element, options) {
+            this.element = element;
+            this.options = $.extend({}, $.fn[pluginName].defaults, options);
+            this.calendar;
+            this.init();
+        }
+
+        Plugin.prototype = {
+            init: function () {
+                var that = this;
+                $("#Slider1").slider({
+                    from: 40,
+                    to: 1000,
+                    step: 10,
+                    dimension: ''
+                });
+                $("#Slider2").slider({
+                    from: 100,
+                    to: 1000,
+                    step: 10,
+                    dimension: '&nbsp;$'
+                });
+            },
+        }
+
+        $.fn[pluginName] = function (options) {
+            return this.each(function () {
+                if (!$.data(this, pluginName)) {
+                    $.data(this, pluginName,
+                        new Plugin(this, options));
+                }
+            });
+        };
+        $.fn[pluginName].defaults = {
+            propertyName: 1
+        };
+        $(function () {
+            $('[data-' + pluginName + ']')[pluginName]();
+        });
+
+    })(jQuery, window, document);
 
 });

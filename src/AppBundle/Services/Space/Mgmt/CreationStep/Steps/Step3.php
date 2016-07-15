@@ -16,7 +16,7 @@ class Step3 extends Step
         if($this->getRequest()->isMethod('post')){
             return $this->redirectToRoute('app_user_space_create',['space' => $this->space->getId(),'step' => 4]);
         }
-        return $this->render('AppBundle:Space/Steps:step3.html.twig', array(
+        return $this->render('AppBundle:User/Space/Steps:step3.html.twig', array(
             'space'=>$this->space,
             'form' => $form->createView(),
         ));

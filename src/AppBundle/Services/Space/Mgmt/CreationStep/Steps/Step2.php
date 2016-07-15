@@ -22,7 +22,7 @@ class Step2 extends Step
         }else{
 //            Debug::dump($form->getErrors());
         }
-        return $this->render('AppBundle:Space/Steps:step2.html.twig', array(
+        return $this->render('AppBundle:User/Space/Steps:step2.html.twig', array(
             'space'=>$this->space,
             'form' => $form->createView(),
         ));
