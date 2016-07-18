@@ -19,7 +19,7 @@ class DefaultController extends ControllerService
     {
         $entityManager = $this->getDoctrine()->getManager();
         $spaceRepo = $entityManager->getRepository('AppBundle:Space\Space');
-        $qb = $spaceRepo->searchSpaces();
+        $qb = $spaceRepo->searchSpaces($request->query->all());
         $spaces = $this->pagingBuilder($request, $qb);
 
         return $this->render('AppBundle:Default:search-spaces.html.twig',['spaces'=>$spaces]);

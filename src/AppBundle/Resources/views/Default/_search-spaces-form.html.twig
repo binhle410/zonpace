@@ -42,12 +42,12 @@
         </div>
         <div class="layout-slider" style="width: 100%">
             Feet Square <span style="display: inline-block; width: 400px; padding: 0 5px;">
-                                    <input id="Slider1" type="slider" name="square" value="50" />
+                                    <input id="Slider1" type="slider" name="square" value="{{ app.request.get('square') is null ? '50;200':app.request.get('square') }}" />
                                 </span>
         </div>
         <div class="layout-slider" style="width: 100%;margin-top: 20px;margin-bottom: 20px;">
             Price Range <span style="display: inline-block; width: 400px; padding: 0 5px;">
-                                    <input id="Slider2" type="slider" name="price" value="100" />
+                                    <input id="Slider2" type="slider" name="price" value="{{ app.request.get('price') is null ? '100;500':app.request.get('price') }}" />
                                 </span>
         </div>
         <div class="form-group">

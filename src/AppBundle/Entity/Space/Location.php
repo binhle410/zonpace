@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity\Space;
 
+use AppBundle\Entity\Core\City;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -42,15 +43,16 @@ class Location
      */
     private $typeSpace;
 
+
     /**
-     * @var string
-     * @ORM\Column(name="city",type="string",nullable=true)
+     * @var City
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Core\City")
      */
     private $city;
 
     /**
      * @var State
-     * @ORM\ManyToOne(targetEntity="State")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Core\State")
      */
     private $state;
 

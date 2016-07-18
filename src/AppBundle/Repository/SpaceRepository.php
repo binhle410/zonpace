@@ -20,10 +20,84 @@ class SpaceRepository extends EntityRepository
         return $qb;
         
     }
-    public function searchSpaces(){
+    public function searchSpaces($query){
         $expr= new Expr();
-        $qb = $this->createQueryBuilder('space');
+        $qb = $this->createQueryBuilder('space')
+                    ->join('space.location','location')
+                    ->join('space.price','price')
+                    ->join('space.dateBooking','dateBooking')
+                    ->join('space.features','features');
+        if(isset($query['location']) && $query['location'] != ''){
+            $qb->where($qb->expr()->like('location.streetAddress', $expr->literal("%{$query['location']}%")));
+        }
+        if (isset($query['from']) && $query['from'] != '') {
+            $fromDate = \DateTime::createFromFormat('m/d/Y', $query['from']);
+            $qb->andWhere('dateBooking.dateFrom >= :from')
+                ->setParameter('from', $fromDate->format('Y-m-d'));
+        }
+        if (isset($query['to']) && $query['to'] != '') {
+            $toDate = \DateTime::createFromFormat('m/d/Y', $query['to']);
+            $qb->andWhere('dateBooking.dateTo <= :to')
+                ->setParameter('to', $toDate->format('Y-m-d'));
+        }
+        if (isset($query['price']) && $query['price'] != '') {
+            $price = explode(';',$query['price']);
+            $priceFrom = $price[0];
+            $priceTo = $price[1];
+            $qb->andWhere('price.daily >= :priceFrom AND price.daily <= :priceTo')
+                ->setParameter('priceFrom', $priceFrom)
+                ->setParameter('priceTo', $priceTo);
+        }
+        if (isset($query['square']) && $query['square'] != '') {
+            $square = explode(';',$query['square']);
+            $squareFrom = $square[0];
+            $squareTo = $square[1];
+            $qb->andWhere('location.squareFeet >= :squareFrom AND location.squareFeet <= :squareTo')
+                ->setParameter('squareFrom', $squareFrom)
+                ->setParameter('squareTo', $squareTo);
+        }
         return $qb;
 
     }
+//    public function findJobListing($positionId,$query){
+//        $em = $this->container->get('doctrine')->getManager();
+//        $qb = $em->createQueryBuilder();
+//        $expr = new Expr();
+//        $status = strtoupper($query['status']);
+//        $qb->select('listing')
+//            ->from('AppBundle:JobBoard\Listing\JobListing','listing')
+//            ->join('listing.creator', 'creator')
+//            ->where($expr->eq('creator', ':positionId'))
+//            ->andWhere($expr->eq('listing.status', ':status'))
+//            ->setParameter('status', $status)
+//            ->setParameter('positionId', $positionId);
+//        if(isset($query['title']) && $query['title'] != ''){
+//            $qb->andWhere($qb->expr()->like('listing.title', $expr->literal("%{$query['title']}%")));
+//        }
+//        if (isset($query['from']) && $query['from'] != '') {
+//            $fromDate = \DateTime::createFromFormat('m/d/Y', $query['from']);
+//            $qb->andWhere('listing.createdDate >= :from')
+//                ->setParameter('from', $fromDate->format('Y-m-d'));
+//        }
+//        if (isset($query['to']) && $query['to'] != '') {
+//            $toDate = \DateTime::createFromFormat('m/d/Y', $query['to']);
+//            $qb->andWhere('listing.createdDate <= :to')
+//                ->setParameter('to', $toDate->format('Y-m-d'));
+//        }
+//        if (isset($query['app-type']) && $query['app-type'] != '') {
+//            $qb->andWhere('listing.visibility = :visibility')
+//                ->setParameter('visibility', $query['app-type']);
+//        }
+//        if (isset($query['interview-required']) && $query['interview-required'] != '') {
+//            $value = $query['interview-required'] == 'yes' ? true:false;
+//            $qb->andWhere('listing.interviewRequired = :interviewRequired')
+//                ->setParameter('interviewRequired', $value);
+//        }
+//        if (isset($query['introduction-required']) && $query['introduction-required'] != '') {
+//            $value = $query['introduction-required'] == 'yes' ? true:false;
+//            $qb->andWhere('listing.interviewRequired = :introductionRequired')
+//                ->setParameter('introductionRequired', $value);
+//        }
+//        return $qb;
+//    }
 }

@@ -472,4 +472,10 @@
 .navbar .navbar-nav a:hover {
     color: red !important;
 }
+#pac-input{
+    margin-top: 20px;
+    margin-left: -115px;
+    padding: 2px;
+    width: 222px;
+}
 

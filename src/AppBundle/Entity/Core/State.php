@@ -1,13 +1,13 @@
 <?php
 
-namespace AppBundle\Entity\Space;
+namespace AppBundle\Entity\Core;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  *
  *
- * @ORM\Table(name="space__state")
+ * @ORM\Table(name="core__state")
  * @ORM\Entity
  */
 class State

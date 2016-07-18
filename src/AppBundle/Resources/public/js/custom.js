@@ -774,6 +774,7 @@ jQuery(function () {
                             if(response.status){
                                 var html = '<div width="165px;" height="102px;" class="col-md-4" style="margin-top: 2px"><img src="'+response.url+'"></div>';
                                 $('.wrap-img-space').append(html);
+                                $('#space-image').val('');
                             }
                         }
                     });
@@ -1102,8 +1103,8 @@ jQuery(function () {
                     from: 100,
                     to: 1000,
                     step: 10,
-                    heterogeneity: ['200/1000'],
-                    dimension: '&nbsp;$'
+                    dimension: '&nbsp;$',
+                    heterogeneity: ['50/500'],
                 });
                 that.searchPlace();
             },

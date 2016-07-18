@@ -9,10 +9,6 @@
             {{ form_widget(form.typeSpaceOptional,{'attr':{'class':'form-control','placeholder':'Example: Apt, Suite, Bldg, etc'}}) }}
         </div>
 
-        <div class="form-group">
-            <label class="control-label">City</label>
-            {{ form_widget(form.city,{'attr':{'class':'form-control','placeholder':'City'}}) }}
-        </div>
 
         <div class="row">
 
@@ -30,6 +26,10 @@
             </div>
         </div>
 
+        <div class="form-group">
+            <label class="control-label">City</label>
+            {{ form_widget(form.city,{'attr':{'class':'form-control','placeholder':'City'}}) }}
+        </div>
             {{ form_widget(form.typeSpace,{'attr':{'class':'form-control'}}) }}
 
 

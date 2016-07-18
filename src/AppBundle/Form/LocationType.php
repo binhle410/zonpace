@@ -25,18 +25,21 @@ class LocationType extends AbstractType
             ->add('typeSpaceOptional', TextType::class)
             ->add('typeSpace', ChoiceType::class,[
                 'choices'=>[
-                   1 =>Location::TYPE_SPACE_EVENT_SPACE,
-                    2 =>Location::TYPE_SPACE_SPACE_ATTACHED_TO_PROPERTY,
-                    3 =>Location::TYPE_SPACE_VACANT_LAND,
+                   'Vacant Land' =>Location::TYPE_SPACE_EVENT_SPACE,
+                    'Space attached to property' =>Location::TYPE_SPACE_SPACE_ATTACHED_TO_PROPERTY,
+                    'Event place' =>Location::TYPE_SPACE_VACANT_LAND,
                 ],
                 'expanded'=>true,
                 'multiple'=>false,
             ])
-            ->add('city', TextType::class)
             ->add('zipCode', NumberType::class)
             ->add('squareFeet', NumberType::class)
             ->add('state', EntityType::class,[
-                'class' => 'AppBundle:Space\State',
+                'class' => 'AppBundle:Core\State',
+                'choice_label' => 'name',
+            ])
+            ->add('city', EntityType::class,[
+                'class' => 'AppBundle:Core\City',
                 'choice_label' => 'name',
             ]);
     }
