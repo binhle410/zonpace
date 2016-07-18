@@ -34,6 +34,9 @@ services:
         public: false
         arguments: ["@security.http_utils","@service_container"]
 
+    app.form_serializer:
+        class: AppBundle\Services\Core\FormErrorsSerializer
+
     #form
     app.form.type.space:
             class: AppBundle\Form\SpaceType
