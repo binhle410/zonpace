@@ -19,6 +19,7 @@ class User extends BaseUser
     {
         parent::__construct();
         // your own logic
+        $this->userSetting = new UserSetting();
     }
     /**
      * @ORM\Id
@@ -72,9 +73,31 @@ class User extends BaseUser
 
     /**
      * @var Media
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media")
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media",cascade={"persist"})
      */
     private $photo;
+
+    /**
+     * @var UserSetting
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Core\UserSetting",cascade={"persist","remove"})
+     */
+    private $userSetting;
+
+    /**
+     * @return UserSetting
+     */
+    public function getUserSetting()
+    {
+        return $this->userSetting;
+    }
+
+    /**
+     * @param UserSetting $userSetting
+     */
+    public function setUserSetting($userSetting)
+    {
+        $this->userSetting = $userSetting;
+    }
 
     /**
      * @return \DateTime

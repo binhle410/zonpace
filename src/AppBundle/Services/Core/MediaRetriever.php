@@ -19,10 +19,10 @@ class MediaRetriever extends ControllerService
         return $mediaManager->findOneBy(array('id' => $id));
     }
 
-    public function getPublicURL(Media $media)
+    public function getPublicURL(Media $media,$context='default',$format='medium')
     {
         $provider = $this->get('sonata.media.provider.image');
-        $urlNotTrue =  $provider->generatePublicUrl($media,'default_medium');
+        $urlNotTrue =  $provider->generatePublicUrl($media,$context.'_'.$format);
         $dir = $this->getParameter('s3_directory');
         $region = $this->getParameter('s3_region');
         $host = 'https://s3-'.$region.'.amazonaws.com';

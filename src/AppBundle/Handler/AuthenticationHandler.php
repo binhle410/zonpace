@@ -5,9 +5,9 @@ namespace AppBundle\Handler;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
+use Symfony\Component\Security\Core\AuthenticationEvents;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Core\SecurityContextInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationFailureHandlerInterface;
 use Symfony\Component\Security\Http\HttpUtils;
@@ -132,7 +132,7 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, Au
             // if form login
         } else {
             // set authentication exception to session
-            $request->getSession()->set(SecurityContextInterface::AUTHENTICATION_ERROR, $exception);
+            $request->getSession()->set(AuthenticationEvents::AUTHENTICATION_FAILURE, $exception);
             $urlRedirect = $this->container->get('router')->generate('fos_user_security_login', array(), true);
             return new RedirectResponse($urlRedirect);
         }

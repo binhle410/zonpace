@@ -19,8 +19,8 @@ class TwigExtension extends \Twig_Extension
     }
 
 
-    public function getUrl(Media $media){
-        return $this->container->get('app.media.retriever')->getPublicURL($media);
+    public function getUrl(Media $media,$context='default',$format='medium'){
+        return $this->container->get('app.media.retriever')->getPublicURL($media,$context,$format);
     }
 
     public function getFunctions()

@@ -8,18 +8,15 @@
             <div class="row">
 
                 <div class="main col-md-8 col-lg-offset-1 col-md-push-4 col-lg-push-3">
-                    <form role="form" method="post">
+                    <form role="form" method="post" enctype="multipart/form-data">
                         {{ form_row(form._token) }}
                         {% if user.photo %}
                             <div class="form-group">
-                                <label class="col-sm-2 control-label"></label>
-                                <div class="col-sm-10">
-                                    {% media user.photo, 'small' %}
-                                </div>
+                                    <img src="{{ getUrl(user.photo,'default','small') }}">
                             </div>
                         {% endif %}
                         <div class="form-group">
-                            {{ form_widget(form.photo,{'attr':{'class':'','placeholder':''}}) }}
+                            {{ form_widget(form.photo.binaryContent,{'attr':{'class':'','placeholder':''}}) }}
                         </div>
 
                         <div class="row">
