@@ -8,10 +8,10 @@
  *  
  */
 body {
-	.fontLato(400);
+	.fontNovaReg();
 	font-size: 14px;
 	line-height: 1.6;
-	color: #000;
+	color: #211D1E;
 	background-color: #F4F4F4;
 }
 ul {
@@ -44,6 +44,12 @@ h1, h2, h3, h4, h5, h6 {
 .uppercase {
 	text-transform: uppercase;
 }
+.tbl-cell {
+	display: table-cell;
+}
+.tbl-row {
+	display: table-row;
+}
 //** ------ {{ plugins }} ------------------------------------ 
 @import "blocks/plugins.less";
 
@@ -54,6 +60,12 @@ h1, h2, h3, h4, h5, h6 {
 @import "blocks/main-slider.less";
 @import "blocks/blk-filter.less";
 @import "blocks/blk-area.less";
+
+//** ------ {{ homepage }} ------------------------------------ 
+@import "blocks/homepage/home-offer.less";
+@import "blocks/homepage/home-venues.less";
+@import "blocks/homepage/home-money.less";
+@import "blocks/homepage/home-works.less";
 
 //** ------ {{ footer }} ------------------------------------ 
 @import "blocks/footer.less";

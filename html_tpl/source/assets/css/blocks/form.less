@@ -27,11 +27,24 @@
 		color: #fff;
 		height: 40px;
 		line-height: 40px;
-		color: #fff;
-		.border-radius(5px);
-		font-weight: 700;
+		.border-radius(2px);
 		&:hover {
 			background-color: darken(@red, 10%)
+		}
+	}
+	&.btn-border {
+		background-color: #fff;
+		padding-top: 0;
+		padding-bottom: 0;
+		text-align: center;
+		color: @black;
+		height: 40px;
+		line-height: 40px;
+		border: 1px solid @red;
+		.border-radius(2px);
+		&:hover {
+			background-color: @red;
+			color: #fff;
 		}
 	}
 }
