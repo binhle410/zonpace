@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller\User\Space\Mgmt;
 
+use AppBundle\Entity\Space\Space;
 use AppBundle\Services\Core\ControllerService;
 use Doctrine\Common\Util\Debug;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,12 +17,11 @@ class SpaceRetrievalController extends ControllerService
         $qb = $spaceRepo->findMySpaces($this->getUser());
         $spaces = $this->pagingBuilder($request, $qb);
 
-        $currentPageResults = $spaces->getCurrentPageResults();
-
-        echo '<pre>';
-        Debug::dump($currentPageResults);die;
-
         return $this->render('AppBundle:User/Space:list.html.twig',['spaces'=>$spaces]);
+    }
+    public function viewAction(Request $request,Space $space)
+    {
+        return $this->render('AppBundle:User/Space:view.html.twig',['space'=>$space]);
     }
 
 }

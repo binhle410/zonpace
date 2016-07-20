@@ -132,9 +132,9 @@ sonata_media:
                 - sonata.media.provider.file
 
             formats:
-                small: { width: 100 , quality: 70}
+                small: { width: 50 ,height: 50, quality: 70}
                 big:   { width: 500 , quality: 70}
-                medium:   { width: 165 , quality: 70}
+                medium:   { width: 100 , height: 100, quality: 70}
 
     filesystem:
         local:
@@ -151,6 +151,7 @@ sonata_media:
         image:
             resizer: sonata.media.resizer.square
             filesystem: sonata.media.filesystem.s3
+#            thumbnail:  sonata.media.thumbnail.liip_imagine
 #            filesystem: sonata.media.filesystem.local
             allowed_extensions: ['png','jpg']
             allowed_mime_types: ['image/png','image/jpg','image/jpeg']
@@ -197,4 +198,20 @@ stof_doctrine_extensions:
     orm:
         default:
             sluggable: true
+
+#liip_imagine:
+#    controller:
+#        filter_action: SonataMediaBundle:Media:liipImagineFilter
+#    filter_sets:
+#        default_small:
+#            quality: 75
+#            filters:
+#                thumbnail: { size: [100, 70], mode: outbound }
+#
+#
+#        default_big:
+#            quality: 75
+#            filters:
+#                thumbnail: { size: [500, 70], mode: outbound }
+
 

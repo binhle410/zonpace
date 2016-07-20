@@ -36,6 +36,7 @@ class AppKernel extends Kernel
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
 
+            new Liip\ImagineBundle\LiipImagineBundle(),
             new AppBundle\AppBundle(),
 
         ];

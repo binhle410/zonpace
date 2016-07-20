@@ -1,0 +1,28 @@
+{% extends 'AppBundle::layout.html.twig' %}
+{% block content %}
+
+
+    <section class="main-container">
+
+        <div class="container">
+            <div class="row">
+
+                <!-- main start -->
+                <!-- ================ -->
+                <div class="main col-md-8 col-lg-offset-1 col-md-push-4 col-lg-push-3">
+
+                    Manage one listing
+                    <input onclick="window.location.href='{{ path('app_user_space_create',{'step':1,'space':space.id}) }}'" type="button" value="Edit Listing Detail"
+                           class="margin-clear btn btn-default">
+                </div>
+
+                <!-- sidebar start -->
+                {% include 'AppBundle:User:_nav.html.twig' %}
+                <!-- ================ -->
+
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

@@ -32,7 +32,7 @@ jQuery(function () {
             init: function () {
 
             },
-            takeImage :function() {
+            takeImage: function () {
                 $('#map_in').html2canvas({
                     onrendered: function (canvas) {
                         $('#app_space_space_spaceImageTmp').val(canvas.toDataURL("image/png"));
@@ -412,7 +412,7 @@ jQuery(function () {
                     // events: events,
                     clickEvents: {
                         click: function (target) {
-                            if($('#app_space_space_dateBooking_dateFrom').val() != '' && $('#app_space_space_dateBooking_dateTo').val() != '') {
+                            if ($('#app_space_space_dateBooking_dateFrom').val() != '' && $('#app_space_space_dateBooking_dateTo').val() != '') {
                                 if ($(target.element).hasClass('inactive') === false) {
                                     if ($(target.element).hasClass('inactive-by-hand')) {
                                         $(target.element).removeClass('inactive-by-hand');
@@ -444,21 +444,21 @@ jQuery(function () {
                 that.loadBlockedDate();
 
             },
-            updateBlockedDate: function(date,add){
+            updateBlockedDate: function (date, add) {
                 var dateArr = date.split('-');
                 var year = dateArr[0];
                 var month = dateArr[1];
                 var blockedDateJson = $('#app_space_space_dateBooking_blockedDateBookings').val();
                 var blockedDateJsonParsed = JSON.parse(blockedDateJson.trim());
-                if(add){
-                    if(blockedDateJsonParsed[year] == undefined){
-                        blockedDateJsonParsed[year]={};
+                if (add) {
+                    if (blockedDateJsonParsed[year] == undefined) {
+                        blockedDateJsonParsed[year] = {};
                     }
-                    if(blockedDateJsonParsed[year][month] == undefined){
-                        blockedDateJsonParsed[year][month]={};
+                    if (blockedDateJsonParsed[year][month] == undefined) {
+                        blockedDateJsonParsed[year][month] = {};
                     }
-                    blockedDateJsonParsed[year][month][date]=date;
-                }else{
+                    blockedDateJsonParsed[year][month][date] = date;
+                } else {
                     delete blockedDateJsonParsed[year][month][date];
                 }
                 var stringJson = JSON.stringify(blockedDateJsonParsed);
@@ -483,51 +483,51 @@ jQuery(function () {
                     }
                 }
             },
-            checkPrice: function(){
+            checkPrice: function () {
                 var dailySel = $('#app_space_space_price_daily');
                 var weeklySel = $('#app_space_space_price_weeklyDiscount');
                 var monthlySel = $('#app_space_space_price_monthlyDiscount');
-                if(dailySel.val() != ''){
-                    dailySel.parents('div.checkbox').find(':checkbox').attr('checked',true);
-                }else{
-                    dailySel.attr('disabled',true);
-                    dailySel.parents('div.checkbox').find(':checkbox').attr('checked',false);
+                if (dailySel.val() != '') {
+                    dailySel.parents('div.checkbox').find(':checkbox').attr('checked', true);
+                } else {
+                    dailySel.attr('disabled', true);
+                    dailySel.parents('div.checkbox').find(':checkbox').attr('checked', false);
                 }
-                if(weeklySel.val() != ''){
-                    weeklySel.parents('div.checkbox').find(':checkbox').attr('checked',true);
-                }else{
-                    weeklySel.attr('disabled',true);
-                    weeklySel.parents('div.checkbox').find(':checkbox').attr('checked',false);
+                if (weeklySel.val() != '') {
+                    weeklySel.parents('div.checkbox').find(':checkbox').attr('checked', true);
+                } else {
+                    weeklySel.attr('disabled', true);
+                    weeklySel.parents('div.checkbox').find(':checkbox').attr('checked', false);
                 }
-                if(monthlySel.val() != ''){
-                    monthlySel.parents('div.checkbox').find(':checkbox').attr('checked',true);
-                }else{
-                    monthlySel.attr('disabled',true);
-                    monthlySel.parents('div.checkbox').find(':checkbox').attr('checked',false);
+                if (monthlySel.val() != '') {
+                    monthlySel.parents('div.checkbox').find(':checkbox').attr('checked', true);
+                } else {
+                    monthlySel.attr('disabled', true);
+                    monthlySel.parents('div.checkbox').find(':checkbox').attr('checked', false);
                 }
 
-                $('.price-daily').click(function(){
-                    if($(this).is(':checked')){
-                        dailySel.attr('disabled',false);
-                    }else{
+                $('.price-daily').click(function () {
+                    if ($(this).is(':checked')) {
+                        dailySel.attr('disabled', false);
+                    } else {
                         dailySel.val('');
-                        dailySel.attr('disabled',true);
+                        dailySel.attr('disabled', true);
                     }
                 });
-                $('.price-weekly').click(function(){
-                    if($(this).is(':checked')){
-                        weeklySel.attr('disabled',false);
-                    }else{
+                $('.price-weekly').click(function () {
+                    if ($(this).is(':checked')) {
+                        weeklySel.attr('disabled', false);
+                    } else {
                         weeklySel.val('');
-                        weeklySel.attr('disabled',true);
+                        weeklySel.attr('disabled', true);
                     }
                 });
-                $('.price-monthly').click(function(){
-                    if($(this).is(':checked')){
-                        monthlySel.attr('disabled',false);
-                    }else{
+                $('.price-monthly').click(function () {
+                    if ($(this).is(':checked')) {
+                        monthlySel.attr('disabled', false);
+                    } else {
                         monthlySel.val('');
-                        monthlySel.attr('disabled',true);
+                        monthlySel.attr('disabled', true);
                     }
                 });
             },
@@ -757,9 +757,9 @@ jQuery(function () {
                 google.maps.event.addDomListener(window, 'load', initialize);
 
             },
-            uploadImageSpace : function() {
+            uploadImageSpace: function () {
                 var myFileInput = $('#space-image');
-                myFileInput.change(function() {
+                myFileInput.change(function () {
                     var url = myFileInput.data('href');
                     var data = document.querySelector("#form-space");
                     var formData = new FormData(data);
@@ -771,8 +771,8 @@ jQuery(function () {
                         processData: false,  // tell jQuery not to process the data
                         contentType: false,  // tell jQuery not to set contentType
                         success: function (response) {
-                            if(response.status){
-                                var html = '<div width="165px;" height="102px;" class="col-md-4" style="margin-top: 2px"><img src="'+response.url+'"></div>';
+                            if (response.status) {
+                                var html = '<div width="165px;" height="102px;" class="col-md-4" style="margin-top: 2px"><img src="' + response.url + '"></div>';
                                 $('.wrap-img-space').append(html);
                                 $('#space-image').val('');
                             }
@@ -797,7 +797,8 @@ jQuery(function () {
             $('[data-' + pluginName + ']')[pluginName]();
         });
 
-    })(jQuery, window, document); /**
+    })(jQuery, window, document);
+    /**
      *  @name  Job Type
      *  @description Map
      *  @version 1.0
@@ -1070,15 +1071,15 @@ jQuery(function () {
     })(jQuery, window, document);
 
     /*  @name  Job Type
-    *  @description Map
-    *  @version 1.0
-    *  @options
-    *    option
-    *  @events
-    *    event
-    *  @methods
-    *    init
-    */
+     *  @description Map
+     *  @version 1.0
+     *  @options
+     *    option
+     *  @events
+     *    event
+     *  @methods
+     *    init
+     */
     (function ($, window, document, undefined) {
         var pluginName = "search-space";
         var map
@@ -1092,7 +1093,11 @@ jQuery(function () {
 
         Plugin.prototype = {
             init: function () {
-                var that = this;
+                var that=this;
+                that.initSlider();
+                that.searchPlace();
+            },
+            initSlider: function(){
                 $("#Slider1").slider({
                     from: 40,
                     to: 1000,
@@ -1106,84 +1111,145 @@ jQuery(function () {
                     dimension: '&nbsp;$',
                     heterogeneity: ['50/500'],
                 });
-                that.searchPlace();
             },
             searchPlace: function () {
+                var that = this;
+                //init map
                 var width = $('.map').parent('div').width();
+                var lat = parseFloat($('#lat').val());
+                var lng = parseFloat($('#lng').val());
                 $('.map').width(width).height(width);
                 var map = new google.maps.Map(document.getElementById('map'), {
-                    center: {lat: 43, lng: -88},
-
-                    zoom: 13,
+                    center: {lat: lat, lng: lng},
+                    zoom: 15,
                     mapTypeId: google.maps.MapTypeId.ROADMAP
                 });
-                var that = this;
-                // Create the search box and link it to the UI element.
-                var input = document.getElementById('pac-input');
-                var searchBox = new google.maps.places.SearchBox(input);
-                // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
-                // Bias the SearchBox results towards current map's viewport.
-                map.addListener('bounds_changed', function () {
-                    searchBox.setBounds(map.getBounds());
-                });
-
+                //init search input
+                var input = document.getElementById('search-space-input');
+                var options = {
+                    // types: ['(cities)'],
+                    componentRestrictions: {country: 'vn'}
+                };
+                var searchBox = new google.maps.places.Autocomplete(input, options);
                 var markers = [];
-                // Listen for the event fired when the user selects a prediction and retrieve
-                // more details for that place.
-                searchBox.addListener('places_changed', function () {
-                    var places = searchBox.getPlaces();
+                //event when input change
+                searchBox.addListener('place_changed', function () {
+                    var place = searchBox.getPlace();
 
-                    if (places.length == 0) {
+                    if (place.length == 0) {
                         return;
                     }
 
-                    // Clear out the old markers.
-                    markers.forEach(function (marker) {
-                        marker.setMap(null);
-                    });
-                    markers = [];
-
-                    // For each place, get the icon, name and location.
                     var bounds = new google.maps.LatLngBounds();
-                    places.forEach(function (place) {
-                        var icon = {
-                            url: place.icon,
-                            size: new google.maps.Size(71, 71),
-                            origin: new google.maps.Point(0, 0),
-                            anchor: new google.maps.Point(17, 34),
-                            scaledSize: new google.maps.Size(25, 25)
-                        };
-
-                        // Create a marker for each place.
-                        markers.push(new google.maps.Marker({
-                            map: map,
-                            icon: icon,
-                            title: place.name,
-                            position: place.geometry.location
-                        }));
-
-                        if (place.geometry.viewport) {
-                            // Only geocodes have viewport.
-                            bounds.union(place.geometry.viewport);
-                        } else {
-                            bounds.extend(place.geometry.location);
-                        }
-                    });
-                    map.fitBounds(bounds);
+                    if (place.geometry.viewport) {
+                        // Only geocodes have viewport.
+                        bounds.union(place.geometry.viewport);
+                    } else {
+                        bounds.extend(place.geometry.location);
+                    }
+                    $('#lat').val(bounds.getCenter().lat());
+                    $('#lng').val(bounds.getCenter().lng());
+                    $('.form-search-spaces').submit();
                 });
-            }
+            },
 
         },
 
-        $.fn[pluginName] = function (options) {
-            return this.each(function () {
-                if (!$.data(this, pluginName)) {
-                    $.data(this, pluginName,
-                        new Plugin(this, options));
-                }
-            });
+            $.fn[pluginName] = function (options) {
+                return this.each(function () {
+                    if (!$.data(this, pluginName)) {
+                        $.data(this, pluginName,
+                            new Plugin(this, options));
+                    }
+                });
+            };
+        $.fn[pluginName].defaults = {
+            propertyName: 1
         };
+        $(function () {
+            $('[data-' + pluginName + ']')[pluginName]();
+        });
+
+    })(jQuery, window, document);
+
+    /*  @name  Job Type
+     *  @description Map
+     *  @version 1.0
+     *  @options
+     *    option
+     *  @events
+     *    event
+     *  @methods
+     *    init
+     */
+    (function ($, window, document, undefined) {
+        var pluginName = "homepage";
+        var map
+        // The actual plugin constructor
+        function Plugin(element, options) {
+            this.element = element;
+            this.options = $.extend({}, $.fn[pluginName].defaults, options);
+            this.calendar;
+            this.init();
+        }
+
+        Plugin.prototype = {
+            init: function () {
+                var that=this;
+                that.initSlider();
+                that.searchPlace();
+            },
+            initSlider: function(){
+                $("#Slider1").slider({
+                    from: 40,
+                    to: 1000,
+                    step: 10,
+                    dimension: ''
+                });
+                $("#Slider2").slider({
+                    from: 100,
+                    to: 1000,
+                    step: 10,
+                    dimension: '&nbsp;$',
+                    heterogeneity: ['50/500'],
+                });
+            },
+            searchPlace: function () {
+                var that = this;
+                var input = document.getElementById('search-space-input');
+                var options = {
+                    // types: ['(cities)'],
+                    componentRestrictions: {country: 'vn'}
+                };
+                var searchBox = new google.maps.places.Autocomplete(input, options);
+                searchBox.addListener('place_changed', function () {
+                    var place = searchBox.getPlace();
+
+                    if (place.length == 0) {
+                        return;
+                    }
+                    var bounds = new google.maps.LatLngBounds();
+                    if (place.geometry.viewport) {
+                        // Only geocodes have viewport.
+                        bounds.union(place.geometry.viewport);
+                    } else {
+                        bounds.extend(place.geometry.location);
+                    }
+                    $('#lat').val(bounds.getCenter().lat());
+                    $('#lng').val(bounds.getCenter().lng());
+                });
+            },
+
+        },
+
+            $.fn[pluginName] = function (options) {
+                return this.each(function () {
+                    if (!$.data(this, pluginName)) {
+                        $.data(this, pluginName,
+                            new Plugin(this, options));
+                    }
+                });
+            };
         $.fn[pluginName].defaults = {
             propertyName: 1
         };

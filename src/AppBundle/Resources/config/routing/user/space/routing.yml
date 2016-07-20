@@ -9,3 +9,6 @@ app_user_space_upload_image:
 app_user_space_list:
     path: /list
     defaults: { _controller: AppBundle:User/Space/Mgmt/SpaceRetrieval:list}
+app_user_space_view:
+    path: /view/{space}
+    defaults: { _controller: AppBundle:User/Space/Mgmt/SpaceRetrieval:view}

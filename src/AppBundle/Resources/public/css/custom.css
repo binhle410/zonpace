@@ -129,7 +129,11 @@
     /*border-bottom: 7px solid #69a776;*/
 }
 #mini-clndr .clndr .controls {
-    background-color: #69a776;
+    background-color: #69a776 !important;
+    color: white;
+}
+#mini-clndr .clndr .controls .clndr-previous-button,#mini-clndr .clndr .controls .clndr-next-button{
+    background-color: #69a776 !important;
     color: white;
 }
 #mini-clndr .clndr .controls .clndr-previous-button,

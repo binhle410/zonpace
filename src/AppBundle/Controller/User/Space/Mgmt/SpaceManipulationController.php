@@ -21,5 +21,6 @@ class SpaceManipulationController extends ControllerService
             return $creator->process($step);
         }
     }
+    
 
 }

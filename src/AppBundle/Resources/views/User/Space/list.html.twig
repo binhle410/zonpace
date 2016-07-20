@@ -91,7 +91,7 @@
                                             <div class="space-enabled"><strong>Enabled</strong></div>
                                             <input type="button" value="Review"
                                                    class="margin-clear btn btn-default btn-custom">
-                                            <input type="button" value="Manage"
+                                            <input onclick="window.location.href='{{ path('app_user_space_view',{'space':space.id}) }}'" type="button" value="Manage"
                                                    class="margin-clear btn btn-default btn-custom">
                                         </div>
                                     </div>
