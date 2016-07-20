@@ -1,0 +1,124 @@
+/**
+ * CSS FOOTER
+ */
+.footer-wrap {
+	.footer-menu {
+		background-color: @dark;
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+	h2.foo-ttl {
+		color: #fff;
+		text-transform: uppercase;
+		position: relative;
+		font-size: 14px;
+		font-weight: 900;
+		margin-bottom: 25px;
+		&::before {
+			content: "";
+			width: 30px;
+			height: 3px;
+			background-color: @red;
+			position: absolute;
+			left: 0;
+			bottom: -10px;
+		}
+	}
+	li {
+		padding: 2px 0;
+		a {
+			color: #cbcbcb;
+			font-weight: 300;
+			&:hover {
+				color: #fff;
+			}
+		}
+	}
+}
+.footer-wrap {
+	.footer-choice {
+		h2.foo-ttl {
+			&::before {
+				display: none;
+			}
+		}
+		select {
+			background-color: #858585;
+			color: #fff;
+			border: none;
+		}
+		.blk-lang {
+			margin-bottom: 30px;
+		}
+	}
+}
+.footer-wrap {
+	.footer-follow {
+		color: #9B9B9B;
+		background-color: @gray;
+		padding-top: 40px;
+		padding-bottom: 40px;
+		border-top: 1px solid #6D6D6D;
+		b {
+			font-weight: 900;
+		}
+		h2.foo-ttl {
+			text-align: center;
+			&::before {
+				display: none;
+			}
+		}
+		ul {
+			width: 360px;
+			margin: 0 auto;
+			margin-bottom: 20px;
+			li {
+				float: left;
+				width: 43px;
+				height: 43px;
+				margin-right: 20px;
+				&:last-child {
+					margin-right: 0;
+				}
+				a {
+					background-color: @dark;
+					text-align: center;
+					line-height: 43px;
+					color: #fff;
+					.border-radius(5px);
+					border: 1px solid #6D6D6D;
+					display: block;
+					&:hover {
+						background-color: #000;
+					}
+				}
+			}
+		}
+	}
+}
+.footer-wrap {
+	.footer-choice {
+		.select2-container--default {
+			.select2-selection--single {
+				background-color: #858585;
+				color: #fff;
+				border: none;	
+				height: 40px;
+				.border-radius(5px);
+				outline: none;
+				.select2-selection__rendered {
+					color: #fff;
+					line-height: 40px;
+					padding-left: 20px;
+					top: 7px;
+				    right: 5px;
+				}
+				.select2-selection__arrow {
+					b {
+					    border-color: #fff transparent transparent transparent;
+					}
+				}
+			}
+		}
+	}
+}
