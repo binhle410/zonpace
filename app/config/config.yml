@@ -96,7 +96,16 @@ doctrine:
                             alias: GedmoTree # (optional) it will default to the name set for the mapping
                             is_bundle: false
 
-
+                  dql:
+                          datetime_functions:
+                                    #path to date functions as same as numeric function
+                          numeric_functions:
+                              acos: AppBundle\DoctrineExtensions\Query\Mysql\Acos
+                              cos: AppBundle\DoctrineExtensions\Query\Mysql\Cos
+                              sin: AppBundle\DoctrineExtensions\Query\Mysql\Sin
+                              radians: AppBundle\DoctrineExtensions\Query\Mysql\Radians
+                          string_functions:
+                              group_concat : AppBundle\DoctrineExtensions\Query\Mysql\GroupConcat
 # Swiftmailer Configuration
 swiftmailer:
     transport: "%mailer_transport%"
