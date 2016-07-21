@@ -17,6 +17,7 @@ class DefaultController extends ControllerService
     }
     public function searchSpacesAction(Request $request)
     {
+
         $entityManager = $this->getDoctrine()->getManager();
         $spaceRepo = $entityManager->getRepository('AppBundle:Space\Space');
         $qb = $spaceRepo->searchSpaces($request->query->all());

@@ -1,6 +1,7 @@
 <?php
 
 namespace AppBundle\Repository;
+
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Query\Expr;
 use DoctrineExtensions\Query\Mysql\Acos;
@@ -16,29 +17,36 @@ use DoctrineExtensions\Query\Mysql\Radians;
  */
 class SpaceRepository extends EntityRepository
 {
-    public function findMySpaces($user){
-        $expr= new Expr();
+    public function findMySpaces($user)
+    {
+        $expr = new Expr();
         $qb = $this->createQueryBuilder('space')
-                ->where($expr->eq('space.user',':user'))
-                ->setParameter('user',$user);
+            ->where($expr->eq('space.user', ':user'))
+            ->setParameter('user', $user);
         return $qb;
-        
+
     }
-    public function searchSpaces($query){
-        $expr= new Expr();
-        $lat = $query['lat'];
-        $lng = $query['lng'];
-        $fields =[];
-        $fields[]="space";
-        $fields[] ="( 3959 * acos( cos( radians('$lat') ) * cos( radians( space.lat ) ) * cos( radians( space.lng ) - radians('$lng') ) + sin( radians('$lat') ) * sin( radians( space.lat ) ) ) ) AS distance";
+
+    public function searchSpaces($query)
+    {
+        $expr = new Expr();
+        $fields = [];
+        $fields[] = "space";
+        if (isset($query['lat']) && isset($query['lng'])) {
+            $lat = $query['lat'];
+            $lng = $query['lng'];
+            $fields[] = "( 3959 * acos( cos( radians('$lat') ) * cos( radians( location.lat ) ) * cos( radians( location.lng ) - radians('$lng') ) + sin( radians('$lat') ) * sin( radians( location.lat ) ) ) ) AS distance";
+        }
         $qb = $this->_em->createQueryBuilder()
             ->select($fields)
             ->from($this->_entityName, 'space', null)
-                    ->join('space.location','location')
-                    ->join('space.price','price')
-                    ->join('space.dateBooking','dateBooking')
-                    ->join('space.features','features')
-                    ->orderBy('distance', 'ASC');
+            ->join('space.location', 'location')
+            ->join('space.price', 'price')
+            ->join('space.dateBooking', 'dateBooking')
+            ->leftJoin('space.features', 'features');
+        if (isset($query['lat']) && isset($query['lng'])) {
+            $qb->orderBy('distance', 'ASC');
+        }
 
 //        if (isset($query['from']) && $query['from'] != '') {
 //            $fromDate = \DateTime::createFromFormat('m/d/Y', $query['from']);

@@ -1099,6 +1099,30 @@ jQuery(function () {
                     zoom: 15,
                     mapTypeId: google.maps.MapTypeId.ROADMAP
                 });
+                //init maker
+                var items = $('.search-space-item');
+                items.each(function(){
+                    var lat = $(this).data('lat');
+                    var lng = $(this).data('lng');
+                    var aphabet = $(this).data('aphabet');
+                    // var icon = {
+                    //     // url: place.icon,
+                    //     size: new google.maps.Size(71, 71),
+                    //     origin: new google.maps.Point(0, 0),
+                    //     anchor: new google.maps.Point(17, 34),
+                    //     scaledSize: new google.maps.Size(25, 25)
+                    // };
+
+                    // Create a marker for each place.
+                   new google.maps.Marker({
+                        map: map,
+                        // icon: icon,
+                        title: aphabet,
+                        label: aphabet,
+                        position: {lat:lat,lng:lng}
+                    });
+                });
+
                 //init search input
                 var input = document.getElementById('search-space-input');
                 var options = {
@@ -1106,7 +1130,6 @@ jQuery(function () {
                     componentRestrictions: {country: 'vn'}
                 };
                 var searchBox = new google.maps.places.Autocomplete(input, options);
-                var markers = [];
                 //event when input change
                 searchBox.addListener('place_changed', function () {
                     var place = searchBox.getPlace();

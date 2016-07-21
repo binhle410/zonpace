@@ -23,11 +23,19 @@ class TwigExtension extends \Twig_Extension
         return $this->container->get('app.media.retriever')->getPublicURL($media,$context,$format);
     }
 
+    public function getlAphabetNameSpace($index){
+        $aphabet = range('A','Z');
+        if(isset($aphabet[$index])){
+            return $aphabet[$index];
+        }
+        return 'N/A';
+    }
     public function getFunctions()
     {
         return array(
             'getParameter' => new \Twig_Function_Method($this, 'getParameter', array('is_safe' => array('html'))),
             'getUrl' => new \Twig_Function_Method($this, 'getUrl', array('is_safe' => array('html'))),
+            'getlAphabetNameSpace' => new \Twig_Function_Method($this, 'getlAphabetNameSpace', array('is_safe' => array('html'))),
         );
     }
 

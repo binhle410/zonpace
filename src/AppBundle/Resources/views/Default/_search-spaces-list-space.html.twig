@@ -1,10 +1,10 @@
 {% for data in spaces %}
 {% set space = data[0] %}
-<div class="row search-space-item">
+<div class="row search-space-item" data-lat="{{ space.location.lat }}" data-lng="{{ space.location.lng }}" data-aphabet="{{getlAphabetNameSpace(loop.index-1)}}" >
 
     <div class="row">
         <div class="col-md-6">
-            <strong>{{ space.name }}</strong>
+            <strong>{{getlAphabetNameSpace(loop.index-1) ~' '~ space.name }}</strong>
         </div>
         <div class="col-md-6 pull-right">
             <span class="pull-right">Available</span>
