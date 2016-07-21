@@ -3,6 +3,10 @@
 namespace AppBundle\Repository;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Query\Expr;
+use DoctrineExtensions\Query\Mysql\Acos;
+use DoctrineExtensions\Query\Mysql\Cos;
+use DoctrineExtensions\Query\Mysql\Sin;
+use DoctrineExtensions\Query\Mysql\Radians;
 
 /**
  * BlogPostRepository
@@ -22,40 +26,46 @@ class SpaceRepository extends EntityRepository
     }
     public function searchSpaces($query){
         $expr= new Expr();
-        $qb = $this->createQueryBuilder('space')
+        $lat = $query['lat'];
+        $lng = $query['lng'];
+        $fields =[];
+        $fields[]="space";
+        $fields[] ="( 3959 * acos( cos( radians('$lat') ) * cos( radians( space.lat ) ) * cos( radians( space.lng ) - radians('$lng') ) + sin( radians('$lat') ) * sin( radians( space.lat ) ) ) ) AS distance";
+        $qb = $this->_em->createQueryBuilder()
+            ->select($fields)
+            ->from($this->_entityName, 'space', null)
                     ->join('space.location','location')
                     ->join('space.price','price')
                     ->join('space.dateBooking','dateBooking')
-                    ->join('space.features','features');
-        if(isset($query['location']) && $query['location'] != ''){
-            $qb->where($qb->expr()->like('location.streetAddress', $expr->literal("%{$query['location']}%")));
-        }
-        if (isset($query['from']) && $query['from'] != '') {
-            $fromDate = \DateTime::createFromFormat('m/d/Y', $query['from']);
-            $qb->andWhere('dateBooking.dateFrom >= :from')
-                ->setParameter('from', $fromDate->format('Y-m-d'));
-        }
-        if (isset($query['to']) && $query['to'] != '') {
-            $toDate = \DateTime::createFromFormat('m/d/Y', $query['to']);
-            $qb->andWhere('dateBooking.dateTo <= :to')
-                ->setParameter('to', $toDate->format('Y-m-d'));
-        }
-        if (isset($query['price']) && $query['price'] != '') {
-            $price = explode(';',$query['price']);
-            $priceFrom = $price[0];
-            $priceTo = $price[1];
-            $qb->andWhere('price.daily >= :priceFrom AND price.daily <= :priceTo')
-                ->setParameter('priceFrom', $priceFrom)
-                ->setParameter('priceTo', $priceTo);
-        }
-        if (isset($query['square']) && $query['square'] != '') {
-            $square = explode(';',$query['square']);
-            $squareFrom = $square[0];
-            $squareTo = $square[1];
-            $qb->andWhere('location.squareFeet >= :squareFrom AND location.squareFeet <= :squareTo')
-                ->setParameter('squareFrom', $squareFrom)
-                ->setParameter('squareTo', $squareTo);
-        }
+                    ->join('space.features','features')
+                    ->orderBy('distance', 'ASC');
+
+//        if (isset($query['from']) && $query['from'] != '') {
+//            $fromDate = \DateTime::createFromFormat('m/d/Y', $query['from']);
+//            $qb->andWhere('dateBooking.dateFrom >= :from')
+//                ->setParameter('from', $fromDate->format('Y-m-d'));
+//        }
+//        if (isset($query['to']) && $query['to'] != '') {
+//            $toDate = \DateTime::createFromFormat('m/d/Y', $query['to']);
+//            $qb->andWhere('dateBooking.dateTo <= :to')
+//                ->setParameter('to', $toDate->format('Y-m-d'));
+//        }
+//        if (isset($query['price']) && $query['price'] != '') {
+//            $price = explode(';',$query['price']);
+//            $priceFrom = $price[0];
+//            $priceTo = $price[1];
+//            $qb->andWhere('price.daily >= :priceFrom AND price.daily <= :priceTo')
+//                ->setParameter('priceFrom', $priceFrom)
+//                ->setParameter('priceTo', $priceTo);
+//        }
+//        if (isset($query['square']) && $query['square'] != '') {
+//            $square = explode(';',$query['square']);
+//            $squareFrom = $square[0];
+//            $squareTo = $square[1];
+//            $qb->andWhere('location.squareFeet >= :squareFrom AND location.squareFeet <= :squareTo')
+//                ->setParameter('squareFrom', $squareFrom)
+//                ->setParameter('squareTo', $squareTo);
+//        }
         return $qb;
 
     }

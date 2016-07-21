@@ -115,6 +115,17 @@ class Space
     private $enabled;
 
     /**
+     * @var float
+     * @ORM\Column(name="lat",type="float",nullable=true)
+     */
+    private $lat;
+    /**
+     * @var float
+     * @ORM\Column(name="lng",type="float",nullable=true)
+     */
+    private $lng;
+
+    /**
      * @return mixed
      */
     public function getEnabled()
