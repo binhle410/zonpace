@@ -33,7 +33,7 @@ class TwigExtension extends \Twig_Extension
         return 'N/A';
     }
 
-    public function getSpaceTypeText($key)
+    public function getTypeSpace($key)
     {
         $spaceType = [
             'VACANT_LAND' => 'Vacant land',
@@ -42,6 +42,23 @@ class TwigExtension extends \Twig_Extension
         ];
         return $spaceType[$key];
     }
+    public function getTypeSpaces()
+    {
+        $spaceType = [
+            'VACANT_LAND' => 'Vacant land',
+            'SPACE_ATTACHED_TO_PROPERTY' => 'Space attached to property',
+            'EVENT_SPACE' => 'Event space'
+        ];
+        return $spaceType;
+    }
+    public function getStatusSpaces()
+    {
+        $spaceType = [
+            0 => 'Disabled',
+            1 => 'Enabled',
+        ];
+        return $spaceType;
+    }
 
     public function getFunctions()
     {
@@ -49,7 +66,9 @@ class TwigExtension extends \Twig_Extension
             'getParameter' => new \Twig_Function_Method($this, 'getParameter', array('is_safe' => array('html'))),
             'getUrl' => new \Twig_Function_Method($this, 'getUrl', array('is_safe' => array('html'))),
             'getlAphabetNameSpace' => new \Twig_Function_Method($this, 'getlAphabetNameSpace', array('is_safe' => array('html'))),
-            'getSpaceTypeText' => new \Twig_Function_Method($this, 'getSpaceTypeText', array('is_safe' => array('html'))),
+            'getTypeSpace' => new \Twig_Function_Method($this, 'getTypeSpace', array('is_safe' => array('html'))),
+            'getTypeSpaces' => new \Twig_Function_Method($this, 'getTypeSpaces', array('is_safe' => array('html'))),
+            'getStatusSpaces' => new \Twig_Function_Method($this, 'getStatusSpaces', array('is_safe' => array('html'))),
         );
     }
 

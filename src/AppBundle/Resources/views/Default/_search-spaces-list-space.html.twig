@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-md-8">
             <span style="font-size: 12px">{{ space.location.squareFeet }} sqft</span>
-            <span style="font-size: 12px">{{ getSpaceTypeText(space.location.typeSpace) }}</span>
+            <span style="font-size: 12px">{{ getTypeSpace(space.location.typeSpace) }}</span>
             <span style="font-size: 12px">{{ distance|round(1) }} miles</span>
         </div>
         {% if space.instantBook %}

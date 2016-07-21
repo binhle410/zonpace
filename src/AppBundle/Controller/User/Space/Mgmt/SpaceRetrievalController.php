@@ -14,7 +14,7 @@ class SpaceRetrievalController extends ControllerService
     {
         $entityManager = $this->getDoctrine()->getManager();
         $spaceRepo = $entityManager->getRepository('AppBundle:Space\Space');
-        $qb = $spaceRepo->findMySpaces($this->getUser());
+        $qb = $spaceRepo->findMySpaces($this->getUser(),$request->query->all());
         $spaces = $this->pagingBuilder($request, $qb);
 
         return $this->render('AppBundle:User/Space:list.html.twig',['spaces'=>$spaces]);

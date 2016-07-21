@@ -17,12 +17,21 @@ use DoctrineExtensions\Query\Mysql\Radians;
  */
 class SpaceRepository extends EntityRepository
 {
-    public function findMySpaces($user)
+    public function findMySpaces($user,$query)
     {
         $expr = new Expr();
         $qb = $this->createQueryBuilder('space')
             ->where($expr->eq('space.user', ':user'))
+            ->join('space.location', 'location')
             ->setParameter('user', $user);
+        if (isset($query['type-space']) && $query['type-space'] != '') {
+            $qb->andWhere('location.typeSpace = :typeSpace')
+                ->setParameter('typeSpace', $query['type-space']);
+        }
+        if (isset($query['status-space']) && $query['status-space'] != '') {
+            $qb->andWhere('space.enabled = :enabled')
+                ->setParameter('enabled', $query['status-space']);
+        }
         return $qb;
 
     }
@@ -77,45 +86,4 @@ class SpaceRepository extends EntityRepository
         return $qb;
 
     }
-//    public function findJobListing($positionId,$query){
-//        $em = $this->container->get('doctrine')->getManager();
-//        $qb = $em->createQueryBuilder();
-//        $expr = new Expr();
-//        $status = strtoupper($query['status']);
-//        $qb->select('listing')
-//            ->from('AppBundle:JobBoard\Listing\JobListing','listing')
-//            ->join('listing.creator', 'creator')
-//            ->where($expr->eq('creator', ':positionId'))
-//            ->andWhere($expr->eq('listing.status', ':status'))
-//            ->setParameter('status', $status)
-//            ->setParameter('positionId', $positionId);
-//        if(isset($query['title']) && $query['title'] != ''){
-//            $qb->andWhere($qb->expr()->like('listing.title', $expr->literal("%{$query['title']}%")));
-//        }
-//        if (isset($query['from']) && $query['from'] != '') {
-//            $fromDate = \DateTime::createFromFormat('m/d/Y', $query['from']);
-//            $qb->andWhere('listing.createdDate >= :from')
-//                ->setParameter('from', $fromDate->format('Y-m-d'));
-//        }
-//        if (isset($query['to']) && $query['to'] != '') {
-//            $toDate = \DateTime::createFromFormat('m/d/Y', $query['to']);
-//            $qb->andWhere('listing.createdDate <= :to')
-//                ->setParameter('to', $toDate->format('Y-m-d'));
-//        }
-//        if (isset($query['app-type']) && $query['app-type'] != '') {
-//            $qb->andWhere('listing.visibility = :visibility')
-//                ->setParameter('visibility', $query['app-type']);
-//        }
-//        if (isset($query['interview-required']) && $query['interview-required'] != '') {
-//            $value = $query['interview-required'] == 'yes' ? true:false;
-//            $qb->andWhere('listing.interviewRequired = :interviewRequired')
-//                ->setParameter('interviewRequired', $value);
-//        }
-//        if (isset($query['introduction-required']) && $query['introduction-required'] != '') {
-//            $value = $query['introduction-required'] == 'yes' ? true:false;
-//            $qb->andWhere('listing.interviewRequired = :introductionRequired')
-//                ->setParameter('introductionRequired', $value);
-//        }
-//        return $qb;
-//    }
-}
+  }

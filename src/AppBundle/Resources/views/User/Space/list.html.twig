@@ -2,7 +2,7 @@
 {% block content %}
 
 
-    <section class="main-container">
+    <section class="main-container" data-list-space="">
 
         <div class="container">
             <div class="row">
@@ -15,27 +15,25 @@
                         <div class="container">
                             <!-- filters start -->
                             <div class="sorting-filters text-center mb-20">
-                                <form class="form-inline">
+                                <form class="form-inline form-filter-list-space" method="get">
                                     <div class="form-group">
                                         <label>Type Space</label>
-                                        <select class="form-control">
-                                            <option selected="selected">Smartphones</option>
-                                            <option>Tablets</option>
-                                            <option>Smart Watches</option>
-                                            <option>Desktops</option>
-                                            <option>Software</option>
-                                            <option>Accessories</option>
+                                        <select name="type-space" class="form-control type-space">
+                                            <option value="">All</option>
+                                            {% set typeSpaces = getTypeSpaces() %}
+                                            {% for key,typeSpace in typeSpaces %}
+                                                <option {{ app.request.get('type-space')==key ? 'selected' }} value="{{ key }}">{{ typeSpace }}</option>
+                                            {% endfor %}
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label>Status</label>
-                                        <select class="form-control">
-                                            <option selected="selected">Smartphones</option>
-                                            <option>Tablets</option>
-                                            <option>Smart Watches</option>
-                                            <option>Desktops</option>
-                                            <option>Software</option>
-                                            <option>Accessories</option>
+                                        <select name="status-space" class="form-control status-space">
+                                            <option value="">All</option>
+                                            {% set statusSpaces = getStatusSpaces() %}
+                                            {% for key,statusSpace in statusSpaces %}
+                                                <option {{ app.request.get('status-space')==key ? 'selected' }} value="{{ key }}">{{ statusSpace }}</option>
+                                            {% endfor %}
                                         </select>
                                     </div>
                                 </form>
@@ -62,16 +60,18 @@
                                             <div class="body">
                                                 <h3 class="margin-clear"><a
                                                             href="shop-product.html">{{ space.name }}</a></h3>
+                                                <div class="row">
+                                                    <div class="col-md-8">
+                                                        <span style="font-size: 12px">{{ space.location.squareFeet }} sqft</span>
+                                                        <span style="font-size: 12px">{{ getTypeSpace(space.location.typeSpace) }}</span>
+                                                    </div>
+                                                </div>
                                                 <p>
                                                     <i class="fa fa-star text-default"></i>
                                                     <i class="fa fa-star text-default"></i>
                                                     <i class="fa fa-star text-default"></i>
                                                     <i class="fa fa-star text-default"></i>
                                                     <i class="fa fa-star"></i>
-                                                    <a href="#" class="btn-sm-link"><i class="icon-heart pr-5"></i>Add
-                                                        to Wishlist</a>
-                                                    <a href="#" class="btn-sm-link"><i class="icon-link pr-5"></i>View
-                                                        Details</a>
                                                 </p>
                                                 <div class="row" style="margin-left: 0px;">
                                                     <div class="col-sm-6"><span class="">Total Views: 11</span></div>
@@ -91,7 +91,8 @@
                                             <div class="space-enabled"><strong>Enabled</strong></div>
                                             <input type="button" value="Review"
                                                    class="margin-clear btn btn-default btn-custom">
-                                            <input onclick="window.location.href='{{ path('app_user_space_view',{'space':space.id}) }}'" type="button" value="Manage"
+                                            <input onclick="window.location.href='{{ path('app_user_space_view',{'space':space.id}) }}'"
+                                                   type="button" value="Manage"
                                                    class="margin-clear btn btn-default btn-custom">
                                         </div>
                                     </div>
