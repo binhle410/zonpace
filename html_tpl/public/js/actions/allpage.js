@@ -61,10 +61,10 @@ allpage_fn.datePicker = function () {
     if(!$('.ipt-date').length) { return; }
 
     $('.ipt-date').each(function() {
-        $(this).datepicker({
-            format: 'dd-mm-yyyy',
-            autoclose: true,
-            todayHighlight: true
+        $(this).datetimepicker({
+            dayViewHeaderFormat: 'MMMM YYYY',
+            pickTime: false,
+            format: 'DD-MM-YYYY'
         });
     });
 };
