@@ -10,13 +10,13 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label class="control-label">Date From</label>
-                    <input type="text" value="{{ app.request.get('from') }}" name="from"  class="form-control datepicker">
+                    <input type="text" value="{{ app.request.get('from') }}" name="from"  class="form-control datepicker search-spaces-input">
                 </div>
             </div>
             <div class="col-md-6">
                 <label class="control-label">Date To</label>
                 <div class="form-group">
-                    <input type="text" value="{{ app.request.get('to') }}" name="to"  class="form-control datepicker">
+                    <input type="text" value="{{ app.request.get('to') }}" name="to"  class="form-control datepicker search-spaces-input">
                 </div>
             </div>
         </div>
@@ -24,19 +24,19 @@
             <div class="row">
                 <div class="col-md-4">
                     <label>
-                        <input type="checkbox" {{ app.request.get('daily') == 1 ? 'checked' }} name="daily" value="1">
+                        <input type="checkbox" {{ app.request.get('daily') == 1 ? 'checked' }} name="daily" value="1" class="search-spaces-input">
                         <label for="">Daily</label>
                     </label>
                 </div>
                 <div class="col-md-4">
                     <label>
-                        <input type="checkbox" {{ app.request.get('weekly') == 1 ? 'checked' }} name="weekly" value="1">
+                        <input type="checkbox" {{ app.request.get('weekly') == 1 ? 'checked' }} name="weekly" value="1" class="search-spaces-input">
                         <label for="">Weekly</label>
                     </label>
                 </div>
                 <div class="col-md-4">
                     <label>
-                        <input type="checkbox" {{ app.request.get('monthly') == 1 ? 'checked' }} name="monthly" value="1">
+                        <input type="checkbox" {{ app.request.get('monthly') == 1 ? 'checked' }} name="monthly" value="1" class="search-spaces-input">
                         <label for="">Monthly</label>
                     </label>
                 </div>

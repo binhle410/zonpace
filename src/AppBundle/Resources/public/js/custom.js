@@ -1071,13 +1071,19 @@ jQuery(function () {
                 var that=this;
                 that.initSlider();
                 that.searchPlace();
+                $(".search-spaces-input").change(function(){
+                    $('.form-search-spaces').submit();
+                });
             },
             initSlider: function(){
                 $("#Slider1").slider({
                     from: 40,
                     to: 1000,
                     step: 10,
-                    dimension: ''
+                    dimension: '',
+                    callback: function( value ){
+                        $('.form-search-spaces').submit();
+                    }
                 });
                 $("#Slider2").slider({
                     from: 100,
@@ -1085,6 +1091,9 @@ jQuery(function () {
                     step: 10,
                     dimension: '&nbsp;$',
                     heterogeneity: ['50/500'],
+                    callback: function( value ){
+                        $('.form-search-spaces').submit();
+                    }
                 });
             },
             searchPlace: function () {
