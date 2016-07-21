@@ -1,0 +1,75 @@
+/**
+* CSS FEATURE
+*/
+.blk-feature {
+    background-color: #E6E7E8;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    h2.blk-ttl {
+        color: @black;
+        margin-bottom: 0;
+    }
+    .feature-logo {
+        ul {
+            margin-left: -15px;
+            margin-right: -15px;
+            li {
+                width: 25%;
+                float: left;
+                padding-left: 15px;
+                padding-right: 15px;
+                text-align: center;
+                a {
+                    display: block;
+                }
+                img {
+                    width: 80%;
+                }
+            }
+        }
+    }
+}
+.blk-feature {
+    .feature-slider {
+        background: none;
+        border: none;
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+        border-bottom: 1px solid @black;
+        .border-radius(0);
+        .fea-avatar {
+            width: 250px;
+            height: 250px;
+            float: left;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .fea-info {
+            margin-left: 300px;
+            text-align: center;
+            height: 250px;
+            position: relative;
+            .desc {
+                font-size: 18px;
+                line-height: 24px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+            .fea-user {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 1;
+                .name {
+                    font-size: 18px;
+                    line-height: 18px;
+                }
+                .add {
+                    font-size: 14px;
+                    color: #808283;
+                }
+            }
+        }
+    }
+}

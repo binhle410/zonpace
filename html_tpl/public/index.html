@@ -14,14 +14,21 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body class="body-css "> 
-    <header class="header-wrap">
+    <header class="header-wrap hd-fixed">
       <div class="container-fluid">
         <div class="row">
-          <section class="header-logo col-xs-6">
+          <section class="header-logo col-md-6 col-sm-6 col-xs-12">
             <h1 class="logo"><a href="#" title="Zone &amp; Pace Rentals"><img src="images/logo.png" alt=""></a></h1>
+            <section class="header-search">
+              <form name="frm-search" class="frm-search">
+                <button type="submit"><i class="ico ico-zoom-b"></i></button>
+                <input type="text" id="ipt-search" placeholder="Seach Space..." name="title">
+              </form>
+            </section>
+            <!-- END : SEARCH-->
           </section>
           <!-- END : LOGO-->
-          <section class="header-menu col-xs-6">
+          <section class="header-menu col-md-6 col-sm-6 col-xs-12">
             <ul class="menu clearfix">
               <li class="active"><a href="#">Lease My Space</a></li>
               <li><a href="#">Home</a></li>
@@ -35,50 +42,68 @@
       </div>
     </header>
     <!-- END : HEADER-->
-    <section class="main-slider flexslider">
-      <ul class="slides">
-        <li style="background-image: url('uploads/main-slider-1.jpg')"><img src="uploads/main-slider-1.jpg" alt=""></li>
-        <li style="background-image: url('uploads/main-slider-2.jpg')"><img src="uploads/main-slider-2.jpg" alt=""></li>
-        <li style="background-image: url('uploads/main-slider-3.jpg')"><img src="uploads/main-slider-3.jpg" alt=""></li>
-      </ul>
-      <div class="text-demo">welcome home</div>
-    </section>
-    <!-- END : MAIN SLIDER-->
-    <section class="blk-filter-wrap">
-      <div class="container">
-        <div class="inner">
-          <div class="row">
-            <form class="frm-filter">
-              <section class="filter-itm col-md-3 col-sm-3 col-xs-6">
-                <input type="text" placeholder="Where do you want to go?" class="ipt">
-              </section>
-              <!-- END : ITM-->
-              <section class="filter-itm col-md-4 col-sm-4 col-xs-6">
-                <div class="input-group input-daterange">
-                  <div class="itm-ipt">
-                    <input type="text" value="Check in" class="ipt"><i class="fa fa-calendar"></i>
-                  </div>
-                  <div class="itm-ipt">
-                    <input type="text" value="Check out" class="ipt"><i class="fa fa-calendar"></i>
-                  </div>
+    <section class="main">
+      <section class="main-slider flexslider">
+        <ul class="slides">
+          <li style="background-image: url('uploads/main_slider.jpg')"></li>
+          <li style="background-image: url('uploads/main_slider_2.jpg')"></li>
+          <li style="background-image: url('uploads/main_slider_3.jpg')"></li>
+          <li style="background-image: url('uploads/main_slider_4.jpg')"></li>
+        </ul>
+        <div class="main-filter">
+          <div class="container">
+            <h2>ZONE & SPACE RENTALS TO HOST AN EVENT FROM LOCAL HOSTS IN 100+ CITIES</h2>
+            <div class="more"><a href="#">Learn more on how it works<i class="fa fa-arrow-right"></i></a></div>
+            <div class="blk-filter">
+              <div class="fil-item fil-location">
+                <input type="text" placeholder="Location or ZIP code" class="ipt">
+              </div>
+              <!-- END -->
+              <div class="fil-item fil-row">
+                <div class="fil-col-6">
+                  <input type="text" placeholder="Start date" data-date-format="dd-mm-yyyy" class="ipt ipt-date"><i class="ico ico-cal"></i>
                 </div>
-              </section>
-              <!-- END : ITM-->
-              <section class="filter-itm col-md-3 col-sm-3 col-xs-6">
-                <div id="slider-ranger"></div>
-              </section>
-              <!-- END : ITM-->
-              <section class="filter-itm col-md-2 col-sm-2 col-xs-6">
-                <input type="submit" value="search" class="btn btn-red uppercase">
-              </section>
-              <!-- END : ITM-->
-            </form>
+                <div class="fil-col-6">
+                  <input type="text" placeholder="End date" data-date-format="dd-mm-yyyy" class="ipt ipt-date"><i class="ico ico-cal"></i>
+                </div>
+              </div>
+              <!-- END-->
+              <div class="fil-item fil-row">
+                <div class="fil-col-4 fil-range">Feet Square</div>
+                <div class="fil-col-8 fil-range fil-slider">
+                  <div id="feet-slider" data-min="0" data-max="1000" data-valmin="40" data-valmax="500" data-step="10" data-type="feet"></div>
+                  <div class="f-num sld-num">40</div>
+                  <div class="l-num sld-num">500+</div>
+                </div>
+              </div>
+              <!-- END-->
+              <div class="fil-item fil-row">
+                <div class="fil-col-4 fil-range">Price Range</div>
+                <div class="fil-col-8 fil-range fil-slider">
+                  <div id="price-slider" data-min="0" data-max="1000" data-valmin="100" data-valmax="800" data-step="10" data-type="price"></div>
+                  <div class="f-num sld-num">$100</div>
+                  <div class="l-num sld-num">$800+</div>
+                </div>
+              </div>
+              <!-- END-->
+              <div class="fil-item fil-checkbox">
+                <input type="checkbox" name="filter-checkbox" id="fil-daily">
+                <label for="fil-daily">Daily</label>
+                <input type="checkbox" name="filter-checkbox" id="fil-weekly">
+                <label for="fil-weekly">Weekly</label>
+                <input type="checkbox" name="filter-checkbox" id="fil-monthly">
+                <label for="fil-monthly">Monthly</label>
+              </div>
+              <!-- END  -->
+              <div class="fil-item">
+                <button type="submit" class="btn btn-red">search<i class="ico ico-zoom"></i></button>
+              </div>
+              <!-- END -->
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- END : FILTER-->
-    <section class="main">
+      </section>
+      <!-- END : MAIN SLIDER-->
       <section class="home-offer">
         <div class="container">
           <h2 class="blk-ttl"> <a href="#">WHAT WE OFFER</a></h2>
@@ -263,6 +288,59 @@
         </div>
       </section>
       <!-- END : BLK VENUES-->
+      <section class="blk-feature">
+        <div class="container">
+          <section class="feature-slider flexslider">
+            <ul class="slides">
+              <li class="clearfix">
+                <div style="background-image: url('uploads/avatar.jpg')" class="fea-avatar"></div>
+                <div class="fea-info">
+                  <div class="desc">Your communication with the clients is simply exemplary - fast, effecient, informative. You are one of the best companies I have ever come across.</div>
+                  <div class="fea-user">
+                    <div class="name">Jessica Justice</div>
+                    <div class="add">California, USA</div>
+                  </div>
+                </div>
+              </li>
+              <!-- END : ITM-->
+              <li class="clearfix">
+                <div style="background-image: url('uploads/avatar.jpg')" class="fea-avatar"></div>
+                <div class="fea-info">
+                  <div class="desc">Your communication with the clients is simply exemplary - fast, effecient, informative. You are one of the best companies I have ever come across.</div>
+                  <div class="fea-user">
+                    <div class="name">Jessica Justice</div>
+                    <div class="add">California, USA</div>
+                  </div>
+                </div>
+              </li>
+              <!-- END : ITM-->
+              <li class="clearfix">
+                <div style="background-image: url('uploads/avatar.jpg')" class="fea-avatar"></div>
+                <div class="fea-info">
+                  <div class="desc">Your communication with the clients is simply exemplary - fast, effecient, informative. You are one of the best companies I have ever come across.</div>
+                  <div class="fea-user">
+                    <div class="name">Jessica Justice</div>
+                    <div class="add">California, USA</div>
+                  </div>
+                </div>
+              </li>
+              <!-- END : ITM-->
+            </ul>
+          </section>
+          <!-- END : SLIDER -->
+          <section class="feature-logo">
+            <h2 class="blk-ttl">FEATURED ON</h2>
+            <ul class="logo-list">
+              <li><a href="#"><img src="uploads/p-1.png" alt=""></a></li>
+              <li><a href="#"><img src="uploads/p-2.png" alt=""></a></li>
+              <li><a href="#"><img src="uploads/p-3.png" alt=""></a></li>
+              <li><a href="#"><img src="uploads/p-4.png" alt=""></a></li>
+            </ul>
+          </section>
+          <!-- END : LOGO-->
+        </div>
+      </section>
+      <!-- END : BLK FEATURE-->
       <section class="blk-how-works">
         <div class="container">
           <h2 class="blk-ttl"> <a href="#">HOW IT WORKS</a></h2>
@@ -330,6 +408,7 @@
         <div class="container">
           <div class="row">
             <section class="footer-choice col-md-3 col-sm-3 col-xs-6">
+              <div class="foo-logo">zonepace</div>
               <div class="blk-lang">
                 <select class="slect slect-lang">
                   <option value="">Language (Eng)</option>
@@ -405,5 +484,7 @@
     <script src="js/start.js"></script>
     <!-- ALLPAGE JS-->
     <script src="js/actions/allpage.js"></script>
+    <!-- HOMEPAGE JS-->
+    <script src="js/actions/homepage.js"></script>
   </body>
 </html>

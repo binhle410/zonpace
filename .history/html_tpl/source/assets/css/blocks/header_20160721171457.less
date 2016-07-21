@@ -1,0 +1,110 @@
+/**
+ * CSS HEADER
+ */
+.header-wrap {
+	position: relative;
+	z-index: 20;
+	background-color: #fff;
+	height: 70px;
+	.box-shadow(1px 0 5px rgba(0,0,0,0.5));
+	.header-logo {
+		h1 {
+			margin-bottom: 0;
+			display: inline-block;
+		}
+		img {
+			width: 190px;
+			margin-top: 13px;
+		}
+		a {
+			display: block;
+		}
+		span {
+			color: @red;
+			text-transform: uppercase;
+			border-left: 1px solid @red;
+			margin-left: 15px;
+			padding-left: 15px;
+			font-size: 16px;
+		}
+	}
+}
+.header-wrap {
+	.header-menu {
+		ul {
+			float: right;
+		}
+		li {
+			float: left;
+			a {
+				display: block;
+				background-color: transparent;
+				.border-radius(5px);
+				height: 70px;
+				line-height: 70px;
+				padding-left: 20px;
+				padding-right: 20px;
+				border-right: 1px solid #F1F1F2;
+				font-size: 16px;
+				&:hover {
+					color: @red;
+				}
+			}
+			&.active {
+				a {
+					color: @red;
+				}
+			}
+			&:last-child {
+				a {
+					border-right: none;
+				}
+			}
+		}
+	}
+}
+.header-wrap {
+	&.hd-fixed {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 100;
+	}
+}
+.header-wrap {
+	.header-search {
+		width: 220px;
+		margin-top: 15px;
+		float: right;
+		position: relative;
+		height: 40px;
+		border: 1px solid @black;
+		#ipt-search {
+			border: none;
+			outline: none;
+			width: 100%;
+			height: 38px;
+			line-height: 38px;
+			padding-left: 10px;
+		}
+		button {
+			background: none;
+			border: none;
+			outline: none;
+			position: absolute;
+			width: 38px;
+			height: 38px;
+			top: 1px;
+			right: 1px;
+			z-index: 1;
+			text-align: center;
+			line-height: 38px;
+			.ico {
+				width: 20px;
+				height: 20px;
+				background-size: 20px auto;
+			}
+		}
+	}
+}

@@ -8,25 +8,25 @@
  * 5. Filter Ranger
  */
 var allpage_fn = {};
-(function( $ ) {
 /* ----------------------------------------------- */
 /* ------------- FrontEnd Functions -------------- */
 /* ----------------------------------------------- */
 /**
  * 1. Main slider
  */
-allpage_fn.mainSlider = (itmSlider) => {
+allpage_fn.mainSlider = function (itmSlider) {
     if(!$(itmSlider).length) { return; }
 
     $(itmSlider).flexslider({
         animation: "fade",
         // Primary Controls
-        controlNav: false,               //Boolean: Create navigation for paging control of each clide? Note: Leave true for manualControls usage
+        controlNav: true,               //Boolean: Create navigation for paging control of each clide? Note: Leave true for manualControls usage
         directionNav: false,             //Boolean: Create navigation for previous/next navigation? (true/false)
         prevText: "",           //String: Set the text for the "previous" directionNav item
         nextText: "",
         slideshowSpeed: 4000,
-        pauseOnHover: false
+        pauseOnHover: false,
+        slideshow: true
     });
 };
 /**
@@ -58,11 +58,13 @@ allpage_fn.jsSelect2 = function (itmSelect) {
  * 4. Datetime picker
  */
 allpage_fn.datePicker = function () {
-    //if(!$('.input-daterange').length) { return; }
+    if(!$('.ipt-date').length) { return; }
 
-    $('.input-daterange input').each(function() {
+    $('.ipt-date').each(function() {
         $(this).datepicker({
             format: 'dd-mm-yyyy',
+            autoclose: true,
+            todayHighlight: true
         });
     });
 };
@@ -72,22 +74,48 @@ allpage_fn.datePicker = function () {
 allpage_fn.filterRanger = function (itmRanger) {
     if(!$(itmRanger).length) { return; }
 
-    $(itmRanger).rangeSlider({
-        wheelMode: "scroll",
-        wheelSpeed: 30,
-        bounds: {min: 0, max: 50},
-        defaultValues:{min: 0, max: 20}
-    });
+     $( itmRanger ).each(function () {
+         var data_min   = $(this).data('min'),
+            data_max    = $(this).data('max'),
+            data_valmin = $(this).data('valmin'),
+            data_valmax = $(this).data('valmax'),
+            data_step   = $(this).data('step'),
+            data_type   = $(this).data('type');
+         $(this).slider({
+            range: true,
+            min: data_min,
+            max: data_max,
+            values: [ data_valmin, data_valmax ],
+            step: data_step,
+            slide: function( event, ui ) {
+                if(data_type == "price") {
+                    // original
+                    $(this).siblings('.f-num').text( "$" + data_valmin );
+                    $(this).siblings('.l-num').text( "$" + data_valmax + "+");
+
+                    // after slider
+                    $(this).siblings('.f-num').text( "$" + ui.values[ 0 ] );
+                    $(this).siblings('.l-num').text( "$" + ui.values[ 1 ]  + "+");
+                } else {
+                    // original
+                    $(this).siblings('.f-num').text( data_valmin );
+                    $(this).siblings('.l-num').text( data_valmax );
+
+                    // after slider
+                    $(this).siblings('.f-num').text( ui.values[ 0 ] );
+                    $(this).siblings('.l-num').text( ui.values[ 1 ]  + "+");
+                }
+            }
+        });
+     });
+
 };
 /* ----------------------------------------------- */
 /* ----------------------------------------------- */
 /* OnLoad Page */
 $(document).ready(function($){
     // Main slider
-    allpage_fn.mainSlider ('.main-slider');
-
-    // sticky header
-    allpage_fn.stickyHeader ();
+    allpage_fn.mainSlider('.main-slider');
 
     // select 2
     allpage_fn.jsSelect2('.slect-lang');
@@ -97,11 +125,11 @@ $(document).ready(function($){
     allpage_fn.datePicker();
 
     // filter ranger
-    allpage_fn.filterRanger('#slider-ranger');
+    allpage_fn.filterRanger('#feet-slider');
+    allpage_fn.filterRanger('#price-slider');
 });
 /* OnLoad Window */
 var init = function () {   
 
 };
 window.onload = init;
-})(jQuery);

@@ -1,0 +1,50 @@
+/**
+ * CSS FORM
+ */
+.slect, .ipt {
+	width: 100%;
+	padding: 0px 10px;
+	.border-radius(3px);
+	outline: none;
+	height: 40px;
+	line-height: 40px;
+	border: 1px solid transparent;
+}
+.ipt {
+	color: #575757;
+	.transition(all 0.2s ease);
+	&:focus {
+		border-color: #999;
+	}
+}
+.btn {
+	.transition(all 0.2s ease);
+	&.btn-red {
+		background-color: @red;
+		padding-top: 0;
+		padding-bottom: 0;
+		text-align: center;
+		color: #fff;
+		height: 40px;
+		line-height: 40px;
+		.border-radius(2px);
+		&:hover {
+			background-color: darken(@red, 10%)
+		}
+	}
+	&.btn-border {
+		background-color: #fff;
+		padding-top: 0;
+		padding-bottom: 0;
+		text-align: center;
+		color: @black;
+		height: 40px;
+		line-height: 40px;
+		border: 1px solid @red;
+		.border-radius(2px);
+		&:hover {
+			background-color: @red;
+			color: #fff;
+		}
+	}
+}

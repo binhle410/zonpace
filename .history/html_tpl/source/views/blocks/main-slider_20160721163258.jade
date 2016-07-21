@@ -1,0 +1,41 @@
+section.main-slider
+    ul.slides
+        li(style="background-image: url('uploads/main_slider.jpg')")
+    .main-filter
+        .container
+            h2 ZONE & SPACE RENTALS TO HOST AN EVENT FROM LOCAL HOSTS IN 100+ CITIES
+            .more
+                a(href="#") Learn more on how it works
+                    i.fa.fa-arrow-right
+            .blk-filter
+                .fil-item.fil-location
+                    input(type="text", class="ipt", placeholder="Location or ZIP code")
+                // END
+                .fil-item.fil-row
+                    .fil-col-6
+                        input(type="text", class="ipt ipt-date", placeholder="Start date", data-date-format="dd-mm-yyyy")
+                        i.ico.ico-cal
+                    .fil-col-6
+                        input(type="text", class="ipt ipt-date", placeholder="End date", data-date-format="dd-mm-yyyy")
+                        i.ico.ico-cal
+                // END
+                .fil-item.fil-row
+                    .fil-col-4 Feet Square
+                    .fil-col-8
+                        #feet-slider(data-min="0", data-max="1000", data-valmin="40", data-valmax="500", data-step="50")
+                        .f-num.sld-num 40
+                        .l-num.sld-num 500+
+                // END
+                .fil-item.fil-checkbox
+                    input(type="checkbox", name="filter-checkbox", id="fil-daily")
+                    label(for="fil-daily") Daily
+                    input(type="checkbox", name="filter-checkbox", id="fil-weekly")
+                    label(for="fil-weekly") Weekly
+                    input(type="checkbox", name="filter-checkbox", id="fil-monthly")
+                    label(for="fil-monthly") Monthly
+                // END
+                .fil-item
+                    button(type="submit", class="btn btn-red")
+                        | search
+                        i.ico.ico-zoom
+                // END
