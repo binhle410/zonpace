@@ -5,6 +5,7 @@ use AppBundle\Entity\Space\Location;
 use AppBundle\Entity\Space\State;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -37,6 +38,7 @@ class SpaceType extends AbstractType
             $builder
                 ->add('name', TextType::class)
                 ->add('description', TextareaType::class)
+                ->add('instantBook', CheckboxType::class,['required'=>false])
                 ->add('price', PriceType::class)
                 ->add('shape', HiddenType::class)
                 ->add('dateBooking', DateBookingType::class, ['dateBooking' => $options['dateBooking']])

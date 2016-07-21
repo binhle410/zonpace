@@ -114,6 +114,29 @@ class Space
      */
     private $enabled;
 
+    /**
+     * @var boolean
+     * @ORM\Column(name="instant_book",type="boolean")
+     */
+    private $instantBook;
+
+    /**
+     * @return boolean
+     */
+    public function isInstantBook()
+    {
+        return $this->instantBook;
+    }
+
+    /**
+     * @param boolean $instantBook
+     */
+    public function setInstantBook($instantBook)
+    {
+        $this->instantBook = $instantBook;
+    }
+
+
 
     /**
      * @return mixed

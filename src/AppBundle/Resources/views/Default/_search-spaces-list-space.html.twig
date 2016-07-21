@@ -1,5 +1,6 @@
 {% for data in spaces %}
 {% set space = data[0] %}
+{% set distance = data['distance'] %}
 <div class="row search-space-item" data-lat="{{ space.location.lat }}" data-lng="{{ space.location.lng }}" data-aphabet="{{getlAphabetNameSpace(loop.index-1)}}" >
 
     <div class="row">
@@ -11,12 +12,16 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6">
-            300 qsd vacand 2.7mile
+        <div class="col-md-8">
+            <span style="font-size: 12px">{{ space.location.squareFeet }} sqft</span>
+            <span style="font-size: 12px">{{ getSpaceTypeText(space.location.typeSpace) }}</span>
+            <span style="font-size: 12px">{{ distance|round(1) }} miles</span>
         </div>
-        <div class="col-md-6">
+        {% if space.instantBook %}
+        <div class="col-md-4">
             <span class="pull-right">Instant book</span>
         </div>
+        {% endif %}
     </div>
     <div class="separator-2"></div>
     <div class="row">
