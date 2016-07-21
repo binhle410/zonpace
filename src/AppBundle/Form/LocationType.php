@@ -5,6 +5,7 @@ use AppBundle\Entity\Space\Location;
 use AppBundle\Entity\Space\State;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -41,7 +42,10 @@ class LocationType extends AbstractType
             ->add('city', EntityType::class,[
                 'class' => 'AppBundle:Core\City',
                 'choice_label' => 'name',
-            ]);
+            ])
+            ->add('lat', HiddenType::class)
+            ->add('lng', HiddenType::class);
+
     }
 
     public function configureOptions(OptionsResolver $resolver)

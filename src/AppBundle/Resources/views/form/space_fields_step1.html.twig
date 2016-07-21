@@ -3,6 +3,8 @@
         <div class="form-group">
             <label class="control-label">Street Address</label>
             {{ form_widget(form.streetAddress,{'attr':{'class':'form-control','placeholder':'Street Address'}}) }}
+            {{ form_widget(form.lat) }}
+            {{ form_widget(form.lng) }}
         </div>
         <div class="form-group">
             <label class="control-label">Type of Space(Optional)</label>
