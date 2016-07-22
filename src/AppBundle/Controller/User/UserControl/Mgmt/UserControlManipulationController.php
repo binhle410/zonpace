@@ -28,7 +28,7 @@ class UserControlManipulationController extends ControllerService
             echo '<pre>';
             \Doctrine\Common\Util\Debug::dump($this->get('app.form_serializer')->serializeFormErrors($form, true, true));
         }
-        return $this->render('AppBundle:User/UserProfile:profile.html.twig', [
+        return $this->render('AppBundle:User/UserControl:profile.html.twig', [
             'form' => $form->createView(),
             'user' => $user,
         ]);
@@ -90,7 +90,7 @@ class UserControlManipulationController extends ControllerService
         }
 
 
-        return $this->render('AppBundle:User/UserProfile:setting.html.twig', [
+        return $this->render('AppBundle:User/UserControl:setting.html.twig', [
             'form1' => $form1->createView(),
             'form2' => $form2->createView(),
         ]);

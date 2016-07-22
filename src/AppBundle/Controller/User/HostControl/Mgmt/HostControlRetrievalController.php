@@ -1,7 +1,7 @@
 <?php
 
 
-namespace AppBundle\Controller\User\UserControl\Mgmt;
+namespace AppBundle\Controller\User\HostControl\Mgmt;
 
 use AppBundle\Form\UserPasswordType;
 use AppBundle\Form\UserProfileType;
@@ -10,7 +10,7 @@ use Symfony\Component\Debug\Debug;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Services\Core\ControllerService;
 
-class UserControlRetrievalController extends ControllerService
+class HostControlRetrievalController extends ControllerService
 {
 
 
@@ -18,9 +18,9 @@ class UserControlRetrievalController extends ControllerService
     {
         $em = $this->getDoctrine()->getManager();
         $bookingRepo = $em->getRepository('AppBundle:Booking\Booking');
-        $qb = $bookingRepo->findMyBooking($this->getUser(),$request->query->all());
+        $qb = $bookingRepo->findHostBooking($this->getUser(),$request->query->all());
         $bookings = $this->pagingBuilder($request,$qb);
-        return $this->render('AppBundle:User/UserControl:list-booking.html.twig', [
+        return $this->render('AppBundle:User/UserHost:list-booking.html.twig', [
             'bookings'=>$bookings
         ]);
     }

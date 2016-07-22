@@ -95,6 +95,29 @@ class Booking
     private $isReview;
 
     /**
+     * @var string
+     * @ORM\Column(name="guest_note",type="text",nullable=true)
+     */
+    private $guestNote;
+
+    /**
+     * @return string
+     */
+    public function getGuestNote()
+    {
+        return $this->guestNote;
+    }
+
+    /**
+     * @param string $guestNote
+     */
+    public function setGuestNote($guestNote)
+    {
+        $this->guestNote = $guestNote;
+    }
+    
+
+    /**
      * @return boolean
      */
     public function isIsReview()

@@ -1,0 +1,3 @@
+app_user_host_control_list_booking:
+    path: /list-booking
+    defaults: { _controller: AppBundle:User/HostControl/Mgmt/HostControlRetrieval:listBooking}

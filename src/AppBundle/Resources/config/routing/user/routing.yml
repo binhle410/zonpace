@@ -11,3 +11,7 @@ app_user_user_control:
     resource: "@AppBundle/Resources/config/routing/user/user_control/routing.yml"
     prefix:   /user-control
 
+app_user_host_control:
+    resource: "@AppBundle/Resources/config/routing/user/host_control/routing.yml"
+    prefix:   /host-control
+

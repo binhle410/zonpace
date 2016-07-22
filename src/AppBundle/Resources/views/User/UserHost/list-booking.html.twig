@@ -1,0 +1,135 @@
+{% extends 'AppBundle::layout.html.twig' %}
+{% block content %}
+
+
+    <section class="main-container">
+
+        <div class="container">
+            <div class="row">
+
+                <!-- main start -->
+                <!-- ================ -->
+                <div class="main col-md-8 col-lg-offset-1 col-md-push-4 col-lg-push-3">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- filters start -->
+                            <form class="" method="get">
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-offset-9">
+                                        <div class="form-group">
+                                            <label>Filter</label>
+                                            <select name="type-space" class="form-control type-space">
+                                                <option value="">All</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- filters end -->
+                        </div>
+                    </div>
+                    <hr class="divider">
+                    <!-- Tab panes -->
+                    <div class="tab-content clear-style">
+                        <div class="tab-pane active" id="pill-1">
+                            {% for booking in  bookings %}
+                                {% set space = booking.space %}
+                                <div class="listing-item mb-20">
+                                    <div class="row grid-space-0">
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="overlay-container">
+                                                {% if space.spaceImage %}
+                                                    <img src="{{ getUrl(space.spaceImage) }}" alt="">
+                                                {% else %}
+                                                    <img src="{{ asset('bundles/app/images/product-1.jpg') }}" alt="">
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-7" style="margin-top: -25px;">
+                                            <div class="body">
+                                                <h3 class="margin-clear"><a
+                                                            href="shop-product.html">{{ space.name }}</a></h3>
+                                                <div class="row">
+                                                    <div class="col-md-8">
+                                                        <span style="font-size: 12px">{{ space.location.squareFeet }}
+                                                            sqft</span>
+                                                        <span style="font-size: 12px">{{ getTypeSpace(space.location.typeSpace) }}</span>
+                                                    </div>
+                                                </div>
+                                                <p>
+                                                    {{ getRatingSpace(space,1) }}
+                                                </p>
+                                                <div class="row" style="margin-left: 0px;margin-bottom: -15px;">
+                                                    <div class="col-sm-6"><span
+                                                                class="">Booking ID: {{ booking.bookingid }}</span>
+                                                    </div>
+                                                    <div class="col-sm-6"><span
+                                                                class="">Total cost: ${{ booking.totalPrice }}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row" style="margin-left: 0px;margin-bottom: -15px;">
+                                                    <div class="col-sm-6"><span
+                                                                class="">Check-in: {{ booking.dateFrom|date('M d, Y') }}</span>
+                                                    </div>
+                                                    <div class="col-sm-6"><span class="">Payment: Jessica Justica</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row" style="margin-left: 0px;">
+                                                    <div class="col-sm-6"><span
+                                                                class="">Check-out: {{ booking.dateTo|date('M d, Y') }}</span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="space-enabled" style="text-align: right;">
+                                                <strong>Active</strong></div>
+                                            <div style="margin-bottom: 50px;text-align: right;">Book
+                                                on {{ booking.createdAt|date('M d, Y') }}
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            </div>
+                                        <div class="col-md-4">
+                                            <p>Guest's info</p>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <img src="{{ getUrl(app.user.photo,'default','small') }}">
+                                                </div>
+                                                <div class="col-md-8">
+                                                    {{ app.user.firstName ~' '~app.user.lastName }}<br>
+                                                    {{ app.user.city.name ~ ' '~app.user.state.name ~', USA'}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p>Guest's noted to Host:</p>
+                                            <p>{{ booking.guestNote|raw }}</p>
+                                            </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% if bookings|length %}
+                        <nav class="text-right">
+                            {{ pagerfanta(bookings) }}
+                        </nav>
+                    {% endif %}
+                </div>
+
+                <!-- sidebar start -->
+                {% include 'AppBundle:User:_nav.html.twig' %}
+                <!-- ================ -->
+
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

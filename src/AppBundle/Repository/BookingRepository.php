@@ -17,11 +17,33 @@ use DoctrineExtensions\Query\Mysql\Radians;
  */
 class BookingRepository extends EntityRepository
 {
+    /**
+     *  booking of user
+     * @param $user
+     * @param $query
+     * @return \Doctrine\ORM\QueryBuilder
+     */
     public function findMyBooking($user,$query)
     {
         $expr = new Expr();
         $qb = $this->createQueryBuilder('booking')
             ->where($expr->eq('booking.user', ':user'))
+            ->setParameter('user', $user);
+        return $qb;
+
+    }
+    /**
+     *  booking of host
+     * @param $user
+     * @param $query
+     * @return \Doctrine\ORM\QueryBuilder
+     */
+    public function findHostBooking($user,$query)
+    {
+        $expr = new Expr();
+        $qb = $this->createQueryBuilder('booking')
+            ->join('booking.space','space')
+            ->where($expr->eq('space.user', ':user'))
             ->setParameter('user', $user);
         return $qb;
 
