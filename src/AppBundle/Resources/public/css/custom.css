@@ -482,4 +482,7 @@
     padding: 2px;
     width: 222px;
 }
+.fa-star{
+    cursor: pointer;
+}
 

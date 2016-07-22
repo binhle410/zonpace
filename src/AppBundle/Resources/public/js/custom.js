@@ -1282,7 +1282,6 @@ jQuery(function () {
         function Plugin(element, options) {
             this.element = element;
             this.options = $.extend({}, $.fn[pluginName].defaults, options);
-            this.calendar;
             this.init();
         }
 
@@ -1298,6 +1297,66 @@ jQuery(function () {
                 });
                 $('.status-space').change(function(){
                     $('.form-filter-list-space').submit();
+                });
+            },
+
+        },
+
+            $.fn[pluginName] = function (options) {
+                return this.each(function () {
+                    if (!$.data(this, pluginName)) {
+                        $.data(this, pluginName,
+                            new Plugin(this, options));
+                    }
+                });
+            };
+        $.fn[pluginName].defaults = {
+            propertyName: 1
+        };
+        $(function () {
+            $('[data-' + pluginName + ']')[pluginName]();
+        });
+
+    })(jQuery, window, document);
+
+    /*  @description Map
+     *  @version 1.0
+     *  @options
+     *    option
+     *  @events
+     *    event
+     *  @methods
+     *    init
+     */
+    (function ($, window, document, undefined) {
+        var pluginName = "review-space";
+        var map
+        // The actual plugin constructor
+        function Plugin(element, options) {
+            this.element = element;
+            this.options = $.extend({}, $.fn[pluginName].defaults, options);
+            this.init();
+        }
+
+        Plugin.prototype = {
+            init: function () {
+                var that=this;
+                that.review();
+            },
+            review: function () {
+                var that = this;
+                $('.fa-star').click(function(){
+                    var parent = $(this).parent('p');
+                    var type = parent.data('type');
+                    var point = $(this).data('point');
+                    $('#'+type).val(point);
+                    parent.find('.fa-star').each(function(){
+                        if($(this).data('point') <= point ){
+                            $(this).addClass('text-default');
+                        }else{
+                            $(this).removeClass('text-default');
+                        }
+                    });
                 });
             },
 

@@ -27,6 +27,7 @@ class Booking
     public function __construct()
     {
         $this->createdAt = new \DateTime();
+        $this->isReview = false;
     }
 
     /**
@@ -86,6 +87,38 @@ class Booking
      * @ORM\Column(name="rating_massage",type="text",nullable=true)
      */
     private $ratingMassage;
+
+    /**
+     * @var boolean
+     * @ORM\Column(name="is_review",type="boolean",options={"default"=0})
+     */
+    private $isReview;
+
+    /**
+     * @return boolean
+     */
+    public function isIsReview()
+    {
+        return $this->isReview;
+    }
+
+    /**
+     * @param boolean $isReview
+     */
+    public function setIsReview($isReview)
+    {
+        $this->isReview = $isReview;
+    }
+
+        /**
+     * @param boolean $isReview
+     */
+    public function getIsReview()
+    {
+        return $this->isReview;
+    }
+
+
 
     /**
      * @return int

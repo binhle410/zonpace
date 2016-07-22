@@ -61,7 +61,8 @@
                                                     {{ getRatingSpace(space,1) }}
                                                 </p>
                                                 <div class="row" style="margin-left: 0px;margin-bottom: -15px;">
-                                                    <div class="col-sm-6"><span class="">Booking ID: {{ booking.bookingid }}</span>
+                                                    <div class="col-sm-6"><span
+                                                                class="">Booking ID: {{ booking.bookingid }}</span>
                                                     </div>
                                                     <p>
                                                         <span>Communication</span>
@@ -69,19 +70,23 @@
                                                     </p>
                                                 </div>
                                                 <div class="row" style="margin-left: 0px;margin-bottom: -15px;">
-                                                    <div class="col-sm-6"><span class="">Check-in: {{ booking.dateFrom|date('M d, Y') }}</span>
+                                                    <div class="col-sm-6"><span
+                                                                class="">Check-in: {{ booking.dateFrom|date('M d, Y') }}</span>
                                                     </div>
                                                     <p>
-                                                    <span style="margin-right: 49px;">Location</span>
+                                                        <span style="margin-right: 49px;">Location</span>
                                                         {{ getRatingSpace(booking,2) }}
                                                     </p>
                                                 </div>
                                                 <div class="row" style="margin-left: 0px;">
-                                                    <div class="col-sm-6"><span class="">Check-out:  {{ booking.dateTo|date('M d, Y') }}</span>
+                                                    <div class="col-sm-6"><span
+                                                                class="">Check-out: {{ booking.dateTo|date('M d, Y') }}</span>
                                                     </div>
                                                 </div>
                                                 <div class="row" style="margin-left: 0px;">
-                                                    <div class="col-sm-6"><span class="">Total cost: ${{ booking.totalPrice }}</span></div>
+                                                    <div class="col-sm-6"><span
+                                                                class="">Total cost: ${{ booking.totalPrice }}</span>
+                                                    </div>
                                                 </div>
                                                 <div class="row" style="margin-left: 0px;">
                                                     <div class="col-sm-6"><span class="">Payment: Jessica Justica</span>
@@ -93,16 +98,25 @@
                                         <div class="col-md-3">
                                             <div class="space-enabled" style="text-align: right;">
                                                 <strong>Active</strong></div>
-                                            <div style="margin-bottom: 50px;text-align: right;">Book on {{ booking.createdAt|date('M d, Y') }}
+                                            <div style="margin-bottom: 50px;text-align: right;">Book
+                                                on {{ booking.createdAt|date('M d, Y') }}
                                             </div>
                                             <input style="width: 153px;margin-bottom: 5px !important;"
                                                    type="button" value="Book Again"
                                                    class="margin-clear btn btn-default pull-right">
-                                            <input style=""
-                                                   type="button" value="Review this space"
-                                                   class="margin-clear btn btn-default pull-right">
+                                            {% if booking.isReview == false %}
+                                                <input style=""
+                                                       type="button" value="Review this space"
+                                                       class="margin-clear btn btn-default pull-right"
+                                                       data-toggle="modal" data-target=".bs-modal-sm-review">
+                                                {% include 'AppBundle:User/UserProfile:_list-booking_review.html.twig' %}
+                                            {% else %}
+                                                <div class="space-enabled" style="text-align: right;">
+                                                    <strong>Review Submitted</strong></div>
+                                            {% endif %}
 
                                         </div>
+
                                     </div>
                                 </div>
                             {% endfor %}

@@ -3,6 +3,8 @@
 
 namespace AppBundle\Controller\User\UserControl\Mgmt;
 
+use AppBundle\Entity\Booking\Booking;
+use AppBundle\Form\SpaceBookingReviewType;
 use AppBundle\Form\UserPasswordType;
 use AppBundle\Form\UserProfileType;
 use AppBundle\Form\UserSettingType;
@@ -32,9 +34,20 @@ class UserControlManipulationController extends ControllerService
         ]);
     }
 
-    public function listBookingAction(Request $request)
+    public function reviewSpaceAction(Request $request,Booking $booking)
     {
-
+        $form = $this->createForm(SpaceBookingReviewType::class,$booking);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $booking->setIsReview(true);
+            $em->persist($booking);
+            $em->flush();
+            return $this->redirectToRoute('app_user_user_control_list_booking');
+        } elseif ($form->isSubmitted() && !$form->isValid()) {
+            echo '<pre>';
+            \Doctrine\Common\Util\Debug::dump($this->get('app.form_serializer')->serializeFormErrors($form, true, true));
+        }
     }
 
     public function settingAction(Request $request)

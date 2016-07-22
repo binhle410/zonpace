@@ -9,3 +9,7 @@ app_user_user_control_setting:
 app_user_user_control_list_booking:
     path: /list-booking
     defaults: { _controller: AppBundle:User/UserControl/Mgmt/UserControlRetrieval:listBooking}
+
+app_user_user_control_review_space:
+    path: /review-space/{booking}
+    defaults: { _controller: AppBundle:User/UserControl/Mgmt/UserControlManipulation:reviewSpace}
