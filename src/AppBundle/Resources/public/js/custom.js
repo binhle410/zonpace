@@ -1430,5 +1430,84 @@ jQuery(function () {
         });
 
     })(jQuery, window, document);
+    /**
+     *  @name  init menu
+     *  @description list view
+     *  @version 1.0
+     *  @options
+     *    option
+     *  @events
+     *    event
+     *  @methods
+     *    init
+     */
+    (function ($, window, document, undefined) {
+        var pluginName = "space-detail";
+
+        // The actual plugin constructor
+        function Plugin(element, options) {
+            this.element = element;
+            this.options = $.extend({}, $.fn[pluginName].defaults, options);
+            this.init();
+        }
+
+        Plugin.prototype = {
+            init: function () {
+                var that = this;
+                that.drawChart();
+            },
+            drawChart: function () {
+                // Load the Visualization API and the corechart package.
+                google.charts.load('current', {'packages': ['corechart']});
+
+                // Set a callback to run when the Google Visualization API is loaded.
+                google.charts.setOnLoadCallback(drawChart);
+
+                // Callback that creates and populates a data table,
+                // instantiates the pie chart, passes in the data and
+                // draws it.
+                function drawChart() {
+
+                    // Set chart options
+                    var options = {
+                        // 'title': 'How Much Pizza I Ate Last Night',
+                        // 'width': 400,
+                        // 'height': 300
+                    };
+                    var data = new google.visualization.DataTable();
+                    data.addColumn('string', '');
+                    data.addColumn('number', 'Listing views');
+                    data.addColumn('number', 'Add to wishlists');
+                    data.addColumn('number', 'Resevation');
+                    data.addRows([
+                        ['11 2 1989', 3,4,5],
+                        ['Onions', 1,4,5],
+                        ['Olives', 1,5,6],
+                        ['Zucchini', 1,6,5],
+                        ['Pepperoni', 2,6,7]
+                    ]);
+
+                    // Instantiate and draw our chart, passing in some options.
+                    var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+                    chart.draw(data, options);
+                }
+            }
+        };
+        $.fn[pluginName] = function (options) {
+            return this.each(function () {
+                if (!$.data(this, pluginName)) {
+                    $.data(this, pluginName,
+                        new Plugin(this, options));
+                }
+            });
+        };
+        $.fn[pluginName].defaults = {
+            propertyName: 1
+        };
+        $(function () {
+            $('[data-' + pluginName + ']')[pluginName]();
+        });
+
+    })(jQuery, window, document);
 
 });
