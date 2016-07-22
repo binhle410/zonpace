@@ -1455,6 +1455,9 @@ jQuery(function () {
             init: function () {
                 var that = this;
                 that.drawChart();
+                var startDate = $('.main-container').data('date-booking-from');
+                var endDate = $('.main-container').data('date-booking-to');
+                that.initCalendar(startDate,endDate);
             },
             drawChart: function () {
                 // Load the Visualization API and the corechart package.
@@ -1474,24 +1477,90 @@ jQuery(function () {
                         // 'width': 400,
                         // 'height': 300
                     };
+                    var options = {
+                        annotations: {
+                            textStyle: {
+                                fontName: 'Times-Roman',
+                                fontSize: 18,
+                                bold: true,
+                                italic: true,
+                                // The color of the text.
+                                color: '#871b47',
+                                // The color of the text outline.
+                                auraColor: '#d799ae',
+                                // The transparency of the text.
+                                opacity: 0.8
+                            }
+                        }
+                    };
                     var data = new google.visualization.DataTable();
                     data.addColumn('string', '');
                     data.addColumn('number', 'Listing views');
                     data.addColumn('number', 'Add to wishlists');
                     data.addColumn('number', 'Resevation');
                     data.addRows([
-                        ['11 2 1989', 3,4,5],
-                        ['Onions', 1,4,5],
-                        ['Olives', 1,5,6],
-                        ['Zucchini', 1,6,5],
-                        ['Pepperoni', 2,6,7]
+                        ['May 1, 2016', 4,4,5],
+                        ['May 2, 2016', 6,4,5],
+                        ['May 3, 2016', 21,4,5],
+                        ['May 4, 2016', 3,24,5],
+                        ['May 5, 2016', 3,23,5],
+                        ['May 6, 2016', 3,4,25],
+                        ['May 7, 2016', 3,24,5],
+                        ['May 8, 2016', 3,22,5],
+                        ['May 9, 2016', 3,4,15],
+                        ['May 10, 2016', 3,4,25],
+                        ['May 11, 2016', 3,4,25],
+                        ['May 12, 2016', 3,4,25],
+                        ['May 13, 2016', 3,4,5],
+                        ['May 14, 2016', 3,4,13],
+                        ['May 15, 2016', 3,4,15],
+                        ['May 16, 2016', 16,4,5],
+                        ['May 17, 2016', 3,24,5],
+                        ['May 18, 2016', 3,21,5],
+                        ['May 19, 2016', 3,18,5],
+                        ['May 20, 2016', 3,15,5],
+                        ['May 21, 2016', 3,12,5],
+                        ['May 22, 2016', 3,4,3],
+                        ['May 23, 2016', 3,4,2],
+                        ['May 24, 2016', 3,4,15],
+                        ['May 25, 2016', 3,4,5],
+                        ['May 26, 2016', 3,4,25],
+                        ['May 27, 2016', 23,4,5],
+                        ['May 28, 2016', 3,24,5],
+                        ['May 29, 2016', 3,24,5],
+                        ['May 30, 2016', 3,24,5],
+
                     ]);
 
                     // Instantiate and draw our chart, passing in some options.
                     var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
                     chart.draw(data, options);
                 }
-            }
+            },
+            initCalendar: function (startDate, endDate) {
+                var that = this;
+                that.calendar = $('#mini-clndr').clndr({
+                    template: $('#mini-clndr-template').html(),
+                    // events: events,
+                    clickEvents: {
+                        click: function (target) {
+
+                        },
+                        onMonthChange: function (month) {
+                        },
+                        onYearChange: function (month) {
+                        },
+                    },
+
+                    adjacentDaysChangeMonth: true,
+                    // forceSixRows: true,
+                    constraints: {
+                        startDate: startDate,
+                        endDate: endDate
+                    },
+                });
+
+            },
         };
         $.fn[pluginName] = function (options) {
             return this.each(function () {

@@ -21,6 +21,18 @@ class SpaceManipulationController extends ControllerService
             return $creator->process($step);
         }
     }
+    public function updateAction(Space $space)
+    {
+        $em = $this->getDoctrine()->getManager();
+        if($space->getEnabled()){
+            $space->setEnabled(false);
+        }else{
+            $space->setEnabled(true);
+        }
+        $em->persist($space);
+        $em->flush();
+        return $this->redirectToRoute('app_user_space_view',['space'=>$space->getId()]);
+    }
     
 
 }

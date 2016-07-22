@@ -12,3 +12,7 @@ app_user_space_list:
 app_user_space_view:
     path: /view/{space}
     defaults: { _controller: AppBundle:User/Space/Mgmt/SpaceRetrieval:view}
+
+app_user_space_update:
+    path: /update/{space}
+    defaults: { _controller: AppBundle:User/Space/Mgmt/SpaceManipulation:update}

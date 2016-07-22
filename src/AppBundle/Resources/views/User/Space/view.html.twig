@@ -2,7 +2,7 @@
 {% block content %}
 
 
-    <section class="main-container" data-space-detail="">
+    <section class="main-container" data-space-detail="" data-date-booking-from="{{ space.dateBooking.dateFrom|date('Y-m-d') }}" data-date-booking-to="{{ space.dateBooking.dateTo|date('Y-m-d') }}">
 
         <div class="container">
             <div class="row">
@@ -16,8 +16,8 @@
                             <h2><strong style="color: red">{{ space.name }}</strong></h2>
                         </div>
                         <div class="col-md-6" style="margin-top: 20px;">
-                            <input onclick="window.location.href='{{ path('app_user_space_create',{'step':1,'space':space.id}) }}'"
-                                   type="button" value="Deactivate Listing"
+                            <input style="width: 153px;" onclick="window.location.href='{{ path('app_user_space_update',{'space':space.id}) }}'"
+                                   type="button" value="{{ space.enabled == true ? 'Deactivate Listing':'Activate Listing' }}"
                                    class="margin-clear btn btn-default pull-right">
 
                         </div>
@@ -47,7 +47,7 @@
                             <span>Total bookings : </span> 5
                         </div>
                         <div class="col-md-4">
-                            <span>Location : </span> {{ getRatingSpace(space,4) }}
+                            <span style="margin-right: 48px;">Location : </span> {{ getRatingSpace(space,4) }}
                         </div>
                     </div>
                     <div class="row" style="margin-top: 5px;">
@@ -58,7 +58,7 @@
                             <span>Total gross earnings : </span> ${{ getTotalEarningSpace(space) }}
                         </div>
                         <div class="col-md-4">
-                            <span>Location : </span> {{ getRatingSpace(space,5) }}
+                            <span>Communication : </span> {{ getRatingSpace(space,5) }}
                         </div>
                     </div>
                     <div class="row" style="margin-top: 40px;">
@@ -69,6 +69,56 @@
                     <div class="row" style="margin-top: 5px;">
                         <div class="col-md-12">
                             <div id="chart_div"></div>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 40px;">
+                        <div class="col-md-6">
+                            <strong>Booking Schedule</strong>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 5px;">
+                        <div class="col-md-12">
+                            <div id="mini-clndr">
+
+                            </div>
+                            <script id="mini-clndr-template" type="text/template">
+
+                                <div class="controls">
+                                    <div class="clndr-previous-button">&lsaquo;</div>
+                                    <div class="month"><%= month %></div>
+                                    <div class="clndr-next-button">&rsaquo;</div>
+                                </div>
+
+                                <div class="days-container">
+                                    <div class="days">
+                                        <div class="headers">
+                                            <% _.each(daysOfTheWeek, function(day) { %>
+                                            <div class="day-header"><%= day %></div>
+                                            <% }); %>
+                                        </div>
+                                        <% _.each(days, function(day) { %>
+                                        <div class="<%= day.classes %>" id="<%= moment(day.date).format('YYYY-MM-DD') %>">
+                                            <%= day.day %>
+                                        </div>
+                                        <% }); %>
+                                    </div>
+                                    <div class="events">
+                                        <div class="headers">
+                                            <div class="x-button">x</div>
+                                            <div class="event-header">EVENTS</div>
+                                        </div>
+                                        <div class="events-list">
+                                            <% _.each(eventsThisMonth, function(event) { %>
+                                            <div class="event">
+                                                <a href="<%= event.url %>"><%= moment(event.date).format('MMMM Do') %>: <%=
+                                                    event.title %></a>
+                                            </div>
+                                            <% }); %>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </script>
                         </div>
                     </div>
                 </div>

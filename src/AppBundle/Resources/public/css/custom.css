@@ -409,7 +409,7 @@
     overflow: scroll;
     padding: 0.5em;
 }
-#mini-clndr .inactive{
+.create-space-step #mini-clndr .inactive{
     background: grey;
 }#mini-clndr .inactive-by-hand{
     background: grey;

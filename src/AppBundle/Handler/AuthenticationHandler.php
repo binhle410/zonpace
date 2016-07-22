@@ -101,7 +101,7 @@ class AuthenticationHandler implements AuthenticationSuccessHandlerInterface, Au
             if ($this->container->get('security.authorization_checker')->isGranted('ROLE_ADMIN', null)) {
                 $urlRedirect = $this->container->get('router')->generate('sonata_admin_dashboard', [], true);
             } else {
-                $urlRedirect = $this->container->get('router')->generate('app_user_default', [], true);
+                $urlRedirect = $this->container->get('router')->generate('app_user_user_control_profile', [], true);
             }
         }
         if ($request->isXmlHttpRequest()) {
