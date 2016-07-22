@@ -34,8 +34,19 @@ class ControllerService extends Controller
         return $pagerfanta;
     }
 
+    public function getLocationRatingSpace($space){
+        return $this->getDoctrine()->getManager()->getRepository('AppBundle:Booking\Booking')->getLocationRatingSpace($space);
+    }
+    public function getCommunicationRatingSpace($space){
+        return $this->getDoctrine()->getManager()->getRepository('AppBundle:Booking\Booking')->getCommunicationRatingSpace($space);
+    }
     public function getRatingSpace($space){
         return $this->getDoctrine()->getManager()->getRepository('AppBundle:Booking\Booking')->getRatingSpace($space);
+    }
+    public function getTotalReviewSpace($space){
+        return $this->getDoctrine()->getManager()->getRepository('AppBundle:Booking\Booking')->getTotalReviewSpace($space);
+    }public function getTotalEarningSpace($space){
+        return $this->getDoctrine()->getManager()->getRepository('AppBundle:Booking\Booking')->getTotalEarningSpace($space);
     }
 
 

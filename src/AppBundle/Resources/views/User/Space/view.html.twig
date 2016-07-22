@@ -11,9 +11,61 @@
                 <!-- ================ -->
                 <div class="main col-md-8 col-lg-offset-1 col-md-push-4 col-lg-push-3">
 
-                    Manage one listing
-                    <input onclick="window.location.href='{{ path('app_user_space_create',{'step':1,'space':space.id}) }}'" type="button" value="Edit Listing Detail"
-                           class="margin-clear btn btn-default">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h2><strong style="color: red">{{ space.name }}</strong></h2>
+                        </div>
+                        <div class="col-md-6" style="margin-top: 20px;">
+                            <input onclick="window.location.href='{{ path('app_user_space_create',{'step':1,'space':space.id}) }}'"
+                                   type="button" value="Deactivate Listing"
+                                   class="margin-clear btn btn-default pull-right">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <span style="font-size: 12px">{{ space.location.squareFeet }} sqft</span>
+                            <span style="font-size: 12px">{{ getTypeSpace(space.location.typeSpace) }}</span>
+                        </div>
+                        <div class="col-md-6" style="margin-top: 0px;">
+                            <input style="width: 153px;" onclick="window.location.href='{{ path('app_user_space_create',{'step':1,'space':space.id}) }}'"
+                                   type="button" value="Edit Listing Detail"
+                                   class="margin-clear btn btn-default pull-right">
+
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 40px;">
+                        <div class="col-md-6">
+                            <strong>Summary</strong>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px;">
+                        <div class="col-md-4">
+                            <span>Total views : </span> 5
+                        </div>
+                        <div class="col-md-4">
+                            <span>Total bookings : </span> 5
+                        </div>
+                        <div class="col-md-4">
+                            <span>Location : </span> {{ getRatingSpace(space,4) }}
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 5px;">
+                        <div class="col-md-4">
+                            <span>Total reviews : </span> {{ getTotalReviewSpace(space) }}
+                        </div>
+                        <div class="col-md-4">
+                            <span>Total gross earnings : </span> ${{ getTotalEarningSpace(space) }}
+                        </div>
+                        <div class="col-md-4">
+                            <span>Location : </span> {{ getRatingSpace(space,5) }}
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 40px;">
+                        <div class="col-md-6">
+                            <strong>User viewing this listings</strong>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- sidebar start -->

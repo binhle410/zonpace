@@ -66,19 +66,27 @@ class TwigExtension extends \Twig_Extension
 
     /**
      * @param $object
-     * @param $type 1:,all, 2:locationRating, 3:communicationRating
+     * @param $type 1:,all, 2:locationRating, 3:communicationRating ,4 avg locationRating, 5 avg communicationRating
      * @return string
      */
     public function getRatingSpace($object,$type){
         switch ($type){
+            //object is Space
             case 1:
                 $rating = $this->container->get('app.controller')->getRatingSpace($object);
                 break;
+            //Object is Booking
             case 2:
                 $rating = $object->getRatingLocation();
                 break;
             case 3:
                 $rating = $object->getRatingCommunication();
+                break;
+            case 4:
+                $rating = $this->container->get('app.controller')->getLocationRatingSpace($object);
+                break;
+            case 5:
+                $rating = $this->container->get('app.controller')->getCommunicationRatingSpace($object);
                 break;
 
         }
@@ -94,6 +102,13 @@ class TwigExtension extends \Twig_Extension
         return $html;
     }
 
+    public function getTotalReviewSpace($space){
+        return $this->container->get('app.controller')->getTotalReviewSpace($space);
+    }
+    public function getTotalEarningSpace($space){
+        return $this->container->get('app.controller')->getTotalEarningSpace($space);
+    }
+
 
     public function getFunctions()
     {
@@ -105,6 +120,8 @@ class TwigExtension extends \Twig_Extension
             'getTypeSpaces' => new \Twig_Function_Method($this, 'getTypeSpaces', array('is_safe' => array('html'))),
             'getStatusSpaces' => new \Twig_Function_Method($this, 'getStatusSpaces', array('is_safe' => array('html'))),
             'getRatingSpace' => new \Twig_Function_Method($this, 'getRatingSpace', array('is_safe' => array('html'))),
+            'getTotalReviewSpace' => new \Twig_Function_Method($this, 'getTotalReviewSpace', array('is_safe' => array('html'))),
+            'getTotalEarningSpace' => new \Twig_Function_Method($this, 'getTotalEarningSpace', array('is_safe' => array('html'))),
         );
     }
 
