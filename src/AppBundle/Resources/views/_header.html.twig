@@ -39,10 +39,14 @@
                                                 <a href="index.html">How it Works</a>
                                             </li>
                                             <li>
-                                                <a href="{{ path('app_search_space') }}">Search Spaces</a>
+                                                <a href="#">Help</a>
                                             </li>
                                             <li>
-                                                <a href="index.html">Log In/Sign Up</a>
+                                                {% if app.user %}
+                                                    <a href="index.html">Hello, {{ app.user.firstName }}</a>
+                                                {% else %}
+                                                    <a href="index.html">Log In/Sign Up</a>
+                                                {% endif %}
                                             </li>
                                         </ul>
                                     </div>
