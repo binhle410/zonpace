@@ -20,6 +20,8 @@ class User extends BaseUser
         parent::__construct();
         // your own logic
         $this->userSetting = new UserSetting();
+        $this->isCompletedProfile = false;
+        $this->isVerifiedPhone = false;
     }
     /**
      * @ORM\Id
@@ -83,6 +85,50 @@ class User extends BaseUser
      */
     private $userSetting;
 
+    /**
+     * @var boolean
+     * @ORM\Column(name="is_completed_profile",type="boolean")
+     */
+    private $isCompletedProfile;
+    /**
+     * @var boolean
+     * @ORM\Column(name="is_verified_phone",type="boolean")
+     */
+    private $isVerifiedPhone;
+
+    /**
+     * @return boolean
+     */
+    public function isIsCompletedProfile()
+    {
+        return $this->isCompletedProfile;
+    }
+
+    /**
+     * @param boolean $isCompletedProfile
+     */
+    public function setIsCompletedProfile($isCompletedProfile)
+    {
+        $this->isCompletedProfile = $isCompletedProfile;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isIsVerifiedPhone()
+    {
+        return $this->isVerifiedPhone;
+    }
+
+    /**
+     * @param boolean $isVerifiedPhone
+     */
+    public function setIsVerifiedPhone($isVerifiedPhone)
+    {
+        $this->isVerifiedPhone = $isVerifiedPhone;
+    }
+
+    
     /**
      * @return UserSetting
      */

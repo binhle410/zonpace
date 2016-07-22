@@ -16,11 +16,27 @@
                             <!-- filters start -->
                             <form class="" method="get">
                                 <div class="row">
-                                    <div class="col-md-3 col-sm-offset-9">
+                                    <div class="col-md-3 col-sm-offset-6">
                                         <div class="form-group">
-                                            <label>Filter</label>
+                                            <label>Type Space</label>
                                             <select name="type-space" class="form-control type-space">
                                                 <option value="">All</option>
+                                                {% set typeSpaces = getTypeSpaces() %}
+                                                {% for key,typeSpace in typeSpaces %}
+                                                    <option {{ app.request.get('type-space')==key ? 'selected' }} value="{{ key }}">{{ typeSpace }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Status</label>
+                                            <select name="status-space" class="form-control status-space">
+                                                <option value="">All</option>
+                                                {% set statusSpaces = getStatusSpaces() %}
+                                                {% for key,statusSpace in statusSpaces %}
+                                                    <option {{ app.request.get('status-space')==key ? 'selected' }} value="{{ key }}">{{ statusSpace }}</option>
+                                                {% endfor %}
                                             </select>
                                         </div>
                                     </div>

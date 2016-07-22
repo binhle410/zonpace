@@ -20,7 +20,7 @@ class HostControlRetrievalController extends ControllerService
         $bookingRepo = $em->getRepository('AppBundle:Booking\Booking');
         $qb = $bookingRepo->findHostBooking($this->getUser(),$request->query->all());
         $bookings = $this->pagingBuilder($request,$qb);
-        return $this->render('AppBundle:User/UserHost:list-booking.html.twig', [
+        return $this->render('AppBundle:User/HostControl:list-booking.html.twig', [
             'bookings'=>$bookings
         ]);
     }

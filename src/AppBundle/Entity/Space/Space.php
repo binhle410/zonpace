@@ -37,7 +37,8 @@ class Space
         $gallery->setDefaultFormat('default');
         $gallery->setEnabled(1);
         $this->photo = $gallery;
-        $this->enabled = true;
+        $this->enabled = false;
+        $this->completedCreate = false;
     }
 
     /**
@@ -113,6 +114,12 @@ class Space
      * @ORM\Column(name="enabled",type="boolean")
      */
     private $enabled;
+
+  /**
+     * @var boolean
+     * @ORM\Column(name="completed_create",type="boolean")
+     */
+    private $completedCreate;
 
     /**
      * @var boolean
@@ -377,6 +384,23 @@ class Space
     {
         $this->country = $country;
     }
+
+    /**
+     * @return boolean
+     */
+    public function isCompletedCreate()
+    {
+        return $this->completedCreate;
+    }
+
+    /**
+     * @param boolean $completedCreate
+     */
+    public function setCompletedCreate($completedCreate)
+    {
+        $this->completedCreate = $completedCreate;
+    }
+
     
     
 

@@ -17,7 +17,36 @@ use DoctrineExtensions\Query\Mysql\Radians;
  */
 class SpaceRepository extends EntityRepository
 {
-    public function findMySpaces($user,$query)
+    public function getNumberTotalListing($user)
+    {
+        return $this->_em->createQuery('select COUNT (sp.id) from AppBundle\Entity\Space\Space sp where sp.user =:user')
+            ->setParameter('user', $user)
+            ->getSingleScalarResult();
+
+    }
+
+    public function getNumberActiveListing($user)
+    {
+        return $this->_em->createQuery('select COUNT (sp.id) from AppBundle\Entity\Space\Space sp where sp.user = :user and sp.enabled = :enabled and sp.completedCreate = :completedCreate')
+            ->setParameter('user', $user)
+            ->setParameter('completedCreate', true)
+            ->setParameter('enabled', true)
+            ->getSingleScalarResult();
+
+    }
+    public function getUnfinishedListings($user)
+    {
+        $expr = new Expr();
+        $qb = $this->createQueryBuilder('space')
+            ->where($expr->eq('space.user', ':user'))
+            ->andWhere($expr->eq('space.completedCreate', ':completedCreate'))
+            ->setParameter('completedCreate', false)
+            ->setParameter('user', $user);
+        return $qb;
+
+    }
+
+    public function findMySpaces($user, $query)
     {
         $expr = new Expr();
         $qb = $this->createQueryBuilder('space')
@@ -86,4 +115,4 @@ class SpaceRepository extends EntityRepository
         return $qb;
 
     }
-  }
+}

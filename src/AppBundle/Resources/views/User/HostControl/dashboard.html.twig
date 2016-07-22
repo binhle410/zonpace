@@ -1,0 +1,114 @@
+{% extends 'AppBundle::layout.html.twig' %}
+{% block content %}
+
+
+    <section class="main-container">
+
+        <div class="container">
+            <div class="row">
+
+                <!-- main start -->
+                <!-- ================ -->
+                <div class="main col-md-8 col-lg-offset-1 col-md-push-4 col-lg-push-3">
+                    <h3><strong style="color: red;font-weight: bold">Welcome to your
+                            dashboard, {{ app.user.firstName }}</strong></h3>
+                    <div class="row" style="margin-bottom: 20px;margin-top: 30px;">
+                        <div class="col-md-6">
+                            <span>{{ numberTotalListing }}</span> Total listings, with {{ numberActiveListing }} active
+                            listings
+                        </div>
+                        <div class="col-md-6">
+                            <span>4</span> Unread messages
+                        </div>
+                    </div>
+                    <div class="row" style="margin-bottom: 40px;">
+                        <div class="col-md-6">
+                            <span>15</span> Upcoming bookings
+                        </div>
+                        <div class="col-md-6">
+                            <span>15</span> New reviews on your listings
+                        </div>
+                    </div>
+
+
+                    {% if app.user.isCompletedProfile == false %}
+                        <hr class="divider"/>
+                        <div class="row" style="margin-bottom: 40px;">
+                            <div class="col-md-8">
+                                <h3><strong style="font-weight: bold">Your profile is not complete</strong></h3>
+                                <p>Improve your profile to increase your booking rate</p>
+                            </div>
+                            <div class="col-md-4">
+                                <button onclick="window.location.href='{{ path('app_user_user_control_profile') }}'" class="btn btn-default pull-right" style="margin-top: 30px;width: 150px;">Edit
+                                    profile
+                                </button>
+                            </div>
+                        </div>
+                    {% endif %}
+
+
+                    {% if app.user.isVerifiedPhone == false %}
+                        <hr class="divider"/>
+                        <div class="row" style="margin-bottom: 40px;">
+                            <div class="col-md-8">
+                                <h3><strong style="font-weight: bold">Your phone number is not verified</strong></h3>
+                                <p>Booking cannot be made until you verify your phone number</p>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn btn-default pull-right" style="margin-top: 30px;">Verify my number
+                                </button>
+                            </div>
+                        </div>
+                    {% endif %}
+
+
+                    {% if unfinishedListings|length %}
+                        <hr class="divider"/>
+                        <div class="row" style="margin-bottom: 10px;">
+                            <div class="col-md-12">
+                                <h3><strong style="font-weight: bold">2 unfinished listings</strong></h3>
+                                <p>Complete your listings and start getting bookings</p>
+                            </div>
+                        </div>
+                        {% for space in unfinishedListings %}
+                            <hr class="divider"/>
+                            <div class="row" style="margin-bottom: 10px;">
+                                <div class="col-md-3">
+                                    {% if space.spaceImage %}
+                                        <img src="{{ getUrl(space.spaceImage) }}" alt="">
+                                    {% else %}
+                                        <img src="{{ asset('bundles/app/images/product-1.jpg') }}" alt="">
+                                    {% endif %}
+                                </div>
+                                <div class="col-md-5">
+                                    <strong>{{ space.name }}</strong><br>
+                            <span style="font-size: 12px">{{ space.location.squareFeet }}
+                                sqft</span>
+                                    <span style="font-size: 12px">{{ getTypeSpace(space.location.typeSpace) }}</span>
+                                </div>
+                                <div class="col-md-4">
+                                    <button onclick="window.location.href='{{ path('app_user_space_create',{'step':1,'space':space.id}) }}'" class="btn btn-default pull-right" style="margin-top: 10px;">Edit listings
+                                        Detail
+                                    </button>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        {% if unfinishedListings|length %}
+                            <nav class="text-right">
+                                {{ pagerfanta(unfinishedListings) }}
+                            </nav>
+                        {% endif %}
+                    {% endif %}
+
+
+                </div>
+
+                <!-- sidebar start -->
+                {% include 'AppBundle:User:_nav.html.twig' %}
+
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

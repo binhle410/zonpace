@@ -22,6 +22,7 @@ class UserControlManipulationController extends ControllerService
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $user->setIsCompletedProfile(true);
             $em->persist($user);
             $em->flush();
         } elseif ($form->isSubmitted() && !$form->isValid()) {
