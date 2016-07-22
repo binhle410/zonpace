@@ -11,36 +11,42 @@
                 <!-- ================ -->
                 <div class="main col-md-8 col-lg-offset-1 col-md-push-4 col-lg-push-3">
 
-                    <div class="light-gray-bg section">
-                        <div class="container">
+
+                    <div class="row">
+                        <div class="col-md-12">
                             <!-- filters start -->
-                            <div class="sorting-filters text-center mb-20">
-                                <form class="form-inline form-filter-list-space" method="get">
-                                    <div class="form-group">
-                                        <label>Type Space</label>
-                                        <select name="type-space" class="form-control type-space">
-                                            <option value="">All</option>
-                                            {% set typeSpaces = getTypeSpaces() %}
-                                            {% for key,typeSpace in typeSpaces %}
-                                                <option {{ app.request.get('type-space')==key ? 'selected' }} value="{{ key }}">{{ typeSpace }}</option>
-                                            {% endfor %}
-                                        </select>
+                            <form class="" method="get">
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-offset-6">
+                                        <div class="form-group">
+                                            <label>Type Space</label>
+                                            <select name="type-space" class="form-control type-space">
+                                                <option value="">All</option>
+                                                {% set typeSpaces = getTypeSpaces() %}
+                                                {% for key,typeSpace in typeSpaces %}
+                                                    <option {{ app.request.get('type-space')==key ? 'selected' }} value="{{ key }}">{{ typeSpace }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Status</label>
-                                        <select name="status-space" class="form-control status-space">
-                                            <option value="">All</option>
-                                            {% set statusSpaces = getStatusSpaces() %}
-                                            {% for key,statusSpace in statusSpaces %}
-                                                <option {{ app.request.get('status-space')==key ? 'selected' }} value="{{ key }}">{{ statusSpace }}</option>
-                                            {% endfor %}
-                                        </select>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Status</label>
+                                            <select name="status-space" class="form-control status-space">
+                                                <option value="">All</option>
+                                                {% set statusSpaces = getStatusSpaces() %}
+                                                {% for key,statusSpace in statusSpaces %}
+                                                    <option {{ app.request.get('status-space')==key ? 'selected' }} value="{{ key }}">{{ statusSpace }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
                                     </div>
-                                </form>
-                            </div>
+                                </div>
+                            </form>
                             <!-- filters end -->
                         </div>
                     </div>
+                    <hr class="divider">
                     <!-- Tab panes -->
                     <div class="tab-content clear-style">
                         <div class="tab-pane active" id="pill-1">

@@ -34,6 +34,10 @@ class ControllerService extends Controller
         return $pagerfanta;
     }
 
+    public function getRatingSpace($space){
+        return $this->getDoctrine()->getManager()->getRepository('AppBundle:Booking\Booking')->getRatingSpace($space);
+    }
+
 
    
 

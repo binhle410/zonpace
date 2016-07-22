@@ -51,6 +51,10 @@ class TwigExtension extends \Twig_Extension
         ];
         return $spaceType;
     }
+
+    /**
+     * @return array
+     */
     public function getStatusSpaces()
     {
         $spaceType = [
@@ -59,6 +63,37 @@ class TwigExtension extends \Twig_Extension
         ];
         return $spaceType;
     }
+
+    /**
+     * @param $object
+     * @param $type 1:,all, 2:locationRating, 3:communicationRating
+     * @return string
+     */
+    public function getRatingSpace($object,$type){
+        switch ($type){
+            case 1:
+                $rating = $this->container->get('app.controller')->getRatingSpace($object);
+                break;
+            case 2:
+                $rating = $object->getRatingLocation();
+                break;
+            case 3:
+                $rating = $object->getRatingCommunication();
+                break;
+
+        }
+        $rating = round($rating);
+        $noRating = 5- $rating;
+        $html='';
+        for ($i=1;$i<=$rating;$i++){
+            $html.=' <i class="fa fa-star text-default"></i>';
+        }
+        for ($i=1;$i<=$noRating;$i++){
+            $html.=' <i class="fa fa-star"></i>';
+        }
+        return $html;
+    }
+
 
     public function getFunctions()
     {
@@ -69,6 +104,7 @@ class TwigExtension extends \Twig_Extension
             'getTypeSpace' => new \Twig_Function_Method($this, 'getTypeSpace', array('is_safe' => array('html'))),
             'getTypeSpaces' => new \Twig_Function_Method($this, 'getTypeSpaces', array('is_safe' => array('html'))),
             'getStatusSpaces' => new \Twig_Function_Method($this, 'getStatusSpaces', array('is_safe' => array('html'))),
+            'getRatingSpace' => new \Twig_Function_Method($this, 'getRatingSpace', array('is_safe' => array('html'))),
         );
     }
 

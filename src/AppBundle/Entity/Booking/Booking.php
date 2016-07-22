@@ -30,6 +30,12 @@ class Booking
     }
 
     /**
+     * @var string
+     * @ORM\Column(name="bookingid",type="string",length=6,options={"fixed"=true})
+     */
+    private $bookingID;
+
+    /**
      * @var datetime
      * @ORM\Column(name="created_at",type="datetime")
      */
@@ -63,6 +69,72 @@ class Booking
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Space\Space")
      */
     private $space;
+
+    /**
+     * @var integer
+     * @ORM\Column(name="rating_location",type="integer",options={"default"=0})
+     */
+    private $ratingLocation;
+    /**
+     * @var integer
+     * @ORM\Column(name="rating_communication",type="integer",options={"default"=0})
+     */
+    private $ratingCommunication;
+
+    /**
+     * @var integer
+     * @ORM\Column(name="rating_massage",type="text",nullable=true)
+     */
+    private $ratingMassage;
+
+    /**
+     * @return int
+     */
+    public function getRatingLocation()
+    {
+        return $this->ratingLocation;
+    }
+
+    /**
+     * @param int $ratingLocation
+     */
+    public function setRatingLocation($ratingLocation)
+    {
+        $this->ratingLocation = $ratingLocation;
+    }
+
+    /**
+     * @return int
+     */
+    public function getRatingCommunication()
+    {
+        return $this->ratingCommunication;
+    }
+
+    /**
+     * @param int $ratingCommunication
+     */
+    public function setRatingCommunication($ratingCommunication)
+    {
+        $this->ratingCommunication = $ratingCommunication;
+    }
+
+    /**
+     * @return int
+     */
+    public function getRatingMassage()
+    {
+        return $this->ratingMassage;
+    }
+
+    /**
+     * @param int $ratingMassage
+     */
+    public function setRatingMassage($ratingMassage)
+    {
+        $this->ratingMassage = $ratingMassage;
+    }
+
 
     /**
      * @return float
@@ -158,6 +230,30 @@ class Booking
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBookingID()
+    {
+        return $this->bookingID;
+    }
+
+    /**
+     * @param string $bookingID
+     */
+    public function setBookingID($bookingID)
+    {
+        $this->bookingID = $bookingID;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
     }
     
     

@@ -11,26 +11,29 @@
                 <!-- ================ -->
                 <div class="main col-md-8 col-lg-offset-1 col-md-push-4 col-lg-push-3">
 
-                    <div class="light-gray-bg section">
-                        <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
                             <!-- filters start -->
-                            <div class="sorting-filters text-center mb-20">
-                                <form class="form-inline form-filter-list-space" method="get">
-                                    <div class="form-group" style="">
-                                        <label>FIlters</label>
-                                        <select name="status-space" class="form-control">
-                                            <option value="">Allsssssssssssss ss</option>
-                                        </select>
+                            <form class="" method="get">
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-offset-9">
+                                        <div class="form-group">
+                                            <label>Filter</label>
+                                            <select name="type-space" class="form-control type-space">
+                                                <option value="">All</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </form>
-                            </div>
+                                </div>
+                            </form>
                             <!-- filters end -->
                         </div>
                     </div>
+                    <hr class="divider">
                     <!-- Tab panes -->
                     <div class="tab-content clear-style">
                         <div class="tab-pane active" id="pill-1">
-                            {% for booking in  bookings%}
+                            {% for booking in  bookings %}
                                 {% set space = booking.space %}
                                 <div class="listing-item mb-20">
                                     <div class="row grid-space-0">
@@ -43,43 +46,62 @@
                                                 {% endif %}
                                             </div>
                                         </div>
-                                        <div class="col-sm-6 col-md-7">
+                                        <div class="col-sm-6 col-md-7" style="margin-top: -25px;">
                                             <div class="body">
                                                 <h3 class="margin-clear"><a
                                                             href="shop-product.html">{{ space.name }}</a></h3>
                                                 <div class="row">
                                                     <div class="col-md-8">
-                                                        <span style="font-size: 12px">{{ space.location.squareFeet }} sqft</span>
+                                                        <span style="font-size: 12px">{{ space.location.squareFeet }}
+                                                            sqft</span>
                                                         <span style="font-size: 12px">{{ getTypeSpace(space.location.typeSpace) }}</span>
                                                     </div>
                                                 </div>
                                                 <p>
-                                                    <i class="fa fa-star text-default"></i>
-                                                    <i class="fa fa-star text-default"></i>
-                                                    <i class="fa fa-star text-default"></i>
-                                                    <i class="fa fa-star text-default"></i>
-                                                    <i class="fa fa-star"></i>
+                                                    {{ getRatingSpace(space,1) }}
                                                 </p>
-                                                <div class="row" style="margin-left: 0px;">
-                                                    <div class="col-sm-6"><span class="">Booking ID: 1143434</span></div>
-                                                    <div class="col-sm-6"><span class="">Total cost: $1989</span></div>
+                                                <div class="row" style="margin-left: 0px;margin-bottom: -15px;">
+                                                    <div class="col-sm-6"><span class="">Booking ID: {{ booking.bookingid }}</span>
+                                                    </div>
+                                                    <p>
+                                                        <span>Communication</span>
+                                                        {{ getRatingSpace(booking,3) }}
+                                                    </p>
+                                                </div>
+                                                <div class="row" style="margin-left: 0px;margin-bottom: -15px;">
+                                                    <div class="col-sm-6"><span class="">Check-in: {{ booking.dateFrom|date('M d, Y') }}</span>
+                                                    </div>
+                                                    <p>
+                                                    <span style="margin-right: 49px;">Location</span>
+                                                        {{ getRatingSpace(booking,2) }}
+                                                    </p>
                                                 </div>
                                                 <div class="row" style="margin-left: 0px;">
-                                                    <div class="col-sm-6"><span class="">Check-in:  Jun 6th,2016</span></div>
-                                                    <div class="col-sm-6"><span class="">Payment: Jessica Justica</span></div>
+                                                    <div class="col-sm-6"><span class="">Check-out:  {{ booking.dateTo|date('M d, Y') }}</span>
+                                                    </div>
                                                 </div>
                                                 <div class="row" style="margin-left: 0px;">
-                                                    <div class="col-sm-6"><span class="">Check-out:  Jun 6th,2016</span></div>
+                                                    <div class="col-sm-6"><span class="">Total cost: ${{ booking.totalPrice }}</span></div>
+                                                </div>
+                                                <div class="row" style="margin-left: 0px;">
+                                                    <div class="col-sm-6"><span class="">Payment: Jessica Justica</span>
+                                                    </div>
                                                 </div>
 
                                             </div>
                                         </div>
                                         <div class="col-md-3">
-                                            <div class="space-enabled" style="text-align: right;"><strong>Active</strong></div>
-                                            <div style="margin-bottom: 60px;text-align: right;">Book on Jun 1st,2016</div>
-                                            <input style="text-align: right;"
+                                            <div class="space-enabled" style="text-align: right;">
+                                                <strong>Active</strong></div>
+                                            <div style="margin-bottom: 50px;text-align: right;">Book on {{ booking.createdAt|date('M d, Y') }}
+                                            </div>
+                                            <input style="width: 153px;margin-bottom: 5px !important;"
                                                    type="button" value="Book Again"
                                                    class="margin-clear btn btn-default pull-right">
+                                            <input style=""
+                                                   type="button" value="Review this space"
+                                                   class="margin-clear btn btn-default pull-right">
+
                                         </div>
                                     </div>
                                 </div>

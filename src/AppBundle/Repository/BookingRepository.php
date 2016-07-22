@@ -26,4 +26,9 @@ class BookingRepository extends EntityRepository
         return $qb;
 
     }
+    public function getRatingSpace($space){
+        return $this->_em->createQuery('select AVG((b.ratingLocation + b.ratingCommunication)/2) from AppBundle\Entity\Booking\Booking b where b.space =:space')
+                    ->setParameter('space',$space)
+                    ->getSingleScalarResult();
+    }
   }
