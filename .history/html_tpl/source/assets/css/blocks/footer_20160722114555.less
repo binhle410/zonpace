@@ -1,0 +1,147 @@
+/**
+ * CSS FOOTER
+ */
+.footer-wrap {
+	.footer-menu {
+		background-color: @red;
+		padding-top: 40px;
+		padding-bottom: 40px;
+	}
+	h2.foo-ttl {
+		color: #fff;
+		text-transform: uppercase;
+		position: relative;
+		font-size: 16px;
+		margin-bottom: 3px;
+		.fontNovaBold()
+	}
+	li {
+		padding: 0;
+		a {
+			color: #fff;
+			font-weight: 300;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}
+.footer-wrap {
+	.footer-choice {
+		h2.foo-ttl {
+			&::before {
+				display: none;
+			}
+		}
+		select {
+			background-color: #858585;
+			color: #fff;
+			border: none;
+		}
+		.blk-lang {
+			margin-bottom: 10px;
+		}
+	}
+}
+.footer-wrap {
+	.footer-follow {
+		color: #A6A8AB;
+		background-color: #fff;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+}
+.footer-wrap {
+	.footer-choice {
+		.select2-container--default {
+			.select2-selection--single {
+				background-color: @red;
+				color: #fff;
+				border: none;
+				height: 40px;
+				.border-radius(2px);
+				border: 1px solid #fff;
+				outline: none;
+				.select2-selection__rendered {
+					color: #fff;
+					line-height: 40px;
+					padding-left: 10px;
+					top: 7px;
+				    right: 5px;
+				}
+				.select2-selection__arrow {
+					bottom: 4px;
+				    right: 4px;
+				    width: 20px;
+				    line-height: normal;
+				    height: 10px;
+				    top: auto;
+					b {
+					    border-width: 7px 7px 0 7px;
+				        border-color: transparent #fff transparent transparent;
+					}
+				}
+			}
+		}
+	}
+}
+.blk-subscrible {
+	margin-bottom: 30px;
+	h2.foo-ttl {
+		margin-bottom: 5px;
+	}
+	.ipt {
+		.border-radius(0);
+		width: 70%;
+		display: inline-block;
+		font-style: italic;
+		margin-right: 15px;
+	}
+	.btn {
+		&.btn-subscrible {
+			color: @red;
+			background-color: #fff;
+			padding-top: 0;
+			padding-bottom: 0;
+			.border-radius(0);
+			height: 40px;
+			line-height: 40px;
+			.transition(all .3s ease);
+			.fontNovaBold();
+			vertical-align: -1px;
+			outline: none;
+			&:hover {
+				background-color: @black;
+				color: #fff;
+			}
+		}
+	}
+}
+.blk-social {
+	h2.foo-ttl {
+		margin-bottom: 10px;
+	}
+	a {
+		display: inline-block;
+		margin-right: 20px;
+		color: #fff;
+		&:hover {
+			color: @black;
+		}
+		i {
+			font-size: 20px;
+		}
+	}
+}
+.footer-wrap {
+	.foo-logo {
+		.fontNovaBold();
+		font-size: 50px;
+		line-height: 1;
+		color: #fff;
+		margin-bottom: 50px;
+	}
+}
+.select2-container {
+	width: 100% !important;
+}

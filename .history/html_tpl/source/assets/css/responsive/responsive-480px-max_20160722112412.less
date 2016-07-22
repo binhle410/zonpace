@@ -1,0 +1,48 @@
+/**
+ * Media 480px-
+ *
+ * description: css rules for screen of old school smartphone
+ */
+@media (max-width: 480px) {
+    h2.blk-ttl {
+		font-size: 18px;
+	}
+	.blk-make-money {
+		h2.money-ttl {
+    		font-size: 18px;
+    	}
+	}
+    .main-slider {
+    	.main-filter {
+            top: 50px;
+            h2 {
+                font-size: 18px;
+                line-height: 24px;
+            }
+        }
+    }
+    /* CSS HOME AREA */
+    .blk-area-wrap {
+        .area-itm {
+            .area-img {
+                height: 200px;
+            }
+        }
+    }
+    /* CSS HOME OFFER*/
+    .home-offer {
+    	.zone-img {
+    		width: 100px;
+    		height: 100px;
+    		background-size: 100px auto;
+    	}
+    	.offer-itm {
+    		&:nth-of-type(2) {
+    			.zone-img {
+    				width: 200px;
+    				background-size: 200px auto;
+    			}
+    		}
+    	}
+    }
+}
