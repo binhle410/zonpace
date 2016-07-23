@@ -97,6 +97,29 @@ class User extends BaseUser
     private $isVerifiedPhone;
 
     /**
+     * @var integer
+     * @ORM\Column(name="verified_code_phone",type="integer")
+     */
+    private $verifiedCodePhone;
+
+    /**
+     * @return int
+     */
+    public function getVerifiedCodePhone()
+    {
+        return $this->verifiedCodePhone;
+    }
+
+    /**
+     * @param int $verifiedCodePhone
+     */
+    public function setVerifiedCodePhone($verifiedCodePhone)
+    {
+        $this->verifiedCodePhone = $verifiedCodePhone;
+    }
+    
+
+    /**
      * @return boolean
      */
     public function isIsCompletedProfile()

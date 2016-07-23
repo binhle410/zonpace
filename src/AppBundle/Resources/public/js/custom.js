@@ -1579,4 +1579,67 @@ jQuery(function () {
 
     })(jQuery, window, document);
 
+    /**
+     *  @name  init menu
+     *  @description list view
+     *  @version 1.0
+     *  @options
+     *    option
+     *  @events
+     *    event
+     *  @methods
+     *    init
+     */
+    (function ($, window, document, undefined) {
+        var pluginName = "user-profile";
+
+        // The actual plugin constructor
+        function Plugin(element, options) {
+            this.element = element;
+            this.options = $.extend({}, $.fn[pluginName].defaults, options);
+            this.init();
+        }
+
+        Plugin.prototype = {
+            init: function () {
+                var that = this;
+                $('a.verify-phone-number').click(function(){
+                    that.sendMessageVerifyPhoneNumber();
+                });
+            },
+            sendMessageVerifyPhoneNumber: function () {
+                var url = $('#app_core_user_profile_phone').data('url');
+                var phone = $('#app_core_user_profile_phone').val();
+                $('#app_core_user_profile_phone').attr('readonly',true);
+                $.ajax({
+                    url: url,
+                    type: "POST",
+                    data: {
+                        phone: phone,
+                    },
+                    success: function (result) {
+                        if (result.status) {
+                        } else {
+                        }
+                    }
+                });
+            }
+        };
+        $.fn[pluginName] = function (options) {
+            return this.each(function () {
+                if (!$.data(this, pluginName)) {
+                    $.data(this, pluginName,
+                        new Plugin(this, options));
+                }
+            });
+        };
+        $.fn[pluginName].defaults = {
+            propertyName: 1
+        };
+        $(function () {
+            $('[data-' + pluginName + ']')[pluginName]();
+        });
+
+    })(jQuery, window, document);
+
 });

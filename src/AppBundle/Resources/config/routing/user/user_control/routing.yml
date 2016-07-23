@@ -13,3 +13,7 @@ app_user_user_control_list_booking:
 app_user_user_control_review_space:
     path: /review-space/{booking}
     defaults: { _controller: AppBundle:User/UserControl/Mgmt/UserControlManipulation:reviewSpace}
+
+app_user_user_control_verify_phone_number:
+    path: /verify-phone-number
+    defaults: { _controller: AppBundle:User/UserControl/Api/UserControlApi:sendVerifiedCode}
