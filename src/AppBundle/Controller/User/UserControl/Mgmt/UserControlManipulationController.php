@@ -107,7 +107,8 @@ class UserControlManipulationController extends ControllerService
 
     public function verificationAction(Request $request)
     {
-
+        return $this->render('AppBundle:User/UserControl:verification.html.twig', [
+        ]);
     }
 
 }

@@ -1,0 +1,86 @@
+{% extends 'AppBundle::layout.html.twig' %}
+{% block content %}
+
+
+    <section class="main-container" data-verify-phone-number="">
+
+        <div class="container">
+            <div class="row">
+
+                <div class="main col-md-8 col-lg-offset-1 col-md-push-4 col-lg-push-3">
+                    <h3><strong>Your current verifications</strong></h3>
+                    <p><strong>Email Address</strong></p>
+                    <p>Your have confirmed your email: <span color="red">{{ app.user.email }}</span> a confirm email is
+                        important to allow use ti securely communication with you</p>
+                    <p><strong>Phone number</strong></p>
+                    {% if app.user.isVerifiedPhone == false %}
+                        <p>Please confirm your phone number to start getting verifications via phone numbers</p>
+                        <div class="row">
+                        <input type="hidden" value="{{ app.user.phone }}" class="phone-need-verify">
+                        <button data-url="{{ path('app_user_user_control_send_verified_code') }}" data-toggle="modal"
+                                data-target=".bs-modal-sm-verify-phone"
+                                class="btn btn-default pull-left verify-phone-number" style="margin-top: 0px;margin-left: 17px;">Verify my
+                            number
+                        </button>
+                        </div>
+                    {% else %}
+                        <p>Your phone only shared with another Zonpage menber once your have confirmed booking</p>
+                    {% endif %}
+
+                    <p style="margin-top: 20px;"><strong>Add more verifications</strong></p>
+                    <p>Sign in with social media account and discover your trusted connection to host and guest all over the world </p>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a class="btn btn-block btn-social btn-facebook" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-facebook']);">
+                                <span class="fa fa-facebook"></span> Connect to Facebook
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="btn btn-block btn-social btn-linkedin" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-linkedin']);">
+                                <span class="fa fa-linkedin"></span> Connect to LinkedIn
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>Connect to facebook and discover your trusted connection to host and guests all over the world</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>Connect to LinkedIn and discover your trusted connection to host and guests all over the world</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a class="btn btn-block btn-social btn-twitter" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-twitter']);">
+                                <span class="fa fa-twitter"></span> Connect to Twitter
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="btn btn-block btn-social btn-google" onclick="_gaq.push(['_trackEvent', 'btn-social', 'click', 'btn-google']);">
+                                <span class="fa fa-google"></span> Connect to Google
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>Connect to Twitter and discover your trusted connection to host and guests all over the world</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>Connect to Google and discover your trusted connection to host and guests all over the world</p>
+                        </div>
+                    </div>
+
+                </div>
+                {% include 'AppBundle:User/UserControl:_verify_phone_form.html.twig' %}
+
+                <!-- sidebar start -->
+                {% include 'AppBundle:User:_nav.html.twig' %}
+                <!-- ================ -->
+
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
