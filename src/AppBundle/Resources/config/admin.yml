@@ -15,3 +15,13 @@ services:
             arguments: [~, AppBundle\Entity\Space\Space, ~]
             tags:
                 - { name: sonata.admin, manager_type: orm, label: Spaces }
+    admin.user_fos:
+            class: AppBundle\Admin\UserAdmin
+            arguments: [~, AppBundle\Entity\Core\User, ~]
+            tags:
+                - { name: sonata.admin, manager_type: orm, label: Users }
+    admin.booking:
+            class: AppBundle\Admin\BookingAdmin
+            arguments: [~, AppBundle\Entity\Booking\Booking, ~]
+            tags:
+                - { name: sonata.admin, manager_type: orm, label: Bookings }
