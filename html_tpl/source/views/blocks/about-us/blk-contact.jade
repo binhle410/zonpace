@@ -1,0 +1,50 @@
+section.blk-contact.blk-white
+    .container
+        h2.blk-ttl CONTACT US
+        .row
+            section.col-xs-6
+                h2.contact-ttl Headquarter
+                .ctact-info
+                    p.bold 5870 West Jefferson Blvd, Los Angeles, CA 90016
+                    p Building JKF 91, Studio A
+                // END 
+                .ctact-info
+                    p + 1650-123-4567
+                    p info@zonpace.com
+                // END 
+                .ctact-info
+                    p 592 Sunset Blvd, Los Angeles, CA 90016
+                    p Building JKF 91, Studio A
+                // END 
+                .ctact-info
+                    p + 1650-123-4567
+                    p info@zonpace.com
+                // END 
+            // END : COL
+            section.col-xs-6
+                h2.contact-ttl Send us an email
+                form(class="frm-contact", name="frm-contact")
+                    .frow.row
+                        section.col-xs-6
+                            label(for="ipt-firstname") First Name
+                            input(type="text", class="ipt", id="ipt-firstname", placeholder="First Name")
+                        // END 
+                        section.col-xs-6
+                            label(for="ipt-lastname") Last Name
+                            input(type="text", class="ipt", id="ipt-lastname", placeholder="Last Name")
+                        // END 
+                    // END : ITM
+                    .frow
+                        label(for="ipt-title") Title
+                            span 50 characters left
+                        input(type="text", class="ipt", id="ipt-title", placeholder="Title")
+                    // END : ITM
+                    .frow
+                        label(for="ipt-message") Message
+                            span 500 characters left
+                        textarea(class="txt", id="ipt-message", placeholder="Message")
+                    // END : ITM
+                    .frow
+                        input(type="submit", class="btn btn-red", value="Send")
+                    // END : ITM
+            // END : COL

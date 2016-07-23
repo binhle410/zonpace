@@ -9444,7 +9444,6 @@ h2.blk-ttl a {
  * CSS ABOUT OFFER
  */
 .about-offer {
-  background-color: #fff;
   padding-bottom: 100px;
   margin-bottom: 0;
 }
@@ -9465,6 +9464,163 @@ h2.blk-ttl a {
 }
 .about-offer .offer-itm .desc {
   color: #808184;
+}
+/**
+ * CSS BLK TEAM
+ */
+.blk-our-team {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.blk-our-team .team-itm {
+  *zoom: 1;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 25px;
+  padding-bottom: 25px;
+}
+.blk-our-team .team-itm:before,
+.blk-our-team .team-itm:after {
+  content: " ";
+  display: table;
+}
+.blk-our-team .team-itm:after {
+  clear: both;
+}
+.blk-our-team .team-itm:before,
+.blk-our-team .team-itm:after {
+  content: " ";
+  display: table;
+}
+.blk-our-team .team-itm:after {
+  clear: both;
+}
+.blk-our-team .team-itm:before,
+.blk-our-team .team-itm:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.blk-our-team .team-itm:after {
+  clear: both;
+}
+.blk-our-team .team-itm:before,
+.blk-our-team .team-itm:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.blk-our-team .team-itm:after {
+  clear: both;
+}
+.blk-our-team .team-itm:first-child {
+  border-top: 1px solid #ccc;
+  padding-top: 25px;
+}
+.blk-our-team .team-itm .zone-img {
+  width: 200px;
+  height: 200px;
+  float: left;
+}
+.blk-our-team .team-itm .team-info {
+  margin-left: 215px;
+}
+.blk-our-team .team-itm .team-info h2.name {
+  color: #221F1F;
+  font-size: 24px;
+  line-height: 30px;
+  margin-bottom: 5px;
+  font-family: 'ProximaNova-Bold', Arial, Helvetica, sans-serif;
+}
+.blk-our-team .team-itm .team-info h3.position {
+  color: #221F1F;
+  font-size: 16px;
+  line-height: 22px;
+  margin-bottom: 5px;
+}
+.blk-our-team .team-itm .team-info .desc {
+  color: #808184;
+}
+/**
+ * CSS JOB
+ */
+.blk-jobs {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.blk-jobs h2.blk-ttl span {
+  display: block;
+}
+.blk-jobs .job-itm {
+  display: table;
+  height: 60px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+.blk-jobs .job-itm:last-child {
+  margin-bottom: 0;
+}
+.blk-jobs .job-itm a {
+  border: 1px solid #808184;
+  font-family: 'ProximaNova-Bold', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 18px;
+  color: #221F1F;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.blk-jobs .job-itm a:hover {
+  background-color: #000;
+  color: #fff;
+}
+/**
+ * CSS CONTACT
+ */
+.blk-contact h2.contact-ttl {
+  font-family: 'ProximaNova-Bold', Arial, Helvetica, sans-serif;
+  color: #221F1F;
+  font-size: 18px;
+  line-height: 18px;
+  margin-bottom: 30px;
+}
+.blk-contact .ctact-info {
+  margin-bottom: 20px;
+}
+.blk-contact .ctact-info:last-child {
+  margin-bottom: 0;
+}
+.blk-contact .ctact-info p {
+  margin-bottom: 0;
+}
+.blk-contact .ipt,
+.blk-contact .txt {
+  border-color: #808184;
+}
+.blk-contact .frow label span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-style: italic;
+  color: #D0D2D3;
+  z-index: 1;
+  font-family: 'ProximaNova-Regular', Arial, Helvetica, sans-serif;
+}
+.blk-contact .btn.btn-red {
+  padding-left: 30px;
+  padding-right: 30px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
 }
 /**
  * CSS FOOTER
@@ -9620,11 +9776,11 @@ h2.blk-ttl a {
 .ipt {
   width: 100%;
   padding: 0px 10px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
@@ -9643,6 +9799,32 @@ h2.blk-ttl a {
 }
 .ipt:focus {
   border-color: #999;
+}
+.txt {
+  width: 100%;
+  padding: 10px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  outline: none;
+  height: 100px;
+  resize: none;
+  border: 1px solid transparent;
+}
+.frow {
+  margin-bottom: 15px;
+}
+.frow label {
+  margin-bottom: 0;
+  display: block;
+  font-weight: normal;
+  font-family: 'ProximaNova-Bold', Arial, Helvetica, sans-serif;
+  position: relative;
 }
 .btn {
   -webkit-transition: all 0.2s ease;
@@ -9694,6 +9876,17 @@ h2.blk-ttl a {
   background-color: #FF0033;
   color: #fff;
 }
+.zone-img {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+}
+.blk-white {
+  background-color: #fff;
+}
+.bold {
+  font-family: 'ProximaNova-Bold', Arial, Helvetica, sans-serif;
+}
 /**
  * Media 1200px+
  *
@@ -9738,6 +9931,21 @@ h2.blk-ttl a {
   /* CSS AREA */
   .blk-area-wrap .area-itm .area-img {
     height: 220px;
+  }
+}
+/**
+ * Media 1200px+
+ *
+ * description: css page about us
+ */
+@media (max-width: 1024px) {
+  /* CSS BLK TEAM */
+  .blk-our-team .team-itm .zone-img {
+    width: 170px;
+    height: 170px;
+  }
+  .blk-our-team .team-itm .team-info {
+    margin-left: 185px;
   }
 }
 /**
@@ -10149,6 +10357,49 @@ h2.blk-ttl a {
   }
 }
 /**
+ * Media 480px-767px
+ *
+ * description: css page about us
+ */
+@media (max-width: 800px) {
+  .blk-our-team .col-xs-6 {
+    width: 100%;
+  }
+  .blk-our-team .col-xs-6:last-child .team-itm:first-child {
+    border-top: none;
+  }
+  .blk-our-team .col-xs-6:last-child .team-itm:last-child {
+    margin-bottom: 0;
+  }
+}
+@media (max-width: 767px) {
+  .about-offer {
+    margin-bottom: 0;
+    padding-bottom: 30px;
+  }
+  .about-offer .about-desc {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+  .blk-our-team .team-itm .team-info h2.name {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  .blk-our-team .team-itm .team-info h3.position {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .blk-jobs .job-itm {
+    height: 50px;
+  }
+  .blk-jobs .job-itm a {
+    font-size: 14px;
+    line-height: 14px;
+  }
+}
+/**
  * Media 480px-
  *
  * description: css rules for screen of old school smartphone
@@ -10314,6 +10565,70 @@ h2.blk-ttl a {
 }
 @media (max-width: 340px) {
   .blk-area-wrap .area-itm .area-img {
+    height: 290px;
+  }
+}
+/**
+ * Media 480px-
+ *
+ * description: css page about us
+ */
+@media (max-width: 480px) {
+  .about-offer .about-desc {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 14px;
+    line-height: 20px;
+    width: 100%;
+  }
+  .blk-contact h2.contact-ttl {
+    margin-bottom: 20px;
+  }
+  .blk-contact .col-xs-6 {
+    width: 100%;
+  }
+  .blk-contact .col-xs-6:first-child {
+    margin-bottom: 30px;
+  }
+  .blk-contact .col-xs-6 .col-xs-6 {
+    margin-bottom: 15px;
+  }
+  .blk-contact .col-xs-6 .col-xs-6:last-child {
+    margin-bottom: 0;
+  }
+  .blk-our-team .team-itm .zone-img {
+    width: 140px;
+    height: 140px;
+  }
+  .blk-our-team .team-itm .team-info {
+    margin-left: 155px;
+  }
+  .blk-our-team .team-itm .team-info h2.name {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+@media (max-width: 440px) {
+  .blk-jobs .col-xs-6 {
+    width: 100%;
+  }
+  .blk-jobs .col-xs-6:first-child .job-itm:last-child {
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 380px) {
+  .blk-our-team .team-itm .zone-img {
+    width: 100%;
+    height: 340px;
+    float: none;
+    margin-bottom: 20px;
+  }
+  .blk-our-team .team-itm .team-info {
+    margin-left: 0;
+  }
+}
+@media (max-width: 340px) {
+  .blk-our-team .team-itm .zone-img {
     height: 290px;
   }
 }

@@ -1,0 +1,44 @@
+/**
+ * CSS CONTACT
+ */
+.blk-contact {
+	h2.contact-ttl {
+		.fontNovaBold();
+		color: @black;
+		font-size: 18px;
+		line-height: 18px;
+		margin-bottom: 30px;
+	}
+	.ctact-info {
+		margin-bottom: 20px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+		p {
+			margin-bottom: 0;
+		}
+	}
+	.ipt, .txt {
+		border-color: #808184;
+	}
+	.frow {
+		label {
+			span {
+				position: absolute;
+				top: 0;
+				right: 0;
+				font-style: italic;
+				color: #D0D2D3;
+				z-index: 1;
+				.fontNovaReg()
+			}
+		}
+	}
+	.btn {
+		&.btn-red {
+			padding-left: 30px;
+			padding-right: 30px;
+			.border-radius(3px);
+		}
+	}
+}

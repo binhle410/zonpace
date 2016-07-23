@@ -1,0 +1,57 @@
+/**
+ * Media 480px-767px
+ *
+ * description: css page about us
+ */
+@media (max-width: 800px) {
+	.blk-our-team {
+		.col-xs-6 {
+			width: 100%;
+			&:last-child {
+				.team-itm {
+					&:first-child {
+						border-top: none;
+					}
+					&:last-child {
+						margin-bottom: 0;
+					}
+				}
+			}
+		}
+	}
+}
+@media (max-width: 767px) {
+	.about-offer {
+		margin-bottom: 0;
+		padding-bottom: 30px;
+		.about-desc {
+			margin-top: 50px;
+			margin-bottom: 50px;
+			font-size: 16px;
+			line-height: 22px;
+		}
+	}
+	.blk-our-team {
+		.team-itm {
+			.team-info {
+				h2.name {
+					font-size: 20px;
+					line-height: 26px;
+				}
+				h3.position {
+					font-size: 14px;
+					line-height: 20px;
+				}
+			}
+		}
+	}
+	.blk-jobs {
+		.job-itm {
+			height: 50px;
+			a {
+				font-size: 14px;
+				line-height: 14px;
+			}
+		}
+	}
+}
