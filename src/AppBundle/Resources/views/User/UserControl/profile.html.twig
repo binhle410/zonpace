@@ -12,7 +12,7 @@
                         {{ form_row(form._token) }}
                         {% if user.photo %}
                             <div class="form-group">
-                                {#<img src="{{ getUrl(user.photo,'default','medium') }}">#}
+                                <img src="{{ getUrl(user.photo,'default','medium') }}">
                             </div>
                         {% endif %}
                         <div class="form-group">
@@ -74,7 +74,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label">Phone Number</label>
-                                    {{ form_widget(form.phone,{'attr':{'class':'form-control','placeholder':'','data-url':path('app_user_user_control_send_verified_code')}}) }}
+                                    {{ form_widget(form.phone,{'attr':{'class':'form-control phone-need-verify','placeholder':''}}) }}
                                 </div>
                             </div>
                             <div class="col-md-6" style="line-height: 87px;">
@@ -82,7 +82,7 @@
                                     <a href="javascript:void(0)" style="    margin-top: 35px;
     color: red;
     text-decoration: underline;" data-toggle="modal" data-target=".bs-modal-sm-verify-phone"
-                                       class="verify-phone-number"> Confirm your phone number</a>
+                                       class="verify-phone-number" data-url="{{ path('app_user_user_control_send_verified_code') }}"> Confirm your phone number</a>
                                 {% else %}
                                     <span style="margin-top: 35px;color: red;text-decoration: underline"
                                        class=""> Verified.</span>

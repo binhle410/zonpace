@@ -1608,9 +1608,9 @@ jQuery(function () {
                 that.verifyPhoneNumber();
             },
             sendMessageVerifyPhoneNumber: function () {
-                $('a.verify-phone-number').click(function () {
-                    var url = $('#app_core_user_profile_phone').data('url');
-                    var phone = $('#app_core_user_profile_phone').val();
+                $('.verify-phone-number').click(function () {
+                    var url = $(this).data('url');
+                    var phone = $('.phone-need-verify').val();
                     $.ajax({
                         url: url,
                         type: "POST",

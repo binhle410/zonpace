@@ -2,7 +2,7 @@
 {% block content %}
 
 
-    <section class="main-container">
+    <section class="main-container" data-verify-phone-number="">
 
         <div class="container">
             <div class="row">
@@ -55,7 +55,8 @@
                                 <p>Booking cannot be made until you verify your phone number</p>
                             </div>
                             <div class="col-md-4">
-                                <button class="btn btn-default pull-right" style="margin-top: 30px;">Verify my number
+                                <input type="hidden" value="{{ app.user.phone }}" class="phone-need-verify">
+                                <button data-url="{{ path('app_user_user_control_send_verified_code') }}" data-toggle="modal" data-target=".bs-modal-sm-verify-phone" class="btn btn-default pull-right verify-phone-number" style="margin-top: 30px;">Verify my number
                                 </button>
                             </div>
                         </div>
@@ -102,7 +103,7 @@
 
 
                 </div>
-
+                {% include 'AppBundle:User/UserControl:_verify_phone_form.html.twig' %}
                 <!-- sidebar start -->
                 {% include 'AppBundle:User:_nav.html.twig' %}
 
