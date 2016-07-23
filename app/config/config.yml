@@ -278,4 +278,10 @@ stof_doctrine_extensions:
 #            filters:
 #                thumbnail: { size: [500, 70], mode: outbound }
 
+vresh_twilio:
+    #(Required) Your Account SID from www.twilio.com/user/account
+    sid: %vresh_twilio_sid%
+    #(Required) Your Auth Token from www.twilio.com/user/account
+    authToken: %vresh_twilio_authToken%
+
 

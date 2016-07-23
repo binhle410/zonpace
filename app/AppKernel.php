@@ -37,6 +37,8 @@ class AppKernel extends Kernel
             new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
 
             new Liip\ImagineBundle\LiipImagineBundle(),
+
+            new Vresh\TwilioBundle\VreshTwilioBundle(),
             new AppBundle\AppBundle(),
 
         ];
