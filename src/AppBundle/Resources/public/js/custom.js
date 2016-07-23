@@ -1560,7 +1560,31 @@ jQuery(function () {
                         endDate: endDate
                     },
                 });
+                that.loadBookingDate()
 
+            },
+            loadBookingDate: function () {
+                var bookingDateJsonParsed = $('#mini-clndr').data('bookings');
+
+                var bookingDateArr = [];
+
+                $.each(bookingDateJsonParsed, function (type, booking) {
+                    $.each(booking, function (index, key) {
+                        var bookingDateArr = [];
+                        $.each(key, function (index, year) {
+                            $.each(year, function (index, month) {
+                                $.each(month, function (index, date) {
+                                    bookingDateArr.push(date);
+                                });
+                            });
+                        });
+                        if (bookingDateArr.length) {
+                            for (var i = 0; i < bookingDateArr.length; i++) {
+                                $('.calendar-day-' + bookingDateArr[i]).addClass('booking-date-'+type);
+                            }
+                        }
+                    });
+                });
             },
         };
         $.fn[pluginName] = function (options) {

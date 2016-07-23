@@ -38,7 +38,7 @@ class BookingRepository extends EntityRepository
      * @param $query
      * @return \Doctrine\ORM\QueryBuilder
      */
-    public function findHostBooking($user,$query)
+    public function findHostBooking($user)
     {
         $expr = new Expr();
         $qb = $this->createQueryBuilder('booking')

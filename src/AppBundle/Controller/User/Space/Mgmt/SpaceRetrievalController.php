@@ -12,6 +12,7 @@ class SpaceRetrievalController extends ControllerService
 
     public function listAction(Request $request)
     {
+
         $entityManager = $this->getDoctrine()->getManager();
         $spaceRepo = $entityManager->getRepository('AppBundle:Space\Space');
         $qb = $spaceRepo->findMySpaces($this->getUser(),$request->query->all());
@@ -21,7 +22,14 @@ class SpaceRetrievalController extends ControllerService
     }
     public function viewAction(Request $request,Space $space)
     {
-        return $this->render('AppBundle:User/Space:view.html.twig',['space'=>$space]);
+        $entityManager = $this->getDoctrine()->getManager();
+        $bookings = $entityManager->getRepository('AppBundle:Booking\Booking')->findHostBooking($this->getUser())->getQuery()->getResult();
+        $dataBookings =  $this->generateDataBookings($bookings);
+//        echo $dataBookings;die;
+        return $this->render('AppBundle:User/Space:view.html.twig',[
+            'space'=>$space,
+            'dataBookings'=>$dataBookings
+        ]);
     }
 
 }

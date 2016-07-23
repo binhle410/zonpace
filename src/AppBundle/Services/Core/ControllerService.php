@@ -53,6 +53,36 @@ class ControllerService extends Controller
         return $this->getDoctrine()->getManager()->getRepository('AppBundle:Booking\Booking')->getTotalBookingSpace($space);
     }
 
+    /*
+     * format :Y-m-d
+     */
+    public function getListDate($from,$to){
+        $begin = new \DateTime( $from );
+        $end = new \DateTime( $to);
+        $end = $end->modify( '+1 day' );
+
+        $interval = new \DateInterval('P1D');
+        $daterange = new \DatePeriod($begin, $interval ,$end);
+
+        $listDate = [];
+        foreach($daterange as $date){
+            $listDate[$date->format('Y')][$date->format('m')][$date->format('Y-m-d')] = $date->format('Y-m-d');
+        }
+        return $listDate;
+    }
+    public function generateDataBookings($bookings){
+        $data =[];
+        foreach ($bookings as $booking){
+            if(new \DateTime() < $booking->getDateFrom()){
+                $data['incomming'][$booking->getId()] = $this->getListDate($booking->getDateFrom()->format('Y-m-d'),$booking->getDateTo()->format('Y-m-d'));
+            }else{
+                $data['passed'][$booking->getId()] = $this->getListDate($booking->getDateFrom()->format('Y-m-d'),$booking->getDateTo()->format('Y-m-d'));
+            }
+        }
+        //for pass to client {} instead []
+        $data = count($data) == 0 ? new \stdClass() : $data;
+        return json_encode($data);
+    }
 
    
 
