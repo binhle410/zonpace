@@ -18,10 +18,14 @@ class UserControlManipulationController extends ControllerService
     public function profileAction(Request $request)
     {
         $user = $this->getUser();
+        $oldPhone = $user->getPhone();
         $form = $this->createForm(UserProfileType::class, $user);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            if($oldPhone != $user->getPhone()){
+                $user->setIsVerifiedPhone(false);
+            }
             $user->setIsCompletedProfile(true);
             $em->persist($user);
             $em->flush();
@@ -55,6 +59,7 @@ class UserControlManipulationController extends ControllerService
     {
         $em = $this->getDoctrine()->getManager();
         $user = $this->getUser();
+        $oldPhone = $user->getPhone();
         $userSetting = $user->getUserSetting();
 
         $form1 = $this->createForm(UserSettingType::class, $userSetting);
@@ -67,6 +72,9 @@ class UserControlManipulationController extends ControllerService
                 $form1->handleRequest($request);
                 if ($form1->isSubmitted() && $form1->isValid()) {
                     $em->persist($userSetting);
+                    if($oldPhone != $form1->get('phone')->getData()){
+                        $user->setIsVerifiedPhone(false);
+                    }
                     $user->setPhone($form1->get('phone')->getData());
                     $em->persist($user);
                     $em->flush();

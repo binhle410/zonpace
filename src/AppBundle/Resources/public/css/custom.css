@@ -485,4 +485,13 @@
 .fa-star{
     cursor: pointer;
 }
+.display-none{
+    display: none;;
+}
+.error{
+    color: red;
+}
+.input-error{
+    border: 1px solid red;
+}
 

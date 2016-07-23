@@ -1068,20 +1068,20 @@ jQuery(function () {
 
         Plugin.prototype = {
             init: function () {
-                var that=this;
+                var that = this;
                 that.initSlider();
                 that.searchPlace();
-                $(".search-spaces-input").change(function(){
+                $(".search-spaces-input").change(function () {
                     $('.form-search-spaces').submit();
                 });
             },
-            initSlider: function(){
+            initSlider: function () {
                 $("#Slider1").slider({
                     from: 40,
                     to: 1000,
                     step: 10,
                     dimension: '',
-                    callback: function( value ){
+                    callback: function (value) {
                         $('.form-search-spaces').submit();
                     }
                 });
@@ -1091,7 +1091,7 @@ jQuery(function () {
                     step: 10,
                     dimension: '&nbsp;$',
                     heterogeneity: ['50/500'],
-                    callback: function( value ){
+                    callback: function (value) {
                         $('.form-search-spaces').submit();
                     }
                 });
@@ -1110,7 +1110,7 @@ jQuery(function () {
                 });
                 //init maker
                 var items = $('.search-space-item');
-                items.each(function(){
+                items.each(function () {
                     var lat = $(this).data('lat');
                     var lng = $(this).data('lng');
                     var aphabet = $(this).data('aphabet');
@@ -1123,12 +1123,12 @@ jQuery(function () {
                     // };
 
                     // Create a marker for each place.
-                   new google.maps.Marker({
+                    new google.maps.Marker({
                         map: map,
                         // icon: icon,
                         title: aphabet,
                         label: aphabet,
-                        position: {lat:lat,lng:lng}
+                        position: {lat: lat, lng: lng}
                     });
                 });
 
@@ -1202,11 +1202,11 @@ jQuery(function () {
 
         Plugin.prototype = {
             init: function () {
-                var that=this;
+                var that = this;
                 that.initSlider();
                 that.searchPlace();
             },
-            initSlider: function(){
+            initSlider: function () {
                 $("#Slider1").slider({
                     from: 40,
                     to: 1000,
@@ -1265,7 +1265,8 @@ jQuery(function () {
         });
 
     })
-    (jQuery, window, document); /*  @name  Job Type
+    (jQuery, window, document);
+    /*  @name  Job Type
      *  @description Map
      *  @version 1.0
      *  @options
@@ -1287,15 +1288,15 @@ jQuery(function () {
 
         Plugin.prototype = {
             init: function () {
-                var that=this;
+                var that = this;
                 that.filter();
             },
             filter: function () {
                 var that = this;
-                $('.type-space').change(function(){
+                $('.type-space').change(function () {
                     $('.form-filter-list-space').submit();
                 });
-                $('.status-space').change(function(){
+                $('.status-space').change(function () {
                     $('.form-filter-list-space').submit();
                 });
             },
@@ -1340,20 +1341,20 @@ jQuery(function () {
 
         Plugin.prototype = {
             init: function () {
-                var that=this;
+                var that = this;
                 that.review();
             },
             review: function () {
                 var that = this;
-                $('.fa-star').click(function(){
+                $('.fa-star').click(function () {
                     var parent = $(this).parent('p');
                     var type = parent.data('type');
                     var point = $(this).data('point');
-                    $('#'+type).val(point);
-                    parent.find('.fa-star').each(function(){
-                        if($(this).data('point') <= point ){
+                    $('#' + type).val(point);
+                    parent.find('.fa-star').each(function () {
+                        if ($(this).data('point') <= point) {
                             $(this).addClass('text-default');
-                        }else{
+                        } else {
                             $(this).removeClass('text-default');
                         }
                     });
@@ -1457,7 +1458,7 @@ jQuery(function () {
                 that.drawChart();
                 var startDate = $('.main-container').data('date-booking-from');
                 var endDate = $('.main-container').data('date-booking-to');
-                that.initCalendar(startDate,endDate);
+                that.initCalendar(startDate, endDate);
             },
             drawChart: function () {
                 // Load the Visualization API and the corechart package.
@@ -1499,36 +1500,36 @@ jQuery(function () {
                     data.addColumn('number', 'Add to wishlists');
                     data.addColumn('number', 'Resevation');
                     data.addRows([
-                        ['May 1, 2016', 4,4,5],
-                        ['May 2, 2016', 6,4,5],
-                        ['May 3, 2016', 21,4,5],
-                        ['May 4, 2016', 3,24,5],
-                        ['May 5, 2016', 3,23,5],
-                        ['May 6, 2016', 3,4,25],
-                        ['May 7, 2016', 3,24,5],
-                        ['May 8, 2016', 3,22,5],
-                        ['May 9, 2016', 3,4,15],
-                        ['May 10, 2016', 3,4,25],
-                        ['May 11, 2016', 3,4,25],
-                        ['May 12, 2016', 3,4,25],
-                        ['May 13, 2016', 3,4,5],
-                        ['May 14, 2016', 3,4,13],
-                        ['May 15, 2016', 3,4,15],
-                        ['May 16, 2016', 16,4,5],
-                        ['May 17, 2016', 3,24,5],
-                        ['May 18, 2016', 3,21,5],
-                        ['May 19, 2016', 3,18,5],
-                        ['May 20, 2016', 3,15,5],
-                        ['May 21, 2016', 3,12,5],
-                        ['May 22, 2016', 3,4,3],
-                        ['May 23, 2016', 3,4,2],
-                        ['May 24, 2016', 3,4,15],
-                        ['May 25, 2016', 3,4,5],
-                        ['May 26, 2016', 3,4,25],
-                        ['May 27, 2016', 23,4,5],
-                        ['May 28, 2016', 3,24,5],
-                        ['May 29, 2016', 3,24,5],
-                        ['May 30, 2016', 3,24,5],
+                        ['May 1, 2016', 4, 4, 5],
+                        ['May 2, 2016', 6, 4, 5],
+                        ['May 3, 2016', 21, 4, 5],
+                        ['May 4, 2016', 3, 24, 5],
+                        ['May 5, 2016', 3, 23, 5],
+                        ['May 6, 2016', 3, 4, 25],
+                        ['May 7, 2016', 3, 24, 5],
+                        ['May 8, 2016', 3, 22, 5],
+                        ['May 9, 2016', 3, 4, 15],
+                        ['May 10, 2016', 3, 4, 25],
+                        ['May 11, 2016', 3, 4, 25],
+                        ['May 12, 2016', 3, 4, 25],
+                        ['May 13, 2016', 3, 4, 5],
+                        ['May 14, 2016', 3, 4, 13],
+                        ['May 15, 2016', 3, 4, 15],
+                        ['May 16, 2016', 16, 4, 5],
+                        ['May 17, 2016', 3, 24, 5],
+                        ['May 18, 2016', 3, 21, 5],
+                        ['May 19, 2016', 3, 18, 5],
+                        ['May 20, 2016', 3, 15, 5],
+                        ['May 21, 2016', 3, 12, 5],
+                        ['May 22, 2016', 3, 4, 3],
+                        ['May 23, 2016', 3, 4, 2],
+                        ['May 24, 2016', 3, 4, 15],
+                        ['May 25, 2016', 3, 4, 5],
+                        ['May 26, 2016', 3, 4, 25],
+                        ['May 27, 2016', 23, 4, 5],
+                        ['May 28, 2016', 3, 24, 5],
+                        ['May 29, 2016', 3, 24, 5],
+                        ['May 30, 2016', 3, 24, 5],
 
                     ]);
 
@@ -1591,7 +1592,7 @@ jQuery(function () {
      *    init
      */
     (function ($, window, document, undefined) {
-        var pluginName = "user-profile";
+        var pluginName = "verify-phone-number";
 
         // The actual plugin constructor
         function Plugin(element, options) {
@@ -1603,25 +1604,54 @@ jQuery(function () {
         Plugin.prototype = {
             init: function () {
                 var that = this;
-                $('a.verify-phone-number').click(function(){
-                    that.sendMessageVerifyPhoneNumber();
-                });
+                that.sendMessageVerifyPhoneNumber();
+                that.verifyPhoneNumber();
             },
             sendMessageVerifyPhoneNumber: function () {
-                var url = $('#app_core_user_profile_phone').data('url');
-                var phone = $('#app_core_user_profile_phone').val();
-                $('#app_core_user_profile_phone').attr('readonly',true);
-                $.ajax({
-                    url: url,
-                    type: "POST",
-                    data: {
-                        phone: phone,
-                    },
-                    success: function (result) {
-                        if (result.status) {
-                        } else {
+                $('a.verify-phone-number').click(function () {
+                    var url = $('#app_core_user_profile_phone').data('url');
+                    var phone = $('#app_core_user_profile_phone').val();
+                    $.ajax({
+                        url: url,
+                        type: "POST",
+                        data: {
+                            phone: phone,
+                        },
+                        success: function (result) {
+                            if (result.status) {
+                            } else {
+                            }
                         }
+                    });
+                });
+            },
+            verifyPhoneNumber: function () {
+                $('.btn-verified-code').click(function () {
+                    var url = $('#verified-code').data('url');
+                    var code = $('#verified-code').val();
+                    if(code == ''){
+                        $('#verified-code').addClass('input-error');
+                    }else{
+                        $.ajax({
+                            url: url,
+                            type: "POST",
+                            data: {
+                                code: code,
+                            },
+                            success: function (result) {
+                                if (result.status) {
+                                    window.location.reload();
+                                } else {
+                                    $('#verified-code').addClass('input-error');
+                                    $('.bs-modal-sm-verify-phone .modal-body span').removeClass('display-none');
+                                }
+                            }
+                        });
                     }
+                });
+                $('#verified-code').keypress(function () {
+                    $('#verified-code').removeClass('input-error');
+                    $('.bs-modal-sm-verify-phone .modal-body span').addClass('display-none');
                 });
             }
         };

@@ -28,3 +28,4 @@ parameters:
 
     vresh_twilio_sid: AC0a029cf4f26824f60ffad661b9d4a874
     vresh_twilio_authToken: 45fabaaecdb852879faf9186dfc6c68b
+    vresh_twilio_phone_from: +12565154273
