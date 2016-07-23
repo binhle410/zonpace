@@ -6,6 +6,8 @@
  * 3. JS Select2
  * 4. Datetime picker
  * 5. Filter Ranger
+ * 6 Show Mobile Search
+ * 7. Show Menu Mobile
  */
 var allpage_fn = {};
 /* ----------------------------------------------- */
@@ -108,8 +110,108 @@ allpage_fn.filterRanger = function (itmRanger) {
             }
         });
      });
-
 };
+/**
+ * 6 . Show Mobile Search
+ */
+allpage_fn.showSearchMB = function () {
+    if(!$('.a_search').length) { return; }
+
+    var w_scroll_window = 0;
+    if (navigator.appVersion.indexOf("Win")!=-1) {
+        w_scroll_window = 20;
+    }
+
+    $('.a_search').on('click', function () {
+        var $a_seach     =   $(this),
+            $icon        =   $a_seach.find('.fa'),
+            $blk_search  =   $a_seach.siblings('.header-search'),
+            $header      =   $a_seach.closest('.header-wrap');
+
+        if($a_seach.hasClass('active')) {
+            $a_seach.removeClass('active');
+            $blk_search.removeClass('shw');
+            $header.removeClass('z-ind');
+            $icon.addClass('fa-search');
+            $icon.removeClass('fa-times');
+        } else {
+            $a_seach.addClass('active');
+            $blk_search.addClass('shw');
+            $header.addClass('z-ind');
+            $icon.removeClass('fa-search');
+            $icon.addClass('fa-times');
+        }
+    });
+
+    // click out
+    if(($(window).width() + w_scroll_window) < 767 ) {
+        $(".header-wrap").bind( "clickoutside", function(event){
+            $('.a_search').removeClass('active');
+            $('.header-search').removeClass('shw');
+            $('.a_search .fa').addClass('fa-search');
+            $('.a_search .fa').removeClass('fa-times');
+        });
+    }
+};
+/**
+ * 7. Show Menu Mobile
+ */
+allpage_fn.menuMobile = {
+    /**
+     * [show description]
+     * @return {[type]} [description]
+     */
+    showMN : function () {
+        if(!$('.a_menu').length) { return; }
+
+        $('.a_menu').on('click', function(e) {
+            e.preventDefault();
+            var $a_menu     =   $(this),
+                $menu       =   $a_menu.closest('.header-wrap').siblings('.menu-mobile'),
+                $body       =   $a_menu.closest('body');
+
+            if($a_menu.hasClass('active')) {
+                $a_menu.removeClass('active');
+                $menu.removeClass('shw');
+                $body.removeClass('mn-opening');
+            } else {
+                $a_menu.addClass('active');
+                $menu.addClass('shw');
+                $body.addClass('mn-opening');
+            }
+        });
+
+        // click out
+        $(document).on('click', function (e) {
+            if($(e.target).is('.a_menu')
+                || $(e.target).is('.a_menu *')
+                || $(e.target).is('.menu-mobile-inner')
+                || $(e.target).is('.menu-mobile-inner *')) { return; }
+
+            $('.a_menu').removeClass('active');
+            $('.menu-mobile').removeClass('shw');
+            $('body').removeClass('mn-opening');
+        });
+    },
+
+    /**
+     * [hideMN description]
+     * @return {[type]} [description]
+     */
+    hideMN : function () {
+        $('.a_close').on('click', function (e) {
+            e.preventDefault();
+            var $a_close    =   $(this),
+                $menu       =   $a_close.closest('.menu-mobile'),
+                $a_menu     =   $menu.siblings('.header-wrap').find('.a_menu'),
+                $body       =   $a_close.closest('body');
+
+            $a_menu.removeClass('active');
+            $menu.removeClass('shw');
+            $body.removeClass('mn-opening');
+        });
+    }   
+}
 /* ----------------------------------------------- */
 /* ----------------------------------------------- */
 /* OnLoad Page */
@@ -127,6 +229,13 @@ $(document).ready(function($){
     // filter ranger
     allpage_fn.filterRanger('#feet-slider');
     allpage_fn.filterRanger('#price-slider');
+
+    // show mobile search
+    allpage_fn.showSearchMB ();
+
+    // show menu mobile
+    allpage_fn.menuMobile.showMN ();
+    allpage_fn.menuMobile.hideMN ();
 });
 /* OnLoad Window */
 var init = function () {   

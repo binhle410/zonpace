@@ -11,13 +11,13 @@
 		h1 {
 			margin-bottom: 0;
 			display: inline-block;
+			a {
+				display: block;
+			}
 		}
 		img {
 			width: 190px;
 			margin-top: 13px;
-		}
-		a {
-			display: block;
 		}
 		span {
 			color: @red;
@@ -111,4 +111,124 @@
 			}
 		}
 	}
+}
+.header-wrap {
+	.a_menu {
+		color: @red;
+		font-size: 20px;
+		position: absolute;
+		top: 12px;
+		left: 15px;
+		line-height: normal;
+		display: none;
+		.transition(all 0.3s ease);
+		&:hover {
+			color: darken(@red, 10%);
+		}
+	}
+	.a_search {
+		color: #808993;;
+		font-size: 20px;
+		position: absolute;
+		top: 12px;
+		line-height: normal;
+		right: 15px;
+		display: none;
+		.transition(all 0.3s ease);
+		&:hover {
+			color: @red;
+		}
+	}
+}
+/* CSS MENU MOBILE */
+.menu-mobile {
+    position: fixed;
+    left: -260px;
+    .opacity(0);
+    visibility: hidden;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 200;
+    .transition(all .4s linear);
+    &::after {
+        content: "";
+        background-color: #fff;
+        position: fixed;
+        top: 0;
+        left: -260px;;
+        bottom: 0;
+        z-index: 160;
+        width: 260px;
+        .opacity(0);
+        visibility: hidden;
+        .transition(all .4s linear);
+    }
+    .menu-mobile-inner {
+        width: 260px;
+        position: relative;
+        z-index: 200;
+        .a_close {
+        	color: #fff;
+        	font-size: 30px;
+        	line-height: normal;
+        	z-index: 10;
+        	top: 5px;
+        	right: -30px;
+        	position: absolute;
+        	.opacity(0);
+	        visibility: hidden;
+	        .transition(all .4s linear);
+        }
+    }
+    li {
+        padding: 10px 0 10px 15px;
+        border-bottom: 1px solid #ddd;
+        &:last-child {
+            border-bottom: none;
+        }
+        a {
+            display: block;
+        }
+        &.active {
+            a {
+                color: @red;
+            }
+        }
+    }
+    &.shw {
+        left: 0;
+        .opacity(1);
+        visibility: visible;
+        &::after {
+             left: 0;
+            .opacity(1);
+            visibility: visible;
+        }
+        .menu-mobile-inner {
+	        .a_close {
+	        	.opacity(1);
+            	visibility: visible;
+	        }
+	    }
+    }
+}
+body {
+    &.mn-opening {
+        overflow: hidden;
+        .menu-mobile {
+            overflow: hidden;
+            overflow-y: auto;
+        }
+        &::after {
+            position: fixed;
+            content: "";
+            z-index: 150;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    }
 }

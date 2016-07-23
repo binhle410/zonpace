@@ -6,17 +6,61 @@
 @media (max-width: 767px) {
     .header-wrap {
         height: 45px;
-        .header-search {
+        .header-search{
+            position: absolute;
             display: none;
+            z-index: 20;
+            top: 45px;
+            margin-top: 0;
+            left: 0;
+            right: 0;
+            margin-left: 0;
+            width: auto;
+            background-color: #eee;
+            text-align: left;
+            height: 50px;
+            line-height: 50px;
+            border-left: none;
+            border-right: none;
+            border: none;
+            .border-radius(0);
+            button {
+                background-color: transparent;
+                border: none;
+                position: absolute;
+                left: 15px;
+                top: 14px;
+                padding: 0;
+                line-height: normal;
+                outline: none;
+                z-index: 20;
+                width: auto;
+                height: auto;
+            }
+            #ipt-search {
+                padding-left: 50px;
+                width: 100%;
+                vertical-align: 0;
+            }
+            &.shw {
+                display: block;
+            }
         }
         .header-logo {
             h1 {
                 text-align: center;
                 display: block;
+                margin-left: 0;
                 img {
                     margin-top: 13px;
                 }
             }
+        }
+        .a_search {
+            display: block;
+        }
+        .a_menu {
+            top: 12px;
         }
     }
     .main {
