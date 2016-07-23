@@ -45,8 +45,12 @@ class ControllerService extends Controller
     }
     public function getTotalReviewSpace($space){
         return $this->getDoctrine()->getManager()->getRepository('AppBundle:Booking\Booking')->getTotalReviewSpace($space);
-    }public function getTotalEarningSpace($space){
+    }
+    public function getTotalEarningSpace($space){
         return $this->getDoctrine()->getManager()->getRepository('AppBundle:Booking\Booking')->getTotalEarningSpace($space);
+    }
+    public function getTotalBookingSpace($space){
+        return $this->getDoctrine()->getManager()->getRepository('AppBundle:Booking\Booking')->getTotalBookingSpace($space);
     }
 
 

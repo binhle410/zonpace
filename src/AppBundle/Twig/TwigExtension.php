@@ -108,6 +108,9 @@ class TwigExtension extends \Twig_Extension
     public function getTotalEarningSpace($space){
         return $this->container->get('app.controller')->getTotalEarningSpace($space);
     }
+    public function getTotalBookingSpace($space){
+        return $this->container->get('app.controller')->getTotalBookingSpace($space);
+    }
 
 
     public function getFunctions()
@@ -122,6 +125,7 @@ class TwigExtension extends \Twig_Extension
             'getRatingSpace' => new \Twig_Function_Method($this, 'getRatingSpace', array('is_safe' => array('html'))),
             'getTotalReviewSpace' => new \Twig_Function_Method($this, 'getTotalReviewSpace', array('is_safe' => array('html'))),
             'getTotalEarningSpace' => new \Twig_Function_Method($this, 'getTotalEarningSpace', array('is_safe' => array('html'))),
+            'getTotalBookingSpace' => new \Twig_Function_Method($this, 'getTotalBookingSpace', array('is_safe' => array('html'))),
         );
     }
 

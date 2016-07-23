@@ -73,4 +73,9 @@ class BookingRepository extends EntityRepository
                     ->setParameter('space',$space)
                     ->getSingleScalarResult();
     }
+    public function getTotalBookingSpace($space){
+        return $this->_em->createQuery('select COUNT (b.id) from AppBundle\Entity\Booking\Booking b where b.space =:space')
+                    ->setParameter('space',$space)
+                    ->getSingleScalarResult();
+    }
   }
