@@ -17,17 +17,23 @@ body {
 ul {
 	margin: 0;
 	padding: 0;
+	outline: none;
 	li {
 		list-style: none;
+		outline: none;
 	}
 }
 a {
 	color: #000;
 	.transition(all 0.2s ease);
+	outline: none;
 	&:hover {
 		color: @red;
 		text-decoration: none;
 	}	
+	&:focus {
+		text-decoration: none;
+	}
 }
 h1, h2, h3, h4, h5, h6 {
 	margin-top: 0;
@@ -76,6 +82,10 @@ h1, h2, h3, h4, h5, h6 {
 @import "blocks/about-us/blk-team.less";
 @import "blocks/about-us/blk-job.less";
 @import "blocks/about-us/blk-contact.less";
+
+//** ------ {{ How it work }} ------------------------------------ 
+@import "blocks/how-it-work/blk-how-it-work.less";
+@import "blocks/how-it-work/blk-faqs.less";
 
 //** ------ {{ footer }} ------------------------------------ 
 @import "blocks/footer.less";

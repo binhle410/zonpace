@@ -1,0 +1,43 @@
+/**
+ * Media 480px-
+ *
+ * description: css page how it work
+ */
+@media (max-width: 480px) {
+	.blk-how-it-work, .blk-faqs {
+		.col-xs-6 {
+			width: 100%;
+		}
+	}
+	.blk-how-it-work {
+		.work-desc {
+			width: 100%;
+		}
+		.col-xs-6 {
+			&:last-child {
+				.work-itm {
+					&:last-child {
+						margin-bottom: 0;
+					}
+				}
+			}
+		}
+	}
+	.blk-faqs {
+		.col-xs-6 {
+			&:last-child {
+				.faqs-itm {
+					&:last-child {
+						margin-bottom: 0;
+					}
+				}
+			}
+		}
+		.faqs-itm {
+			margin-bottom: 20px;
+			&.shw {
+				margin-bottom: 0;
+			}
+		}
+	}
+}

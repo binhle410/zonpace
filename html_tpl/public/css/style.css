@@ -5512,9 +5512,11 @@ body {
 ul {
   margin: 0;
   padding: 0;
+  outline: none;
 }
 ul li {
   list-style: none;
+  outline: none;
 }
 a {
   color: #000;
@@ -5523,9 +5525,13 @@ a {
   -ms-transition: all 0.2s ease;
   -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
+  outline: none;
 }
 a:hover {
   color: #FF0033;
+  text-decoration: none;
+}
+a:focus {
   text-decoration: none;
 }
 h1,
@@ -9623,6 +9629,123 @@ h2.blk-ttl a {
   background-clip: padding-box;
 }
 /**
+ * CSS HOW IT WORK
+ */
+.blk-how-it-work {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.blk-how-it-work .work-desc {
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 22px;
+}
+.blk-how-it-work .work-desc span {
+  display: block;
+}
+.blk-how-it-work .work-itm {
+  margin-bottom: 20px;
+}
+.blk-how-it-work .work-itm .wrk-icon {
+  width: 40px;
+  height: 40px;
+  float: left;
+  line-height: 40px;
+  background-color: #221F1F;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  text-align: center;
+}
+.blk-how-it-work .work-itm .wrk-icon .ico {
+  width: 40px;
+  height: 40px;
+  background-size: 20px auto;
+}
+.blk-how-it-work .work-itm .wrk-content {
+  margin-left: 55px;
+  padding-top: 5px;
+}
+.blk-how-it-work .work-itm .wrk-content h3.wrk-ttl {
+  font-family: 'ProximaNova-Bold', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 5px;
+  color: #221F1F;
+}
+.blk-how-it-work .work-itm .wrk-content ul {
+  padding-left: 15px;
+}
+.blk-how-it-work .work-itm .wrk-content ul li {
+  color: #808184;
+  list-style: disc;
+}
+.blk-how-it-work .work-itm .wrk-content .desc {
+  color: #808184;
+}
+/**
+ * CSS FAQs
+ */
+.blk-faqs {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.blk-faqs .faqs-itm {
+  margin-bottom: 30px;
+}
+.blk-faqs .faqs-itm h3.faqs-title {
+  height: 60px;
+  display: table;
+  width: 100%;
+  margin-bottom: 0;
+}
+.blk-faqs .faqs-itm h3.faqs-title a {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 18px;
+  line-height: 18px;
+  font-family: 'ProximaNova-Bold', Arial, Helvetica, sans-serif;
+  border: 1px solid #808184;
+  padding-left: 15px;
+  color: #221F1F;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.blk-faqs .faqs-itm h3.faqs-title a:hover {
+  background-color: #000;
+  border-color: #000;
+  color: #fff;
+}
+.blk-faqs .faqs-itm .faqs-content {
+  padding: 15px;
+  color: #808184;
+  display: none;
+}
+.blk-faqs .faqs-itm .faqs-content p {
+  margin-bottom: 15px;
+}
+.blk-faqs .faqs-itm.shw .faqs-content {
+  display: block;
+}
+.blk-faqs .faqs-itm.shw h3.faqs-title a {
+  background-color: #E6E7E8;
+  border-color: #E6E7E8;
+}
+.blk-faqs .faqs-itm.shw h3.faqs-title a:hover {
+  color: #221F1F;
+}
+/**
  * CSS FOOTER
  */
 .footer-wrap .footer-menu {
@@ -9886,6 +10009,13 @@ h2.blk-ttl a {
 }
 .bold {
   font-family: 'ProximaNova-Bold', Arial, Helvetica, sans-serif;
+}
+h2.blk-ttl-bold {
+  font-family: 'ProximaNova-Bold', Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 18px;
+  margin-bottom: 20px;
+  color: #221F1F;
 }
 /**
  * Media 1200px+
@@ -10400,6 +10530,37 @@ h2.blk-ttl a {
   }
 }
 /**
+ * Media 480px-767px
+ *
+ * description: css page HOW IT WORK
+ */
+@media (max-width: 900px) {
+  .blk-how-it-work .work-desc span {
+    display: inline;
+  }
+}
+@media (max-width: 767px) {
+  .blk-how-it-work .work-desc {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .blk-how-it-work .work-itm .wrk-content h3.wrk-ttl {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  h2.blk-ttl-bold {
+    font-size: 16px;
+    line-height: 16px;
+  }
+  .blk-faqs .faqs-itm h3.faqs-title {
+    height: 50px;
+  }
+  .blk-faqs .faqs-itm h3.faqs-title a {
+    font-size: 14px;
+    line-height: 14px;
+  }
+}
+/**
  * Media 480px-
  *
  * description: css rules for screen of old school smartphone
@@ -10407,9 +10568,11 @@ h2.blk-ttl a {
 @media (max-width: 480px) {
   h2.blk-ttl {
     font-size: 18px;
+    margin-bottom: 20px;
   }
   .blk-make-money h2.money-ttl {
     font-size: 18px;
+    margin-bottom: 20px;
   }
   .main-slider .main-filter {
     top: 50px;
@@ -10630,5 +10793,31 @@ h2.blk-ttl a {
 @media (max-width: 340px) {
   .blk-our-team .team-itm .zone-img {
     height: 290px;
+  }
+}
+/**
+ * Media 480px-
+ *
+ * description: css page how it work
+ */
+@media (max-width: 480px) {
+  .blk-how-it-work .col-xs-6,
+  .blk-faqs .col-xs-6 {
+    width: 100%;
+  }
+  .blk-how-it-work .work-desc {
+    width: 100%;
+  }
+  .blk-how-it-work .col-xs-6:last-child .work-itm:last-child {
+    margin-bottom: 0;
+  }
+  .blk-faqs .col-xs-6:last-child .faqs-itm:last-child {
+    margin-bottom: 0;
+  }
+  .blk-faqs .faqs-itm {
+    margin-bottom: 20px;
+  }
+  .blk-faqs .faqs-itm.shw {
+    margin-bottom: 0;
   }
 }

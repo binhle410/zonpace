@@ -8,6 +8,7 @@
  * 5. Filter Ranger
  * 6 Show Mobile Search
  * 7. Show Menu Mobile
+ * 8. Show FAQs
  */
 var allpage_fn = {};
 /* ----------------------------------------------- */
@@ -212,6 +213,36 @@ allpage_fn.menuMobile = {
         });
     }   
 }
+/**
+ * 8. Show FAQs
+ */
+allpage_fn.showFAQs = function () {
+    if(!$("h3.faqs-title a").length) { return; }
+
+    $("h3.faqs-title a").on('click', function (e) {
+        e.preventDefault();
+        var $a_title        =   $(this),
+            $faqs_item      =   $a_title.closest('.faqs-itm'),
+            $sibs_item      =   $faqs_item.siblings('.faqs-itm'),
+            $sibs_col_item  =   $faqs_item.closest('.col-xs-6').siblings('.col-xs-6');
+
+        if($a_title.hasClass('active')) {
+            $a_title.removeClass('active');
+            $faqs_item.removeClass('shw');
+        } else {
+            $a_title.addClass('active');
+            $faqs_item.addClass('shw');
+
+            // sibsling item
+            $sibs_item.removeClass('shw');
+            $sibs_item.find('h3.faqs-title a').removeClass('active');
+
+            // next col item
+            $sibs_col_item.find('.faqs-itm').removeClass('shw');
+            $sibs_col_item.find('h3.faqs-title a').removeClass('active');
+        }
+    });  
+};
 /* ----------------------------------------------- */
 /* ----------------------------------------------- */
 /* OnLoad Page */
@@ -236,6 +267,9 @@ $(document).ready(function($){
     // show menu mobile
     allpage_fn.menuMobile.showMN ();
     allpage_fn.menuMobile.hideMN ();
+
+    // show faqs
+    allpage_fn.showFAQs ();
 });
 /* OnLoad Window */
 var init = function () {   
