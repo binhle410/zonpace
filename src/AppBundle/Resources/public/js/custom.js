@@ -1108,6 +1108,50 @@ jQuery(function () {
                     zoom: 11,
                     mapTypeId: google.maps.MapTypeId.ROADMAP
                 });
+
+                //nearby location
+                var request = {
+                    location: new google.maps.LatLng(lat,lng),
+                    radius: '10000',
+                    types: ['address']
+                };
+                service = new google.maps.places.PlacesService(map);
+                service.nearbySearch(request, function(results, status){
+                    var data = [];
+                    if (status == google.maps.places.PlacesServiceStatus.OK) {
+                        var length = results.length <= 5 ? results.length:5;
+                        for (var i = 0; i <= length; i++) {
+                            var place = results[i];
+                            data[i] = {'name':place.name,'lat':place.geometry.location.lat(),'lng':place.geometry.location.lng()};
+                        }
+                        if(length){
+                            data = data.slice(1,length+1);
+                        }
+                    }
+                    if(data.length){
+                        var url = $('.main-container').data('url-search-nearby-listing');
+                        $.ajax({
+                            url: url,
+                            type: "POST",
+                            data: {
+                                nearByLocations: data,
+                            },
+                            success: function (result) {
+                                if (result.status) {
+                                    var html = '';
+                                    for(var i=0;i<result.data.length;i++){
+                                        var name = result.data[i].name;
+                                        var numberListing = result.data[i].numberListing;
+                                        html +='<div class="row"><div class="col-md-9">'+name+' </div><div class="col-md-3"><span class="pull-right">'+numberListing+'</span> </div> </div><hr class="divider">';
+                                    }
+                                    $('.nearby-listing').append(html);
+                                } else {
+                                }
+                            }
+                        });
+
+                    }
+                });
                 //init maker
                 var items = $('.search-space-item');
                 items.each(function () {

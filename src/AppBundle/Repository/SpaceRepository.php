@@ -34,6 +34,7 @@ class SpaceRepository extends EntityRepository
             ->getSingleScalarResult();
 
     }
+
     public function getUnfinishedListings($user)
     {
         $expr = new Expr();
@@ -113,6 +114,28 @@ class SpaceRepository extends EntityRepository
 //                ->setParameter('squareTo', $squareTo);
 //        }
         return $qb;
+
+    }
+
+    public function getNumberListingNearbySpaces($query, $radius)
+    {
+        $expr = new Expr();
+        $lat = $query['lat'];
+        $lng = $query['lng'];
+        $distance = "( 3959 * acos( cos( radians('$lat') ) * cos( radians( location.lat ) ) * cos( radians( location.lng ) - radians('$lng') ) + sin( radians('$lat') ) * sin( radians( location.lat ) ) ) )";
+        $qb = $this->_em->createQueryBuilder()
+            ->select('count(space.id)')
+            ->from($this->_entityName, 'space', null)
+            ->join('space.location', 'location')
+            ->join('space.price', 'price')
+            ->join('space.dateBooking', 'dateBooking')
+            ->leftJoin('space.features', 'features')
+            ->where($distance . " <= :radius")
+            ->setParameter('radius', $radius);
+        $result = $qb->getQuery()->getSingleScalarResult();
+
+
+        return intval($result);
 
     }
 }
