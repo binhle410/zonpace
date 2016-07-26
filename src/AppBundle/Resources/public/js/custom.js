@@ -1354,6 +1354,59 @@ jQuery(function () {
         });
 
     })(jQuery, window, document);
+    /*  @name  Job Type
+     *  @description Map
+     *  @version 1.0
+     *  @options
+     *    option
+     *  @events
+     *    event
+     *  @methods
+     *    init
+     */
+    (function ($, window, document, undefined) {
+        var pluginName = "host-list-booking";
+        var map
+        // The actual plugin constructor
+        function Plugin(element, options) {
+            this.element = element;
+            this.options = $.extend({}, $.fn[pluginName].defaults, options);
+            this.init();
+        }
+
+        Plugin.prototype = {
+            init: function () {
+                var that = this;
+                that.filter();
+            },
+            filter: function () {
+                var that = this;
+                $('.type-space').change(function () {
+                    $('.form-filter-list-booking').submit();
+                });
+                $('.status-booking').change(function () {
+                    $('.form-filter-list-booking').submit();
+                });
+            },
+
+        },
+
+            $.fn[pluginName] = function (options) {
+                return this.each(function () {
+                    if (!$.data(this, pluginName)) {
+                        $.data(this, pluginName,
+                            new Plugin(this, options));
+                    }
+                });
+            };
+        $.fn[pluginName].defaults = {
+            propertyName: 1
+        };
+        $(function () {
+            $('[data-' + pluginName + ']')[pluginName]();
+        });
+
+    })(jQuery, window, document);
 
     /*  @description Map
      *  @version 1.0

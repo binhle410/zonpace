@@ -3,6 +3,7 @@
 namespace AppBundle\Twig;
 
 
+use AppBundle\Entity\Booking\Booking;
 use AppBundle\Entity\Space\Space;
 use Application\Sonata\MediaBundle\Entity\Media;
 
@@ -58,11 +59,24 @@ class TwigExtension extends \Twig_Extension
      */
     public function getStatusSpaces()
     {
-        $spaceType = [
+        $spaceStatus = [
             'disabled' => 'Disabled',
             'enabled' => 'Enabled',
         ];
-        return $spaceType;
+        return $spaceStatus;
+    }
+    /**
+     * @return array
+     */
+    public function getStatusBookings()
+    {
+        $statusBooking = [
+            'PENDING' => 'Pending',
+            'CANCELLED' => 'Cancelled',
+            'ACTIVE' => 'Active',
+            'COMPLETED' => 'Completed',
+        ];
+        return $statusBooking;
     }
 
     /**
@@ -115,6 +129,9 @@ class TwigExtension extends \Twig_Extension
     public function getImageSpace(Space $space, $width, $height){
         return $this->container->get('app.controller')->getImageSpace($space,$width,$height);
     }
+    public function getStatusBooking(Booking $booking){
+        return $this->container->get('app.controller')->getStatusBooking($booking);
+    }
 
 
     public function getFunctions()
@@ -131,6 +148,8 @@ class TwigExtension extends \Twig_Extension
             'getTotalEarningSpace' => new \Twig_Function_Method($this, 'getTotalEarningSpace', array('is_safe' => array('html'))),
             'getTotalBookingSpace' => new \Twig_Function_Method($this, 'getTotalBookingSpace', array('is_safe' => array('html'))),
             'getImageSpace' => new \Twig_Function_Method($this, 'getImageSpace', array('is_safe' => array('html'))),
+            'getStatusBookings' => new \Twig_Function_Method($this, 'getStatusBookings', array('is_safe' => array('html'))),
+            'getStatusBooking' => new \Twig_Function_Method($this, 'getStatusBooking', array('is_safe' => array('html'))),
         );
     }
 

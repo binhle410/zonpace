@@ -15,6 +15,10 @@ use Gedmo\Mapping\Annotation as Gedmo;
  */
 class Booking
 {
+
+    const STATUS_PENDING ='PENDING';
+    const STATUS_CANCELLED ='CANCELLED';
+    const STATUS_SUCCESS ='SUCCESS'; //Active , Completed
     /**
      * @var int
      *
@@ -32,9 +36,9 @@ class Booking
 
     /**
      * @var string
-     * @ORM\Column(name="bookingid",type="string",length=6,options={"fixed"=true})
+     * @ORM\Column(name="status",type="string")
      */
-    private $bookingID;
+    private $status;
 
     /**
      * @var datetime
@@ -100,6 +104,23 @@ class Booking
      */
     private $guestNote;
 
+    /**
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param string $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+    
     /**
      * @return string
      */

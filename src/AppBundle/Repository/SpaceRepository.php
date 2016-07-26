@@ -51,8 +51,10 @@ class SpaceRepository extends EntityRepository
     {
         $expr = new Expr();
         $qb = $this->createQueryBuilder('space')
-            ->where($expr->eq('space.user', ':user'))
             ->join('space.location', 'location')
+            ->where($expr->eq('space.user', ':user'))
+            ->andWhere($expr->eq('space.completedCreate', ':completedCreate'))
+            ->setParameter('completedCreate',true)
             ->setParameter('user', $user);
         if (isset($query['type-space']) && $query['type-space'] != '') {
             $qb->andWhere('location.typeSpace = :typeSpace')

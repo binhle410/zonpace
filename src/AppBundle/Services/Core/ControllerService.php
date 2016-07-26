@@ -2,10 +2,12 @@
 
 namespace AppBundle\Services\Core;
 
+use AppBundle\Entity\Booking\Booking;
 use AppBundle\Entity\Space\Space;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\Pagerfanta;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 class ControllerService extends Controller
 {
@@ -128,6 +130,23 @@ class ControllerService extends Controller
         } else {
             return '';
             //implement after
+        }
+    }
+    public function getStatusBooking(Booking $booking){
+        if($booking->getStatus() == Booking::STATUS_PENDING){
+            return 'Pending';
+        }
+        if($booking->getStatus() == Booking::STATUS_CANCELLED){
+            return 'Cancelled';
+        }
+        if($booking->getStatus() == Booking::STATUS_SUCCESS){
+            $toDay = new \DateTime();
+            if(($booking->getDateFrom()->getTimestamp() <= $toDay->getTimestamp() && $toDay->getTimestamp() <= $booking->getDateTo()->getTimestamp()) || $toDay->getTimestamp() < $booking->getDateFrom()->getTimestamp()){
+                Return 'Active';
+            }
+            if( $toDay->getTimestamp() > $booking->getDateTo()->getTimestamp()){
+                Return 'Completed';
+            }
         }
     }
 

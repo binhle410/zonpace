@@ -11,24 +11,24 @@
                 <!-- ================ -->
                 <div class="main col-md-8 col-lg-offset-1 col-md-push-4 col-lg-push-3">
 
-                    <div class="row">
-                        <div class="col-md-12">
-                            <!-- filters start -->
-                            <form class="" method="get">
-                                <div class="row">
-                                    <div class="col-md-3 col-sm-offset-9">
-                                        <div class="form-group">
-                                            <label>Filter</label>
-                                            <select name="type-space" class="form-control type-space">
-                                                <option value="">All</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                            <!-- filters end -->
-                        </div>
-                    </div>
+                    {#<div class="row">#}
+                        {#<div class="col-md-12">#}
+                            {#<!-- filters start -->#}
+                            {#<form class="" method="get">#}
+                                {#<div class="row">#}
+                                    {#<div class="col-md-3 col-sm-offset-9">#}
+                                        {#<div class="form-group">#}
+                                            {#<label>Filter</label>#}
+                                            {#<select name="type-space" class="form-control type-space">#}
+                                                {#<option value="">All</option>#}
+                                            {#</select>#}
+                                        {#</div>#}
+                                    {#</div>#}
+                                {#</div>#}
+                            {#</form>#}
+                            {#<!-- filters end -->#}
+                        {#</div>#}
+                    {#</div>#}
                     <hr class="divider">
                     <!-- Tab panes -->
                     <div class="tab-content clear-style">
@@ -58,7 +58,7 @@
                                                 </p>
                                                 <div class="row" style="margin-left: 0px;margin-bottom: -15px;">
                                                     <div class="col-sm-6"><span
-                                                                class="">Booking ID: {{ booking.bookingid }}</span>
+                                                                class="">Booking ID: {{ booking.id }}</span>
                                                     </div>
                                                     <p>
                                                         <span>Communication</span>
@@ -93,7 +93,7 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="space-enabled" style="text-align: right;">
-                                                <strong>Active</strong></div>
+                                                <strong>{{ getStatusBooking(booking) }}</strong></div>
                                             <div style="margin-bottom: 50px;text-align: right;">Book
                                                 on {{ booking.createdAt|date('M d, Y') }}
                                             </div>

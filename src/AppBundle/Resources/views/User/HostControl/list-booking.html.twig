@@ -2,7 +2,7 @@
 {% block content %}
 
 
-    <section class="main-container">
+    <section class="main-container" data-host-list-booking="">
 
         <div class="container">
             <div class="row">
@@ -14,7 +14,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <!-- filters start -->
-                            <form class="" method="get">
+                            <form class="form-filter-list-booking" method="get">
                                 <div class="row">
                                     <div class="col-md-3 col-sm-offset-6">
                                         <div class="form-group">
@@ -31,11 +31,11 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Status</label>
-                                            <select name="status-space" class="form-control status-space">
+                                            <select name="status-booking" class="form-control status-booking">
                                                 <option value="">All</option>
-                                                {% set statusSpaces = getStatusSpaces() %}
-                                                {% for key,statusSpace in statusSpaces %}
-                                                    <option {{ app.request.get('status-space')==key ? 'selected' }} value="{{ key }}">{{ statusSpace }}</option>
+                                                {% set statusBookings = getStatusBookings() %}
+                                                {% for key,statusBooking in statusBookings %}
+                                                    <option {{ app.request.get('status-booking')==key ? 'selected' }} value="{{ key }}">{{ statusBooking }}</option>
                                                 {% endfor %}
                                             </select>
                                         </div>
@@ -74,7 +74,7 @@
                                                 </p>
                                                 <div class="row" style="margin-left: 0px;margin-bottom: -15px;">
                                                     <div class="col-sm-6"><span
-                                                                class="">Booking ID: {{ booking.bookingid }}</span>
+                                                                class="">Booking ID: {{ booking.id }}</span>
                                                     </div>
                                                     <div class="col-sm-6"><span
                                                                 class="">Total cost: ${{ booking.totalPrice }}</span>
@@ -84,7 +84,7 @@
                                                     <div class="col-sm-6"><span
                                                                 class="">Check-in: {{ booking.dateFrom|date('M d, Y') }}</span>
                                                     </div>
-                                                    <div class="col-sm-6"><span class="">Payment: Jessica Justica</span>
+                                                    <div class="col-sm-6"><span class="">Leases: {{ booking.space.user.firstName ~' '~booking.space.user.lastName }}</span>
                                                     </div>
                                                 </div>
                                                 <div class="row" style="margin-left: 0px;">
@@ -97,7 +97,7 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="space-enabled" style="text-align: right;">
-                                                <strong>Active</strong></div>
+                                                <strong>{{ getStatusBooking(booking) }}</strong></div>
                                             <div style="margin-bottom: 50px;text-align: right;">Book
                                                 on {{ booking.createdAt|date('M d, Y') }}
                                             </div>
