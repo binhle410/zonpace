@@ -1365,7 +1365,7 @@ jQuery(function () {
      *    init
      */
     (function ($, window, document, undefined) {
-        var pluginName = "host-list-booking";
+        var pluginName = "list-booking";
         var map
         // The actual plugin constructor
         function Plugin(element, options) {

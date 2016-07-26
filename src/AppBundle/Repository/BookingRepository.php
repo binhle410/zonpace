@@ -30,6 +30,25 @@ class BookingRepository extends EntityRepository
         $qb = $this->createQueryBuilder('booking')
             ->where($expr->eq('booking.user', ':user'))
             ->setParameter('user', $user);
+        if (isset($query['type-space']) && $query['type-space'] != '') {
+            $qb->andWhere('location.typeSpace = :typeSpace')
+                ->setParameter('typeSpace', $query['type-space']);
+        }
+        if (isset($query['status-booking']) && $query['status-booking'] != '') {
+            if($query['status-booking'] == Booking::STATUS_PENDING || $query['status-booking'] == Booking::STATUS_CANCELLED){
+                $qb->andWhere('booking.status = :status')
+                    ->setParameter('status', $query['status-booking']);
+            }else{
+                $qb->andWhere('booking.status = :status')
+                    ->setParameter('status', Booking::STATUS_SUCCESS);
+                if($query['status-booking'] == 'ACTIVE'){
+                    $qb->andWhere('(booking.dateFrom <= CURRENT_DATE() AND booking.dateTo >= CURRENT_DATE()) OR (booking.dateFrom > CURRENT_DATE())');
+                }
+                if($query['status-booking'] == 'COMPLETED'){
+                    $qb->andWhere('booking.dateTo < CURRENT_DATE()');
+                }
+            }
+        }
         return $qb;
 
     }
@@ -46,8 +65,6 @@ class BookingRepository extends EntityRepository
             ->join('booking.space','space')
             ->join('space.location', 'location')
             ->where($expr->eq('space.user', ':user'))
-            ->andWhere($expr->eq('space.completedCreate', ':completedCreate'))
-            ->setParameter('completedCreate',true)
             ->setParameter('user', $user);
         if (isset($query['type-space']) && $query['type-space'] != '') {
             $qb->andWhere('location.typeSpace = :typeSpace')

@@ -2,7 +2,7 @@
 {% block content %}
 
 
-    <section class="main-container">
+    <section class="main-container" data-list-booking="">
 
         <div class="container">
             <div class="row">
@@ -11,24 +11,34 @@
                 <!-- ================ -->
                 <div class="main col-md-8 col-lg-offset-1 col-md-push-4 col-lg-push-3">
 
-                    {#<div class="row">#}
-                        {#<div class="col-md-12">#}
-                            {#<!-- filters start -->#}
-                            {#<form class="" method="get">#}
-                                {#<div class="row">#}
-                                    {#<div class="col-md-3 col-sm-offset-9">#}
-                                        {#<div class="form-group">#}
-                                            {#<label>Filter</label>#}
-                                            {#<select name="type-space" class="form-control type-space">#}
-                                                {#<option value="">All</option>#}
-                                            {#</select>#}
-                                        {#</div>#}
-                                    {#</div>#}
-                                {#</div>#}
-                            {#</form>#}
-                            {#<!-- filters end -->#}
-                        {#</div>#}
-                    {#</div>#}
+                    <form class="form-filter-list-booking" method="get">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-offset-6">
+                                <div class="form-group">
+                                    <label>Type Space</label>
+                                    <select name="type-space" class="form-control type-space">
+                                        <option value="">All</option>
+                                        {% set typeSpaces = getTypeSpaces() %}
+                                        {% for key,typeSpace in typeSpaces %}
+                                            <option {{ app.request.get('type-space')==key ? 'selected' }} value="{{ key }}">{{ typeSpace }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label>Status</label>
+                                    <select name="status-booking" class="form-control status-booking">
+                                        <option value="">All</option>
+                                        {% set statusBookings = getStatusBookings() %}
+                                        {% for key,statusBooking in statusBookings %}
+                                            <option {{ app.request.get('status-booking')==key ? 'selected' }} value="{{ key }}">{{ statusBooking }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                     <hr class="divider">
                     <!-- Tab panes -->
                     <div class="tab-content clear-style">
