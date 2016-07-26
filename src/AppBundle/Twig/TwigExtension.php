@@ -59,8 +59,8 @@ class TwigExtension extends \Twig_Extension
     public function getStatusSpaces()
     {
         $spaceType = [
-            0 => 'Disabled',
-            1 => 'Enabled',
+            'disabled' => 'Disabled',
+            'enabled' => 'Enabled',
         ];
         return $spaceType;
     }

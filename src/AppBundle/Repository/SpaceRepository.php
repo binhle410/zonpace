@@ -59,8 +59,9 @@ class SpaceRepository extends EntityRepository
                 ->setParameter('typeSpace', $query['type-space']);
         }
         if (isset($query['status-space']) && $query['status-space'] != '') {
+            $value = $query['status-space'] == 'enabled' ? true:false;
             $qb->andWhere('space.enabled = :enabled')
-                ->setParameter('enabled', $query['status-space']);
+                ->setParameter('enabled', $value);
         }
         return $qb;
 

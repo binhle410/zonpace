@@ -67,7 +67,7 @@
                         <hr class="divider"/>
                         <div class="row" style="margin-bottom: 10px;">
                             <div class="col-md-12">
-                                <h3><strong style="font-weight: bold">2 unfinished listings</strong></h3>
+                                <h3><strong style="font-weight: bold">2 Draft listings</strong></h3>
                                 <p>Complete your listings and start getting bookings</p>
                             </div>
                         </div>
@@ -75,11 +75,7 @@
                             <hr class="divider"/>
                             <div class="row" style="margin-bottom: 10px;">
                                 <div class="col-md-3">
-                                    {% if space.spaceImage %}
-                                        <img src="{{ getUrl(space.spaceImage) }}" alt="">
-                                    {% else %}
-                                        <img src="{{ asset('bundles/app/images/product-1.jpg') }}" alt="">
-                                    {% endif %}
+                                    {{ getImageSpace(space,150,150)}}
                                 </div>
                                 <div class="col-md-5">
                                     <strong>{{ space.name }}</strong><br>
