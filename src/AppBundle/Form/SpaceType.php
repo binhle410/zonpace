@@ -30,9 +30,6 @@ class SpaceType extends AbstractType
         if ($options['step'] == 1) {
             $builder
                 ->add('location', LocationType::class)
-                ->add('spaceImageTmp', HiddenType::class, array(
-                        'mapped'=>false
-                       ))
                 ->add('shape', HiddenType::class);
         } else {
             $builder

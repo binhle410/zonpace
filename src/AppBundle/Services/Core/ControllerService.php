@@ -2,6 +2,7 @@
 
 namespace AppBundle\Services\Core;
 
+use AppBundle\Entity\Space\Space;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\Pagerfanta;
@@ -34,49 +35,63 @@ class ControllerService extends Controller
         return $pagerfanta;
     }
 
-    public function getLocationRatingSpace($space){
+    public function getLocationRatingSpace($space)
+    {
         return $this->getDoctrine()->getManager()->getRepository('AppBundle:Booking\Booking')->getLocationRatingSpace($space);
     }
-    public function getCommunicationRatingSpace($space){
+
+    public function getCommunicationRatingSpace($space)
+    {
         return $this->getDoctrine()->getManager()->getRepository('AppBundle:Booking\Booking')->getCommunicationRatingSpace($space);
     }
-    public function getRatingSpace($space){
+
+    public function getRatingSpace($space)
+    {
         return $this->getDoctrine()->getManager()->getRepository('AppBundle:Booking\Booking')->getRatingSpace($space);
     }
-    public function getTotalReviewSpace($space){
+
+    public function getTotalReviewSpace($space)
+    {
         return $this->getDoctrine()->getManager()->getRepository('AppBundle:Booking\Booking')->getTotalReviewSpace($space);
     }
-    public function getTotalEarningSpace($space){
+
+    public function getTotalEarningSpace($space)
+    {
         return $this->getDoctrine()->getManager()->getRepository('AppBundle:Booking\Booking')->getTotalEarningSpace($space);
     }
-    public function getTotalBookingSpace($space){
+
+    public function getTotalBookingSpace($space)
+    {
         return $this->getDoctrine()->getManager()->getRepository('AppBundle:Booking\Booking')->getTotalBookingSpace($space);
     }
 
     /*
      * format :Y-m-d
      */
-    public function getListDate($from,$to){
-        $begin = new \DateTime( $from );
-        $end = new \DateTime( $to);
-        $end = $end->modify( '+1 day' );
+    public function getListDate($from, $to)
+    {
+        $begin = new \DateTime($from);
+        $end = new \DateTime($to);
+        $end = $end->modify('+1 day');
 
         $interval = new \DateInterval('P1D');
-        $daterange = new \DatePeriod($begin, $interval ,$end);
+        $daterange = new \DatePeriod($begin, $interval, $end);
 
         $listDate = [];
-        foreach($daterange as $date){
+        foreach ($daterange as $date) {
             $listDate[$date->format('Y')][$date->format('m')][$date->format('Y-m-d')] = $date->format('Y-m-d');
         }
         return $listDate;
     }
-    public function generateDataBookings($bookings){
-        $data =[];
-        foreach ($bookings as $booking){
-            if(new \DateTime() < $booking->getDateFrom()){
-                $data['incomming'][$booking->getId()] = $this->getListDate($booking->getDateFrom()->format('Y-m-d'),$booking->getDateTo()->format('Y-m-d'));
-            }else{
-                $data['passed'][$booking->getId()] = $this->getListDate($booking->getDateFrom()->format('Y-m-d'),$booking->getDateTo()->format('Y-m-d'));
+
+    public function generateDataBookings($bookings)
+    {
+        $data = [];
+        foreach ($bookings as $booking) {
+            if (new \DateTime() < $booking->getDateFrom()) {
+                $data['incomming'][$booking->getId()] = $this->getListDate($booking->getDateFrom()->format('Y-m-d'), $booking->getDateTo()->format('Y-m-d'));
+            } else {
+                $data['passed'][$booking->getId()] = $this->getListDate($booking->getDateFrom()->format('Y-m-d'), $booking->getDateTo()->format('Y-m-d'));
             }
         }
         //for pass to client {} instead []
@@ -84,6 +99,37 @@ class ControllerService extends Controller
         return json_encode($data);
     }
 
-   
+    public function getImageSpace(Space $space, $width, $height)
+    {
+        $googleApiKey = $this->getParameter('google_api_key');
+        $shape = json_decode($space->getShape());
+        if (isset($shape[0])) {
+            $lat = 0;
+            $lng = 0;
+            $listPoint = [];
+            $dataShape = $shape[0]->geometry[0];
+            foreach ($dataShape as $item) {
+                $listPoint[] = $item[0] . ',' . $item[1];
+                $lat += $item[0];
+                $lng += $item[1];
+            }
+            //add more the first point to completed the shape
+            $listPoint[] = $dataShape[0][0] . ',' . $dataShape[0][1];
+            $listPoint = implode('|', $listPoint);
+            //this is avg center of map
+            $lat = $lat / count($dataShape);
+            $lng = $lng / count($dataShape);
+            $center = $lat . ',' . $lng;
+            //width height
+            $widthHeight = $width . 'x' . $height;
+            $url = 'https://maps.googleapis.com/maps/api/staticmap?center=' . $center . '&zoom=17&size=' . $widthHeight . '&maptype=roadmap&path=color:red|fillcolor:red|weight:0|' . $listPoint . '&key=' . $googleApiKey;
+            $html = '<img src="' . $url . '">';
+            return $html;
+        } else {
+            return '';
+            //implement after
+        }
+    }
+
 
 }

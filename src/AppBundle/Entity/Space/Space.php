@@ -168,30 +168,6 @@ class Space
         return $this->slug;
     }
 
-    /**
-     * @var \Application\Sonata\MediaBundle\Entity\Media
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media", cascade={"persist","remove"}, fetch="LAZY")
-     * @ORM\JoinTable(name="space_image_id")
-     */
-    protected $spaceImage;
-
-    /**
-     * @param MediaInterface $spaceImage
-     */
-    public function setSpaceImage($spaceImage)
-    {
-        $this->spaceImage = $spaceImage;
-    }
-
-    /**
-     * @return MediaInterface
-     */
-    public function getSpaceImage()
-    {
-        return $this->spaceImage;
-    }
-
-
     public function addFeature(Feature $feature){
         $this->features->add($feature);
         return $this;

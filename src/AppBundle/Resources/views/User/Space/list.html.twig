@@ -55,11 +55,7 @@
                                     <div class="row grid-space-0">
                                         <div class="col-sm-6 col-md-3">
                                             <div class="overlay-container">
-                                                {% if space.spaceImage %}
-                                                    <img src="{{ getUrl(space.spaceImage) }}" alt="">
-                                                {% else %}
-                                                    <img src="{{ asset('bundles/app/images/product-1.jpg') }}" alt="">
-                                                {% endif %}
+                                                {{ getImageSpace(space,150,150)}}
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-7">

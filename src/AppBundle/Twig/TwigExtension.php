@@ -3,6 +3,7 @@
 namespace AppBundle\Twig;
 
 
+use AppBundle\Entity\Space\Space;
 use Application\Sonata\MediaBundle\Entity\Media;
 
 class TwigExtension extends \Twig_Extension
@@ -111,6 +112,9 @@ class TwigExtension extends \Twig_Extension
     public function getTotalBookingSpace($space){
         return $this->container->get('app.controller')->getTotalBookingSpace($space);
     }
+    public function getImageSpace(Space $space, $width, $height){
+        return $this->container->get('app.controller')->getImageSpace($space,$width,$height);
+    }
 
 
     public function getFunctions()
@@ -126,6 +130,7 @@ class TwigExtension extends \Twig_Extension
             'getTotalReviewSpace' => new \Twig_Function_Method($this, 'getTotalReviewSpace', array('is_safe' => array('html'))),
             'getTotalEarningSpace' => new \Twig_Function_Method($this, 'getTotalEarningSpace', array('is_safe' => array('html'))),
             'getTotalBookingSpace' => new \Twig_Function_Method($this, 'getTotalBookingSpace', array('is_safe' => array('html'))),
+            'getImageSpace' => new \Twig_Function_Method($this, 'getImageSpace', array('is_safe' => array('html'))),
         );
     }
 
