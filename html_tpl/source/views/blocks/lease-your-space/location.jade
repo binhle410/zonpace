@@ -1,0 +1,58 @@
+section.blk-lease-space.blk-white
+    .container
+        h2.blk-ttl Lease Your Space
+        include location-nav.jade
+        // END : LEASE NAV
+        section.blk-lease-map
+            h2.blk-ttl-bold Location
+            .row
+                section.col-xs-6
+                    form(class="frm-location", name="frm-location")
+                        .frow
+                            label(for="ipt-streetadd") Street Address
+                            input(type="text", class="ipt", id="ipt-streetadd", placeholder="Street Address")
+                        // END : ITM
+                        .frow
+                            label(for="ipt-typespace") Type of Space (Optional)
+                            input(type="text", class="ipt", id="ipt-typespace", placeholder="Example: Apt., Suite, Bldg., etc")
+                        // END : ITM
+                        .frow
+                            label(for="ipt-city") City
+                            input(type="text", class="ipt", id="ipt-city", placeholder="City")
+                        // END : ITM
+                        .frow.row
+                            section.col-xs-6.slect-custome
+                                label(for="ipt-state") State
+                                select(class="slect ")
+                                    option(value="") State
+                                    option(value="California") California
+                                    option(value="Texas") Texas
+                            // END 
+                            section.col-xs-6
+                                label(for="ipt-zipcode") Zip Code
+                                input(type="text", class="ipt", id="ipt-zipcode", placeholder="Zip Code")
+                            // END 
+                        // END : ITM
+                        .frow
+                            label(for="ipt-squarefeet") Type of Space
+                            input(type="radio", name="rd-type", id="type-1")
+                            label(for="type-1", class="lbl-radio") Vacant Land
+                            input(type="radio", name="rd-type", id="type-2")
+                            label(for="type-2", class="lbl-radio") Space attached to property
+                            input(type="radio", name="rd-type", id="type-3")
+                            label(for="type-3", class="lbl-radio") Event place
+                        // END : ITM
+                        .frow
+                            label(for="ipt-squarefeet") Square Feet
+                            input(type="text", class="ipt", id="ipt-squarefeet", placeholder="Square Feet")
+                        // END : ITM
+                        .frow Please draw using clicks on the map to the right to indicate the area of your space.
+                        // END : ITM
+                        .frow
+                            input(type="submit", class="btn btn-red", value="Next")
+                        // END : ITM
+                // END : COL
+                section.col-xs-6
+                    #location-map
+                // END : COL
+        // END 

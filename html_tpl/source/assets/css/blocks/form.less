@@ -34,6 +34,31 @@
 		font-weight: normal;
 		.fontNovaBold();
 		position: relative;
+		&.lbl-radio {
+			display: inline-block;
+			color: @gray;
+			.fontNovaReg();
+		}
+	}
+	input[type="radio"] {
+		display: none;
+	}
+	input[type="radio"] + label {
+		cursor: pointer;
+		margin-right: 30px;
+	}
+	input[type="radio"] + label::before {
+		content: "";
+		width: 15px;
+		height: 15px;
+		display: inline-block;
+		background-image: url('../images/bg-radio.png');
+		background-repeat: no-repeat;
+		vertical-align: -3px;
+    	margin-right: 10px;
+	}
+	input[type="radio"]:checked + label::before {
+		background-position: top right;
 	}
 }
 .btn {
@@ -85,4 +110,25 @@ h2.blk-ttl-bold {
 	line-height: 18px;
 	margin-bottom: 20px;
 	color: @black;
+}
+.slect-custome {
+    position: relative;
+    select {
+    	-webkit-appearance: none;
+		-moz-appearance: none;
+		-o-appearance: none;
+	    appearance: none;
+    }
+    &::after {
+    	content: "";
+	    border-width: 7px 7px 0 7px;
+		border-color: transparent #424143 transparent transparent;
+    	border-style: solid;
+	    width: 0;
+	    height: 0;
+	    position: absolute;
+	    right: 3px;
+	    bottom: 3px;
+	    z-index: 1;
+    }
 }
