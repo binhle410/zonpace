@@ -1885,6 +1885,15 @@
 .ico.ico-zoom-b {
   background-image: url('../images/ico_zoom_b.png');
 }
+.ico.ico-info {
+  background-image: url('../images/ico_info.png');
+}
+.ico.ico-list {
+  background-image: url('../images/ico_list.png');
+}
+.ico.ico-power {
+  background-image: url('../images/ico_power.png');
+}
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
