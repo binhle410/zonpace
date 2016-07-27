@@ -16,6 +16,13 @@
         <id name="id" type="integer" column="id">
             <generator strategy="AUTO"/>
         </id>
+        <one-to-many field="features" target-entity="AppBundle\Entity\Space\Feature" mapped-by="category">
+            <cascade>
+                <cascade-remove/>
+                <cascade-persist/>
+                <cascade-merge/>
+            </cascade>
+        </one-to-many>
 
     </entity>
 </doctrine-mapping>

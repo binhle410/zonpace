@@ -69,7 +69,7 @@ class SpaceRepository extends EntityRepository
 
     }
 
-    public function searchSpaces($query)
+    public function searchSpaces($query,$radius)
     {
         $expr = new Expr();
         $fields = [];
@@ -87,7 +87,21 @@ class SpaceRepository extends EntityRepository
             ->join('space.dateBooking', 'dateBooking')
             ->leftJoin('space.features', 'features');
         if (isset($query['lat']) && isset($query['lng'])) {
-            $qb->orderBy('distance', 'ASC');
+            $distance = "( 3959 * acos( cos( radians('$lat') ) * cos( radians( location.lat ) ) * cos( radians( location.lng ) - radians('$lng') ) + sin( radians('$lat') ) * sin( radians( location.lat ) ) ) )";
+            $qb->where($distance . " <= :radius")
+                ->setParameter('radius', $radius)
+                ->orderBy('distance', 'ASC');
+        }
+        if (isset($query['features']) && $query['features'] != '') {
+            $listFeatureId = [];
+            foreach ($query['features'] as $featureId){
+                $listFeatureId[] = intval($featureId);
+            }
+            $qb->andWhere($expr->in('features.id',':featuresId'))
+                ->setParameter('featuresId', $listFeatureId);
+        }
+        if (isset($query['instant-booking']) && $query['instant-booking'] != '') {
+            $qb->andWhere('space.instantBook = 1');
         }
 
 //        if (isset($query['from']) && $query['from'] != '') {

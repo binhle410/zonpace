@@ -142,6 +142,7 @@ class Space
     {
         $this->instantBook = $instantBook;
     }
+    
 
 
 

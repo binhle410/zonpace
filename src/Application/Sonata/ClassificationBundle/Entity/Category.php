@@ -30,6 +30,25 @@ class Category extends BaseCategory
      */
     protected $id;
 
+
+    private $features;
+
+    /**
+     * @return mixed
+     */
+    public function getFeatures()
+    {
+        return $this->features;
+    }
+
+    /**
+     * @param mixed $features
+     */
+    public function setFeatures($features)
+    {
+        $this->features = $features;
+    }
+    
     /**
      * Get id
      *

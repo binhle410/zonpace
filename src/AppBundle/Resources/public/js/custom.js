@@ -1065,6 +1065,7 @@ jQuery(function () {
                 $(".search-spaces-input").change(function () {
                     $('.form-search-spaces').submit();
                 });
+                that.filters();
             },
             initSlider: function () {
                 $("#Slider1").slider({
@@ -1085,6 +1086,21 @@ jQuery(function () {
                     callback: function (value) {
                         $('.form-search-spaces').submit();
                     }
+                });
+            },
+            filters: function(){
+                $('.start-filters').click(function(){
+                    $(this).addClass('display-none');
+                    $('.search-results').addClass('display-none');
+                    $('.filter-group').removeClass('display-none');
+                });
+                $('.apply-filter').click(function(){
+                    $('.form-search-spaces').submit();
+                });
+                $('.cancel-filter').click(function(){
+                    $('.search-results').removeClass('display-none');
+                    $('.start-filters').removeClass('display-none');
+                    $('.filter-group').addClass('display-none');
                 });
             },
             searchPlace: function () {

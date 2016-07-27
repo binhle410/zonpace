@@ -18,8 +18,15 @@ class PublicRetrievalController extends ControllerService
         }
         $entityManager = $this->getDoctrine()->getManager();
         $spaceRepo = $entityManager->getRepository('AppBundle:Space\Space');
-        $qb = $spaceRepo->searchSpaces($request->query->all());
+
+        $featureCategories = $entityManager->getRepository('ApplicationSonataClassificationBundle:Category')->findAll();
+        $radius = $this->getParameter('search_radius');
+
+        $qb = $spaceRepo->searchSpaces($request->query->all(),$radius);
         $spaces = $this->pagingBuilder($request, $qb);
-        return $this->render('AppBundle:Front:search-spaces.html.twig',['spaces'=>$spaces]);
+        return $this->render('AppBundle:Front:search-spaces.html.twig',[
+            'spaces'=>$spaces,
+            'featureCategories'=>$featureCategories
+        ]);
     }
 }
