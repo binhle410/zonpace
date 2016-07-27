@@ -4,6 +4,7 @@
 namespace AppBundle\Controller\User\UserControl\Mgmt;
 
 use AppBundle\Entity\Booking\Booking;
+use AppBundle\Entity\Booking\BookingReviewMessage;
 use AppBundle\Form\SpaceBookingReviewType;
 use AppBundle\Form\UserPasswordType;
 use AppBundle\Form\UserProfileType;
@@ -45,6 +46,14 @@ class UserControlManipulationController extends ControllerService
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            //new 1 message
+            $ratingMessage = $form->get('ratingMassage')->getData();
+            $message = new BookingReviewMessage();
+            $message->setUser($this->getUser());
+            $message->setBooking($booking);
+            $message->setMessage($ratingMessage);
+            $em->persist($message);
+            //save rating
             $booking->setIsReview(true);
             $em->persist($booking);
             $em->flush();

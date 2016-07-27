@@ -7,3 +7,7 @@ app_user_host_control_dashboard:
     path: /dashboard
     defaults: { _controller: AppBundle:User/HostControl/Mgmt/HostControlManipulation:dashboard}
 
+app_user_host_control_reviewed_space:
+    path: /reviewed-space/{space}
+    defaults: { _controller: AppBundle:User/HostControl/Mgmt/HostControlRetrieval:reviewedSpace}
+

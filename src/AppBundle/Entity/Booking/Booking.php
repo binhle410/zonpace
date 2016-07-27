@@ -98,11 +98,29 @@ class Booking
      */
     private $isReview;
 
+
     /**
-     * @var string
-     * @ORM\Column(name="guest_note",type="text",nullable=true)
+     * @var BookingReviewMessage
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Booking\BookingReviewMessage",mappedBy="booking",orphanRemoval=true,cascade={"merge","persist","remove"})
      */
-    private $guestNote;
+    private $bookingReviewMessages;
+
+    /**
+     * @return BookingReviewMessage
+     */
+    public function getBookingReviewMessages()
+    {
+        return $this->bookingReviewMessages;
+    }
+
+    /**
+     * @param BookingReviewMessage $bookingReviewMessages
+     */
+    public function setBookingReviewMessages($bookingReviewMessages)
+    {
+        $this->bookingReviewMessages = $bookingReviewMessages;
+    }
+    
 
     /**
      * @return string

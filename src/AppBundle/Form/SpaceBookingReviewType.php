@@ -31,7 +31,7 @@ class SpaceBookingReviewType extends AbstractType
             $builder
                 ->add('ratingLocation', NumberType::class)
                 ->add('ratingCommunication', NumberType::class)
-                ->add('ratingMassage', TextareaType::class);
+                ->add('ratingMassage', TextareaType::class,['mapped'=>false]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

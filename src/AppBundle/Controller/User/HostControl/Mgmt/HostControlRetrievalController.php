@@ -3,6 +3,7 @@
 
 namespace AppBundle\Controller\User\HostControl\Mgmt;
 
+use AppBundle\Entity\Space\Space;
 use AppBundle\Form\UserPasswordType;
 use AppBundle\Form\UserProfileType;
 use AppBundle\Form\UserSettingType;
@@ -22,6 +23,12 @@ class HostControlRetrievalController extends ControllerService
         $bookings = $this->pagingBuilder($request,$qb);
         return $this->render('AppBundle:User/HostControl:list-booking.html.twig', [
             'bookings'=>$bookings
+        ]);
+    }
+    public function reviewedSpaceAction(Request $request,Space $space)
+    {
+        return $this->render('AppBundle:User/HostControl:reviewed-space.html.twig', [
+            'space'=>$space
         ]);
     }
 

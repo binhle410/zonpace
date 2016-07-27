@@ -121,7 +121,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <p>Guest's noted to Host:</p>
-                                            <p>{{ booking.guestNote|raw }}</p>
+                                            <p>{{ booking.isReview == true ? booking.bookingReviewMessages[0].message|raw }}</p>
                                             </div>
                                     </div>
                                 </div>

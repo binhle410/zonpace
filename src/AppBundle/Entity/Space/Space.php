@@ -179,6 +179,29 @@ class Space
     }
 
     /**
+     * @var Booking
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Booking\Booking",mappedBy="space")
+     */
+    private $bookings;
+
+    /**
+     * @return Booking
+     */
+    public function getBookings()
+    {
+        return $this->bookings;
+    }
+
+    /**
+     * @param Booking $bookings
+     */
+    public function setBookings($bookings)
+    {
+        $this->bookings = $bookings;
+    }
+    
+
+    /**
      * @var string
      * @ORM\Column(name="shape",type="string",nullable=true)
      */
