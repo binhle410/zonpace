@@ -30,6 +30,6 @@ parameters:
     vresh_twilio_authToken: 45fabaaecdb852879faf9186dfc6c68b
     vresh_twilio_phone_from: +12565154273
 
-    nearby_radius: 10  #mile
+    search_radius: 10  #mile
 
     google_api_key:222
