@@ -73,7 +73,7 @@ class SpaceRepository extends EntityRepository
     {
         $expr = new Expr();
         $fields = [];
-        $fields[] = "space";
+        $fields[] = "DISTINCT space";
         if (isset($query['lat']) && isset($query['lng'])) {
             $lat = $query['lat'];
             $lng = $query['lng'];
@@ -86,12 +86,7 @@ class SpaceRepository extends EntityRepository
             ->join('space.price', 'price')
             ->join('space.dateBooking', 'dateBooking')
             ->leftJoin('space.features', 'features');
-        if (isset($query['lat']) && isset($query['lng'])) {
-            $distance = "( 3959 * acos( cos( radians('$lat') ) * cos( radians( location.lat ) ) * cos( radians( location.lng ) - radians('$lng') ) + sin( radians('$lat') ) * sin( radians( location.lat ) ) ) )";
-            $qb->where($distance . " <= :radius")
-                ->setParameter('radius', $radius)
-                ->orderBy('distance', 'ASC');
-        }
+
         if (isset($query['features']) && $query['features'] != '') {
             $listFeatureId = [];
             foreach ($query['features'] as $featureId){
@@ -130,6 +125,12 @@ class SpaceRepository extends EntityRepository
 //                ->setParameter('squareFrom', $squareFrom)
 //                ->setParameter('squareTo', $squareTo);
 //        }
+        if (isset($query['lat']) && isset($query['lng'])) {
+            $qb->groupBy('space.id')
+                ->having("distance <= :radius")
+                ->setParameter('radius', $radius)
+                ->orderBy('distance', 'ASC');
+        }
         return $qb;
 
     }
@@ -139,20 +140,25 @@ class SpaceRepository extends EntityRepository
         $expr = new Expr();
         $lat = $query['lat'];
         $lng = $query['lng'];
-        $distance = "( 3959 * acos( cos( radians('$lat') ) * cos( radians( location.lat ) ) * cos( radians( location.lng ) - radians('$lng') ) + sin( radians('$lat') ) * sin( radians( location.lat ) ) ) )";
+        $field[] = $expr->countDistinct('space.id').' as total';
+        $field[] = "( 3959 * acos( cos( radians('$lat') ) * cos( radians( location.lat ) ) * cos( radians( location.lng ) - radians('$lng') ) + sin( radians('$lat') ) * sin( radians( location.lat ) ) )) as distance";
+
         $qb = $this->_em->createQueryBuilder()
-            ->select('count(space.id)')
+            ->select($field)
             ->from($this->_entityName, 'space', null)
             ->join('space.location', 'location')
             ->join('space.price', 'price')
             ->join('space.dateBooking', 'dateBooking')
             ->leftJoin('space.features', 'features')
-            ->where($distance . " <= :radius")
+            ->groupBy('space.id')
+            ->having("distance <= :radius")
             ->setParameter('radius', $radius);
-        $result = $qb->getQuery()->getSingleScalarResult();
-
-
-        return intval($result);
+        try {
+            $result = $qb->getQuery()->getSingleResult();
+            return intval($result['total']);
+        } catch (\Exception $e) {
+            return 0;
+        }
 
     }
 }
