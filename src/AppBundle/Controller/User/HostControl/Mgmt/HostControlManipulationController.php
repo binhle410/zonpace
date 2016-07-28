@@ -14,6 +14,7 @@ use AppBundle\Form\UserSettingType;
 use Symfony\Component\Debug\Debug;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Services\Core\ControllerService;
+use Symfony\Component\HttpFoundation\Response;
 
 class HostControlManipulationController extends ControllerService
 {
@@ -50,6 +51,22 @@ class HostControlManipulationController extends ControllerService
             \Doctrine\Common\Util\Debug::dump($this->get('app.form_serializer')->serializeFormErrors($form, true, true));
         }
         
+    }
+    public function saveReceiptAction(Request $request,Booking $booking){
+        $html = $this->renderView('AppBundle:User/HostControl:_receipt-template.html.twig', array(
+            'booking'  => $booking
+        ));
+
+        return new Response(
+            $this->get('knp_snappy.pdf')->getOutputFromHtml($html,[
+                'images' => true,
+            ]),
+            200,
+            array(
+                'Content-Type'          => 'application/pdf',
+                'Content-Disposition'   => 'attachment; filename="file.pdf"'
+            )
+        );
     }
 
 }

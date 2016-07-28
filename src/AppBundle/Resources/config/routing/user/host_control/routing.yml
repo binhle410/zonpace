@@ -19,3 +19,7 @@ app_user_host_control_transaction_report:
     path: /transaction-report
     defaults: { _controller: AppBundle:User/HostControl/Mgmt/HostControlRetrieval:transactionReport}
 
+app_user_host_control_transaction_report_save_receipt:
+    path: /transaction-report/save-receipt/{booking}
+    defaults: { _controller: AppBundle:User/HostControl/Mgmt/HostControlManipulation:saveReceipt}
+

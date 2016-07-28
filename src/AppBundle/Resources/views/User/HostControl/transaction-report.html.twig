@@ -114,7 +114,7 @@
                                             ${{ booking.totalPrice }}
                                         </div>
                                         <div class="col-md-2">
-                                            <button type="button" class="btn btn-default">Save Receipt</button>
+                                            <a href="{{ path('app_user_host_control_transaction_report_save_receipt',{'booking':booking.id}) }}" class="btn btn-default">Save Receipt</a>
                                             <br>
                                             <button type="button" class="btn btn-default">Send Receipt</button>
                                         </div>
