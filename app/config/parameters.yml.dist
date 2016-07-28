@@ -32,4 +32,4 @@ parameters:
 
     search_radius: 10  #mile
 
-    google_api_key:222
+    google_api_key: 222

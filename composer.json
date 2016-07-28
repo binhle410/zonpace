@@ -37,7 +37,8 @@
         "aws/aws-sdk-php": "2.8.22",
         "liip/imagine-bundle": "^1.5",
         "beberlei/DoctrineExtensions": "^1.0",
-        "vresh/twilio-bundle": "^1.0"
+        "vresh/twilio-bundle": "^1.0",
+        "knplabs/knp-snappy-bundle": "^1.4"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
