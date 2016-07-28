@@ -1,0 +1,20 @@
+<div class="modal fade" id="send-receipt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <form action="{{ path('app_user_host_control_transaction_report_send_receipt',{'booking':booking.id}) }}" method="post">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                                aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Send Receipt</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="email" name="email" class="form-control" required placeholder="Input email">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-dark" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-sm btn-default">Send Receipt</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

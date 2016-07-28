@@ -116,7 +116,8 @@
                                         <div class="col-md-2">
                                             <a href="{{ path('app_user_host_control_transaction_report_save_receipt',{'booking':booking.id}) }}" class="btn btn-default">Save Receipt</a>
                                             <br>
-                                            <button type="button" class="btn btn-default">Send Receipt</button>
+                                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#send-receipt">Send Receipt</button>
+                                            {% include 'AppBundle:User/HostControl:_send-receipt.html.twig' %}
                                         </div>
 
                                     </div>

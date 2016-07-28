@@ -68,5 +68,10 @@ class HostControlManipulationController extends ControllerService
             )
         );
     }
+    public function sendReceiptAction(Request $request,Booking $booking){
+        $emailTo = $request->get('email');
+        $this->get('app.email_sender')->sendEmailContact($emailTo,$booking);
+        return $this->redirectToRoute('app_user_host_control_transaction_report');
+    }
 
 }
