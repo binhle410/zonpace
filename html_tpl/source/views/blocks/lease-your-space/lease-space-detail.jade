@@ -1,0 +1,43 @@
+section.blk-lease-space.blk-white
+    .container
+        h2.blk-ttl Lease Your Space
+        include space-detail-nav.jade
+        // END : LEASE NAV
+        section.blk-lease-map
+            h2.blk-ttl-bold Space Details
+            .row
+                section.col-xs-6
+                    form(class="frm-space-detail", name="frm-space-detail")
+                        .frow
+                            label(for="ipt-namespace") Name of Space
+                                span 50 characters left
+                            input(type="text", class="ipt", id="ipt-namespace", placeholder="Name of Space")
+                        // END : ITM
+                        .frow
+                            label(for="ipt-description") Description
+                                span 500 characters left
+                            textarea(class="txt", id="ipt-description", placeholder="Example: Apt, Suite, Bldg, etc")
+                        // END : ITM
+                        .frow
+                            label(for="ipt-squarefeet") Type of Space
+                            input(type="radio", name="rd-type", id="type-1")
+                            label(for="type-1", class="lbl-radio") Vacant Land
+                            input(type="radio", name="rd-type", id="type-2")
+                            label(for="type-2", class="lbl-radio") Space attached to property
+                            input(type="radio", name="rd-type", id="type-3")
+                            label(for="type-3", class="lbl-radio") Event place
+                        // END : ITM
+                        .frow
+                            label(for="ipt-squarefeet") Square Feet
+                            input(type="text", class="ipt", id="ipt-squarefeet", placeholder="Square Feet")
+                        // END : ITM
+                        .frow Please draw using clicks on the map to the right to indicate the area of your space.
+                        // END : ITM
+                        .frow
+                            input(type="submit", class="btn btn-red", value="Next")
+                        // END : ITM
+                // END : COL
+                section.col-xs-6
+                    #location-map
+                // END : COL
+        // END 

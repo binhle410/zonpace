@@ -23,14 +23,16 @@
 			content: '';
 			position: absolute;
 			top: 17.5px;
-			left: 0;
-			right: 0;
+			left: -100%;
 			z-index: 1;
 			background-color: @black;
 			height: 2px;
+			width: 134%;
 		}
 		&:last-child {
 			width: 100px;
+		}
+		&:first-child {
 			&::before {
 				display: none;
 			}
