@@ -11,3 +11,11 @@ app_user_host_control_reviewed_space:
     path: /reviewed-space/{space}
     defaults: { _controller: AppBundle:User/HostControl/Mgmt/HostControlRetrieval:reviewedSpace}
 
+app_user_host_control_reviewed_space_reply:
+    path: /reviewed-space/reply/{booking}
+    defaults: { _controller: AppBundle:User/HostControl/Mgmt/HostControlManipulation:replyReview}
+
+app_user_host_control_transaction_report:
+    path: /transaction-report
+    defaults: { _controller: AppBundle:User/HostControl/Mgmt/HostControlRetrieval:transactionReport}
+

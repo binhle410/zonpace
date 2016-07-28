@@ -1400,6 +1400,9 @@ jQuery(function () {
                 $('.type-space').change(function () {
                     $('.form-filter-list-booking').submit();
                 });
+                $('.type-sort').change(function () {
+                    $('.form-filter-list-booking').submit();
+                });
                 $('.status-booking').change(function () {
                     $('.form-filter-list-booking').submit();
                 });

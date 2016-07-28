@@ -1,0 +1,143 @@
+{% extends 'AppBundle::layout.html.twig' %}
+{% block content %}
+
+
+    <section class="main-container" data-list-booking="">
+
+        <div class="container">
+            <div class="row">
+
+                <!-- main start -->
+                <!-- ================ -->
+                <div class="main col-md-8 col-lg-offset-1 col-md-push-4 col-lg-push-3">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- filters start -->
+                            <form class="form-filter-list-booking" method="get">
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-offset-6">
+                                        <div class="form-group">
+                                            <label>Sort By</label>
+                                            <select name="type-sort" class="form-control type-sort">
+                                                <option value="">All</option>
+                                                {% set typeSorts = getTypeSorts() %}
+                                                {% for key,typeSort in typeSorts %}
+                                                    <option {{ app.request.get('type-sort')==key ? 'selected' }}
+                                                            value="{{ key }}">{{ typeSort }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Status</label>
+                                            <select name="status-booking" class="form-control status-booking">
+                                                <option value="">All</option>
+                                                {% set statusBookings = getStatusBookingSuccess() %}
+                                                {% for key,statusBooking in statusBookings %}
+                                                    <option {{ app.request.get('status-booking')==key ? 'selected' }}
+                                                            value="{{ key }}">{{ statusBooking }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- filters end -->
+                        </div>
+                    </div>
+                    <hr class="divider">
+                    <!-- Tab panes -->
+                    <div class="tab-content clear-style">
+                        <div class="tab-pane active" id="pill-1">
+                            <div class="listing-item mb-20">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <strong>Date</strong>
+                                    </div>
+                                    <div class="col-md-4" style="">
+                                        <strong>Booking Details</strong>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <strong>Payment Method</strong>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <strong>Amount</strong>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <strong>Actions</strong>
+                                    </div>
+
+                                </div>
+
+                                {% for booking in  bookings %}
+                                    {% set space = booking.space %}
+                                    <hr class="divider">
+                                    <div class="row grid-space-0">
+                                        <div class="col-sm-6 col-md-2">
+                                            {{ booking.createdAt|date('m/d/Y') }}
+                                        </div>
+                                        <div class="col-sm-6 col-md-4" style="margin-top: -25px;">
+                                            <div class="body">
+                                                <h3 class="margin-clear"><a
+                                                            href="shop-product.html">{{ space.name }}</a></h3>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <span style="font-size: 12px">{{ space.location.squareFeet }}
+                                                            sqft</span>
+                                                        <span style="font-size: 12px">{{ getTypeSpace(space.location.typeSpace) }}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row" style="">
+                                                    <div class="col-sm-12"><span
+                                                                class="">Booking ID: {{ booking.id }}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row" style="">
+                                                    <div class="col-sm-12"><span
+                                                                class="">Check-in: {{ booking.dateFrom|date('M d, Y') }}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="row" style="">
+                                                    <div class="col-sm-12"><span
+                                                                class="">Check-out: {{ booking.dateTo|date('M d, Y') }}</span>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            Credit Card
+                                        </div>
+                                        <div class="col-md-2">
+                                            ${{ booking.totalPrice }}
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button type="button" class="btn btn-default">Save Receipt</button>
+                                            <br>
+                                            <button type="button" class="btn btn-default">Send Receipt</button>
+                                        </div>
+
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    {% if bookings|length %}
+                        <nav class="text-right">
+                            {{ pagerfanta(bookings) }}
+                        </nav>
+                    {% endif %}
+                </div>
+
+                <!-- sidebar start -->
+                {% include 'AppBundle:User:_nav.html.twig' %}
+                <!-- ================ -->
+
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

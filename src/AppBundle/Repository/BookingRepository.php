@@ -24,7 +24,7 @@ class BookingRepository extends EntityRepository
      * @param $query
      * @return \Doctrine\ORM\QueryBuilder
      */
-    public function findMyBooking($user,$query)
+    public function findMyBooking($user, $query)
     {
         $expr = new Expr();
         $qb = $this->createQueryBuilder('booking')
@@ -35,16 +35,16 @@ class BookingRepository extends EntityRepository
                 ->setParameter('typeSpace', $query['type-space']);
         }
         if (isset($query['status-booking']) && $query['status-booking'] != '') {
-            if($query['status-booking'] == Booking::STATUS_PENDING || $query['status-booking'] == Booking::STATUS_CANCELLED){
+            if ($query['status-booking'] == Booking::STATUS_PENDING || $query['status-booking'] == Booking::STATUS_CANCELLED) {
                 $qb->andWhere('booking.status = :status')
                     ->setParameter('status', $query['status-booking']);
-            }else{
+            } else {
                 $qb->andWhere('booking.status = :status')
                     ->setParameter('status', Booking::STATUS_SUCCESS);
-                if($query['status-booking'] == 'ACTIVE'){
+                if ($query['status-booking'] == 'ACTIVE') {
                     $qb->andWhere('(booking.dateFrom <= CURRENT_DATE() AND booking.dateTo >= CURRENT_DATE()) OR (booking.dateFrom > CURRENT_DATE())');
                 }
-                if($query['status-booking'] == 'COMPLETED'){
+                if ($query['status-booking'] == 'COMPLETED') {
                     $qb->andWhere('booking.dateTo < CURRENT_DATE()');
                 }
             }
@@ -52,17 +52,18 @@ class BookingRepository extends EntityRepository
         return $qb;
 
     }
+
     /**
      *  booking of host
      * @param $user
      * @param $query
      * @return \Doctrine\ORM\QueryBuilder
      */
-    public function findHostBooking($user,$query)
+    public function findHostBooking($user, $query)
     {
         $expr = new Expr();
         $qb = $this->createQueryBuilder('booking')
-            ->join('booking.space','space')
+            ->join('booking.space', 'space')
             ->join('space.location', 'location')
             ->where($expr->eq('space.user', ':user'))
             ->setParameter('user', $user);
@@ -71,16 +72,16 @@ class BookingRepository extends EntityRepository
                 ->setParameter('typeSpace', $query['type-space']);
         }
         if (isset($query['status-booking']) && $query['status-booking'] != '') {
-            if($query['status-booking'] == Booking::STATUS_PENDING || $query['status-booking'] == Booking::STATUS_CANCELLED){
+            if ($query['status-booking'] == Booking::STATUS_PENDING || $query['status-booking'] == Booking::STATUS_CANCELLED) {
                 $qb->andWhere('booking.status = :status')
                     ->setParameter('status', $query['status-booking']);
-            }else{
+            } else {
                 $qb->andWhere('booking.status = :status')
                     ->setParameter('status', Booking::STATUS_SUCCESS);
-                if($query['status-booking'] == 'ACTIVE'){
+                if ($query['status-booking'] == 'ACTIVE') {
                     $qb->andWhere('(booking.dateFrom <= CURRENT_DATE() AND booking.dateTo >= CURRENT_DATE()) OR (booking.dateFrom > CURRENT_DATE())');
                 }
-                if($query['status-booking'] == 'COMPLETED'){
+                if ($query['status-booking'] == 'COMPLETED') {
                     $qb->andWhere('booking.dateTo < CURRENT_DATE()');
                 }
             }
@@ -88,34 +89,78 @@ class BookingRepository extends EntityRepository
         return $qb;
 
     }
-    public function getRatingSpace($space){
+
+    /**
+     *  booking of host
+     * @param $user
+     * @param $query
+     * @return \Doctrine\ORM\QueryBuilder
+     */
+    public function findHostTransaction($user, $query)
+    {
+        $expr = new Expr();
+        $qb = $this->createQueryBuilder('booking')
+            ->join('booking.space', 'space')
+            ->join('space.location', 'location')
+            ->where($expr->eq('space.user', ':user'))
+            ->setParameter('user', $user)
+            ->andWhere('booking.status = :status')
+            ->setParameter('status', Booking::STATUS_SUCCESS)
+            ->orderBy('booking.createdAt', 'DESC');
+        if (isset($query['type-sort']) && $query['type-sort'] != '') {
+            $qb->orderBy('booking.createdAt', $query['type-sort']);
+        }
+        if (isset($query['status-booking']) && $query['status-booking'] != '') {
+            if ($query['status-booking'] == 'ACTIVE') {
+                $qb->andWhere('(booking.dateFrom <= CURRENT_DATE() AND booking.dateTo >= CURRENT_DATE()) OR (booking.dateFrom > CURRENT_DATE())');
+            }
+            if ($query['status-booking'] == 'COMPLETED') {
+                $qb->andWhere('booking.dateTo < CURRENT_DATE()');
+            }
+        }
+        return $qb;
+
+    }
+
+    public function getRatingSpace($space)
+    {
         return $this->_em->createQuery('select AVG((b.ratingLocation + b.ratingCommunication)/2) from AppBundle\Entity\Booking\Booking b where b.space =:space and b.ratingLocation > 0')
-                    ->setParameter('space',$space)
-                    ->getSingleScalarResult();
+            ->setParameter('space', $space)
+            ->getSingleScalarResult();
     }
-    public function getLocationRatingSpace($space){
+
+    public function getLocationRatingSpace($space)
+    {
         return $this->_em->createQuery('select AVG(b.ratingLocation) from AppBundle\Entity\Booking\Booking b where b.space =:space and b.ratingLocation > 0')
-                    ->setParameter('space',$space)
-                    ->getSingleScalarResult();
+            ->setParameter('space', $space)
+            ->getSingleScalarResult();
     }
-    public function getCommunicationRatingSpace($space){
+
+    public function getCommunicationRatingSpace($space)
+    {
         return $this->_em->createQuery('select AVG(b.ratingCommunication) from AppBundle\Entity\Booking\Booking b where b.space =:space and b.ratingLocation > 0')
-                    ->setParameter('space',$space)
-                    ->getSingleScalarResult();
+            ->setParameter('space', $space)
+            ->getSingleScalarResult();
     }
-    public function getTotalReviewSpace($space){
+
+    public function getTotalReviewSpace($space)
+    {
         return $this->_em->createQuery('select COUNT(b.id) from AppBundle\Entity\Booking\Booking b where b.space =:space and b.ratingLocation > 0')
-                    ->setParameter('space',$space)
-                    ->getSingleScalarResult();
+            ->setParameter('space', $space)
+            ->getSingleScalarResult();
     }
-    public function getTotalEarningSpace($space){
+
+    public function getTotalEarningSpace($space)
+    {
         return $this->_em->createQuery('select SUM (b.totalPrice) from AppBundle\Entity\Booking\Booking b where b.space =:space')
-                    ->setParameter('space',$space)
-                    ->getSingleScalarResult();
+            ->setParameter('space', $space)
+            ->getSingleScalarResult();
     }
-    public function getTotalBookingSpace($space){
+
+    public function getTotalBookingSpace($space)
+    {
         return $this->_em->createQuery('select COUNT (b.id) from AppBundle\Entity\Booking\Booking b where b.space =:space')
-                    ->setParameter('space',$space)
-                    ->getSingleScalarResult();
+            ->setParameter('space', $space)
+            ->getSingleScalarResult();
     }
-  }
+}

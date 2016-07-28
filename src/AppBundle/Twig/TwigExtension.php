@@ -78,6 +78,31 @@ class TwigExtension extends \Twig_Extension
         ];
         return $statusBooking;
     }
+    /**
+     * @return array
+     */
+    public function getTypeSorts()
+    {
+        $statusBooking = [
+            'ASC' => 'Date ASC',
+            'DESC' => 'Date DESC',
+        ];
+        return $statusBooking;
+    }
+    /**
+     * @return array
+     */
+    public function getStatusBookingSuccess()
+    {
+        $statusBooking = [
+            'ACTIVE' => 'Active',
+            'COMPLETED' => 'Completed',
+        ];
+        return $statusBooking;
+    }
+
+
+
 
     /**
      * @param $object
@@ -150,6 +175,8 @@ class TwigExtension extends \Twig_Extension
             'getImageSpace' => new \Twig_Function_Method($this, 'getImageSpace', array('is_safe' => array('html'))),
             'getStatusBookings' => new \Twig_Function_Method($this, 'getStatusBookings', array('is_safe' => array('html'))),
             'getStatusBooking' => new \Twig_Function_Method($this, 'getStatusBooking', array('is_safe' => array('html'))),
+            'getTypeSorts' => new \Twig_Function_Method($this, 'getTypeSorts', array('is_safe' => array('html'))),
+            'getStatusBookingSuccess' => new \Twig_Function_Method($this, 'getStatusBookingSuccess', array('is_safe' => array('html'))),
         );
     }
 

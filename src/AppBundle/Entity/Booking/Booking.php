@@ -86,11 +86,6 @@ class Booking
      */
     private $ratingCommunication;
 
-    /**
-     * @var integer
-     * @ORM\Column(name="rating_massage",type="text",nullable=true)
-     */
-    private $ratingMassage;
 
     /**
      * @var boolean
@@ -212,22 +207,6 @@ class Booking
     public function setRatingCommunication($ratingCommunication)
     {
         $this->ratingCommunication = $ratingCommunication;
-    }
-
-    /**
-     * @return int
-     */
-    public function getRatingMassage()
-    {
-        return $this->ratingMassage;
-    }
-
-    /**
-     * @param int $ratingMassage
-     */
-    public function setRatingMassage($ratingMassage)
-    {
-        $this->ratingMassage = $ratingMassage;
     }
 
 

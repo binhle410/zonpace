@@ -4,6 +4,9 @@
 namespace AppBundle\Controller\User\HostControl\Mgmt;
 
 use AppBundle\Entity\Booking\Booking;
+use AppBundle\Entity\Booking\BookingReviewMessage;
+use AppBundle\Entity\Space\Space;
+use AppBundle\Form\ReplyMessageType;
 use AppBundle\Form\SpaceBookingReviewType;
 use AppBundle\Form\UserPasswordType;
 use AppBundle\Form\UserProfileType;
@@ -30,6 +33,23 @@ class HostControlManipulationController extends ControllerService
             'numberActiveListing'=>$numberActiveListing,
             'unfinishedListings'=>$unfinishedListings
         ]);
+    }
+    public function replyReviewAction(Request $request,Booking $booking){
+        $message = new BookingReviewMessage();
+        $message->setUser($this->getUser());
+        $message->setBooking($booking);
+        $form = $this->createForm(ReplyMessageType::class,$message);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($message);
+            $em->flush();
+            return $this->redirectToRoute('app_user_host_control_reviewed_space',['space'=>$booking->getSpace()->getId()]);
+        }elseif ($form->isSubmitted() && !$form->isValid()) {
+            echo '<pre>';
+            \Doctrine\Common\Util\Debug::dump($this->get('app.form_serializer')->serializeFormErrors($form, true, true));
+        }
+        
     }
 
 }

@@ -54,7 +54,8 @@
                                                             from {{ booking.user.firstName~' '~booking.user.lastName }}</Strong>
                                                     </div>
                                                     <div class="col-md-4" style="margin-top: -20px;">
-                                                        <button class="btn btn-default pull-right">Reply</button>
+                                                        <button class="btn btn-default pull-right"  data-toggle="modal" data-target="#reply">Reply</button>
+                                                        {% include 'AppBundle:User/HostControl:_reviewed-space-reply.html.twig' %}
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -70,11 +71,13 @@
                                                         Short paragraph on user's opinion about the space
                                                     </div>
                                                 </div>
+                                                {% for bookingReviewMessage in booking.bookingReviewMessages %}
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        {{ booking.bookingReviewMessages[0].message|raw }}
+                                                        -{{ bookingReviewMessage.message|raw }}
                                                     </div>
                                                 </div>
+                                                    {% endfor %}
                                             </div>
                                         </div>
                                     {% endif %}
