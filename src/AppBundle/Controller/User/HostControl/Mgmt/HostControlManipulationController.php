@@ -69,8 +69,16 @@ class HostControlManipulationController extends ControllerService
         );
     }
     public function sendReceiptAction(Request $request,Booking $booking){
+        $html = $this->renderView('AppBundle:User/HostControl:_receipt-template.html.twig', array(
+            'booking'  => $booking
+        ));
+        $pathFile =  $this->get('kernel')->getRootDir() . '/../web/receipt.pdf';
+        $this->get('knp_snappy.pdf')->generateFromHtml($html,
+            $pathFile
+        );
+
         $emailTo = $request->get('email');
-        $this->get('app.email_sender')->sendEmailContact($emailTo,$booking);
+        $this->get('app.email_sender')->sendEmailContact($emailTo,$booking,$pathFile);
         return $this->redirectToRoute('app_user_host_control_transaction_report');
     }
 

@@ -19,7 +19,7 @@ class EmailSender
         $this->container = $container;
     }
 
-    public function sendEmailContact($emailTo,$booking)
+    public function sendEmailContact($emailTo,$booking,$path)
     {
         $em = $this->container->get('doctrine')->getManager();
 
@@ -29,7 +29,8 @@ class EmailSender
                 ->setFrom('noreply@zonpage.com')
                 ->setTo($emailTo)
                 ->setContentType("text/html")
-                ->setBody($content);
+                ->setBody('Hi,<br>Here is your receipt.')
+                ->attach(\Swift_Attachment::fromPath($path));
         $mailer = $this->mailer;
         if (!$mailer->send($message)) {
 
