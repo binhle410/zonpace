@@ -54,14 +54,14 @@ class SpaceRepository extends EntityRepository
             ->join('space.location', 'location')
             ->where($expr->eq('space.user', ':user'))
             ->andWhere($expr->eq('space.completedCreate', ':completedCreate'))
-            ->setParameter('completedCreate',true)
+            ->setParameter('completedCreate', true)
             ->setParameter('user', $user);
         if (isset($query['type-space']) && $query['type-space'] != '') {
             $qb->andWhere('location.typeSpace = :typeSpace')
                 ->setParameter('typeSpace', $query['type-space']);
         }
         if (isset($query['status-space']) && $query['status-space'] != '') {
-            $value = $query['status-space'] == 'enabled' ? true:false;
+            $value = $query['status-space'] == 'enabled' ? true : false;
             $qb->andWhere('space.enabled = :enabled')
                 ->setParameter('enabled', $value);
         }
@@ -69,7 +69,7 @@ class SpaceRepository extends EntityRepository
 
     }
 
-    public function searchSpaces($query,$radius)
+    public function searchSpaces($query, $radius)
     {
         $expr = new Expr();
         $fields = [];
@@ -89,10 +89,10 @@ class SpaceRepository extends EntityRepository
 
         if (isset($query['features']) && $query['features'] != '') {
             $listFeatureId = [];
-            foreach ($query['features'] as $featureId){
+            foreach ($query['features'] as $featureId) {
                 $listFeatureId[] = intval($featureId);
             }
-            $qb->andWhere($expr->in('features.id',':featuresId'))
+            $qb->andWhere($expr->in('features.id', ':featuresId'))
                 ->setParameter('featuresId', $listFeatureId);
         }
         if (isset($query['instant-booking']) && $query['instant-booking'] != '') {
@@ -140,8 +140,8 @@ class SpaceRepository extends EntityRepository
         $expr = new Expr();
         $lat = $query['lat'];
         $lng = $query['lng'];
-        $field[] = $expr->countDistinct('space.id').' as total';
-        $field[] = "( 3959 * acos( cos( radians('$lat') ) * cos( radians( location.lat ) ) * cos( radians( location.lng ) - radians('$lng') ) + sin( radians('$lat') ) * sin( radians( location.lat ) ) )) as distance";
+        $field = $expr->countDistinct('space.id') . ' as total';
+        $distance = "( 3959 * acos( cos( radians('$lat') ) * cos( radians( location.lat ) ) * cos( radians( location.lng ) - radians('$lng') ) + sin( radians('$lat') ) * sin( radians( location.lat ) ) ))";
 
         $qb = $this->_em->createQueryBuilder()
             ->select($field)
@@ -150,15 +150,8 @@ class SpaceRepository extends EntityRepository
             ->join('space.price', 'price')
             ->join('space.dateBooking', 'dateBooking')
             ->leftJoin('space.features', 'features')
-            ->groupBy('space.id')
-            ->having("distance <= :radius")
+            ->where($distance . " <= :radius")
             ->setParameter('radius', $radius);
-        try {
-            $result = $qb->getQuery()->getSingleResult();
-            return intval($result['total']);
-        } catch (\Exception $e) {
-            return 0;
-        }
-
+        return $qb->getQuery()->getSingleScalarResult();
     }
 }
