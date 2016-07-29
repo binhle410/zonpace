@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller\Front\Mgmt;
 
+use AppBundle\Entity\Core\User;
 use AppBundle\Services\Core\ControllerService;
 use Doctrine\Common\Util\Debug;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -27,6 +28,18 @@ class PublicRetrievalController extends ControllerService
         return $this->render('AppBundle:Front:search-spaces.html.twig',[
             'spaces'=>$spaces,
             'featureCategories'=>$featureCategories
+        ]);
+    }
+
+    /**
+     * Will use slug later
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function hostProfileAction(Request $request,User $user){
+
+        return $this->render('AppBundle:Front:host-profile.html.twig',[
+            'user'=>$user
         ]);
     }
 }

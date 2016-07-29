@@ -122,6 +122,49 @@ class BookingRepository extends EntityRepository
 
     }
 
+    /*
+     * Get Rating for host--------------------------------------------------
+     */
+    public function getRatingHost($host)
+    {
+        $expr = new Expr();
+        $qb = $this->createQueryBuilder('booking')
+            ->select('AVG((booking.ratingLocation + booking.ratingCommunication)/2)')
+            ->join('booking.space', 'space')
+            ->where($expr->eq('space.user', ':user'))
+            ->setParameter('user',$host);
+
+        return $qb->getQuery()->getSingleScalarResult();
+    }
+    public function getCommunicationRatingHost($host)
+    {
+        $expr = new Expr();
+        $qb = $this->createQueryBuilder('booking')
+            ->select('AVG(booking.ratingCommunication)')
+            ->join('booking.space', 'space')
+            ->where($expr->eq('space.user', ':user'))
+            ->setParameter('user',$host);
+
+        return $qb->getQuery()->getSingleScalarResult();
+
+    }
+
+    public function getLocationRatingHost($host)
+    {
+        $expr = new Expr();
+        $qb = $this->createQueryBuilder('booking')
+            ->select('AVG(booking.ratingLocation)')
+            ->join('booking.space', 'space')
+            ->where($expr->eq('space.user', ':user'))
+            ->setParameter('user',$host);
+
+        return $qb->getQuery()->getSingleScalarResult();
+
+    }
+
+    /*
+     * Get Rating for a space--------------------------------------------------
+     */
     public function getRatingSpace($space)
     {
         return $this->_em->createQuery('select AVG((b.ratingLocation + b.ratingCommunication)/2) from AppBundle\Entity\Booking\Booking b where b.space =:space and b.ratingLocation > 0')
@@ -142,6 +185,10 @@ class BookingRepository extends EntityRepository
             ->setParameter('space', $space)
             ->getSingleScalarResult();
     }
+
+    /*
+     * Get some infor--------------------------------------------------
+     */
 
     public function getTotalReviewSpace($space)
     {

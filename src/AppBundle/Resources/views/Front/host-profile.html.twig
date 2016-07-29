@@ -1,0 +1,33 @@
+{% extends 'AppBundle::layout.html.twig' %}
+{% block content %}
+
+
+    <section class="main-container">
+
+        <div class="container">
+            <div class="row">
+                <div class="main col-md-12">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="{{ getUrl(user.photo,'default','medium') }}">
+                        </div>
+                        <div class="col-md-4">
+                            <h3><strong>{{ user.firstName ~ ' '~ user.lastName }}</strong></h3>
+                            <p>{{ user.city.name ~', '~ user.state.name }}</p>
+                            <p>{{ user.aboutUser }}</p>
+                            <p>Communication: {{ getRatingHost(user,3) }}</p>
+                            <p>Location: {{ getRatingHost(user,2) }}</p>
+
+
+                        </div>
+                        <div class="col-md-4">
+                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#contact-host">Contact Host</button>
+                            {% include 'AppBundle:Front:_contact-host.html.twig' %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

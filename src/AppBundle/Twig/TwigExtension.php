@@ -103,33 +103,54 @@ class TwigExtension extends \Twig_Extension
 
 
 
-
-    /**
-     * @param $object
-     * @param $type 1:,all, 2:locationRating, 3:communicationRating ,4 avg locationRating, 5 avg communicationRating
-     * @return string
-     */
-    public function getRatingSpace($object,$type){
+    public function getRatingBooking($booking,$type){
+        switch ($type){
+            case 1:
+                $rating = $booking->getRatingLocation();
+                break;
+            case 2:
+                $rating = $booking->getRatingCommunication();
+                break;
+        }
+        return $this->generateRatingStar($rating);
+    }
+    public function getRatingSpace($space,$type){
         switch ($type){
             //object is Space
             case 1:
-                $rating = $this->container->get('app.controller')->getRatingSpace($object);
+                $rating = $this->container->get('app.controller')->getRatingSpace($space);
                 break;
-            //Object is Booking
             case 2:
-                $rating = $object->getRatingLocation();
+                $rating = $this->container->get('app.controller')->getLocationRatingSpace($space);
                 break;
             case 3:
-                $rating = $object->getRatingCommunication();
-                break;
-            case 4:
-                $rating = $this->container->get('app.controller')->getLocationRatingSpace($object);
-                break;
-            case 5:
-                $rating = $this->container->get('app.controller')->getCommunicationRatingSpace($object);
+                $rating = $this->container->get('app.controller')->getCommunicationRatingSpace($space);
                 break;
 
         }
+        return $this->generateRatingStar($rating);
+    }
+
+    /**
+     * @return string
+     */
+    public function getRatingHost($user,$type){
+        switch ($type){
+            //object is Space
+            case 1:
+                $rating = $this->container->get('app.controller')->getRatingHost($user);
+                break;
+            case 2:
+                $rating = $this->container->get('app.controller')->getLocationRatingHost($user);
+                break;
+            case 3:
+                $rating = $this->container->get('app.controller')->getCommunicationRatingHost($user);
+                break;
+
+        }
+        return $this->generateRatingStar($rating);
+    }
+    public function generateRatingStar($rating){
         $rating = round($rating);
         $noRating = 5- $rating;
         $html='';
@@ -168,7 +189,9 @@ class TwigExtension extends \Twig_Extension
             'getTypeSpace' => new \Twig_Function_Method($this, 'getTypeSpace', array('is_safe' => array('html'))),
             'getTypeSpaces' => new \Twig_Function_Method($this, 'getTypeSpaces', array('is_safe' => array('html'))),
             'getStatusSpaces' => new \Twig_Function_Method($this, 'getStatusSpaces', array('is_safe' => array('html'))),
+            'getRatingBooking' => new \Twig_Function_Method($this, 'getRatingBooking', array('is_safe' => array('html'))),
             'getRatingSpace' => new \Twig_Function_Method($this, 'getRatingSpace', array('is_safe' => array('html'))),
+            'getRatingHost' => new \Twig_Function_Method($this, 'getRatingHost', array('is_safe' => array('html'))),
             'getTotalReviewSpace' => new \Twig_Function_Method($this, 'getTotalReviewSpace', array('is_safe' => array('html'))),
             'getTotalEarningSpace' => new \Twig_Function_Method($this, 'getTotalEarningSpace', array('is_safe' => array('html'))),
             'getTotalBookingSpace' => new \Twig_Function_Method($this, 'getTotalBookingSpace', array('is_safe' => array('html'))),

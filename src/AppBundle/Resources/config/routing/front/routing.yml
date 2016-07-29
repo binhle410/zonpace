@@ -4,3 +4,10 @@ app_front_search_spaces:
 app_front_get_near_by_listing:
     path: /get-near-by-listing
     defaults: { _controller: AppBundle:Front/Api/PublicApi:getNearByListing}
+app_front_host_profile:
+    path: /host-profile/{user}
+    defaults: { _controller: AppBundle:Front/Mgmt/PublicRetrieval:hostProfile}
+
+app_front_contact_host:
+    path: /contact-host/{user}
+    defaults: { _controller: AppBundle:Front/Mgmt/PublicManipulation:contactHost}

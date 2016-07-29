@@ -51,6 +51,20 @@ class ControllerService extends Controller
     {
         return $this->getDoctrine()->getManager()->getRepository('AppBundle:Booking\Booking')->getRatingSpace($space);
     }
+    public function getLocationRatingHost($user)
+    {
+        return $this->getDoctrine()->getManager()->getRepository('AppBundle:Booking\Booking')->getLocationRatingHost($user);
+    }
+
+    public function getCommunicationRatingHost($user)
+    {
+        return $this->getDoctrine()->getManager()->getRepository('AppBundle:Booking\Booking')->getCommunicationRatingHost($user);
+    }
+
+    public function getRatingHost($user)
+    {
+        return $this->getDoctrine()->getManager()->getRepository('AppBundle:Booking\Booking')->getRatingHost($user);
+    }
 
     public function getTotalReviewSpace($space)
     {
