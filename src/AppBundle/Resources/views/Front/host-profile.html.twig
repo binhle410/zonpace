@@ -21,15 +21,19 @@
 
                         </div>
                         <div class="col-md-4">
-                            <button type="button" class="btn btn-default" data-toggle="modal"
+                            <button type="button" class="btn btn-default pull-right" data-toggle="modal"
                                     data-target="#contact-host">Contact Host
                             </button>
                             {% include 'AppBundle:Front:_contact-host.html.twig' %}
                         </div>
                     </div>
-                        <h6><strong>{{ numberActiveListing }} Listings Available</strong></h6>
+                        <h4 style="margin-top: 50px"><strong>{{ numberActiveListing }} Listings Available</strong></h4>
                     <div class="row list-paging-ajax">
                         {% include 'AppBundle:Front:_host-profile-list-space.html.twig' %}
+                    </div>
+                    <h4 style="margin-top: 50px"><strong>{{ numberReview }} Reviews</strong></h4>
+                    <div class="row list-paging-ajax">
+                        {% include 'AppBundle:Front:_host-profile-list-review.html.twig' %}
                     </div>
                 </div>
             </div>

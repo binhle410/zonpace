@@ -48,4 +48,25 @@ class PublicApiController extends ControllerService
         );
         return new JsonResponse(['status'=>true,'html'=>$html]);
     }
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function listReviewAction(Request $request,User $user){
+
+
+        $em = $this->getDoctrine()->getManager();
+        $bookingRepo = $em->getRepository('AppBundle:Booking\Booking');
+
+        $reviewsQb = $bookingRepo->findHostBooking($user,['is-review'=>true]);
+        $reviews = $this->pagingBuilder($request,$reviewsQb);
+
+        $html = $this->renderView('AppBundle:Front:_host-profile-list-space.html.twig',
+            [
+                'user'=>$user,
+                'reviews'=>$reviews
+            ]
+        );
+        return new JsonResponse(['status'=>true,'html'=>$html]);
+    }
 }

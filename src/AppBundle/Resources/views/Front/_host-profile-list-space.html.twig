@@ -5,7 +5,7 @@
                 <div class="row">
                     {% if listing.photo.galleryHasMedias.count ==1 %}
                         {% set galleryHasMedia = listing.photo.galleryHasMedias[0] %}
-                        <img src="{{ getUrl(galleryHasMedia.media,'default','big') }}">
+                        <img class="center-block" src="{{ getUrl(galleryHasMedia.media,'default','big') }}">
                     {% endif %}
                 </div>
                 <div class="row">

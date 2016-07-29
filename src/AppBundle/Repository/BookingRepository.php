@@ -71,6 +71,10 @@ class BookingRepository extends EntityRepository
             $qb->andWhere('location.typeSpace = :typeSpace')
                 ->setParameter('typeSpace', $query['type-space']);
         }
+        if (isset($query['is-review']) && $query['is-review'] != '') {
+            $qb->andWhere('booking.isReview = :isReview')
+                ->setParameter('isReview',$query['is-review']);
+        }
         if (isset($query['status-booking']) && $query['status-booking'] != '') {
             if ($query['status-booking'] == Booking::STATUS_PENDING || $query['status-booking'] == Booking::STATUS_CANCELLED) {
                 $qb->andWhere('booking.status = :status')
@@ -189,6 +193,20 @@ class BookingRepository extends EntityRepository
     /*
      * Get some infor--------------------------------------------------
      */
+
+
+    public function getTotalReviewHost($host)
+    {
+        $expr = new Expr();
+        $qb = $this->createQueryBuilder('booking')
+            ->select('COUNT(booking.id)')
+            ->join('booking.space', 'space')
+            ->where($expr->eq('booking.isReview',true))
+            ->andWhere($expr->eq('space.user', ':user'))
+            ->setParameter('user',$host);
+
+        return $qb->getQuery()->getSingleScalarResult();
+    }
 
     public function getTotalReviewSpace($space)
     {

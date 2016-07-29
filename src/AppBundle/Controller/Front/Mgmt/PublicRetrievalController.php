@@ -40,15 +40,23 @@ class PublicRetrievalController extends ControllerService
 
         $em = $this->getDoctrine()->getManager();
         $spaceRepo = $em->getRepository('AppBundle:Space\Space');
+        $bookingRepo = $em->getRepository('AppBundle:Booking\Booking');
         $numberActiveListing = $spaceRepo->getNumberActiveListing($user);
+        $numberReview = $bookingRepo->getTotalReviewHost($user);
 
         $listingsQb = $spaceRepo->findMySpaces($user,['status-space'=>'enabled']);
         $listings= $this->pagingBuilder($request,$listingsQb);
 
+        $reviewsQb = $bookingRepo->findHostBooking($user,['is-review'=>true]);
+        $reviews = $this->pagingBuilder($request,$reviewsQb);
+
         return $this->render('AppBundle:Front:host-profile.html.twig',[
             'user'=>$user,
             'numberActiveListing'=>$numberActiveListing,
-            'listings'=>$listings
+            'listings'=>$listings,
+            'reviews'=>$reviews,
+            'numberReview'=>$numberReview
+
         ]);
     }
 }

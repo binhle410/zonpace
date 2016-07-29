@@ -114,6 +114,22 @@ class BookingReviewMessage
     {
         $this->message = $message;
     }
+
+    /**
+     * @return datetime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param datetime $createdAt
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+    }
     
     
     

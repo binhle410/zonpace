@@ -1,0 +1,40 @@
+
+    <div class="row">
+        {% for review in reviews %}
+            <div class="col-md-12">
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="{{ getUrl(review.user.photo,'default','medium') }}"><br>
+                        {{ review.user.city.name ~', '~review.user.state.name }}
+                    </div>
+                    <div class="col-md-10">
+                        <div class="row">
+                            <div class="col-md-6">
+                                Communication : {{ getRatingBooking(review,2) }}<br>
+                                Location : {{ getRatingBooking(review,1) }}
+
+                            </div>
+                            <div class="col-md-6">
+                                <span class="pull-right">{{ review.bookingReviewMessages[0].createdAt|date('m/d/Y') }}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                        <p><strong style="color: red;">on Space's name {{ review.space.name }}</strong></p>
+                        <p><strong>Short paragrapth on user's opinion about the place</strong></p>
+                        <p>{{ review.bookingReviewMessages[0].message }}</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        {% endfor %}
+    </div>
+    {% if reviews|length %}
+    <div class="row">
+    <div class="col-lg-12">
+    {{ pagerfanta(reviews,'ajax',{'routeName':'app_front_list_review_ajax','routeParams':{'user':user.id}}) }}
+    </div>
+    </div>
+    {% endif %}
+

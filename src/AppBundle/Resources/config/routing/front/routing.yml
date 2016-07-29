@@ -15,3 +15,6 @@ app_front_contact_host:
 app_front_list_space_ajax:
     path: /list-space/{user}
     defaults: { _controller: AppBundle:Front/Api/PublicApi:listSpace}
+app_front_list_review_ajax:
+    path: /list-review/{user}
+    defaults: { _controller: AppBundle:Front/Api/PublicApi:listReview}
