@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller\Front\Api;
 
+use AppBundle\Entity\Space\Space;
 use AppBundle\Services\Core\ControllerService;
 use Doctrine\Common\Util\Debug;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -49,22 +50,29 @@ class PublicApiController extends ControllerService
         return new JsonResponse(['status'=>true,'html'=>$html]);
     }
     /**
+     * of host(have many space) , or of a space
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function listReviewAction(Request $request,User $user){
+    public function listReviewAction(Request $request,User $user = null,Space $space = null){
 
 
         $em = $this->getDoctrine()->getManager();
         $bookingRepo = $em->getRepository('AppBundle:Booking\Booking');
 
-        $reviewsQb = $bookingRepo->findHostBooking($user,['is-review'=>true]);
-        $reviews = $this->pagingBuilder($request,$reviewsQb);
+        if($user != null){
+            $reviewsQb = $bookingRepo->findHostBooking($user,['is-review'=>true]);
+            $reviews = $this->pagingBuilder($request,$reviewsQb);
+        }elseif($space != null){
+            $reviewsQb = $bookingRepo->findSpaceBooking($space);
+            $reviews = $this->pagingBuilder($request,$reviewsQb);
+        }
 
-        $html = $this->renderView('AppBundle:Front:_host-profile-list-space.html.twig',
+        $html = $this->renderView('AppBundle:Front:_list-review.html.twig',
             [
                 'user'=>$user,
-                'reviews'=>$reviews
+                'reviews'=>$reviews,
+                'space'=>$space
             ]
         );
         return new JsonResponse(['status'=>true,'html'=>$html]);

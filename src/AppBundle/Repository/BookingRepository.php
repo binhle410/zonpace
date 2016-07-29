@@ -93,6 +93,22 @@ class BookingRepository extends EntityRepository
         return $qb;
 
     }
+    /**
+     *  booking of a space
+     * @param $space
+     * @return \Doctrine\ORM\QueryBuilder
+     */
+    public function findSpaceBooking($space)
+    {
+        $expr = new Expr();
+        $qb = $this->createQueryBuilder('booking')
+            ->join('booking.space', 'space')
+            ->where($expr->eq('space', ':space'))
+            ->andWhere('booking.isReview = 1')
+            ->setParameter('space', $space);
+        return $qb;
+
+    }
 
     /**
      *  booking of host
@@ -210,7 +226,7 @@ class BookingRepository extends EntityRepository
 
     public function getTotalReviewSpace($space)
     {
-        return $this->_em->createQuery('select COUNT(b.id) from AppBundle\Entity\Booking\Booking b where b.space =:space and b.ratingLocation > 0')
+        return $this->_em->createQuery('select COUNT(b.id) from AppBundle\Entity\Booking\Booking b where b.space =:space and b.isReview = 0')
             ->setParameter('space', $space)
             ->getSingleScalarResult();
     }

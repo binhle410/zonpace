@@ -33,7 +33,9 @@
     {% if reviews|length %}
     <div class="row">
     <div class="col-lg-12">
-    {{ pagerfanta(reviews,'ajax',{'routeName':'app_front_list_review_ajax','routeParams':{'user':user.id}}) }}
+        {% set userId = user is defined and user is not null ? user.id : 0 %}
+        {% set spaceId = space is defined and space is not null ? space.id : 0 %}
+    {{ pagerfanta(reviews,'ajax',{'routeName':'app_front_list_review_ajax','routeParams':{'user':userId,'space':spaceId}}) }}
     </div>
     </div>
     {% endif %}

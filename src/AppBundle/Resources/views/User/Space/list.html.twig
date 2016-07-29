@@ -90,7 +90,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-2">
-                                            <div class="space-enabled"><strong>Enabled</strong></div>
+                                            <div class="space-enabled"><strong>{{ space.enabled ? 'Enabled':'Disabled'  }}</strong></div>
                                             <input onclick="window.location.href='{{ path('app_user_host_control_reviewed_space',{'space':space.id}) }}'" type="button" value="Review"
                                                    class="margin-clear btn btn-default btn-custom">
                                             <input onclick="window.location.href='{{ path('app_user_space_view',{'space':space.id}) }}'"

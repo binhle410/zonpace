@@ -16,5 +16,9 @@ app_front_list_space_ajax:
     path: /list-space/{user}
     defaults: { _controller: AppBundle:Front/Api/PublicApi:listSpace}
 app_front_list_review_ajax:
-    path: /list-review/{user}
+    path: /list-review/{user}/{space}
     defaults: { _controller: AppBundle:Front/Api/PublicApi:listReview}
+
+app_front_detail_space:
+    path: /detail-space/{space}
+    defaults: { _controller: AppBundle:Front/Mgmt/PublicRetrieval:detailSpace}
