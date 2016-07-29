@@ -1803,4 +1803,67 @@ jQuery(function () {
 
     })(jQuery, window, document);
 
+
+    /**
+     *  @name  add user
+     *  @description list view
+     *  @version 1.0
+     *  @options
+     *    option
+     *  @events
+     *    event
+     *  @methods
+     *    init
+     */
+    (function ($, window, document, undefined) {
+        var pluginName = "paging-ajax";
+
+        // The actual plugin constructor
+        function Plugin(element, options) {
+            this.element = element;
+            this.options = $.extend({}, $.fn[pluginName].defaults, options);
+            this.init();
+        }
+
+        Plugin.prototype = {
+            init: function () {
+                var that = this;
+                that.loadPage();
+            },
+            loadPage: function () {
+                var that = this;
+                $("body").delegate("ul.pagination-ajax a.page", "click", function (e) {
+                    e.preventDefault();
+                    var url = $(this).attr('rel');
+                    var wrap = $(this).parents('.list-paging-ajax');
+                    $.ajax({
+                        url: url,
+                        type: "GET",
+                        success: function (result) {
+                            if (result.status) {
+                                wrap.html(result.html)
+                            }
+                        }
+                    });
+
+                });
+            },
+        };
+        $.fn[pluginName] = function (options) {
+            return this.each(function () {
+                if (!$.data(this, pluginName)) {
+                    $.data(this, pluginName,
+                        new Plugin(this, options));
+                }
+            });
+        };
+        $.fn[pluginName].defaults = {
+            propertyName: 1
+        };
+        $(function () {
+            $('[data-' + pluginName + ']')[pluginName]();
+        });
+
+    })(jQuery, window, document);
+
 });

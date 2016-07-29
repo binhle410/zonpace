@@ -2,7 +2,7 @@
 {% block content %}
 
 
-    <section class="main-container">
+    <section class="main-container" data-paging-ajax="">
 
         <div class="container">
             <div class="row">
@@ -21,9 +21,15 @@
 
                         </div>
                         <div class="col-md-4">
-                            <button type="button" class="btn btn-default" data-toggle="modal" data-target="#contact-host">Contact Host</button>
+                            <button type="button" class="btn btn-default" data-toggle="modal"
+                                    data-target="#contact-host">Contact Host
+                            </button>
                             {% include 'AppBundle:Front:_contact-host.html.twig' %}
                         </div>
+                    </div>
+                        <h6><strong>{{ numberActiveListing }} Listings Available</strong></h6>
+                    <div class="row list-paging-ajax">
+                        {% include 'AppBundle:Front:_host-profile-list-space.html.twig' %}
                     </div>
                 </div>
             </div>

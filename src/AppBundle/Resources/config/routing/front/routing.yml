@@ -11,3 +11,7 @@ app_front_host_profile:
 app_front_contact_host:
     path: /contact-host/{user}
     defaults: { _controller: AppBundle:Front/Mgmt/PublicManipulation:contactHost}
+
+app_front_list_space_ajax:
+    path: /list-space/{user}
+    defaults: { _controller: AppBundle:Front/Api/PublicApi:listSpace}

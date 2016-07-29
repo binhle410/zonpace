@@ -38,8 +38,17 @@ class PublicRetrievalController extends ControllerService
      */
     public function hostProfileAction(Request $request,User $user){
 
+        $em = $this->getDoctrine()->getManager();
+        $spaceRepo = $em->getRepository('AppBundle:Space\Space');
+        $numberActiveListing = $spaceRepo->getNumberActiveListing($user);
+
+        $listingsQb = $spaceRepo->findMySpaces($user,['status-space'=>'enabled']);
+        $listings= $this->pagingBuilder($request,$listingsQb);
+
         return $this->render('AppBundle:Front:host-profile.html.twig',[
-            'user'=>$user
+            'user'=>$user,
+            'numberActiveListing'=>$numberActiveListing,
+            'listings'=>$listings
         ]);
     }
 }

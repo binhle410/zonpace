@@ -39,6 +39,7 @@ class Space
         $this->photo = $gallery;
         $this->enabled = false;
         $this->completedCreate = false;
+        $this->instantBook = false;
     }
 
     /**
