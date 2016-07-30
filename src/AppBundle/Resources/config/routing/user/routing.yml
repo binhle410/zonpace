@@ -10,3 +10,7 @@ app_user_host_control:
     resource: "@AppBundle/Resources/config/routing/user/host_control/routing.yml"
     prefix:   /host-control
 
+app_user_booking:
+    resource: "@AppBundle/Resources/config/routing/user/booking/routing.yml"
+    prefix:   /booking
+

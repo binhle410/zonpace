@@ -1892,6 +1892,79 @@ jQuery(function () {
             init: function () {
                 var that = this;
                 that.drawShape();
+                that.booking();
+                that.getPrice();
+            },
+            getPrice: function(){
+                if($('.booking-step-1').length){
+                    $('#app_booking_dateFrom').change(function(){
+                        if($('#app_booking_dateFrom').val() != '' && $('#app_booking_dateTo').val()!=''){
+                            callGetPrice();
+                        }
+                    });
+                    $('#app_booking_dateTo').change(function(){
+                        if($('#app_booking_dateFrom').val() != '' && $('#app_booking_dateTo').val()!=''){
+                            callGetPrice();
+                        }
+                    });
+                    function callGetPrice(){
+                        var url = $('.booking-step-1').data('url');
+                        var fromDate =$('#app_booking_dateFrom').val();
+                        var toDate = $('#app_booking_dateTo').val();
+                        var pricePerDay =$('.booking-step-1').data('price-per-day');;
+                        $.ajax({
+                            url: url,
+                            type: "POST",
+                            data: {
+                                'fromDate':fromDate,
+                                'toDate':toDate,
+                                'pricePerDay':pricePerDay,
+                            },
+                            success: function (result) {
+                                if (result.status) {
+                                    $('.price').html(result.price)
+                                }
+                            }
+                        });
+                    }
+                }
+            },
+            booking: function () {
+
+                var publishableKey = $("#payment-form").data('publishable-key');
+                Stripe.setPublishableKey(publishableKey);
+
+                function stripeResponseHandler(status, response) {
+                    if (response.error) {
+                        // re-enable the submit button
+                        $('.submit-button').removeAttr("disabled");
+                        // show the errors on the form
+                        $(".payment-errors").html(response.error.message);
+                    } else {
+                        var form$ = $("#payment-form");
+                        // token contains id, last4, and card type
+                        var token = response['id'];
+                        // insert the token into the form so it gets submitted to the server
+                        form$.append("<input type='hidden' name='stripeToken' value='" + token + "' />");
+                        form$.append("<input type='hidden' name='fromStep2' value='1' />");
+                        // and submit
+                        form$.get(0).submit();
+                    }
+                }
+
+                    $("#payment-form").submit(function(event) {
+                        // disable the submit button to prevent repeated clicks
+                        $('.submit-button').attr("disabled", "disabled");
+                        // createToken returns immediately - the supplied callback submits the form if there are no errors
+                        Stripe.createToken({
+                            number: $('.card-number').val(),
+                            cvc: $('.card-cvc').val(),
+                            exp_month: $('.card-expiry-month').val(),
+                            exp_year: $('.card-expiry-year').val(),
+                            name: $('.card-name-holder').val(),
+                        }, stripeResponseHandler);
+                        return false; // submit from callback
+                    });
             },
             drawShape: function () {
                 var that = this;

@@ -164,5 +164,35 @@ class ControllerService extends Controller
         }
     }
 
+    /**
+     * @param $dateFrom
+     * @param $dateTo
+     * @param $pricePerDay
+     * @param $type (1:dailly,2:weekly,3:month)
+     */
+    public function getPriceBooking($dateFrom,$dateTo,$pricePerDay,$type){
+        $numberDate = $this->getNumberDate($dateFrom,$dateTo);
+        $price = $numberDate * $pricePerDay;
+        return round($price,1);
+    }
+    /*
+ * format :Y-m-d
+ */
+    public function getNumberDate($from, $to)
+    {
+        $begin = new \DateTime($from);
+        $end = new \DateTime($to);
+        $end = $end->modify('+1 day');
+
+        $interval = new \DateInterval('P1D');
+        $daterange = new \DatePeriod($begin, $interval, $end);
+
+        $count =0;
+        foreach ($daterange as $date) {
+            $count++;
+        }
+        return $count;
+    }
+
 
 }

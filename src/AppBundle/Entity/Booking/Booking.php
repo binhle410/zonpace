@@ -19,6 +19,10 @@ class Booking
     const STATUS_PENDING ='PENDING';
     const STATUS_CANCELLED ='CANCELLED';
     const STATUS_SUCCESS ='SUCCESS'; //Active , Completed
+
+    const BOOKING_TYPE_DAILY='DAILY';
+    const BOOKING_TYPE_WEEKLY='WEEKLY';
+    const BOOKING_TYPE_MONTHLY='MONTHLY';
     /**
      * @var int
      *
@@ -32,8 +36,18 @@ class Booking
     {
         $this->createdAt = new \DateTime();
         $this->isReview = false;
+        $this->bookingType = self::BOOKING_TYPE_DAILY;
+        $this->status = self::STATUS_PENDING;
+        $this->totalPrice = 0;
+        $this->ratingCommunication =0;
+        $this->ratingLocation=0;
     }
 
+    /**
+     * @var string
+     * @ORM\Column(name="booking_type",type="string")
+     */
+    private $bookingType;
     /**
      * @var string
      * @ORM\Column(name="status",type="string")
@@ -114,6 +128,22 @@ class Booking
     public function setBookingReviewMessages($bookingReviewMessages)
     {
         $this->bookingReviewMessages = $bookingReviewMessages;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBookingType()
+    {
+        return $this->bookingType;
+    }
+
+    /**
+     * @param string $bookingType
+     */
+    public function setBookingType($bookingType)
+    {
+        $this->bookingType = $bookingType;
     }
     
 

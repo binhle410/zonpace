@@ -49,12 +49,14 @@
                             Day
                         </div>
                     </div>
+                    {% if app.user %}
                     <div class="row">
                         <div class="col-md-12">
-                            <input onclick="window.location.href='{{ path('app_front_detail_space',{'space':space.id}) }}'"  type="button" value="Book Now"
+                            <input onclick="window.location.href='{{ path('app_user_booking_create',{'step':1,'space':space.id}) }}'"  type="button" value="Book Now"
                                    class="btn btn-danger btn-sm btn-custom">
                         </div>
                     </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
