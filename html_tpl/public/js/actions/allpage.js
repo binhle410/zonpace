@@ -10,6 +10,7 @@
  * 7. Show Menu Mobile
  * 8. Show FAQs
  * 9. Custom upload file
+ * 10. Calendar slider
  */
 var allpage_fn = {};
 /* ----------------------------------------------- */
@@ -67,7 +68,6 @@ allpage_fn.datePicker = function () {
     $('.ipt-date').each(function() {
         $(this).datetimepicker({
             dayViewHeaderFormat: 'MMMM YYYY',
-            pickTime: false,
             format: 'DD-MM-YYYY'
         });
     });
@@ -259,6 +259,19 @@ allpage_fn.ShowFileUpload = function () {
         $this_span.text($this.val().replace(/.*(\/|\\)/, ''));
     });
 }
+/**
+ * 10. Calendar slider
+ */
+allpage_fn.leaseCalendar = {
+    nowCalendar : function () {
+        $input = $("#ipt-datenow");
+        $input.datetimepicker({
+            dayViewHeaderFormat: 'MMMM YYYY',
+            format: 'DD-MM-YYYY',
+        });
+        $("#ipt-datenow").focus();
+    }
+};
 /* ----------------------------------------------- */
 /* ----------------------------------------------- */
 /* OnLoad Page */
@@ -289,6 +302,9 @@ $(document).ready(function($){
 
     // custom upload file
     allpage_fn.ShowFileUpload();
+
+    // now calendar
+    allpage_fn.leaseCalendar.nowCalendar();
 });
 /* OnLoad Window */
 var init = function () {   
