@@ -95,25 +95,171 @@
                     <textarea id="ipt-description" placeholder="Example: Apt, Suite, Bldg, etc" class="txt"></textarea>
                   </div>
                   <!-- END : ITM-->
+                  <div class="frow frow-border">
+                    <label for="ipt-description">Photos</label>
+                    <div class="frm-upload clearfix">
+                      <div class="fileUpload"><span>Upload</span>
+                        <div>
+                          <input type="file" name="userfile" id="fileToUpload">
+                        </div>
+                      </div><span class="up-ttl">We accept .png, .jpg, files up to 3MB</span>
+                    </div>
+                  </div>
+                  <!-- END : ITM-->
+                  <div class="frow frow-border">
+                    <label>Prices</label>
+                    <p>
+                      <input type="checkbox" name="rd-price" id="price-1" checked="checked">
+                      <label for="price-1" class="lbl-price">Daily</label>
+                      <input type="text" id="ipt-daily" placeholder="Price / Day" class="ipt ipt-150">
+                    </p>
+                    <p>
+                      <input type="checkbox" name="rd-price" id="price-2" checked="checked">
+                      <label for="price-2" class="lbl-price">Weekly Discount</label>
+                      <input type="text" id="ipt-daily" placeholder="% discount" class="ipt ipt-150">
+                    </p>
+                    <p>
+                      <input type="checkbox" name="rd-price" id="price-3" checked="checked">
+                      <label for="price-3" class="lbl-price">Monthly Discount</label>
+                      <input type="text" id="ipt-daily" placeholder="% discount" class="ipt ipt-150">
+                    </p>
+                  </div>
+                  <!-- END : ITM-->
+                  <div class="frow frow-border">
+                    <div class="blk-fea"> 
+                      <label>Feature</label>
+                      <div class="fea-control"><a href="#">Tick all</a><a href="#">Untick all</a></div>
+                    </div>
+                    <div class="frow">
+                      <label class="lb-normal">Wedding & Anniversary</label>
+                      <p class="no-bt">
+                        <input type="checkbox" name="rd-wedding" id="wedding-1" checked="checked">
+                        <label for="wedding-1" class="lbl-checkbox">Wedding</label>
+                        <input type="checkbox" name="rd-wedding" id="wedding-2">
+                        <label for="wedding-2" class="lbl-checkbox">Banquet  </label>
+                      </p>
+                      <p class="no-bt">
+                        <input type="checkbox" name="rd-wedding" id="wedding-3" checked="checked">
+                        <label for="wedding-3" class="lbl-checkbox">Anniversary</label>
+                        <input type="checkbox" name="rd-wedding" id="wedding-4">
+                        <label for="wedding-4" class="lbl-checkbox">Birthday  </label>
+                      </p>
+                    </div>
+                    <!-- END : ITM      -->
+                    <div class="frow">
+                      <label class="lb-normal">Leisure Event</label>
+                      <p class="no-bt">
+                        <input type="checkbox" name="rd-leisure" id="leisure-1" checked="checked">
+                        <label for="leisure-1" class="lbl-checkbox">Retreat</label>
+                        <input type="checkbox" name="rd-leisure" id="leisure-2" checked="checked">
+                        <label for="leisure-2" class="lbl-checkbox">Reunion</label>
+                        <input type="checkbox" name="rd-leisure" id="leisure-3" checked="checked">
+                        <label for="leisure-3" class="lbl-checkbox">Party - Kids  </label>
+                      </p>
+                      <p class="no-bt">
+                        <input type="checkbox" name="rd-leisure" id="leisure-4" checked="checked">
+                        <label for="leisure-4" class="lbl-checkbox">Family</label>
+                        <input type="checkbox" name="rd-leisure" id="leisure-5">
+                        <label for="leisure-5" class="lbl-checkbox">Party - Corporate</label>
+                        <input type="checkbox" name="rd-leisure" id="leisure-6">
+                        <label for="leisure-6" class="lbl-checkbox">Party - Adults   </label>
+                      </p>
+                    </div>
+                    <!-- END : ITM-->
+                    <div class="frow">
+                      <label class="lb-normal">Functional Event</label>
+                      <p class="no-bt">
+                        <input type="checkbox" name="rd-functional" id="functional-1" checked="checked">
+                        <label for="functional-1" class="lbl-checkbox">Concert</label>
+                        <input type="checkbox" name="rd-functional" id="functional-2" checked="checked">
+                        <label for="functional-2" class="lbl-checkbox">Community</label>
+                        <input type="checkbox" name="rd-functional" id="functional-3">
+                        <label for="functional-3" class="lbl-checkbox">Catering</label>
+                      </p>
+                      <p class="no-bt">
+                        <input type="checkbox" name="rd-functional" id="functional-4" checked="checked">
+                        <label for="functional-4" class="lbl-checkbox">Theatre</label>
+                        <input type="checkbox" name="rd-functional" id="functional-5">
+                        <label for="functional-5" class="lbl-checkbox">Carnival</label>
+                        <input type="checkbox" name="rd-functional" id="functional-6" checked="checked">
+                        <label for="functional-6" class="lbl-checkbox">Camping</label>
+                      </p>
+                      <p class="no-bt">
+                        <input type="checkbox" name="rd-functional" id="functional-7">
+                        <label for="functional-7" class="lbl-checkbox">Treade Fair</label>
+                        <input type="checkbox" name="rd-functional" id="functional-8">
+                        <label for="functional-8" class="lbl-checkbox">Charity</label>
+                        <input type="checkbox" name="rd-functional" id="functional-9">
+                        <label for="functional-9" class="lbl-checkbox">Sports</label>
+                      </p>
+                    </div>
+                    <!-- END : ITM        -->
+                    <div class="frow">
+                      <label class="lb-normal">Corporate Event</label>
+                      <p class="no-bt">
+                        <input type="checkbox" name="rd-corporate" id="corporate-1" checked="checked">
+                        <label for="corporate-1" class="lbl-checkbox">Reception</label>
+                        <input type="checkbox" name="rd-corporate" id="corporate-2" checked="checked">
+                        <label for="corporate-2" class="lbl-checkbox">Product Launch</label>
+                        <input type="checkbox" name="rd-corporate" id="corporate-3">
+                        <label for="corporate-3" class="lbl-checkbox">Seminar</label>
+                      </p>
+                      <p class="no-bt">
+                        <input type="checkbox" name="rd-corporate" id="corporate-4" checked="checked">
+                        <label for="corporate-4" class="lbl-checkbox">Meeting</label>
+                        <input type="checkbox" name="rd-corporate" id="corporate-5">
+                        <label for="corporate-5" class="lbl-checkbox">Exhibition</label>
+                        <input type="checkbox" name="rd-corporate" id="corporate-6" checked="checked">
+                        <label for="corporate-6" class="lbl-checkbox">Workshop</label>
+                      </p>
+                      <p class="no-bt">
+                        <input type="checkbox" name="rd-corporate" id="corporate-7">
+                        <label for="corporate-7" class="lbl-checkbox">Conference</label>
+                        <input type="checkbox" name="rd-corporate" id="corporate-8">
+                        <label for="corporate-8" class="lbl-checkbox">Team Building</label>
+                        <input type="checkbox" name="rd-corporate" id="corporate-9">
+                        <label for="corporate-9" class="lbl-checkbox">Training</label>
+                      </p>
+                    </div>
+                    <!-- END : ITM      -->
+                    <div class="frow">
+                      <label class="lb-normal">Semi Contructional Event</label>
+                      <p class="no-bt">
+                        <input type="checkbox" name="rd-contructional" id="contructional-1" checked="checked">
+                        <label for="contructional-1" class="lbl-checkbox">Warehousing</label>
+                        <input type="checkbox" name="rd-contructional" id="contructional-2" checked="checked">
+                        <label for="contructional-2" class="lbl-checkbox">Parking</label>
+                        <input type="checkbox" name="rd-contructional" id="contructional-3" checked="checked">
+                        <label for="contructional-3" class="lbl-checkbox">Movie/Photo Shoot</label>
+                      </p>
+                      <p class="no-bt">
+                        <input type="checkbox" name="rd-contructional" id="contructional-4" checked="checked">
+                        <label for="contructional-4" class="lbl-checkbox">Residential</label>
+                        <input type="checkbox" name="rd-contructional" id="contructional-5">
+                        <label for="contructional-5" class="lbl-checkbox">Food Stop</label>
+                        <input type="checkbox" name="rd-contructional" id="contructional-6">
+                        <label for="contructional-6" class="lbl-checkbox">Show House  </label>
+                      </p>
+                    </div>
+                    <!-- END : ITM-->
+                  </div>
                   <div class="frow">
-                    <label for="ipt-squarefeet">Type of Space</label>
-                    <input type="radio" name="rd-type" id="type-1">
-                    <label for="type-1" class="lbl-radio">Vacant Land</label>
-                    <input type="radio" name="rd-type" id="type-2">
-                    <label for="type-2" class="lbl-radio">Space attached to property</label>
-                    <input type="radio" name="rd-type" id="type-3">
-                    <label for="type-3" class="lbl-radio">Event place</label>
+                    <label for="ipt-available" class="lbl-inl">Available From</label>
+                    <div class="blk-inline">
+                      <input type="text" id="ipt-available" placeholder="DD/MM/YYYY" class="ipt ipt-date"><i class="ico ico-cal"></i>
+                    </div>
+                  </div>
+                  <!-- END : ITM-->
+                  <div class="frow frow-border">
+                    <label>Click and drag to block days when you don't want bookings.</label>
+                    <div class="blk-calendar">
+                      <div id="now-calendar"></div>
+                    </div>
+                    <p class="t-r no-bt"> <a href="#" class="cal_untick">Untick all</a></p>
                   </div>
                   <!-- END : ITM-->
                   <div class="frow">
-                    <label for="ipt-squarefeet">Square Feet</label>
-                    <input type="text" id="ipt-squarefeet" placeholder="Square Feet" class="ipt">
-                  </div>
-                  <!-- END : ITM-->
-                  <div class="frow">Please draw using clicks on the map to the right to indicate the area of your space.</div>
-                  <!-- END : ITM-->
-                  <div class="frow">
-                    <input type="submit" value="Next" class="btn btn-red">
+                    <input type="submit" value="Next" class="btn btn-red"><a href="#" class="back_to">Back to Location</a>
                   </div>
                   <!-- END : ITM-->
                 </form>

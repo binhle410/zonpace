@@ -9790,6 +9790,183 @@ h2.blk-ttl a {
 .blk-lease-space #location-map {
   height: 515px;
 }
+.frm-upload span {
+  color: #000;
+  font-weight: 300;
+  margin-right: 15px;
+  height: 30px;
+  line-height: 30px;
+  display: inline-block;
+}
+.frm-upload span.error {
+  color: red;
+}
+.frm-upload span.up-ttl {
+  color: #D0D2D3;
+}
+.frm-upload a {
+  background-color: #0096ff;
+  color: #000;
+  font-weight: 300;
+  padding: 9px 20px;
+  text-align: center;
+  display: inline-block;
+}
+.frm-upload a:hover {
+  text-decoration: underline;
+}
+.frm-upload .fileUpload {
+  position: relative;
+  overflow: hidden;
+  padding: 0 20px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  display: inline-block;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  vertical-align: -12px;
+  border: 1px solid #221F1F;
+  margin-right: 20px;
+}
+.frm-upload .fileUpload span {
+  color: #221F1F;
+  margin-right: 0;
+}
+.frm-upload .fileUpload:hover {
+  text-decoration: none;
+  background-color: #221F1F;
+  color: #fff;
+}
+.frm-upload .fileUpload:hover span {
+  color: #fff;
+}
+.frm-upload .fileUpload.error {
+  border: 1px solid red;
+}
+.frm-upload .btn-submit {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  border: none;
+  height: 30px;
+  margin-left: 10px;
+  vertical-align: 2px;
+  cursor: pointer;
+  line-height: 30px;
+  padding: 0 20px;
+  display: inline-block;
+  text-align: center;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  color: #fff;
+  background-color: #0096ff;
+}
+.frm-upload .btn-submit:hover {
+  text-decoration: none;
+  background-color: #5ebdff;
+}
+.frm-upload #fileToUpload {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.blk-lease-map .blk-fea {
+  position: relative;
+  margin-bottom: 20px;
+}
+.blk-lease-map .blk-fea .fea-control {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+.blk-lease-map .blk-fea .fea-control a {
+  color: #808184;
+  text-decoration: underline;
+  padding-left: 10px;
+  padding-right: 10px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.blk-lease-map .blk-fea .fea-control a:first-child {
+  border-right: 1px solid #808184;
+}
+.blk-lease-map .blk-fea .fea-control a:hover {
+  color: #FF0033;
+}
+.blk-lease-map .blk-inline {
+  display: inline-block;
+  width: 200px;
+  border: 1px solid #808184;
+  position: relative;
+}
+.blk-lease-map .blk-inline .ipt {
+  border-color: transparent;
+}
+.blk-lease-map .blk-inline .ico {
+  width: 20px;
+  height: 20px;
+  background-size: 20px auto;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.blk-lease-map .back_to {
+  position: absolute;
+  top: 8px;
+  right: 0;
+  color: #808184;
+  text-decoration: underline;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.blk-lease-map .back_to:hover {
+  color: #FF0033;
+}
+.blk-lease-map .cal_untick {
+  color: #808184;
+  text-decoration: underline;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.blk-lease-map .cal_untick:hover {
+  color: #FF0033;
+}
 /**
  * CSS FOOTER
  */
@@ -9968,6 +10145,9 @@ h2.blk-ttl a {
 .ipt:focus {
   border-color: #999;
 }
+.ipt.ipt-150 {
+  width: 200px;
+}
 .txt {
   width: 100%;
   padding: 10px;
@@ -9985,7 +10165,12 @@ h2.blk-ttl a {
   border: 1px solid transparent;
 }
 .frow {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  position: relative;
+}
+.frow.frow-border {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #221F1F;
 }
 .frow label {
   margin-bottom: 0;
@@ -9994,10 +10179,26 @@ h2.blk-ttl a {
   font-family: 'ProximaNova-Bold', Arial, Helvetica, sans-serif;
   position: relative;
 }
-.frow label.lbl-radio {
+.frow label.lbl-radio,
+.frow label.lbl-price,
+.frow label.lbl-checkbox {
   display: inline-block;
   color: #808184;
   font-family: 'ProximaNova-Regular', Arial, Helvetica, sans-serif;
+}
+.frow label.lbl-price {
+  width: 140px;
+}
+.frow label.lb-normal {
+  color: #221F1F;
+  font-family: 'ProximaNova-Regular', Arial, Helvetica, sans-serif;
+}
+.frow label.lbl-checkbox {
+  min-width: 130px;
+}
+.frow label.lbl-inl {
+  display: inline-block;
+  width: 140px;
 }
 .frow label span {
   position: absolute;
@@ -10008,10 +10209,12 @@ h2.blk-ttl a {
   z-index: 1;
   font-family: 'ProximaNova-Regular', Arial, Helvetica, sans-serif;
 }
-.frow input[type="radio"] {
+.frow input[type="radio"],
+.frow input[type="checkbox"] {
   display: none;
 }
-.frow input[type="radio"] + label {
+.frow input[type="radio"] + label,
+.frow input[type="checkbox"] + label {
   cursor: pointer;
   margin-right: 30px;
 }
@@ -10027,6 +10230,27 @@ h2.blk-ttl a {
 }
 .frow input[type="radio"]:checked + label::before {
   background-position: top right;
+}
+.frow input[type="checkbox"] + label::before {
+  font-family: 'Fontawesome';
+  content: "\f096";
+  display: inline-block;
+  width: 20px;
+  font-size: 18px;
+  color: #221F1F;
+  vertical-align: -2px;
+}
+.frow input[type="checkbox"]:checked + label::before {
+  content: "\f046";
+}
+.frow .ipt.ipt-150 {
+  display: inline-block;
+}
+.frow p.no-bt {
+  margin-bottom: 0;
+}
+.frow.frow:last-child {
+  margin-bottom: 0;
 }
 .btn {
   -webkit-transition: all 0.2s ease;

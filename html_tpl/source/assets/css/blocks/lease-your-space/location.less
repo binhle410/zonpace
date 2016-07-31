@@ -53,3 +53,152 @@
 		height: 515px;
 	}
 }
+.frm-upload {
+	span {
+		color: #000;
+		font-weight: 300;
+		margin-right: 15px;
+		height: 30px;
+		line-height: 30px;
+		display: inline-block;
+		&.error {
+			color: red;
+		}
+		&.up-ttl {
+			color: #D0D2D3;
+		}
+	}
+	a {
+		background-color: #0096ff;
+		color: #000;
+		font-weight: 300;
+		padding: 9px 20px;
+		text-align: center;
+		display: inline-block;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+	.fileUpload {
+		position: relative;
+		overflow: hidden;
+		padding: 0 20px;
+		height: 35px;
+		line-height: 35px;
+		text-align: center;
+	    display: inline-block;
+	    .border-radius(3px);
+	    .transition(all 0.3s ease);
+	    vertical-align: -12px;
+	    border: 1px solid @black;
+	    margin-right: 20px;
+		span {
+			color: @black;
+			margin-right: 0;
+		}
+		&:hover {
+			text-decoration: none;
+			background-color: @black;
+			color: #fff;
+			span {
+				color: #fff;
+			}
+		}
+		&.error {
+			border: 1px solid red;
+		}
+	}
+	.btn-submit {
+		.transition(all 0.3s ease);
+		border: none;
+		height: 30px;
+		margin-left: 10px;
+		vertical-align: 2px;
+		cursor: pointer;
+		line-height: 30px;
+		padding: 0 20px;
+		display: inline-block;
+		text-align: center;
+		.border-radius(4px);
+		color: #fff;
+		background-color: #0096ff;
+		&:hover {
+			text-decoration: none;
+			background-color: #5ebdff;
+		}
+	}
+	#fileToUpload {
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 0;
+		padding: 0;
+		font-size: 20px;
+		cursor: pointer;
+		opacity: 0;
+		filter: alpha(opacity=0);
+	}
+}
+.blk-lease-map {
+	.blk-fea {
+		position: relative;
+		margin-bottom: 20px;
+		.fea-control {
+			position: absolute;
+			top: 0;
+			right: 0;
+			z-index: 1;
+			a {
+				color: @gray;
+				text-decoration: underline;
+				padding-left: 10px;
+				padding-right: 10px;
+				.transition(all 0.3s ease);
+				&:first-child {
+					border-right: 1px solid @gray;
+				}
+				&:hover {
+					color: @red;
+				}
+			}
+		}
+	}
+}
+.blk-lease-map {
+	.blk-inline {
+		display: inline-block;
+		width: 200px;
+		border: 1px solid @gray;
+		position: relative;
+		.ipt {
+			border-color: transparent;
+		}
+		.ico {
+			width: 20px;
+			height: 20px;
+			background-size: 20px auto;
+			position: absolute;
+			right: 10px;
+			top: 10px;
+		}
+	}
+	.back_to {
+		position: absolute;
+		top: 8px;
+		right: 0;
+		color: @gray;
+		text-decoration: underline;
+		.transition(all 0.3s ease);
+		&:hover {
+			color: @red;
+		}
+	}
+	.cal_untick {
+		color: @gray;
+		text-decoration: underline;
+		.transition(all 0.3s ease);
+		&:hover {
+			color: @red;
+		}	
+	}
+}

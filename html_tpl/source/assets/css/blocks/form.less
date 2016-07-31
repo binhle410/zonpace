@@ -16,6 +16,9 @@
 	&:focus {
 		border-color: #999;
 	}
+	&.ipt-150 {
+		width: 200px;
+	}
 }
 .txt {
 	width: 100%;
@@ -27,17 +30,36 @@
 	border: 1px solid transparent;
 }
 .frow {
-	margin-bottom: 15px;
+	margin-bottom: 20px;
+	position: relative;
+	&.frow-border {
+		padding-bottom: 20px;
+		border-bottom: 1px solid @black;
+	}
 	label {
 		margin-bottom: 0;
 		display: block;
 		font-weight: normal;
 		.fontNovaBold();
 		position: relative;
-		&.lbl-radio {
+		&.lbl-radio, &.lbl-price, &.lbl-checkbox {
 			display: inline-block;
 			color: @gray;
 			.fontNovaReg();
+		}
+		&.lbl-price {
+			width: 140px;
+		}
+		&.lb-normal {
+			color: @black;
+			.fontNovaReg();
+		}
+		&.lbl-checkbox {
+			min-width: 130px;
+		}
+		&.lbl-inl {
+			display: inline-block;
+			width: 140px;
 		}
 		span {
 			position: absolute;
@@ -49,10 +71,12 @@
 			.fontNovaReg()
 		}
 	}
-	input[type="radio"] {
+	input[type="radio"],
+	input[type="checkbox"] {
 		display: none;
 	}
-	input[type="radio"] + label {
+	input[type="radio"] + label,
+	input[type="checkbox"] + label {
 		cursor: pointer;
 		margin-right: 30px;
 	}
@@ -68,6 +92,35 @@
 	}
 	input[type="radio"]:checked + label::before {
 		background-position: top right;
+	}
+	input[type="checkbox"] + label::before {
+		.fontAwesome();
+		content: "\f096";
+		display: inline-block;
+		width: 20px;
+		font-size: 18px;
+		color: @black;
+		vertical-align: -2px;
+	}
+	input[type="checkbox"]:checked + label::before {
+		content: "\f046";
+	}
+	.ipt {
+		&.ipt-150 {
+			display: inline-block;
+		}
+	}
+}
+.frow {
+	p {
+		&.no-bt {
+			margin-bottom: 0;
+		}
+	}
+	&.frow {
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 }
 .btn {

@@ -18,23 +18,147 @@ section.blk-lease-space.blk-white
                                 span 500 characters left
                             textarea(class="txt", id="ipt-description", placeholder="Example: Apt, Suite, Bldg, etc")
                         // END : ITM
-                        .frow
-                            label(for="ipt-squarefeet") Type of Space
-                            input(type="radio", name="rd-type", id="type-1")
-                            label(for="type-1", class="lbl-radio") Vacant Land
-                            input(type="radio", name="rd-type", id="type-2")
-                            label(for="type-2", class="lbl-radio") Space attached to property
-                            input(type="radio", name="rd-type", id="type-3")
-                            label(for="type-3", class="lbl-radio") Event place
+                        .frow.frow-border
+                            label(for="ipt-description") Photos
+                            .frm-upload.clearfix
+                                .fileUpload
+                                    span Upload
+                                    div
+                                        input(type="file" ,name="userfile", id="fileToUpload")
+                                span.up-ttl We accept .png, .jpg, files up to 3MB
                         // END : ITM
-                        .frow
-                            label(for="ipt-squarefeet") Square Feet
-                            input(type="text", class="ipt", id="ipt-squarefeet", placeholder="Square Feet")
+                        .frow.frow-border
+                            label Prices
+                            p
+                                input(type="checkbox", name="rd-price", id="price-1", checked="checked")
+                                label(for="price-1", class="lbl-price") Daily
+                                input(type="text", class="ipt ipt-150", id="ipt-daily", placeholder="Price / Day")    
+                            p
+                                input(type="checkbox", name="rd-price", id="price-2", checked="checked")
+                                label(for="price-2", class="lbl-price") Weekly Discount
+                                input(type="text", class="ipt ipt-150", id="ipt-daily", placeholder="% discount")    
+                            p
+                                input(type="checkbox", name="rd-price", id="price-3", checked="checked")
+                                label(for="price-3", class="lbl-price") Monthly Discount
+                                input(type="text", class="ipt ipt-150", id="ipt-daily", placeholder="% discount")    
                         // END : ITM
-                        .frow Please draw using clicks on the map to the right to indicate the area of your space.
+                        .frow.frow-border
+                            .blk-fea 
+                                label Feature
+                                .fea-control
+                                    a(href="#") Tick all
+                                    a(href="#") Untick all
+                            .frow
+                                label.lb-normal Wedding & Anniversary
+                                p.no-bt
+                                    input(type="checkbox", name="rd-wedding", id="wedding-1", checked="checked")
+                                    label(for="wedding-1", class="lbl-checkbox") Wedding
+                                    input(type="checkbox", name="rd-wedding", id="wedding-2")
+                                    label(for="wedding-2", class="lbl-checkbox") Banquet  
+                                p.no-bt
+                                    input(type="checkbox", name="rd-wedding", id="wedding-3", checked="checked")
+                                    label(for="wedding-3", class="lbl-checkbox") Anniversary
+                                    input(type="checkbox", name="rd-wedding", id="wedding-4")
+                                    label(for="wedding-4", class="lbl-checkbox") Birthday  
+                            // END : ITM      
+                            .frow
+                                label.lb-normal Leisure Event
+                                p.no-bt
+                                    input(type="checkbox", name="rd-leisure", id="leisure-1", checked="checked")
+                                    label(for="leisure-1", class="lbl-checkbox") Retreat
+                                    input(type="checkbox", name="rd-leisure", id="leisure-2", checked="checked")
+                                    label(for="leisure-2", class="lbl-checkbox") Reunion
+                                    input(type="checkbox", name="rd-leisure", id="leisure-3", checked="checked")
+                                    label(for="leisure-3", class="lbl-checkbox") Party - Kids  
+                                p.no-bt
+                                    input(type="checkbox", name="rd-leisure", id="leisure-4", checked="checked")
+                                    label(for="leisure-4", class="lbl-checkbox") Family
+                                    input(type="checkbox", name="rd-leisure", id="leisure-5")
+                                    label(for="leisure-5", class="lbl-checkbox") Party - Corporate
+                                    input(type="checkbox", name="rd-leisure", id="leisure-6")
+                                    label(for="leisure-6", class="lbl-checkbox") Party - Adults   
+                            // END : ITM
+                            .frow
+                                label.lb-normal Functional Event
+                                p.no-bt
+                                    input(type="checkbox", name="rd-functional", id="functional-1", checked="checked")
+                                    label(for="functional-1", class="lbl-checkbox") Concert
+                                    input(type="checkbox", name="rd-functional", id="functional-2", checked="checked")
+                                    label(for="functional-2", class="lbl-checkbox") Community
+                                    input(type="checkbox", name="rd-functional", id="functional-3")
+                                    label(for="functional-3", class="lbl-checkbox") Catering
+                                p.no-bt
+                                    input(type="checkbox", name="rd-functional", id="functional-4", checked="checked")
+                                    label(for="functional-4", class="lbl-checkbox") Theatre
+                                    input(type="checkbox", name="rd-functional", id="functional-5")
+                                    label(for="functional-5", class="lbl-checkbox") Carnival
+                                    input(type="checkbox", name="rd-functional", id="functional-6", checked="checked")
+                                    label(for="functional-6", class="lbl-checkbox") Camping
+                                p.no-bt
+                                    input(type="checkbox", name="rd-functional", id="functional-7")
+                                    label(for="functional-7", class="lbl-checkbox") Treade Fair
+                                    input(type="checkbox", name="rd-functional", id="functional-8")
+                                    label(for="functional-8", class="lbl-checkbox") Charity
+                                    input(type="checkbox", name="rd-functional", id="functional-9")
+                                    label(for="functional-9", class="lbl-checkbox") Sports
+                            // END : ITM        
+                            .frow
+                                label.lb-normal Corporate Event
+                                p.no-bt
+                                    input(type="checkbox", name="rd-corporate", id="corporate-1", checked="checked")
+                                    label(for="corporate-1", class="lbl-checkbox") Reception
+                                    input(type="checkbox", name="rd-corporate", id="corporate-2", checked="checked")
+                                    label(for="corporate-2", class="lbl-checkbox") Product Launch
+                                    input(type="checkbox", name="rd-corporate", id="corporate-3")
+                                    label(for="corporate-3", class="lbl-checkbox") Seminar
+                                p.no-bt
+                                    input(type="checkbox", name="rd-corporate", id="corporate-4", checked="checked")
+                                    label(for="corporate-4", class="lbl-checkbox") Meeting
+                                    input(type="checkbox", name="rd-corporate", id="corporate-5")
+                                    label(for="corporate-5", class="lbl-checkbox") Exhibition
+                                    input(type="checkbox", name="rd-corporate", id="corporate-6", checked="checked")
+                                    label(for="corporate-6", class="lbl-checkbox") Workshop
+                                p.no-bt
+                                    input(type="checkbox", name="rd-corporate", id="corporate-7")
+                                    label(for="corporate-7", class="lbl-checkbox") Conference
+                                    input(type="checkbox", name="rd-corporate", id="corporate-8")
+                                    label(for="corporate-8", class="lbl-checkbox") Team Building
+                                    input(type="checkbox", name="rd-corporate", id="corporate-9")
+                                    label(for="corporate-9", class="lbl-checkbox") Training
+                            // END : ITM      
+                            .frow
+                                label.lb-normal Semi Contructional Event
+                                p.no-bt
+                                    input(type="checkbox", name="rd-contructional", id="contructional-1", checked="checked")
+                                    label(for="contructional-1", class="lbl-checkbox") Warehousing
+                                    input(type="checkbox", name="rd-contructional", id="contructional-2", checked="checked")
+                                    label(for="contructional-2", class="lbl-checkbox") Parking
+                                    input(type="checkbox", name="rd-contructional", id="contructional-3", checked="checked")
+                                    label(for="contructional-3", class="lbl-checkbox") Movie/Photo Shoot
+                                p.no-bt
+                                    input(type="checkbox", name="rd-contructional", id="contructional-4", checked="checked")
+                                    label(for="contructional-4", class="lbl-checkbox") Residential
+                                    input(type="checkbox", name="rd-contructional", id="contructional-5")
+                                    label(for="contructional-5", class="lbl-checkbox") Food Stop
+                                    input(type="checkbox", name="rd-contructional", id="contructional-6")
+                                    label(for="contructional-6", class="lbl-checkbox") Show House  
+                            // END : ITM
+                        .frow
+                            label(for="ipt-available", class="lbl-inl") Available From
+                            .blk-inline
+                                input(type="text", class="ipt ipt-date", id="ipt-available", placeholder="DD/MM/YYYY")
+                                i.ico.ico-cal
+                        // END : ITM
+                        .frow.frow-border
+                            label Click and drag to block days when you don't want bookings.
+                            .blk-calendar
+                                #now-calendar
+                            p.t-r.no-bt 
+                                a(href="#", class="cal_untick") Untick all
                         // END : ITM
                         .frow
                             input(type="submit", class="btn btn-red", value="Next")
+                            a(href="#", class="back_to") Back to Location
                         // END : ITM
                 // END : COL
                 section.col-xs-6

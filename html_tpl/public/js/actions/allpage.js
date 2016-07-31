@@ -9,6 +9,7 @@
  * 6 Show Mobile Search
  * 7. Show Menu Mobile
  * 8. Show FAQs
+ * 9. Custom upload file
  */
 var allpage_fn = {};
 /* ----------------------------------------------- */
@@ -243,6 +244,21 @@ allpage_fn.showFAQs = function () {
         }
     });  
 };
+/**
+ * 9. Custom upload file
+ */
+allpage_fn.ShowFileUpload = function () { 
+    if(!$('.fileUpload').length) { return; }
+    var wrapper = $('<div/>').css({height: 0, width: 0, 'overflow': 'hidden'});
+    var fileInput = $(':file').wrap(wrapper);
+
+    fileInput.change(function () {
+        var $this = $(this),
+            $this_parent = $this.closest('.fileUpload'),
+            $this_span  = $this_parent.siblings('.up-ttl') ;
+        $this_span.text($this.val().replace(/.*(\/|\\)/, ''));
+    });
+}
 /* ----------------------------------------------- */
 /* ----------------------------------------------- */
 /* OnLoad Page */
@@ -270,6 +286,9 @@ $(document).ready(function($){
 
     // show faqs
     allpage_fn.showFAQs ();
+
+    // custom upload file
+    allpage_fn.ShowFileUpload();
 });
 /* OnLoad Window */
 var init = function () {   
