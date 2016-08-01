@@ -8378,6 +8378,141 @@ a.ui-button:active,
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+table.jCalendar {
+  border: 1px solid #000;
+  background: #aaa;
+  border-collapse: separate;
+  border-spacing: 2px;
+}
+table.jCalendar th {
+  background: #333;
+  color: #fff;
+  font-weight: bold;
+  padding: 3px 5px;
+}
+table.jCalendar td {
+  background: #ccc;
+  color: #000;
+  padding: 3px 5px;
+  text-align: center;
+}
+table.jCalendar td.other-month {
+  background: #ddd;
+  color: #aaa;
+}
+table.jCalendar td.today {
+  background: #666;
+  color: #fff;
+}
+table.jCalendar td.selected {
+  background: #f66;
+  color: #fff;
+}
+table.jCalendar td.selected.dp-hover {
+  background: #f33;
+  color: #fff;
+}
+table.jCalendar td.dp-hover,
+table.jCalendar tr.activeWeekHover td {
+  background: #fff;
+  color: #000;
+}
+table.jCalendar tr.selectedWeek td {
+  background: #f66;
+  color: #fff;
+}
+table.jCalendar td.disabled,
+table.jCalendar td.disabled.dp-hover {
+  background: #bbb;
+  color: #888;
+}
+table.jCalendar td.unselectable,
+table.jCalendar td.unselectable:hover,
+table.jCalendar td.unselectable.dp-hover {
+  background: #bbb;
+  color: #888;
+}
+/* For the popup */
+/* NOTE - you will probably want to style a.dp-choose-date - see how I did it in demo.css */
+div.dp-popup {
+  position: relative;
+  background: #ccc;
+  font-size: 10px;
+  font-family: arial, sans-serif;
+  padding: 2px;
+  width: 171px;
+  line-height: 1.2em;
+}
+div#dp-popup {
+  position: absolute;
+  z-index: 199;
+}
+div.dp-popup h2 {
+  font-size: 12px;
+  text-align: center;
+  margin: 2px 0;
+  padding: 0;
+}
+a#dp-close {
+  font-size: 11px;
+  padding: 4px 0;
+  text-align: center;
+  display: block;
+}
+a#dp-close:hover {
+  text-decoration: underline;
+}
+div.dp-popup a {
+  color: #000;
+  text-decoration: none;
+  padding: 3px 2px 0;
+}
+div.dp-popup div.dp-nav-prev {
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  width: 100px;
+}
+div.dp-popup div.dp-nav-prev a {
+  float: left;
+}
+/* Opera needs the rules to be this specific otherwise it doesn't change the cursor back to pointer after you have disabled and re-enabled a link */
+div.dp-popup div.dp-nav-prev a,
+div.dp-popup div.dp-nav-next a {
+  cursor: pointer;
+}
+div.dp-popup div.dp-nav-prev a.disabled,
+div.dp-popup div.dp-nav-next a.disabled {
+  cursor: default;
+}
+div.dp-popup div.dp-nav-next {
+  position: absolute;
+  top: 2px;
+  right: 4px;
+  width: 100px;
+}
+div.dp-popup div.dp-nav-next a {
+  float: right;
+}
+div.dp-popup a.disabled {
+  cursor: default;
+  color: #aaa;
+}
+div.dp-popup td {
+  cursor: pointer;
+}
+div.dp-popup td.disabled {
+  cursor: default;
+}
+.dp-applied {
+  float: left;
+}
+table.jCalendar {
+  border: none;
+}
+.dp-popup-inline {
+  height: 160px;
+}
 /**
  * CSS HEADER
  */
@@ -9967,6 +10102,117 @@ h2.blk-ttl a {
 .blk-lease-map .cal_untick:hover {
   color: #FF0033;
 }
+.blk-lease-space .blk-calendar {
+  margin-bottom: 30px;
+  *zoom: 1;
+}
+.blk-lease-space .blk-calendar:before,
+.blk-lease-space .blk-calendar:after {
+  content: " ";
+  display: table;
+}
+.blk-lease-space .blk-calendar:after {
+  clear: both;
+}
+.blk-lease-space .blk-calendar:before,
+.blk-lease-space .blk-calendar:after {
+  content: " ";
+  display: table;
+}
+.blk-lease-space .blk-calendar:after {
+  clear: both;
+}
+.blk-lease-space .blk-calendar:before,
+.blk-lease-space .blk-calendar:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.blk-lease-space .blk-calendar:after {
+  clear: both;
+}
+.blk-lease-space .blk-calendar:before,
+.blk-lease-space .blk-calendar:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.blk-lease-space .blk-calendar:after {
+  clear: both;
+}
+.blk-lease-space .blk-calendar #multimonth {
+  *zoom: 1;
+}
+.blk-lease-space .blk-calendar #multimonth:before,
+.blk-lease-space .blk-calendar #multimonth:after {
+  content: " ";
+  display: table;
+}
+.blk-lease-space .blk-calendar #multimonth:after {
+  clear: both;
+}
+.blk-lease-space .blk-calendar #multimonth:before,
+.blk-lease-space .blk-calendar #multimonth:after {
+  content: " ";
+  display: table;
+}
+.blk-lease-space .blk-calendar #multimonth:after {
+  clear: both;
+}
+.blk-lease-space .blk-calendar #multimonth:before,
+.blk-lease-space .blk-calendar #multimonth:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.blk-lease-space .blk-calendar #multimonth:after {
+  clear: both;
+}
+.blk-lease-space .blk-calendar #multimonth:before,
+.blk-lease-space .blk-calendar #multimonth:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.blk-lease-space .blk-calendar #multimonth:after {
+  clear: both;
+}
+.blk-lease-space .blk-calendar div.dp-popup {
+  background: #fff;
+  padding: 0;
+}
+.blk-lease-space .blk-calendar div.dp-popup h2 {
+  padding: 5px 0;
+  margin-bottom: 7px;
+}
+.blk-lease-space .blk-calendar div.dp-popup a {
+  font-size: 13px;
+}
+.blk-lease-space .blk-calendar table.jCalendar {
+  background: none;
+}
+.blk-lease-space .blk-calendar table.jCalendar td {
+  background: #fff;
+  border-top: 1px solid #d0d2d3;
+}
+.blk-lease-space .blk-calendar table.jCalendar td.today,
+.blk-lease-space .blk-calendar table.jCalendar td.selected {
+  background: #d0d2d3;
+  color: #221F1F;
+}
+.blk-lease-space .blk-calendar table.jCalendar td.today {
+  background: #eee;
+}
+.blk-lease-space .blk-calendar table.jCalendar th {
+  background: none;
+  color: #adadad;
+}
+.blk-lease-space .blk-calendar .dp-calendar {
+  border: 1px solid #d0d2d3;
+}
+.blk-lease-space .blk-calendar .dp-applied {
+  width: 33.3333333%;
+}
 /**
  * CSS FOOTER
  */
@@ -10385,6 +10631,9 @@ h2.blk-ttl-bold {
   /* CSS AREA */
   .blk-area-wrap .area-itm .area-img {
     height: 220px;
+  }
+  .blk-lease-space .blk-calendar .dp-applied {
+    width: 50%;
   }
 }
 /**
@@ -10908,6 +11157,14 @@ h2.blk-ttl-bold {
   .blk-lease-space .lease-nav .col-xs-6 {
     width: 100%;
   }
+  .blk-lease-space .blk-calendar .dp-applied {
+    width: 33.3333333%;
+  }
+}
+@media (max-width: 600px) {
+  .blk-lease-space .blk-calendar .dp-applied {
+    width: 50%;
+  }
 }
 @media (max-width: 480px) {
   .blk-lease-space .blk-lease-map .col-xs-6 .col-xs-6 {
@@ -10918,6 +11175,16 @@ h2.blk-ttl-bold {
   }
   .blk-lease-space #location-map {
     height: 300px;
+  }
+}
+@media (max-width: 400px) {
+  .blk-lease-space .blk-calendar .dp-applied {
+    width: 100%;
+  }
+}
+@media (max-width: 360px) {
+  .frow label.lbl-checkbox {
+    min-width: 110px;
   }
 }
 /**

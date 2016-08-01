@@ -263,13 +263,125 @@ allpage_fn.ShowFileUpload = function () {
  * 10. Calendar slider
  */
 allpage_fn.leaseCalendar = {
-    nowCalendar : function () {
-        $input = $("#ipt-datenow");
-        $input.datetimepicker({
-            dayViewHeaderFormat: 'MMMM YYYY',
-            format: 'DD-MM-YYYY',
-        });
-        $("#ipt-datenow").focus();
+    /**
+     * [multiCalendar description]
+     * @return {[type]} [description]
+     */
+    multiCalendar : function () {
+        if ($(window).width() > 1024) {
+            $('#multimonth').datePickerMultiMonth(
+                {
+                    numMonths: 3,
+                    inline: true
+                }
+            ).bind(
+                'dpMonthChanged',
+                function(event, displayedMonth, displayedYear)
+                {
+                    // uncomment if you have firebug and want to confirm this works as expected...
+                    //console.log('dpMonthChanged', arguments);
+                }
+            ).bind(
+                'dateSelected',
+                function(event, date, $td, status)
+                {
+                    // uncomment if you have firebug and want to confirm this works as expected...
+                    //console.log('dateSelected', arguments);
+                }
+            );
+        } else if($(window).width() <= 1023 && $(window).width() >= 768){
+            $('#multimonth').datePickerMultiMonth(
+                {
+                    numMonths: 2,
+                    inline: true
+                }
+            ).bind(
+                'dpMonthChanged',
+                function(event, displayedMonth, displayedYear)
+                {
+                    // uncomment if you have firebug and want to confirm this works as expected...
+                    //console.log('dpMonthChanged', arguments);
+                }
+            ).bind(
+                'dateSelected',
+                function(event, date, $td, status)
+                {
+                    // uncomment if you have firebug and want to confirm this works as expected...
+                    //console.log('dateSelected', arguments);
+                }
+            );
+        } else if($(window).width() <= 767 && $(window).width() > 600){
+            $('#multimonth').datePickerMultiMonth(
+                {
+                    numMonths: 3,
+                    inline: true
+                }
+            ).bind(
+                'dpMonthChanged',
+                function(event, displayedMonth, displayedYear)
+                {
+                    // uncomment if you have firebug and want to confirm this works as expected...
+                    //console.log('dpMonthChanged', arguments);
+                }
+            ).bind(
+                'dateSelected',
+                function(event, date, $td, status)
+                {
+                    // uncomment if you have firebug and want to confirm this works as expected...
+                    //console.log('dateSelected', arguments);
+                }
+            );
+        } else if($(window).width() <= 600 && $(window).width() > 400){
+            $('#multimonth').datePickerMultiMonth(
+                {
+                    numMonths: 2,
+                    inline: true
+                }
+            ).bind(
+                'dpMonthChanged',
+                function(event, displayedMonth, displayedYear)
+                {
+                    // uncomment if you have firebug and want to confirm this works as expected...
+                    //console.log('dpMonthChanged', arguments);
+                }
+            ).bind(
+                'dateSelected',
+                function(event, date, $td, status)
+                {
+                    // uncomment if you have firebug and want to confirm this works as expected...
+                    //console.log('dateSelected', arguments);
+                }
+            );
+        } else if($(window).width() <= 400 ){
+            $('#multimonth').datePickerMultiMonth(
+                {
+                    numMonths: 1,
+                    inline: true
+                }
+            ).bind(
+                'dpMonthChanged',
+                function(event, displayedMonth, displayedYear)
+                {
+                    // uncomment if you have firebug and want to confirm this works as expected...
+                    //console.log('dpMonthChanged', arguments);
+                }
+            ).bind(
+                'dateSelected',
+                function(event, date, $td, status)
+                {
+                    // uncomment if you have firebug and want to confirm this works as expected...
+                    //console.log('dateSelected', arguments);
+                }
+            );
+        }
+    },
+    resizeWindow : function () {
+        allpage_fn.leaseCalendar.multiCalendar();
+        $( window ).resize(
+            $.debounce(100, function(e){
+                allpage_fn.leaseCalendar.multiCalendar();
+            })
+        );
     }
 };
 /* ----------------------------------------------- */
@@ -304,7 +416,7 @@ $(document).ready(function($){
     allpage_fn.ShowFileUpload();
 
     // now calendar
-    allpage_fn.leaseCalendar.nowCalendar();
+    allpage_fn.leaseCalendar.resizeWindow();
 });
 /* OnLoad Window */
 var init = function () {   
