@@ -111,11 +111,11 @@
                                             <p>Guest's info</p>
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <img src="{{ getUrl(app.user.photo,'default','small') }}">
+                                                    <img src="{{ getUrl(booking.user.photo,'default','small') }}">
                                                 </div>
                                                 <div class="col-md-8">
-                                                    {{ app.user.firstName ~' '~app.user.lastName }}<br>
-                                                    {{ app.user.city.name ~ ' '~app.user.state.name ~', USA'}}
+                                                    {{ booking.user.firstName ~' '~booking.user.lastName }}<br>
+                                                    {{ booking.user.city.name ~ ' '~booking.user.state.name ~', USA'}}
                                                 </div>
                                             </div>
                                         </div>
