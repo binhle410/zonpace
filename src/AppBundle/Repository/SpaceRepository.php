@@ -74,15 +74,31 @@ class SpaceRepository extends EntityRepository
         $expr = new Expr();
         $fields = [];
         $fields[] = "DISTINCT space";
-        if (isset($query['lat']) && isset($query['lng'])) {
             $lat = $query['lat'];
             $lng = $query['lng'];
             $fields[] = "( 3959 * acos( cos( radians('$lat') ) * cos( radians( location.lat ) ) * cos( radians( location.lng ) - radians('$lng') ) + sin( radians('$lat') ) * sin( radians( location.lat ) ) ) ) AS distance";
-        }
-        $qb = $this->_em->createQueryBuilder()
+        $qb = $this->createQueryBuilder('space')
             ->select($fields)
-            ->from($this->_entityName, 'space', null)
-            ->join('space.location', 'location')
+            ->orderBy('distance','ASC');
+        $qb = $this->createBuilderSearch($qb,$query,$radius);
+        return $qb;
+
+    }
+
+    public function getNumberListingNearbySpaces($query, $radius)
+    {
+        $expr = new Expr();
+        $qb = $this->createQueryBuilder('space')
+            ->select($expr->countDistinct('space.id'));
+        $qb = $this->createBuilderSearch($qb, $query,$radius);
+
+        return $qb->getQuery()->getSingleScalarResult();
+    }
+
+    public function createBuilderSearch($qb,$query, $radius)
+    {
+        $expr = new Expr();
+        $qb->join('space.location', 'location')
             ->join('space.price', 'price')
             ->join('space.dateBooking', 'dateBooking')
             ->leftJoin('space.features', 'features');
@@ -125,33 +141,12 @@ class SpaceRepository extends EntityRepository
 //                ->setParameter('squareFrom', $squareFrom)
 //                ->setParameter('squareTo', $squareTo);
 //        }
-        if (isset($query['lat']) && isset($query['lng'])) {
-            $qb->groupBy('space.id')
-                ->having("distance <= :radius")
-                ->setParameter('radius', $radius)
-                ->orderBy('distance', 'ASC');
-        }
+
+            $lat = $query['lat'];
+            $lng = $query['lng'];
+            $distance = "( 3959 * acos( cos( radians('$lat') ) * cos( radians( location.lat ) ) * cos( radians( location.lng ) - radians('$lng') ) + sin( radians('$lat') ) * sin( radians( location.lat ) ) ))";
+            $qb->andWhere($distance . " <= :radius")
+                ->setParameter('radius', $radius);
         return $qb;
-
-    }
-
-    public function getNumberListingNearbySpaces($query, $radius)
-    {
-        $expr = new Expr();
-        $lat = $query['lat'];
-        $lng = $query['lng'];
-        $field = $expr->countDistinct('space.id') . ' as total';
-        $distance = "( 3959 * acos( cos( radians('$lat') ) * cos( radians( location.lat ) ) * cos( radians( location.lng ) - radians('$lng') ) + sin( radians('$lat') ) * sin( radians( location.lat ) ) ))";
-
-        $qb = $this->_em->createQueryBuilder()
-            ->select($field)
-            ->from($this->_entityName, 'space', null)
-            ->join('space.location', 'location')
-            ->join('space.price', 'price')
-            ->join('space.dateBooking', 'dateBooking')
-            ->leftJoin('space.features', 'features')
-            ->where($distance . " <= :radius")
-            ->setParameter('radius', $radius);
-        return $qb->getQuery()->getSingleScalarResult();
     }
 }

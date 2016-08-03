@@ -87,18 +87,18 @@ class User extends BaseUser
 
     /**
      * @var boolean
-     * @ORM\Column(name="is_completed_profile",type="boolean")
+     * @ORM\Column(name="is_completed_profile",type="boolean",options={"default":false})
      */
     private $isCompletedProfile;
     /**
      * @var boolean
-     * @ORM\Column(name="is_verified_phone",type="boolean")
+     * @ORM\Column(name="is_verified_phone",type="boolean",options={"default":false})
      */
     private $isVerifiedPhone;
 
     /**
      * @var integer
-     * @ORM\Column(name="verified_code_phone",type="integer")
+     * @ORM\Column(name="verified_code_phone",type="integer",nullable=true)
      */
     private $verifiedCodePhone;
 

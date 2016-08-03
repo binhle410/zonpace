@@ -22,7 +22,8 @@ class PublicApiController extends ControllerService
             foreach ($nearByLocations as $nearByLocation){
                 $radius = $this->getParameter('search_radius');
                 $numberListing = $spaceRepo->getNumberListingNearbySpaces($nearByLocation,$radius);
-                $data[] = ['name'=>$nearByLocation['name'],'numberListing'=>$numberListing];
+                $link = $this->generateUrl('app_front_search_spaces').'?'.http_build_query($nearByLocation);
+                $data[] = ['link'=>$link,'name'=>$nearByLocation['location'],'numberListing'=>$numberListing];
             }
             return new JsonResponse(['status'=>true,'data'=>$data]);
         }

@@ -1125,15 +1125,22 @@ jQuery(function () {
                 service = new google.maps.places.PlacesService(map);
                 service.nearbySearch(request, function(results, status){
                     var data = [];
+                    var currentQuery = $('.main-container').data('query');
                     if (status == google.maps.places.PlacesServiceStatus.OK) {
                         var length = results.length <= 5 ? results.length:5;
                         for (var i = 0; i <= length; i++) {
                             var place = results[i];
-                            data[i] = {'name':place.name,'lat':place.geometry.location.lat(),'lng':place.geometry.location.lng()};
+                            currentQuery.location = place.name;
+                            currentQuery.lat = place.geometry.location.lat();
+                            currentQuery.lng = place.geometry.location.lng();
+
+                            var currentQueryClone = $.extend(true, {}, currentQuery);
+                            data[i] = currentQueryClone;
                         }
                         if(length){
                             data = data.slice(1,length+1);
                         }
+
                     }
                     if(data.length){
                         var url = $('.main-container').data('url-search-nearby-listing');
@@ -1149,7 +1156,8 @@ jQuery(function () {
                                     for(var i=0;i<result.data.length;i++){
                                         var name = result.data[i].name;
                                         var numberListing = result.data[i].numberListing;
-                                        html +='<div class="row"><div class="col-md-9">'+name+' </div><div class="col-md-3"><span class="pull-right">'+numberListing+'</span> </div> </div><hr class="divider">';
+                                        var link = result.data[i].link;
+                                        html +='<div class="row"><div class="col-md-9"><a href="'+link+'">'+name+' </a></div><div class="col-md-3"><span class="pull-right">'+numberListing+'</span> </div> </div><hr class="divider">';
                                     }
                                     $('.nearby-listing').append(html);
                                 } else {

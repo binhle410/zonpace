@@ -14,7 +14,7 @@ services:
             class: AppBundle\Admin\SpaceAdmin
             arguments: [~, AppBundle\Entity\Space\Space, ~]
             tags:
-                - { name: sonata.admin, manager_type: orm, label: Spaces }
+                - { name: sonata.admin, manager_type: orm, label: Spaces ,group: admin}
     admin.user_fos:
             class: AppBundle\Admin\UserAdmin
             arguments: [~, AppBundle\Entity\Core\User, ~]

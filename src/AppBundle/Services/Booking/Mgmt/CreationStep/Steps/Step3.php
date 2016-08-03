@@ -54,7 +54,7 @@ class Step3 extends Step
 
                 $charge = \Stripe\Charge::create(array(
                     'source'     => $_POST['stripeToken'],
-                    'amount'   => 1000,
+                    'amount'   => $price,
                     'currency' => 'usd'
                 ));
 

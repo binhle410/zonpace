@@ -38,6 +38,11 @@ class BookingAdmin extends AbstractAdmin
             ))
             ->add('space.dateBooking.dateTo', null, array(
                 'sortable' => 'space.dateBooking.dateTo',
+            ))
+            ->add('_action', null, array(
+                'actions' => array(
+                    'delete' => array(),
+                )
             ));
     }
     public function toString($object)

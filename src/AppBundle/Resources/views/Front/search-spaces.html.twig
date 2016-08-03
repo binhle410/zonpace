@@ -2,7 +2,7 @@
 {% block content %}
 
 
-    <section class="main-container" data-search-space="" data-url-search-nearby-listing="{{ path('app_front_get_near_by_listing') }}">
+    <section class="main-container"  data-query="{{ app.request.query.all|json_encode }}" data-search-space="" data-url-search-nearby-listing="{{ path('app_front_get_near_by_listing') }}">
 
         <div class="container">
             <div class="row">

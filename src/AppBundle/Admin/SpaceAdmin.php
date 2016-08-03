@@ -28,8 +28,14 @@ class SpaceAdmin extends AbstractAdmin
                 'sortable' => 'context.username',
             ))
             ->addIdentifier('name')
-        ->add('enabled', null, array('editable' => true));
+            ->add('enabled', null, array('editable' => true))
+            ->add('_action', null, array(
+                'actions' => array(
+                    'delete' => array(),
+                )
+            ));
     }
+
     public function toString($object)
     {
         return $object instanceof Space
