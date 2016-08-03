@@ -251,7 +251,7 @@ class BookingRepository extends EntityRepository
 
     public function getTotalReviewSpace($space)
     {
-        return $this->_em->createQuery('select COUNT(b.id) from AppBundle\Entity\Booking\Booking b where b.space =:space and b.isReview = 0')
+        return $this->_em->createQuery('select COUNT(b.id) from AppBundle\Entity\Booking\Booking b where b.space =:space and b.isReview = 1')
             ->setParameter('space', $space)
             ->getSingleScalarResult();
     }
