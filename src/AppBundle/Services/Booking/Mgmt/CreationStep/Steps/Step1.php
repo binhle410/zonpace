@@ -18,21 +18,25 @@ class Step1 extends Step
 
         $form = $this->createForm(BookingType::class,$booking);
         $form->handleRequest($request);
+        $available = $this->checkAvailableBooking($space, $booking->getDateFrom()->format('Y-m-d'), $booking->getDateTo()->format('Y-m-d'));
         if($form->isSubmitted() && $form->isValid()){
-            $em = $this->getDoctrine()->getManager();
-            $booking->setSpace($space);
-            $em->persist($booking);
-            $em->flush();
-            return $this->redirectToRoute('app_user_booking_create',[
-                'space' => $space->getId(),
-                'booking' => $booking->getId(),
-                'step' => 2
-            ]);
+            if($available){
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($booking);
+                $em->flush();
+                return $this->redirectToRoute('app_user_booking_create',[
+                    'space' => $space->getId(),
+                    'booking' => $booking->getId(),
+                    'step' => 2
+                ]);
+            }
         }
 
-        return $this->render('AppBundle:User/Booking/Steps:detail.html.twig', array(
+        return $this->render('AppBundle:User/Booking/Steps:step1.html.twig', array(
             'space'=>$space,
-            'form'=>$form->createView()
+            'booking'=>$booking,
+            'form'=>$form->createView(),
+            'available'=>$available
         ));
     }
 

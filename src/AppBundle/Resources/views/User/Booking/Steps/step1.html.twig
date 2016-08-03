@@ -36,20 +36,27 @@
                         </div>
                     </div>
                     <hr class="divider">
-                    <form method="post" class="booking-step-1" data-url="{{ path('app_user_booking_get_price_booking') }}" data-price-per-day="{{ space.price.daily }}">
+                    <form method="post" class="booking-step-1 check-date-available" data-url-get-price="{{ path('app_user_booking_get_price_booking') }}" data-price-per-day="{{ space.price.daily }}" data-url-check-date="{{ path('app_user_booking_check_available_booking',{'space':space.id}) }}">
                         {{ form_row(form._token) }}
                         <div style="font-weight: bold;color: red;">Choice of Space</div>
                         {{ form_widget(form.bookingType) }}
                         {{ form_widget(form.dateFrom,{'attr':{'class':'datepicker'}}) }}
                         {{ form_widget(form.dateTo,{'attr':{'class':'datepicker'}}) }}
 
-                        <hr class="divider">
-                        <div><strong>Subtotal : $<span class="price">0</span> </strong></div>
-                        <hr class="divider">
-                        <div><strong>Total : $<span class="price">0</span> </strong></div>
+                        <div class="available" style="color: red;">
+                            {{ available == true ? 'Available':'Unavailable' }}
+                        </div>
+                        <div>
+                            {{ space.instantBook == true ? 'Instant Book' }}
+                        </div>
 
                         <hr class="divider">
-                        <div><button type="submit" class="btn btn-default">Next</button></div>
+                        <div><strong>Subtotal : $<span class="price">{{ booking.totalPrice }}</span> </strong></div>
+                        <hr class="divider">
+                        <div><strong>Total : $<span class="price">{{ booking.totalPrice }}</span> </strong></div>
+
+                        <hr class="divider">
+                        <div><button type="submit" class="btn btn-default btn-submit">Next</button></div>
                     </form>
                 </div>
 

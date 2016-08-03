@@ -37,18 +37,20 @@
                         </div>
                     </div>
                     <hr class="divider">
-                    <form method="post" class="booking-step-0" data-url="{{ path('app_user_booking_get_price_booking') }}" data-price-per-day="{{ space.price.daily }}">
+                    <form method="post" class="booking-step-0 check-date-available" data-url-check-date="{{ path('app_user_booking_check_available_booking',{'space':space.id}) }}">
                         {{ form_row(form._token) }}
                         <div style="font-weight: bold;color: red;">Choice of Space</div>
                         {{ form_widget(form.bookingType) }}
                         {{ form_widget(form.dateFrom,{'attr':{'class':'datepicker'}}) }}
                         {{ form_widget(form.dateTo,{'attr':{'class':'datepicker'}}) }}
+                        <div class="available" style="color: red;">
 
+                        </div>
                         <div>
                             {{ space.instantBook == true ? 'Instant Book' }}
                         </div>
                         <hr class="divider">
-                        <div><button type="submit" class="btn btn-default">Booking Now</button></div>
+                        <div><button type="submit" class="btn btn-default btn-submit">Booking Now</button></div>
                     </form>
                 </div>
 

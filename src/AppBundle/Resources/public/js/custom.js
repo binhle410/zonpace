@@ -1088,16 +1088,16 @@ jQuery(function () {
                     }
                 });
             },
-            filters: function(){
-                $('.start-filters').click(function(){
+            filters: function () {
+                $('.start-filters').click(function () {
                     $(this).addClass('display-none');
                     $('.search-results').addClass('display-none');
                     $('.filter-group').removeClass('display-none');
                 });
-                $('.apply-filter').click(function(){
+                $('.apply-filter').click(function () {
                     $('.form-search-spaces').submit();
                 });
-                $('.cancel-filter').click(function(){
+                $('.cancel-filter').click(function () {
                     $('.search-results').removeClass('display-none');
                     $('.start-filters').removeClass('display-none');
                     $('.filter-group').addClass('display-none');
@@ -1118,16 +1118,16 @@ jQuery(function () {
 
                 //nearby location
                 var request = {
-                    location: new google.maps.LatLng(lat,lng),
+                    location: new google.maps.LatLng(lat, lng),
                     radius: '10000',
                     types: ['address']
                 };
                 service = new google.maps.places.PlacesService(map);
-                service.nearbySearch(request, function(results, status){
+                service.nearbySearch(request, function (results, status) {
                     var data = [];
                     var currentQuery = $('.main-container').data('query');
                     if (status == google.maps.places.PlacesServiceStatus.OK) {
-                        var length = results.length <= 5 ? results.length:5;
+                        var length = results.length <= 5 ? results.length : 5;
                         for (var i = 0; i <= length; i++) {
                             var place = results[i];
                             currentQuery.location = place.name;
@@ -1137,12 +1137,12 @@ jQuery(function () {
                             var currentQueryClone = $.extend(true, {}, currentQuery);
                             data[i] = currentQueryClone;
                         }
-                        if(length){
-                            data = data.slice(1,length+1);
+                        if (length) {
+                            data = data.slice(1, length + 1);
                         }
 
                     }
-                    if(data.length){
+                    if (data.length) {
                         var url = $('.main-container').data('url-search-nearby-listing');
                         $.ajax({
                             url: url,
@@ -1153,11 +1153,11 @@ jQuery(function () {
                             success: function (result) {
                                 if (result.status) {
                                     var html = '';
-                                    for(var i=0;i<result.data.length;i++){
+                                    for (var i = 0; i < result.data.length; i++) {
                                         var name = result.data[i].name;
                                         var numberListing = result.data[i].numberListing;
                                         var link = result.data[i].link;
-                                        html +='<div class="row"><div class="col-md-9"><a href="'+link+'">'+name+' </a></div><div class="col-md-3"><span class="pull-right">'+numberListing+'</span> </div> </div><hr class="divider">';
+                                        html += '<div class="row"><div class="col-md-9"><a href="' + link + '">' + name + ' </a></div><div class="col-md-3"><span class="pull-right">' + numberListing + '</span> </div> </div><hr class="divider">';
                                     }
                                     $('.nearby-listing').append(html);
                                 } else {
@@ -1695,7 +1695,7 @@ jQuery(function () {
                         });
                         if (bookingDateArr.length) {
                             for (var i = 0; i < bookingDateArr.length; i++) {
-                                $('.calendar-day-' + bookingDateArr[i]).addClass('booking-date-'+type);
+                                $('.calendar-day-' + bookingDateArr[i]).addClass('booking-date-' + type);
                             }
                         }
                     });
@@ -1768,9 +1768,9 @@ jQuery(function () {
                 $('.btn-verified-code').click(function () {
                     var url = $('#verified-code').data('url');
                     var code = $('#verified-code').val();
-                    if(code == ''){
+                    if (code == '') {
                         $('#verified-code').addClass('input-error');
-                    }else{
+                    } else {
                         $.ajax({
                             url: url,
                             type: "POST",
@@ -1902,35 +1902,74 @@ jQuery(function () {
                 that.drawShape();
                 that.booking();
                 that.getPrice();
+                that.checkAvailableBooking();
             },
-            getPrice: function(){
-                if($('.booking-step-1').length){
-                    $('#app_booking_dateFrom').change(function(){
-                        if($('#app_booking_dateFrom').val() != '' && $('#app_booking_dateTo').val()!=''){
+            getPrice: function () {
+                if ($('.booking-step-1').length) {
+                    $('#app_booking_dateFrom').change(function () {
+                        if ($('#app_booking_dateFrom').val() != '' && $('#app_booking_dateTo').val() != '') {
                             callGetPrice();
                         }
                     });
-                    $('#app_booking_dateTo').change(function(){
-                        if($('#app_booking_dateFrom').val() != '' && $('#app_booking_dateTo').val()!=''){
+                    $('#app_booking_dateTo').change(function () {
+                        if ($('#app_booking_dateFrom').val() != '' && $('#app_booking_dateTo').val() != '') {
                             callGetPrice();
                         }
                     });
-                    function callGetPrice(){
-                        var url = $('.booking-step-1').data('url');
-                        var fromDate =$('#app_booking_dateFrom').val();
+                    function callGetPrice() {
+                        var url = $('.booking-step-1').data('url-get-price');
+                        var fromDate = $('#app_booking_dateFrom').val();
                         var toDate = $('#app_booking_dateTo').val();
-                        var pricePerDay =$('.booking-step-1').data('price-per-day');;
+                        var pricePerDay = $('.booking-step-1').data('price-per-day');
                         $.ajax({
                             url: url,
                             type: "POST",
                             data: {
-                                'fromDate':fromDate,
-                                'toDate':toDate,
-                                'pricePerDay':pricePerDay,
+                                'fromDate': fromDate,
+                                'toDate': toDate,
+                                'pricePerDay': pricePerDay,
                             },
                             success: function (result) {
                                 if (result.status) {
                                     $('.price').html(result.price)
+                                }
+                            }
+                        });
+                    }
+                }
+            },
+            checkAvailableBooking: function () {
+                if ($('.check-date-available').length) {
+                    $('#app_booking_dateFrom').change(function () {
+                        if ($('#app_booking_dateFrom').val() != '' && $('#app_booking_dateTo').val() != '') {
+                            checkDate();
+                        }
+                    });
+                    $('#app_booking_dateTo').change(function () {
+                        if ($('#app_booking_dateFrom').val() != '' && $('#app_booking_dateTo').val() != '') {
+                            checkDate();
+                        }
+                    });
+                    function checkDate() {
+                        var url = $('.check-date-available').data('url-check-date');
+                        var fromDate = $('#app_booking_dateFrom').val();
+                        var toDate = $('#app_booking_dateTo').val();
+                        $.ajax({
+                            url: url,
+                            type: "POST",
+                            data: {
+                                'fromDate': fromDate,
+                                'toDate': toDate,
+                            },
+                            success: function (result) {
+                                if (result.status) {
+                                    if (result.available) {
+                                        $('.available').html('Available');
+                                        $('.btn-submit').attr('disabled',false);
+                                    } else {
+                                        $('.available').html('Unavailable');
+                                        $('.btn-submit').attr('disabled',true);
+                                    }
                                 }
                             }
                         });
@@ -1952,32 +1991,36 @@ jQuery(function () {
                         var form$ = $("#payment-form");
                         // token contains id, last4, and card type
                         var token = response['id'];
+                        var cardNumber = $('.card-number').val();
+                        var cardNameHolder = $('.card-name-holder').val();
                         // insert the token into the form so it gets submitted to the server
                         form$.append("<input type='hidden' name='stripeToken' value='" + token + "' />");
                         form$.append("<input type='hidden' name='fromStep2' value='1' />");
+                        form$.append("<input type='hidden' name='card-number' value='"+cardNumber+"' />");
+                        form$.append("<input type='hidden' name='card-name-holder' value='"+cardNameHolder+"' />");
                         // and submit
                         form$.get(0).submit();
                     }
                 }
 
-                    $("#payment-form").submit(function(event) {
-                        // disable the submit button to prevent repeated clicks
-                        $('.submit-button').attr("disabled", "disabled");
-                        // createToken returns immediately - the supplied callback submits the form if there are no errors
-                        Stripe.createToken({
-                            number: $('.card-number').val(),
-                            cvc: $('.card-cvc').val(),
-                            exp_month: $('.card-expiry-month').val(),
-                            exp_year: $('.card-expiry-year').val(),
-                            name: $('.card-name-holder').val(),
-                        }, stripeResponseHandler);
-                        return false; // submit from callback
-                    });
+                $("#payment-form").submit(function (event) {
+                    // disable the submit button to prevent repeated clicks
+                    $('.submit-button').attr("disabled", "disabled");
+                    // createToken returns immediately - the supplied callback submits the form if there are no errors
+                    Stripe.createToken({
+                        number: $('.card-number').val(),
+                        cvc: $('.card-cvc').val(),
+                        exp_month: $('.card-expiry-month').val(),
+                        exp_year: $('.card-expiry-year').val(),
+                        name: $('.card-name-holder').val(),
+                    }, stripeResponseHandler);
+                    return false; // submit from callback
+                });
             },
             drawShape: function () {
                 var that = this;
                 var width = $('.map').parent('div').width();
-                $('.map').width(width).height(width/2);
+                $('.map').width(width).height(width / 2);
                 function initialize() {
                     var goo = google.maps,
                         map_in = new goo.Map(document.getElementById('map'),

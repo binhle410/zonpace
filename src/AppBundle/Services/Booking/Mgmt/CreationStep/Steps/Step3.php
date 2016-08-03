@@ -17,7 +17,13 @@ class Step3 extends Step
         $booking = $this->booking;
         $request = $this->getRequest();
         $em = $this->getDoctrine()->getManager();
-        //update price booking
+        if (!isset($_POST['stripeToken'])){
+            return $this->redirectToRoute('app_user_booking_create',[
+                'space' => $space->getId(),
+                'booking' => $booking->getId(),
+                'step' => 2
+            ]);
+        }
         $price = $this->getPriceBooking($booking->getDateFrom()->format('Y-m-d'),$booking->getDateTo()->format('Y-m-d'),$booking->getSpace()->getPrice()->getDaily(),1);
         $price= round($price,1);
         //booking api
@@ -47,6 +53,7 @@ class Step3 extends Step
             }
             if (!isset($error)) {
                 //payment Success
+                //update price booking
                 $booking->setStatus(Booking::STATUS_SUCCESS);
                 $booking->setTotalPrice($price);
                 $em->persist($booking);
@@ -58,11 +65,13 @@ class Step3 extends Step
                 ]);
             }
         }
-        return $this->render('AppBundle:User/Booking/Steps:detail.html.twig', array(
+        return $this->render('AppBundle:User/Booking/Steps:step3.html.twig', array(
             'space'=>$space,
             'booking'=>$booking,
             'stripeToken'=>$stripeToken,
-            'price'=>$price
+            'price'=>$price,
+            'cardHolder'=>$request->get('card-name-holder'),
+            'cardNumber'=>$request->get('card-number')
         ));
     }
 

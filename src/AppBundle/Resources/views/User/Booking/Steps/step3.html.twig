@@ -58,10 +58,8 @@
                     <hr class="divider">
                     <div>
                         <h4>Payment</h4>
-                        <span>Card number: 43432</span><br>
-                        <span>Card Holder: 11</span><br>
-                        <span>Expire Date: 111</span><br>
-                        <span>CVV: 11</span><br>
+                        <span>Card Holder: {{ cardHolder }}</span><br>
+                        <span>Card number: xxxxxx{{ cardNumber[-4:] }}</span><br>
                     </div>
                     <form method="post">
                         <input type='hidden' name='stripeToken' value='{{ stripeToken }}' />

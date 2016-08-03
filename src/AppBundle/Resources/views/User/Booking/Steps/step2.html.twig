@@ -43,11 +43,11 @@
                     <form id="payment-form" action="{{ path('app_user_booking_create',{'step':3,'space':space.id,'booking':booking.id}) }}" method="post" data-publishable-key="{{ publishableKey }}">
                         <div class="form-row">
                             <label>Card Number</label>
-                            <input type="text" size="20" autocomplete="off" class="card-number" />
+                            <input type="text" size="20" autocomplete="off" class="card-number" class="card-number" />
                         </div>
                         <div class="form-row">
                             <label>Card Holder</label>
-                            <input type="text" size="20" autocomplete="off" class="card-name-holder" />
+                            <input type="text" size="20" autocomplete="off" class="card-name-holder" class="card-name-holder" />
                         </div>
                         <div class="form-row">
                             <label>CVC</label>

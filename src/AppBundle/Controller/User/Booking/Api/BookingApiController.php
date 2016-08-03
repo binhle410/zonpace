@@ -27,4 +27,16 @@ class BookingApiController extends ControllerService
             return new JsonResponse(['status'=>true,'price'=>$price]);
         }
     }
+    public function checkAvailableBookingAction(Request $request,Space $space){
+        if($request->isXmlHttpRequest()){
+            $fromDate = \DateTime::createFromFormat('m/d/Y', $request->get('fromDate'));
+            $fromDate =$fromDate->format('Y-m-d');
+
+            $toDate = \DateTime::createFromFormat('m/d/Y', $request->get('toDate'));
+            $toDate =$toDate->format('Y-m-d');
+
+            $available = $this->checkAvailableBooking($space,$fromDate,$toDate);
+            return new JsonResponse(['status'=>true,'available'=>$available]);
+        }
+    }
 }

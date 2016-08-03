@@ -23,7 +23,7 @@ class Step2 extends Step
 
 
 
-        return $this->render('AppBundle:User/Booking/Steps:detail.html.twig', array(
+        return $this->render('AppBundle:User/Booking/Steps:step2.html.twig', array(
             'space'=>$space,
             'booking'=>$booking,
             'publishableKey'=>$stripe['publishable_key'],

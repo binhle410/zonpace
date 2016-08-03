@@ -29,7 +29,7 @@ class Step4 extends Step
         $numberReviewHost = $bookingRepo->getTotalReviewHost($space->getUser());
 
 
-        return $this->render('AppBundle:User/Booking/Steps:detail.html.twig', array(
+        return $this->render('AppBundle:User/Booking/Steps:step4.html.twig', array(
             'space'=>$space,
             'booking'=>$booking,
             'featureCategories'=>$featureCategories,
