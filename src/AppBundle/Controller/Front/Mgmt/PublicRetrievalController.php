@@ -60,4 +60,26 @@ class PublicRetrievalController extends ControllerService
 
         ]);
     }
+
+    public function detailSpaceAction(Request $request,Space $space){
+        $em = $this->getDoctrine()->getManager();
+        $featureCategories = $em->getRepository('ApplicationSonataClassificationBundle:Category')->findAll();
+        $bookingRepo = $em->getRepository('AppBundle:Booking\Booking');
+        $spaceRepo = $em->getRepository('AppBundle:Space\Space');
+        $numberReviewSpace = $bookingRepo->getTotalReviewSpace($space);
+        $reviewsQb = $bookingRepo->findSpaceBooking($space);
+        $reviews = $this->pagingBuilder($request,$reviewsQb);
+
+        $numberActiveListingHost = $spaceRepo->getNumberActiveListing($space->getUser());
+        $numberReviewHost = $bookingRepo->getTotalReviewHost($space->getUser());
+
+        return $this->render('AppBundle:Front:detail.html.twig', array(
+            'space'=>$space,
+            'featureCategories'=>$featureCategories,
+            'numberReviewSpace'=>$numberReviewSpace,
+            'reviews'=>$reviews,
+            'numberActiveListingHost'=>$numberActiveListingHost,
+            'numberReviewHost'=>$numberReviewHost,
+        ));
+    }
 }

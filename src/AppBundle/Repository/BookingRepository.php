@@ -154,7 +154,11 @@ class BookingRepository extends EntityRepository
             ->where($expr->eq('space.user', ':user'))
             ->setParameter('user',$host);
 
-        return $qb->getQuery()->getSingleScalarResult();
+        $result = $qb->getQuery()->getSingleScalarResult();
+        if($result == null){
+            return 0;
+        }
+        return $result;
     }
     public function getCommunicationRatingHost($host)
     {
@@ -165,7 +169,11 @@ class BookingRepository extends EntityRepository
             ->where($expr->eq('space.user', ':user'))
             ->setParameter('user',$host);
 
-        return $qb->getQuery()->getSingleScalarResult();
+        $result = $qb->getQuery()->getSingleScalarResult();
+        if($result == null){
+            return 0;
+        }
+        return $result;
 
     }
 
@@ -178,7 +186,11 @@ class BookingRepository extends EntityRepository
             ->where($expr->eq('space.user', ':user'))
             ->setParameter('user',$host);
 
-        return $qb->getQuery()->getSingleScalarResult();
+        $result = $qb->getQuery()->getSingleScalarResult();
+        if($result == null){
+            return 0;
+        }
+        return $result;
 
     }
 
@@ -187,23 +199,36 @@ class BookingRepository extends EntityRepository
      */
     public function getRatingSpace($space)
     {
-        return $this->_em->createQuery('select AVG((b.ratingLocation + b.ratingCommunication)/2) from AppBundle\Entity\Booking\Booking b where b.space =:space and b.ratingLocation > 0')
+        $result= $this->_em->createQuery('select AVG((b.ratingLocation + b.ratingCommunication)/2) from AppBundle\Entity\Booking\Booking b where b.space =:space and b.ratingLocation > 0')
             ->setParameter('space', $space)
             ->getSingleScalarResult();
+        if($result == null){
+            return 0;
+        }
+        return $result;
+
     }
 
     public function getLocationRatingSpace($space)
     {
-        return $this->_em->createQuery('select AVG(b.ratingLocation) from AppBundle\Entity\Booking\Booking b where b.space =:space and b.ratingLocation > 0')
+        $result = $this->_em->createQuery('select AVG(b.ratingLocation) from AppBundle\Entity\Booking\Booking b where b.space =:space and b.ratingLocation > 0')
             ->setParameter('space', $space)
             ->getSingleScalarResult();
+        if($result == null){
+            return 0;
+        }
+        return $result;
     }
 
     public function getCommunicationRatingSpace($space)
     {
-        return $this->_em->createQuery('select AVG(b.ratingCommunication) from AppBundle\Entity\Booking\Booking b where b.space =:space and b.ratingLocation > 0')
+        $result = $this->_em->createQuery('select AVG(b.ratingCommunication) from AppBundle\Entity\Booking\Booking b where b.space =:space and b.ratingLocation > 0')
             ->setParameter('space', $space)
             ->getSingleScalarResult();
+        if($result == null){
+            return 0;
+        }
+        return $result;
     }
 
     /*
@@ -233,9 +258,13 @@ class BookingRepository extends EntityRepository
 
     public function getTotalEarningSpace($space)
     {
-        return $this->_em->createQuery('select SUM (b.totalPrice) from AppBundle\Entity\Booking\Booking b where b.space =:space')
+        $result = $this->_em->createQuery('select SUM (b.totalPrice) from AppBundle\Entity\Booking\Booking b where b.space =:space')
             ->setParameter('space', $space)
             ->getSingleScalarResult();
+        if($result == null){
+            return 0;
+        }
+        return $result;
     }
 
     public function getTotalBookingSpace($space)

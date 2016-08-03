@@ -36,6 +36,7 @@ class Booking
     {
         $this->createdAt = new \DateTime();
         $this->isReview = false;
+        $this->isPlot = false;
         $this->bookingType = self::BOOKING_TYPE_DAILY;
         $this->status = self::STATUS_PENDING;
         $this->totalPrice = 0;
@@ -72,7 +73,7 @@ class Booking
 
     /**
      * @var float
-     * @ORM\Column(name="total_price",type="float")
+     * @ORM\Column(name="total_price",type="float",options={"default"=0})
      */
     private $totalPrice;
 
@@ -88,6 +89,32 @@ class Booking
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Space\Space")
      */
     private $space;
+
+    /**
+     * @var string
+     * @ORM\Column(name="space_shape",type="string",nullable=true)
+     */
+    private $spaceShape;
+    /**
+     * @var float
+     * @ORM\Column(name="space_price_daily",type="float",precision=4,scale=2,nullable=true)
+     */
+    private $spacePriceDaily;
+    /**
+     * @var float
+     * @ORM\Column(name="space_weekly_discount",type="float",precision=2,scale=2,nullable=true)
+     */
+    private $spaceWeeklyDiscount;
+    /**
+     * @var float
+     * @ORM\Column(name="space_monthly_discount",type="float",precision=2,scale=2,nullable=true)
+     */
+    private $spaceMonthlyDiscount;
+    /**
+     * @var int
+     * @ORM\Column(name="space_square_feet",type="integer",nullable=true)
+     */
+    private $spaceSquareFeet;
 
     /**
      * @var integer
@@ -114,6 +141,12 @@ class Booking
      */
     private $bookingReviewMessages;
 
+
+    /**
+     * @var boolean
+     * @ORM\Column(name="is_plot",type="boolean",options={"default"=0})
+     */
+    private $isPlot;
     /**
      * @return BookingReviewMessage
      */
@@ -359,6 +392,87 @@ class Booking
     {
         return $this->id;
     }
+
+    /**
+     * @return int
+     */
+    public function getSpaceSquareFeet()
+    {
+        return $this->spaceSquareFeet;
+    }
+
+    /**
+     * @param int $spaceSquareFeet
+     */
+    public function setSpaceSquareFeet($spaceSquareFeet)
+    {
+        $this->spaceSquareFeet = $spaceSquareFeet;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSpaceShape()
+    {
+        return $this->spaceShape;
+    }
+
+    /**
+     * @param string $spaceShape
+     */
+    public function setSpaceShape($spaceShape)
+    {
+        $this->spaceShape = $spaceShape;
+    }
+
+    /**
+     * @return float
+     */
+    public function getSpacePriceDaily()
+    {
+        return $this->spacePriceDaily;
+    }
+
+    /**
+     * @param float $spacePriceDaily
+     */
+    public function setSpacePriceDaily($spacePriceDaily)
+    {
+        $this->spacePriceDaily = $spacePriceDaily;
+    }
+
+    /**
+     * @return float
+     */
+    public function getSpaceWeeklyDiscount()
+    {
+        return $this->spaceWeeklyDiscount;
+    }
+
+    /**
+     * @param float $spaceWeeklyDiscount
+     */
+    public function setSpaceWeeklyDiscount($spaceWeeklyDiscount)
+    {
+        $this->spaceWeeklyDiscount = $spaceWeeklyDiscount;
+    }
+
+    /**
+     * @return float
+     */
+    public function getSpaceMonthlyDiscount()
+    {
+        return $this->spaceMonthlyDiscount;
+    }
+
+    /**
+     * @param float $spaceMonthlyDiscount
+     */
+    public function setSpaceMonthlyDiscount($spaceMonthlyDiscount)
+    {
+        $this->spaceMonthlyDiscount = $spaceMonthlyDiscount;
+    }
+    
     
     
 

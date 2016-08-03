@@ -1,53 +1,79 @@
-<h3 class="margin-clear"><a
-            href="shop-product.html">{{ space.name }}</a></h3>
-<div class="row">
-    <div class="col-md-8">
-        <span style="font-size: 12px">{{ space.location.squareFeet }} sqft</span>
-        <span style="font-size: 12px">{{ getTypeSpace(space.location.typeSpace) }}</span>
-    </div>
-</div>
-<p>
-    {{ getRatingSpace(space,1) }}
-</p>
-<div class="row">
-    <div class="col-md-4">
-        <strong>${{ space.price.daily }}</strong><br>Per Day
-    </div>
-    <div class="col-md-4">
-        <strong>${{ (space.price.daily*7)-((space.price.daily*7*space.price.weeklyDiscount)/100) }}</strong><br>Per
-        Day
-    </div>
-    <div class="col-md-4">
-        <strong>${{ (space.price.daily*30)-((space.price.daily*30*space.price.monthlyDiscount)/100) }}</strong><br>Per
-        Day
-    </div>
-</div>
-<hr class="divider">
-    <input type="hidden" id="app_booking__token" name="app_booking[_token]" value="Y_duEl-NxySPXZ3UZZDntC0jac5uFfatw6RIqu3bjNw">
-    <div style="font-weight: bold;color: red;">Choice of Space</div>
-    <div id="app_booking_bookingType">
-        <input {{ booking.bookingType =='DAILY' ? 'checked' }} type="radio" id="app_booking_bookingType_0" name="app_booking[bookingType]"  value="DAILY">
-        <label  for="app_booking_bookingType_0">Daily</label>
-        <input {{ booking.bookingType =='WEEKLY' ? 'checked' }} type="radio" id="app_booking_bookingType_1" name="app_booking[bookingType]"  value="WEEKLY">
-        <label for="app_booking_bookingType_1">Weekly</label>
-        <input {{ booking.bookingType =='MONTHLY' ? 'checked' }} type="radio" id="app_booking_bookingType_2" name="app_booking[bookingType]"  value="MONTHLY">
-        <label for="app_booking_bookingType_2">Monthly</label>
-    </div>
-    <input type="text" id="app_booking_dateFrom" name="app_booking[dateFrom]"  class="datepicker" value="{{ booking.dateFrom|date('m/d/Y') }}">
-    <input type="text" id="app_booking_dateTo" name="app_booking[dateTo]"  class="datepicker" value="{{ booking.dateTo|date('m/d/Y') }}">
 
-    <div><strong>Total : ${{ price }} </strong></div>
 
-    <hr class="divider">
-    <div>
-        <h4>Payment</h4>
-        <span>Card number: 43432</span><br>
-        <span>Card Holder: 11</span><br>
-        <span>Expire Date: 111</span><br>
-        <span>CVV: 11</span><br>
-    </div>
-<form method="post">
-    <input type='hidden' name='stripeToken' value='{{ stripeToken }}' />
-    <input type='hidden' name='fromStep3' value='1' />
-    <button type="submit" class="submit-button">Complete Booking</button>
-</form>
+
+
+
+
+{% extends 'AppBundle::layout.html.twig' %}
+{% block content %}
+    <section class="main-container create-space-step" data-booking-space="" data-paging-ajax="">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="hidden" value="{{ space.shape }}" id="app_space_space_shape">
+                    <div class="map " id="map"></div>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="margin-clear"><a
+                                href="shop-product.html">{{ space.name }}</a></h3>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <span style="font-size: 12px">{{ space.location.squareFeet }} sqft</span>
+                            <span style="font-size: 12px">{{ getTypeSpace(space.location.typeSpace) }}</span>
+                        </div>
+                    </div>
+                    <p>
+                        {{ getRatingSpace(space,1) }}
+                    </p>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <strong>${{ space.price.daily }}</strong><br>Per Day
+                        </div>
+                        <div class="col-md-4">
+                            <strong>${{ (space.price.daily*7)-((space.price.daily*7*space.price.weeklyDiscount)/100) }}</strong><br>Per
+                            Day
+                        </div>
+                        <div class="col-md-4">
+                            <strong>${{ (space.price.daily*30)-((space.price.daily*30*space.price.monthlyDiscount)/100) }}</strong><br>Per
+                            Day
+                        </div>
+                    </div>
+                    <hr class="divider">
+                    <input type="hidden" id="app_booking__token" name="app_booking[_token]" value="Y_duEl-NxySPXZ3UZZDntC0jac5uFfatw6RIqu3bjNw">
+                    <div style="font-weight: bold;color: red;">Choice of Space</div>
+                    <div id="app_booking_bookingType">
+                        <input {{ booking.bookingType =='DAILY' ? 'checked' }} type="radio" id="app_booking_bookingType_0" name="app_booking[bookingType]"  value="DAILY">
+                        <label  for="app_booking_bookingType_0">Daily</label>
+                        <input {{ booking.bookingType =='WEEKLY' ? 'checked' }} type="radio" id="app_booking_bookingType_1" name="app_booking[bookingType]"  value="WEEKLY">
+                        <label for="app_booking_bookingType_1">Weekly</label>
+                        <input {{ booking.bookingType =='MONTHLY' ? 'checked' }} type="radio" id="app_booking_bookingType_2" name="app_booking[bookingType]"  value="MONTHLY">
+                        <label for="app_booking_bookingType_2">Monthly</label>
+                    </div>
+                    <input type="text" id="app_booking_dateFrom" name="app_booking[dateFrom]"  class="datepicker" value="{{ booking.dateFrom|date('m/d/Y') }}">
+                    <input type="text" id="app_booking_dateTo" name="app_booking[dateTo]"  class="datepicker" value="{{ booking.dateTo|date('m/d/Y') }}">
+
+                    <div><strong>Total : ${{ price }} </strong></div>
+
+                    <hr class="divider">
+                    <div>
+                        <h4>Payment</h4>
+                        <span>Card number: 43432</span><br>
+                        <span>Card Holder: 11</span><br>
+                        <span>Expire Date: 111</span><br>
+                        <span>CVV: 11</span><br>
+                    </div>
+                    <form method="post">
+                        <input type='hidden' name='stripeToken' value='{{ stripeToken }}' />
+                        <input type='hidden' name='fromStep3' value='1' />
+                        <button type="submit" class="submit-button">Complete Booking</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        {{ render(controller('AppBundle:Front/Mgmt/PublicRetrieval:detailSpace',{'space':space.id})) }}
+    </section>
+
+{% endblock %}
+

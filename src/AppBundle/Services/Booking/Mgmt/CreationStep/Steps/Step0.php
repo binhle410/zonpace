@@ -7,7 +7,7 @@ use AppBundle\Form\SpaceType;
 use AppBundle\Services\Booking\Mgmt\CreationStep\Step;
 use Application\Sonata\MediaBundle\Entity\Media;
 
-class Step1 extends Step
+class Step0 extends Step
 {
 
     public function process()
@@ -26,11 +26,11 @@ class Step1 extends Step
             return $this->redirectToRoute('app_user_booking_create',[
                 'space' => $space->getId(),
                 'booking' => $booking->getId(),
-                'step' => 2
+                'step' => 1
             ]);
         }
 
-        return $this->render('AppBundle:User/Booking/Steps:detail.html.twig', array(
+        return $this->render('AppBundle:User/Booking/Steps:step0.html.twig', array(
             'space'=>$space,
             'form'=>$form->createView()
         ));

@@ -9,9 +9,19 @@
                 <div class="col-md-6">
                     <strong>{{ getlAphabetNameSpace(loop.index-1) ~' '~ space.name }}</strong>
                 </div>
-                <div class="col-md-6 pull-right">
-                    <span class="pull-right">Available</span>
-                </div>
+                {% if app.request.get('from') != '' and  app.request.get('to') != '' %}
+                    {% set from =  app.request.get('from')|date('Y-m-d') %}
+                    {% set to =  app.request.get('to')|date('Y-m-d') %}
+                    {% if checkAvailableBooking(space,from,to) %}
+                        <div class="col-md-6 pull-right">
+                            <span class="pull-right">Available</span>
+                        </div>
+                        {% else %}
+                            <div class="col-md-6 pull-right">
+                                <span class="pull-right">Unavailable</span>
+                            </div>
+                    {% endif %}
+                {% endif %}
             </div>
             <div class="row">
                 <div class="col-md-8">
@@ -50,12 +60,13 @@
                         </div>
                     </div>
                     {% if app.user %}
-                    <div class="row">
-                        <div class="col-md-12">
-                            <input onclick="window.location.href='{{ path('app_user_booking_create',{'step':1,'space':space.id}) }}'"  type="button" value="Book Now"
-                                   class="btn btn-danger btn-sm btn-custom">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input onclick="window.location.href='{{ path('app_user_booking_create',{'step':0,'space':space.id}) }}'"
+                                       type="button" value="Book Now"
+                                       class="btn btn-danger btn-sm btn-custom">
+                            </div>
                         </div>
-                    </div>
                     {% endif %}
                 </div>
             </div>

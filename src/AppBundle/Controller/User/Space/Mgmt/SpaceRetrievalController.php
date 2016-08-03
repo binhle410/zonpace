@@ -25,7 +25,6 @@ class SpaceRetrievalController extends ControllerService
         $entityManager = $this->getDoctrine()->getManager();
         $bookings = $entityManager->getRepository('AppBundle:Booking\Booking')->findHostBooking($this->getUser(),$request->query->all())->getQuery()->getResult();
         $dataBookings =  $this->generateDataBookings($bookings);
-//        echo $dataBookings;die;
         return $this->render('AppBundle:User/Space:view.html.twig',[
             'space'=>$space,
             'dataBookings'=>$dataBookings

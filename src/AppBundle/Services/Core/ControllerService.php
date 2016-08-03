@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Pagerfanta\Adapter\DoctrineORMAdapter;
 use Pagerfanta\Pagerfanta;
 use Symfony\Component\Validator\Constraints\DateTime;
+use Doctrine\Common\Collections\Criteria;
 
 class ControllerService extends Controller
 {
@@ -192,6 +193,68 @@ class ControllerService extends Controller
             $count++;
         }
         return $count;
+    }
+
+
+
+    public function getDateRange($begin,$end){
+        $end = $end->modify('+1 day');
+
+        $interval = new \DateInterval('P1D');
+        $daterange = new \DatePeriod($begin, $interval, $end);
+        return $daterange;
+    }
+    /**
+     * @param Space $space
+     * @param $dateFrom
+     * @param $dateTo
+     * @return bool
+     */
+    public function checkAvailableBooking(Space $space,$dateFrom,$dateTo){
+        $criteriaBookingSuccess = Criteria::create()
+            ->where(Criteria::expr()->eq('status',Booking::STATUS_SUCCESS));
+        $bookingActives = $space->getBookings()->matching($criteriaBookingSuccess);
+        //list booked date
+        $listBookedDate = [];
+        foreach ($bookingActives as $bookingActive){
+            $daterange = $this->getDateRange($bookingActive->getDateFrom(),$bookingActive->getDateTo());
+            foreach ($daterange as $date) {
+                $listBookedDate[] = $date->format('Y-m-d');
+            }
+        }
+
+        //list blocked date
+        $listBlockedDate =[];
+        $blockedDates = $space->getDateBooking()->getBlockedDateBookings();
+        foreach($blockedDates as $blockedDate){
+            $listBlockedDate[] = $blockedDate->getBlockedDate()->format('Y-m-d');
+        }
+        //list available except blocked date,except the date had booked
+        $daterange = $this->getDateRange($space->getDateBooking()->getDateFrom(),$space->getDateBooking()->getDateTo());
+        $listAvailableDate=[];
+        foreach ($daterange as $date) {
+            if(!in_array($date->format('Y-m-d'),$listBlockedDate) && !in_array($date->format('Y-m-d'),$listBookedDate)){
+                $listAvailableDate[$date->format('Y-m-d')] = $date->format('Y-m-d');
+            }
+        }
+        //check booking from to available or not
+        $listBookingDate = [];
+        $begin = new \DateTime($dateFrom);
+        $end = new \DateTime($dateTo);
+        if($begin->getTimestamp() > $end->getTimestamp()){
+            return false;
+        }
+        $daterange = $this->getDateRange($begin,$end);
+        foreach ($daterange as $date) {
+            $listBookingDate[] = $date->format('Y-m-d');
+        }
+
+        foreach ($listBookingDate as $date){
+            if(!isset($listAvailableDate[$date])){
+                return false;
+            }
+        }
+        return true;
     }
 
 

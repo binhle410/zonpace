@@ -180,6 +180,28 @@ sonata_block:
             contexts: [admin]
 sonata_admin:
     title:      Zonpace
+    dashboard:
+        groups:
+            Spaces:
+                on_top:               true
+                label:                ~
+                label_catalogue:      ~
+                items:
+                    - admin.space
+            Users:
+                on_top:               true
+                label:                ~
+                label_catalogue:      ~
+                items:
+                    - admin.user_fos
+            Bookings:
+                on_top:               true
+                label:                ~
+                label_catalogue:      ~
+                items:
+                    - admin.booking
+
+
 #    title_logo: bundles/app/images/fancy_acme_logo.png
 
 sonata_media:

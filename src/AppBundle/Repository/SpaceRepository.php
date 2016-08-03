@@ -115,32 +115,32 @@ class SpaceRepository extends EntityRepository
             $qb->andWhere('space.instantBook = 1');
         }
 
-//        if (isset($query['from']) && $query['from'] != '') {
-//            $fromDate = \DateTime::createFromFormat('m/d/Y', $query['from']);
-//            $qb->andWhere('dateBooking.dateFrom >= :from')
-//                ->setParameter('from', $fromDate->format('Y-m-d'));
-//        }
-//        if (isset($query['to']) && $query['to'] != '') {
-//            $toDate = \DateTime::createFromFormat('m/d/Y', $query['to']);
-//            $qb->andWhere('dateBooking.dateTo <= :to')
-//                ->setParameter('to', $toDate->format('Y-m-d'));
-//        }
-//        if (isset($query['price']) && $query['price'] != '') {
-//            $price = explode(';',$query['price']);
-//            $priceFrom = $price[0];
-//            $priceTo = $price[1];
-//            $qb->andWhere('price.daily >= :priceFrom AND price.daily <= :priceTo')
-//                ->setParameter('priceFrom', $priceFrom)
-//                ->setParameter('priceTo', $priceTo);
-//        }
-//        if (isset($query['square']) && $query['square'] != '') {
-//            $square = explode(';',$query['square']);
-//            $squareFrom = $square[0];
-//            $squareTo = $square[1];
-//            $qb->andWhere('location.squareFeet >= :squareFrom AND location.squareFeet <= :squareTo')
-//                ->setParameter('squareFrom', $squareFrom)
-//                ->setParameter('squareTo', $squareTo);
-//        }
+        if (isset($query['from']) && $query['from'] != '') {
+            $fromDate = \DateTime::createFromFormat('m/d/Y', $query['from']);
+            $qb->andWhere('dateBooking.dateFrom <= :from')
+                ->setParameter('from', $fromDate->format('Y-m-d'));
+        }
+        if (isset($query['to']) && $query['to'] != '') {
+            $toDate = \DateTime::createFromFormat('m/d/Y', $query['to']);
+            $qb->andWhere('dateBooking.dateTo >= :to')
+                ->setParameter('to', $toDate->format('Y-m-d'));
+        }
+        if (isset($query['price']) && $query['price'] != '') {
+            $price = explode(';',$query['price']);
+            $priceFrom = $price[0];
+            $priceTo = $price[1];
+            $qb->andWhere('price.daily >= :priceFrom AND price.daily <= :priceTo')
+                ->setParameter('priceFrom', $priceFrom)
+                ->setParameter('priceTo', $priceTo);
+        }
+        if (isset($query['square']) && $query['square'] != '') {
+            $square = explode(';',$query['square']);
+            $squareFrom = $square[0];
+            $squareTo = $square[1];
+            $qb->andWhere('location.squareFeet >= :squareFrom AND location.squareFeet <= :squareTo')
+                ->setParameter('squareFrom', $squareFrom)
+                ->setParameter('squareTo', $squareTo);
+        }
 
             $lat = $query['lat'];
             $lng = $query['lng'];

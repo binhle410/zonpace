@@ -1,0 +1,87 @@
+<div class="row">
+    <div class="main col-md-8">
+        <h3><strong>Description</strong></h3>
+        <p>{{ space.description }}</p>
+        <div class="row" style="margin-left: 5px;">
+            {#{% for galleryHasMedia in space.photo.galleryHasMedias %}#}
+                {#<img src="{{ getUrl(galleryHasMedia.media,'default','big') }}">#}
+            {#{% endfor %}#}
+
+        </div>
+        <h3><strong>Features</strong></h3>
+        {% for featureCategory in featureCategories %}
+            <div class="row" style="margin-left: 5px;">
+                <h4><strong>{{ featureCategory.name }}</strong></h4>
+                <div class="row">
+                    {% for feature in featureCategory.features %}
+                        <div class="col-md-4">
+                            {{ feature.name }}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+        <h3><strong>{{ numberReviewSpace }} Ratings</strong></h3>
+        <div class="row" style="margin-left: 5px;">
+            <div class="col-md-6">
+                Location: {{ getRatingSpace(space,1) }}
+            </div>
+            <div class="col-md-6">
+                Communication: {{ getRatingSpace(space,2) }}
+            </div>
+        </div>
+        <hr class="divider">
+
+        <div class="row" style="margin-left: 5px;">
+            <div class="col-md-6">
+                <h4><strong>How it works</strong></h4>
+                <p>ok</p>
+            </div>
+            <div class="col-md-6">
+                <h4><strong>Our Cancellation Policy</strong></h4>
+                <p>ok</p>
+            </div>
+        </div>
+        <hr class="divider">
+        <h3><strong>123 Customer Reviews</strong></h3>
+        <div class="row list-paging-ajax" style="margin-left: 5px;">
+            {% include 'AppBundle:Front:_list-review.html.twig' %}
+        </div>
+
+
+        <hr class="divider">
+        <div class="row" style="margin-left: 5px;">
+            <div class="col-md-6">
+                <h3 style="color: red"><strong>About Your Host</strong></h3>
+                {% set user = space.user %}
+                <div class="row">
+                    <div class="col-md-4">
+                        <a href="{{ path('app_front_host_profile',{'user':user.id}) }}">
+                            <img src="{{ getUrl(user.photo,'default','small') }}">
+                            <p>{{ user.firstName ~', '~ user.city.name ~', '~ user.state.name }}</p>
+                        </a>
+                    </div>
+                    <div class="col-md-8">
+                        <p>Communication: {{ getRatingHost(user,3) }}</p>
+                        <p>Location: {{ getRatingHost(user,2) }}</p>
+                        <div class="row">
+                            <div class="col-md-7">
+                                {{ numberActiveListingHost }} Space available
+                            </div>
+                            <div class="col-md-5">
+                                {{ numberReviewHost }} Reviews
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h3 style="color: red"><strong>Nearby Event Planners</strong></h3>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>

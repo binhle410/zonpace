@@ -179,6 +179,10 @@ class TwigExtension extends \Twig_Extension
         return $this->container->get('app.controller')->getStatusBooking($booking);
     }
 
+    public function checkAvailableBooking(Space $space,$dateFrom,$dateTo){
+        return $this->container->get('app.controller')->checkAvailableBooking($space,$dateFrom,$dateTo);
+    }
+
 
     public function getFunctions()
     {
@@ -200,6 +204,7 @@ class TwigExtension extends \Twig_Extension
             'getStatusBooking' => new \Twig_Function_Method($this, 'getStatusBooking', array('is_safe' => array('html'))),
             'getTypeSorts' => new \Twig_Function_Method($this, 'getTypeSorts', array('is_safe' => array('html'))),
             'getStatusBookingSuccess' => new \Twig_Function_Method($this, 'getStatusBookingSuccess', array('is_safe' => array('html'))),
+            'checkAvailableBooking' => new \Twig_Function_Method($this, 'checkAvailableBooking', array('is_safe' => array('html'))),
         );
     }
 
