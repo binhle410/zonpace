@@ -107,7 +107,7 @@
                                             <div style="margin-bottom: 50px;text-align: right;">Book
                                                 on {{ booking.createdAt|date('M d, Y') }}
                                             </div>
-                                            <input onclick="window.location.href='{{ path('app_user_booking_create',{'step':1,'space':booking.space.id}) }}'" style="width: 153px;margin-bottom: 5px !important;"
+                                            <input onclick="window.location.href='{{ path('app_user_booking_create',{'step':0,'space':booking.space.id}) }}'" style="width: 153px;margin-bottom: 5px !important;"
                                                    type="button" value="Book Again"
                                                    class="margin-clear btn btn-default pull-right">
                                             {% if booking.isReview == false %}

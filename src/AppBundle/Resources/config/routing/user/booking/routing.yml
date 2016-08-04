@@ -6,6 +6,13 @@ app_user_booking_check_available_booking:
     defaults: { _controller: AppBundle:User/Booking/Api/BookingApi:checkAvailableBooking}
 
 app_user_booking_plot_space:
-    path: /plot-space/{space}/{booking}
+    path: /plot-space/{space}/{booking}/{type}
     defaults: { _controller: AppBundle:User/Booking/Mgmt/BookingManipulation:plotSpace}
+
+app_user_booking_approve_plot:
+    path: /approve-plot/{booking}
+    defaults: { _controller: AppBundle:User/Booking/Mgmt/BookingManipulation:approvePlot}
+app_user_booking_reject_plot:
+    path: /reject-plot/{booking}
+    defaults: { _controller: AppBundle:User/Booking/Mgmt/BookingManipulation:rejectPlot}
 

@@ -19,7 +19,8 @@
                         <input id="save" class="btn btn-primary" value="Save" type="button"/>
                     </div>
                 </div>
-                <form action="{{ path('app_user_booking_plot_space',{'space':space.id,'booking':booking.id}) }}" method="post">
+                {% set bookingId = booking.id is not null ? booking.id : 0  %}
+                <form action="{{ path('app_user_booking_plot_space',{'space':space.id,'booking':booking.id,'type':type}) }}" method="post">
                     {{ form_row(form._token) }}
                     {{ form_widget(form.spaceShape,{'attr':{'class':'form-control','placeholder':''}}) }}
                     {{ form_widget(form.spaceSquareFeet,{'attr':{'class':'form-control','placeholder':'Square Feet'}}) }}

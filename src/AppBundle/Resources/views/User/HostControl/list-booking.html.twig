@@ -103,14 +103,14 @@
                                             </div>
                                             {% if booking.isPlot and booking.statusPlot == 'PENDING' %}
                                             <div>
-                                                <a href="#" style="color: red">Approve</a>/
-                                                <a href="#" style="color: red">Reject</a>/
+                                                <a href="{{ path('app_user_booking_approve_plot',{'booking':booking.id}) }}" style="color: red">Approve</a>/
+                                                <a href="{{ path('app_user_booking_reject_plot',{'booking':booking.id}) }}" style="color: red">Reject</a>/
                                                 <a href="javascript:void(0)" style="color: red" data-toggle="modal" data-target="#plot-space">Make a offer</a>
-                                                {{ render(controller('AppBundle:User/Booking/Mgmt/BookingManipulation:plotSpace',{'space':space.id,'booking':booking.id})) }}
+                                                {{ render(controller('AppBundle:User/Booking/Mgmt/BookingManipulation:plotSpace',{'space':space.id,'booking':booking.id,'type':'host'})) }}
                                             </div>
                                                 {% else %}
-                                                    <div>
-                                                        {{ booking.statusPlot }}
+                                                    <div class="space-enabled" style="text-align: right;">
+                                                        {{ booking.statusPlot }} PLOT
                                                     </div>
                                                     {% endif %}
                                         </div>
