@@ -33,10 +33,10 @@ class BookingManipulationController extends ControllerService
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $booking->setUser($this->getUser());
-            $booking->setSpace($space);
-            $booking->setIsPlot(true);
             if ($type == 'user') {
+                $booking->setSpace($space);
+                $booking->setIsPlot(true);
+                $booking->setUser($this->getUser());
                 $booking->setStatusPlot(Booking::PLOT_PENDING);
             } else {
                 $booking->setStatusPlot(Booking::PLOT_APPROVED);
@@ -50,6 +50,12 @@ class BookingManipulationController extends ControllerService
                     'step' => 0
                 ]);
             } else {
+                $urlBooking = $this->generateUrl('app_user_booking_create',[
+                    'space'=>$space->getId(),
+                    'booking'=>$booking->getId(),
+                    'step'=>1
+                ]);
+                $this->get('app.email_sender')->sendEmailOfferPlot($booking->getUser()->getEmail(),$urlBooking);
                 return $this->redirectToRoute('app_user_host_control_list_booking', [
                 ]);
             }
@@ -68,6 +74,12 @@ class BookingManipulationController extends ControllerService
         $booking->setStatusPlot(Booking::PLOT_APPROVED);
         $em->persist($booking);
         $em->flush();
+        $urlBooking = $this->generateUrl('app_user_booking_create',[
+            'space'=>$booking->getSpace()->getId(),
+            'booking'=>$booking->getId(),
+            'step'=>1
+        ]);
+        $this->get('app.email_sender')->sendEmailOfferPlot($booking->getUser()->getEmail(),$urlBooking);
         return $this->redirectToRoute('app_user_host_control_list_booking', [
         ]);
     }

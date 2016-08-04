@@ -1663,8 +1663,10 @@ jQuery(function () {
 
                         },
                         onMonthChange: function (month) {
+                            that.loadBookingDate()
                         },
                         onYearChange: function (month) {
+                            that.loadBookingDate()
                         },
                     },
 
