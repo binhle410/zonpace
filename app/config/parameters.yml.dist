@@ -33,3 +33,6 @@ parameters:
     search_radius: 10  #mile
 
     google_api_key: 222
+
+    stripe_secret_key: sk_test_clj9PCMa3jidJqgOTFl67d0n
+    stripe_publishable_key: pk_test_qBL4eoPC9zHxzA1kCXjm7kNZ
