@@ -182,6 +182,14 @@ class TwigExtension extends \Twig_Extension
     public function checkAvailableBooking(Space $space,$dateFrom,$dateTo){
         return $this->container->get('app.controller')->checkAvailableBooking($space,$dateFrom,$dateTo);
     }
+    public function getLatLngSpace(Space $space,$type){
+        $latLng =  $this->container->get('app.controller')->getLatLngSpace($space);
+        if($type == 'lat'){
+            return $latLng['lat'];
+        }else{
+            return $latLng['lng'];
+        }
+    }
 
 
     public function getFunctions()
@@ -205,6 +213,7 @@ class TwigExtension extends \Twig_Extension
             'getTypeSorts' => new \Twig_Function_Method($this, 'getTypeSorts', array('is_safe' => array('html'))),
             'getStatusBookingSuccess' => new \Twig_Function_Method($this, 'getStatusBookingSuccess', array('is_safe' => array('html'))),
             'checkAvailableBooking' => new \Twig_Function_Method($this, 'checkAvailableBooking', array('is_safe' => array('html'))),
+            'getLatLngSpace' => new \Twig_Function_Method($this, 'getLatLngSpace', array('is_safe' => array('html'))),
         );
     }
 

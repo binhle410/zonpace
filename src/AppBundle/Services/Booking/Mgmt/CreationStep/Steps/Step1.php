@@ -23,6 +23,7 @@ class Step1 extends Step
             if($booking->getBookingType() == Booking::BOOKING_TYPE_DAILY){
                 $begin =$booking->getDateFrom()->format('Y-m-d');
                 $end =$booking->getDateTo()->format('Y-m-d');
+                $dateTo = $booking->getDateTo();
             }elseif($booking->getBookingType() == Booking::BOOKING_TYPE_WEEKLY){
                 $period = $booking->getBookingPeriod();
                 $dateFrom = $booking->getDateFrom();

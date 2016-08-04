@@ -147,6 +147,27 @@ class ControllerService extends Controller
             //implement after
         }
     }
+    public function getLatLngSpace(Space $space)
+    {
+        $shape = json_decode($space->getShape());
+        if (isset($shape[0])) {
+            $lat = 0;
+            $lng = 0;
+            $dataShape = $shape[0]->geometry[0];
+            foreach ($dataShape as $item) {
+                $lat += $item[0];
+                $lng += $item[1];
+            }
+            //this is avg center of map
+            $lat = $lat / count($dataShape);
+            $lng = $lng / count($dataShape);
+
+            return ['lat'=>$lat,'lng'=>$lng];
+        } else {
+            return '';
+            //implement after
+        }
+    }
     public function getStatusBooking(Booking $booking){
         if($booking->getStatus() == Booking::STATUS_PENDING){
             return 'Pending';

@@ -17,8 +17,8 @@ class Step2 extends Step
         $request = $this->getRequest();
         //booking
             $stripe = array(
-                'secret_key'      => 'sk_test_clj9PCMa3jidJqgOTFl67d0n',
-                'publishable_key' => 'pk_test_qBL4eoPC9zHxzA1kCXjm7kNZ'
+                'secret_key'      => $this->getParameter('stripe_secret_key'),
+                'publishable_key' => $this->getParameter('stripe_publishable_key'),
             );
 
 

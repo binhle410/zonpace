@@ -153,6 +153,8 @@ class Booking
      * @ORM\Column(name="is_plot",type="boolean",options={"default"=0})
      */
     private $isPlot;
+
+
     /**
      * @return BookingReviewMessage
      */
