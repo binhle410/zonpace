@@ -7,7 +7,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <input type="hidden" value="{{ space.shape }}" id="app_space_space_shape">
+                    {% set shape = booking.isPlot ? booking.spaceShape:space.shape  %}
+                    <input type="hidden" value="{{ shape }}" id="app_space_space_shape">
                     <div class="map " id="map"></div>
                 </div>
                 <div class="col-md-6">
@@ -23,16 +24,19 @@
                         {{ getRatingSpace(space,1) }}
                     </p>
                     <div class="row">
+                        {% set priceDaily = booking.isPlot == true ? booking.spacePriceDaily: space.price.daily %}
+                        {% set weeklyDiscount = booking.isPlot ? booking.spaceWeeklyDiscount: space.price.weeklyDiscount %}
+                        {% set monthlyDiscount = booking.isPlot ? booking.spaceMonthlyDiscount: space.price.monthlyDiscount %}
                         <div class="col-md-4">
-                            <strong>$<span class="price-per-day">{{ space.price.daily }}</span></strong><br>Per Day
+                            <strong>$<span class="price-per-day">{{ priceDaily }}</span></strong><br>Per Day
                         </div>
                         <div class="col-md-4">
-                            <strong>$<span class="price-per-week">{{ (space.price.daily*7)-((space.price.daily*7*space.price.weeklyDiscount)/100) }}</span></strong><br>Per
-                            Week
+                            <strong>$<span class="price-per-week">{{ (priceDaily*7)-((priceDaily*7*weeklyDiscount)/100) }}</span></strong><br>Per
+                            Day
                         </div>
                         <div class="col-md-4">
-                            <strong>$<span class="price-per-month">{{ (space.price.daily*30)-((space.price.daily*30*space.price.monthlyDiscount)/100) }}</span></strong><br>Per
-                            Month
+                            <strong>$<span class="price-per-day">{{ (priceDaily*30)-((priceDaily*30*monthlyDiscount)/100) }}</span></strong><br>Per
+                            Day
                         </div>
                     </div>
                     <hr class="divider">
