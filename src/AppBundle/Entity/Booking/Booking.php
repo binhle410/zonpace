@@ -49,6 +49,12 @@ class Booking
      * @ORM\Column(name="booking_type",type="string")
      */
     private $bookingType;
+
+    /**
+     * @var string
+     * @ORM\Column(name="booking_period",type="integer",nullable=true)
+     */
+    private $bookingPeriod;
     /**
      * @var string
      * @ORM\Column(name="status",type="string")
@@ -472,6 +478,40 @@ class Booking
     {
         $this->spaceMonthlyDiscount = $spaceMonthlyDiscount;
     }
+
+    /**
+     * @return string
+     */
+    public function getBookingPeriod()
+    {
+        return $this->bookingPeriod;
+    }
+
+    /**
+     * @param string $bookingPeriod
+     */
+    public function setBookingPeriod($bookingPeriod)
+    {
+        $this->bookingPeriod = $bookingPeriod;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isIsPlot()
+    {
+        return $this->isPlot;
+    }
+
+    /**
+     * @param boolean $isPlot
+     */
+    public function setIsPlot($isPlot)
+    {
+        $this->isPlot = $isPlot;
+    }
+
+    
     
     
     

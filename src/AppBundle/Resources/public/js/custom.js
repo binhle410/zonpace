@@ -1903,6 +1903,37 @@ jQuery(function () {
                 that.booking();
                 that.getPrice();
                 that.checkAvailableBooking();
+                that.getCorrectForm();
+            },
+            getCorrectForm: function(){
+                if ($('.booking-step-0').length || $('.booking-step-1').length) {
+                    $('#app_booking_bookingPeriod').hide().attr('required',false);
+                    $('#app_booking_bookingType_0').click(function(){
+                        $('.btn-submit').attr('disabled',false);
+                        $('.available').html('');
+                        $('#app_booking_bookingPeriod').hide().attr('required',false);
+                        $('#app_booking_dateTo').show().attr('required',true);
+                    });
+                    $('#app_booking_bookingType_1').click(function(){
+                        $('.btn-submit').attr('disabled',false);
+                        $('.available').html('');
+                        $('#app_booking_bookingPeriod').show().attr('required',true).val('');
+                        $('#app_booking_dateTo').hide().attr('required',false);
+                    });
+                    $('#app_booking_bookingType_2').click(function(){
+                        $('.btn-submit').attr('disabled',false);
+                        $('.available').html('');
+                        $('#app_booking_bookingPeriod').show().attr('required',true).val('');
+                        $('#app_booking_dateTo').hide().attr('required',false);
+                    });
+                    if($('#app_booking_bookingType input:checked').val() =='DAILY'){
+                        $('#app_booking_bookingPeriod').hide().attr('required',false);
+                        $('#app_booking_dateTo').show().attr('required',true);
+                    }else{
+                        $('#app_booking_bookingPeriod').show().attr('required',true);
+                        $('#app_booking_dateTo').hide().attr('required',false);
+                    }
+                }
             },
             getPrice: function () {
                 if ($('.booking-step-1').length) {
@@ -1941,8 +1972,14 @@ jQuery(function () {
             checkAvailableBooking: function () {
                 if ($('.check-date-available').length) {
                     $('#app_booking_dateFrom').change(function () {
-                        if ($('#app_booking_dateFrom').val() != '' && $('#app_booking_dateTo').val() != '') {
-                            checkDate();
+                        if($('#app_booking_bookingType input:checked').val() =='DAILY'){
+                            if ($('#app_booking_dateFrom').val() != '' && $('#app_booking_dateTo').val() != '') {
+                                checkDate();
+                            }
+                        }else{
+                            if ($('#app_booking_dateFrom').val() != '') {
+                                checkDate();
+                            }
                         }
                     });
                     $('#app_booking_dateTo').change(function () {
@@ -1950,16 +1987,25 @@ jQuery(function () {
                             checkDate();
                         }
                     });
+                    $('#app_booking_bookingPeriod').change(function () {
+                        if ($('#app_booking_dateFrom').val() != '' && $('#app_booking_bookingPeriod').val() != '') {
+                            checkDate();
+                        }
+                    });
                     function checkDate() {
                         var url = $('.check-date-available').data('url-check-date');
                         var fromDate = $('#app_booking_dateFrom').val();
                         var toDate = $('#app_booking_dateTo').val();
+                        var bookingType = $('#app_booking_bookingType input:checked').val();
+                        var period = $('#app_booking_bookingPeriod').val();
                         $.ajax({
                             url: url,
                             type: "POST",
                             data: {
                                 'fromDate': fromDate,
                                 'toDate': toDate,
+                                'bookingType': bookingType,
+                                'period': period,
                             },
                             success: function (result) {
                                 if (result.status) {

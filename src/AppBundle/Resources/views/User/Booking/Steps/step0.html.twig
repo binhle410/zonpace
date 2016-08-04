@@ -39,10 +39,13 @@
                     <hr class="divider">
                     <form method="post" class="booking-step-0 check-date-available" data-url-check-date="{{ path('app_user_booking_check_available_booking',{'space':space.id}) }}">
                         {{ form_row(form._token) }}
-                        <div style="font-weight: bold;color: red;">Choice of Space</div>
-                        {{ form_widget(form.bookingType) }}
-                        {{ form_widget(form.dateFrom,{'attr':{'class':'datepicker'}}) }}
-                        {{ form_widget(form.dateTo,{'attr':{'class':'datepicker'}}) }}
+                        <div class="wrap-form">
+                            <div style="font-weight: bold;color: red;">Choice of Space</div>
+                            {{ form_widget(form.bookingType,{'attr':{'class':''}}) }}
+                            {{ form_widget(form.dateFrom,{'attr':{'class':'datepicker'}}) }}
+                            {{ form_widget(form.dateTo,{'attr':{'class':'datepicker'}}) }}
+                            {{ form_widget(form.bookingPeriod,{'attr':{'class':''}}) }}
+                        </div>
                         <div class="available" style="color: red;">
 
                         </div>

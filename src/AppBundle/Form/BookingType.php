@@ -25,6 +25,10 @@ class BookingType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $period['Select Period'] = '';
+        for ($i=1;$i<=30;$i++){
+            $period[$i]=$i;
+        }
         $builder
             ->add('dateFrom', DateType::class, ['format' => 'MM/dd/yyyy', 'widget' => 'single_text'])
             ->add('dateTo', DateType::class, ['format' => 'MM/dd/yyyy', 'widget' => 'single_text'])
@@ -36,6 +40,10 @@ class BookingType extends AbstractType
                 ],
                 'expanded'=>true,
                 'multiple'=>false,
+            ])
+            ->add('bookingPeriod', ChoiceType::class,[
+                'choices'=>$period,
+                'required'=>true
             ]);
     }
 

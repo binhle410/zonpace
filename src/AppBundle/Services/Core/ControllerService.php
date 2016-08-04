@@ -166,14 +166,29 @@ class ControllerService extends Controller
     }
 
     /**
-     * @param $dateFrom
-     * @param $dateTo
-     * @param $pricePerDay
-     * @param $type (1:dailly,2:weekly,3:month)
+     * @param $booking
+     * @param $booking
      */
-    public function getPriceBooking($dateFrom,$dateTo,$pricePerDay,$type){
-        $numberDate = $this->getNumberDate($dateFrom,$dateTo);
-        $price = $numberDate * $pricePerDay;
+    public function getPriceBooking(Booking $booking,Space $space){
+        switch ($booking->getBookingType()){
+            case Booking::BOOKING_TYPE_DAILY:
+                $dateFrom = $booking->getDateFrom()->format('Y-m-d');
+                $dateTo = $booking->getDateTo()->format('Y-m-d');
+                $pricePerDay = $space->getPrice()->getDaily();
+                $numberDate = $this->getNumberDate($dateFrom,$dateTo);
+                $price = $numberDate * $pricePerDay;
+                break;
+            case Booking::BOOKING_TYPE_WEEKLY:
+                $pricePerDay = $space->getPrice()->getDaily();
+                $pricePerWeek = ($pricePerDay * 7) - (($pricePerDay * 7)*($space->getPrice()->getWeeklyDiscount()/100));
+                $price = $pricePerWeek * $booking->getBookingPeriod();
+                break;
+            case Booking::BOOKING_TYPE_MONTHLY:
+                $pricePerDay = $space->getPrice()->getDaily();
+                $pricePerWeek = ($pricePerDay * 30) - (($pricePerDay * 30)*($space->getPrice()->getMonthlyDiscount()/100));
+                $price = $pricePerWeek * $booking->getBookingPeriod();
+                break;
+        }
         return round($price,1);
     }
     /*
