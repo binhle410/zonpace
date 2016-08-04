@@ -101,6 +101,18 @@
                                             <div style="margin-bottom: 50px;text-align: right;">Book
                                                 on {{ booking.createdAt|date('M d, Y') }}
                                             </div>
+                                            {% if booking.isPlot and booking.statusPlot == 'PENDING' %}
+                                            <div>
+                                                <a href="#" style="color: red">Approve</a>/
+                                                <a href="#" style="color: red">Reject</a>/
+                                                <a href="javascript:void(0)" style="color: red" data-toggle="modal" data-target="#plot-space">Make a offer</a>
+                                                {{ render(controller('AppBundle:User/Booking/Mgmt/BookingManipulation:plotSpace',{'space':space.id,'booking':booking.id})) }}
+                                            </div>
+                                                {% else %}
+                                                    <div>
+                                                        {{ booking.statusPlot }}
+                                                    </div>
+                                                    {% endif %}
                                         </div>
 
                                     </div>

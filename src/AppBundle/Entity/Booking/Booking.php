@@ -19,6 +19,10 @@ class Booking
     const STATUS_PENDING ='PENDING';
     const STATUS_CANCELLED ='CANCELLED';
     const STATUS_SUCCESS ='SUCCESS'; //Active , Completed
+    //
+    const PLOT_PENDING ='PENDING';
+    const PLOT_REJECTED ='REJECTED';
+    const PLOT_APPROVED ='APPROVED';
 
     const BOOKING_TYPE_DAILY='DAILY';
     const BOOKING_TYPE_WEEKLY='WEEKLY';
@@ -60,6 +64,12 @@ class Booking
      * @ORM\Column(name="status",type="string")
      */
     private $status;
+
+    /**
+     * @var string
+     * @ORM\Column(name="status_plot",type="string",nullable=null)
+     */
+    private $statusPlot;
 
     /**
      * @var datetime
@@ -153,6 +163,7 @@ class Booking
      * @ORM\Column(name="is_plot",type="boolean",options={"default"=0})
      */
     private $isPlot;
+
 
 
     /**
@@ -512,6 +523,23 @@ class Booking
     {
         $this->isPlot = $isPlot;
     }
+
+    /**
+     * @return string
+     */
+    public function getStatusPlot()
+    {
+        return $this->statusPlot;
+    }
+
+    /**
+     * @param string $statusPlot
+     */
+    public function setStatusPlot($statusPlot)
+    {
+        $this->statusPlot = $statusPlot;
+    }
+
 
     
     

@@ -23,9 +23,11 @@ class BookingManipulationController extends ControllerService
             return $creator->process($step);
         }
     }
-    public function plotSpaceAction(Request $request,Space $space)
+    public function plotSpaceAction(Request $request,Space $space,Booking $booking=null)
     {
-        $booking = new Booking();
+        if($booking == null){
+            $booking = new Booking();
+        }
         $form = $this->createForm(PlotSpaceType::class,$booking);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
@@ -33,6 +35,7 @@ class BookingManipulationController extends ControllerService
             $booking->setUser($this->getUser());
             $booking->setSpace($space);
             $booking->setIsPlot(true);
+            $booking->setStatusPlot(Booking::PLOT_PENDING);
             $em->persist($booking);
             $em->flush();
 
@@ -41,7 +44,8 @@ class BookingManipulationController extends ControllerService
             'step' => 0
         ]);
         }
-        return $this->render('AppBundle:User/Booking/Steps:_step0-plot-space.html.twig', array(
+        return $this->render('AppBundle:User/Booking/Steps:plot-space.html.twig', array(
+            'booking' => $booking,
             'space' => $space,
             'form' => $form->createView()
         ));

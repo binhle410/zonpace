@@ -1955,7 +1955,7 @@ jQuery(function () {
                                 getPrice();
                             }
                         }else{
-                            if ($('#app_booking_dateFrom').val() != '') {
+                            if ($('#app_booking_dateFrom').val() != '' && $('#app_booking_bookingPeriod').val() != '') {
                                 getPrice();
                             }
                         }
@@ -2009,7 +2009,7 @@ jQuery(function () {
                                 checkDate();
                             }
                         }else{
-                            if ($('#app_booking_dateFrom').val() != '') {
+                            if ($('#app_booking_dateFrom').val() != '' && $('#app_booking_bookingPeriod').val() != '') {
                                 checkDate();
                             }
                         }
@@ -2469,9 +2469,9 @@ jQuery(function () {
                         var data = IO.IN(shapes, false);
                         byId('app_plot_space_spaceShape').value = JSON.stringify(data);
                     });
-                    // if (byId('app_space_space_shape').value != '') {
-                    //     shapes = IO.OUT(JSON.parse(byId('app_space_space_shape').value), map_in);
-                    // }
+                    if (byId('app_plot_space_spaceShape').value != '') {
+                        shapes = IO.OUT(JSON.parse(byId('app_plot_space_spaceShape').value), map_in);
+                    }
                 }
 
 

@@ -17,6 +17,10 @@ class Step1 extends Step
         $booking = $this->booking;
         $request = $this->getRequest();
 
+        if($booking->isIsPlot() && $booking->getStatusPlot() != Booking::PLOT_APPROVED){
+            throw $this->createAccessDeniedException();
+        }
+
         $form = $this->createForm(BookingType::class,$booking);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){

@@ -15,6 +15,10 @@ class Step2 extends Step
         $space = $this->space;
         $booking = $this->booking;
         $request = $this->getRequest();
+        if($booking->isIsPlot() && $booking->getStatusPlot() != Booking::PLOT_APPROVED){
+            throw $this->createAccessDeniedException();
+        }
+
         //booking
             $stripe = array(
                 'secret_key'      => $this->getParameter('stripe_secret_key'),
