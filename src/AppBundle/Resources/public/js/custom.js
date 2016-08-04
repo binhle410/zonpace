@@ -1912,19 +1912,31 @@ jQuery(function () {
                         $('.btn-submit').attr('disabled',false);
                         $('.available').html('');
                         $('#app_booking_bookingPeriod').hide().attr('required',false);
-                        $('#app_booking_dateTo').show().attr('required',true);
+                        $('#app_booking_dateFrom').val('');
+                        $('#app_booking_dateTo').show().attr('required',true).val('');
+                        if($('.price').length){
+                            $('.price').html('N/A');
+                        }
                     });
                     $('#app_booking_bookingType_1').click(function(){
                         $('.btn-submit').attr('disabled',false);
                         $('.available').html('');
                         $('#app_booking_bookingPeriod').show().attr('required',true).val('');
+                        $('#app_booking_dateFrom').val('');
                         $('#app_booking_dateTo').hide().attr('required',false);
+                        if($('.price').length){
+                            $('.price').html('N/A');
+                        }
                     });
                     $('#app_booking_bookingType_2').click(function(){
                         $('.btn-submit').attr('disabled',false);
                         $('.available').html('');
                         $('#app_booking_bookingPeriod').show().attr('required',true).val('');
+                        $('#app_booking_dateFrom').val('');
                         $('#app_booking_dateTo').hide().attr('required',false);
+                        if($('.price').length){
+                            $('.price').html('N/A');
+                        }
                     });
                     if($('#app_booking_bookingType input:checked').val() =='DAILY'){
                         $('#app_booking_bookingPeriod').hide().attr('required',false);
@@ -1938,34 +1950,54 @@ jQuery(function () {
             getPrice: function () {
                 if ($('.booking-step-1').length) {
                     $('#app_booking_dateFrom').change(function () {
-                        if ($('#app_booking_dateFrom').val() != '' && $('#app_booking_dateTo').val() != '') {
-                            callGetPrice();
+                        if($('#app_booking_bookingType input:checked').val() =='DAILY'){
+                            if ($('#app_booking_dateFrom').val() != '' && $('#app_booking_dateTo').val() != '') {
+                                getPrice();
+                            }
+                        }else{
+                            if ($('#app_booking_dateFrom').val() != '') {
+                                getPrice();
+                            }
                         }
                     });
                     $('#app_booking_dateTo').change(function () {
                         if ($('#app_booking_dateFrom').val() != '' && $('#app_booking_dateTo').val() != '') {
-                            callGetPrice();
+                            getPrice();
                         }
                     });
-                    function callGetPrice() {
-                        var url = $('.booking-step-1').data('url-get-price');
+                    $('#app_booking_bookingPeriod').change(function () {
+                        if ($('#app_booking_dateFrom').val() != '' && $('#app_booking_bookingPeriod').val() != '') {
+                            getPrice();
+                        }
+                    });
+                    function getPrice() {
                         var fromDate = $('#app_booking_dateFrom').val();
                         var toDate = $('#app_booking_dateTo').val();
-                        var pricePerDay = $('.booking-step-1').data('price-per-day');
-                        $.ajax({
-                            url: url,
-                            type: "POST",
-                            data: {
-                                'fromDate': fromDate,
-                                'toDate': toDate,
-                                'pricePerDay': pricePerDay,
-                            },
-                            success: function (result) {
-                                if (result.status) {
-                                    $('.price').html(result.price)
-                                }
-                            }
-                        });
+                        var bookingType = $('#app_booking_bookingType input:checked').val();
+                        var period = parseInt($('#app_booking_bookingPeriod').val());
+                        var pricePerDay = parseFloat($('.price-per-day').html());
+                        var pricePerWeek = parseFloat($('.price-per-week').html());
+                        var pricePerMonth = parseFloat($('.price-per-month').html());
+                        var price = 0;
+                        if(bookingType == 'DAILY'){
+                            var numberDate = daydiff(parseDate(fromDate), parseDate(toDate))+1;
+                            price = numberDate * pricePerDay;
+                        }else if(bookingType == 'WEEKLY'){
+                            price = period * pricePerWeek;
+                        }else if(bookingType == 'MONTHLY'){
+                            price = period * pricePerMonth;
+                        }
+                        price = Number((price).toFixed(1));
+                        $('.price').html(price);
+
+                    }
+                    function parseDate(str) {
+                        var mdy = str.split('/');
+                        return new Date(mdy[2], mdy[0]-1, mdy[1]);
+                    }
+
+                    function daydiff(first, second) {
+                        return Math.round((second-first)/(1000*60*60*24));
                     }
                 }
             },

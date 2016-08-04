@@ -24,8 +24,6 @@ class Step3 extends Step
                 'step' => 2
             ]);
         }
-        $price = $this->getPriceBooking($booking->getDateFrom()->format('Y-m-d'),$booking->getDateTo()->format('Y-m-d'),$booking->getSpace()->getPrice()->getDaily(),1);
-        $price= round($price,1);
         //booking api
         $stripe = array(
             'secret_key'      => 'sk_test_clj9PCMa3jidJqgOTFl67d0n',
@@ -45,7 +43,7 @@ class Step3 extends Step
 
                 $charge = \Stripe\Charge::create(array(
                     'source'     => $_POST['stripeToken'],
-                    'amount'   => $price*100,
+                    'amount'   => $booking->getTotalPrice()*100,
                     'currency' => 'usd'
                 ));
             } catch (Exception $e) {
@@ -55,7 +53,6 @@ class Step3 extends Step
                 //payment Success
                 //update price booking
                 $booking->setStatus(Booking::STATUS_SUCCESS);
-                $booking->setTotalPrice($price);
                 $em->persist($booking);
                 $em->flush();
                 return $this->redirectToRoute('app_user_booking_create',[
@@ -69,7 +66,7 @@ class Step3 extends Step
             'space'=>$space,
             'booking'=>$booking,
             'stripeToken'=>$stripeToken,
-            'price'=>$price,
+            'price'=>$booking->getTotalPrice(),
             'cardHolder'=>$request->get('card-name-holder'),
             'cardNumber'=>$request->get('card-number')
         ));

@@ -24,19 +24,19 @@
                     </p>
                     <div class="row">
                         <div class="col-md-4">
-                            <strong>${{ space.price.daily }}</strong><br>Per Day
+                            <strong>$<span class="price-per-day">{{ space.price.daily }}</span></strong><br>Per Day
                         </div>
                         <div class="col-md-4">
-                            <strong>${{ (space.price.daily*7)-((space.price.daily*7*space.price.weeklyDiscount)/100) }}</strong><br>Per
-                            Day
+                            <strong>$<span class="price-per-week">{{ (space.price.daily*7)-((space.price.daily*7*space.price.weeklyDiscount)/100) }}</span></strong><br>Per
+                            Week
                         </div>
                         <div class="col-md-4">
-                            <strong>${{ (space.price.daily*30)-((space.price.daily*30*space.price.monthlyDiscount)/100) }}</strong><br>Per
-                            Day
+                            <strong>$<span class="price-per-month">{{ (space.price.daily*30)-((space.price.daily*30*space.price.monthlyDiscount)/100) }}</span></strong><br>Per
+                            Month
                         </div>
                     </div>
                     <hr class="divider">
-                    <form method="post" class="booking-step-1 check-date-available" data-url-get-price="{{ path('app_user_booking_get_price_booking') }}" data-price-per-day="{{ space.price.daily }}" data-url-check-date="{{ path('app_user_booking_check_available_booking',{'space':space.id}) }}">
+                    <form method="post" class="booking-step-1 check-date-available"  data-url-check-date="{{ path('app_user_booking_check_available_booking',{'space':space.id}) }}">
                         {{ form_row(form._token) }}
                         <div class="wrap-form">
                             <div style="font-weight: bold;color: red;">Choice of Space</div>

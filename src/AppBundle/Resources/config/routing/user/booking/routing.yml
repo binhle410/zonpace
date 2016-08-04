@@ -1,11 +1,6 @@
 app_user_booking_create:
     path: /create/step-{step}/{space}/{booking}
     defaults: { _controller: AppBundle:User/Booking/Mgmt/BookingManipulation:step,booking: 0}
-
-app_user_booking_get_price_booking:
-    path: /get-price-booking
-    defaults: { _controller: AppBundle:User/Booking/Api/BookingApi:getPriceBooking}
-
 app_user_booking_check_available_booking:
     path: /check-available-booking/{space}
     defaults: { _controller: AppBundle:User/Booking/Api/BookingApi:checkAvailableBooking}

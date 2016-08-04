@@ -185,8 +185,8 @@ class ControllerService extends Controller
                 break;
             case Booking::BOOKING_TYPE_MONTHLY:
                 $pricePerDay = $space->getPrice()->getDaily();
-                $pricePerWeek = ($pricePerDay * 30) - (($pricePerDay * 30)*($space->getPrice()->getMonthlyDiscount()/100));
-                $price = $pricePerWeek * $booking->getBookingPeriod();
+                $pricePerMonth = ($pricePerDay * 30) - (($pricePerDay * 30)*($space->getPrice()->getMonthlyDiscount()/100));
+                $price = $pricePerMonth * $booking->getBookingPeriod();
                 break;
         }
         return round($price,1);
