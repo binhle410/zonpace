@@ -17,32 +17,32 @@ class Step0 extends Step
         $booking = $this->booking;
         $request = $this->getRequest();
 
-        if($booking->isIsPlot() && $booking->getStatusPlot() != Booking::PLOT_APPROVED){
+        if ($booking->isIsPlot() && $booking->getStatusPlot() != Booking::PLOT_APPROVED) {
             throw $this->createAccessDeniedException();
         }
 
         $form = $this->createForm(BookingType::class, $booking);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            if($booking->getBookingType() == Booking::BOOKING_TYPE_DAILY){
-                $begin =$booking->getDateFrom()->format('Y-m-d');
-                $end =$booking->getDateTo()->format('Y-m-d');
+            if ($booking->getBookingType() == Booking::BOOKING_TYPE_DAILY) {
+                $begin = $booking->getDateFrom()->format('Y-m-d');
+                $end = $booking->getDateTo()->format('Y-m-d');
                 $dateTo = $booking->getDateTo();
-            }elseif($booking->getBookingType() == Booking::BOOKING_TYPE_WEEKLY){
+            } elseif ($booking->getBookingType() == Booking::BOOKING_TYPE_WEEKLY) {
                 $period = $booking->getBookingPeriod();
                 $dateFrom = $booking->getDateFrom();
                 $begin = $dateFrom->format('Y-m-d');
 
                 $dateTo = new \DateTime($begin);
-                $dateTo = $dateTo->modify('+'.$period.' week');
+                $dateTo = $dateTo->modify('+' . $period . ' week');
                 $end = $dateTo->format('Y-m-d');
-            }elseif($booking->getBookingType() == Booking::BOOKING_TYPE_MONTHLY){
+            } elseif ($booking->getBookingType() == Booking::BOOKING_TYPE_MONTHLY) {
                 $period = $booking->getBookingPeriod();
                 $dateFrom = $booking->getDateFrom();
                 $begin = $dateFrom->format('Y-m-d');
 
                 $dateTo = new \DateTime($begin);
-                $dateTo = $dateTo->modify('+'.$period.' month');
+                $dateTo = $dateTo->modify('+' . $period . ' month');
                 $end = $dateTo->format('Y-m-d');
             }
             $available = $this->checkAvailableBooking($space, $begin, $end);
@@ -50,8 +50,15 @@ class Step0 extends Step
                 $em = $this->getDoctrine()->getManager();
                 $booking->setSpace($space);
                 $booking->setDateTo($dateTo);
+                //clone data booking from space
+                $booking->setSpaceShape($space->getShape());
+                $booking->setSpaceSquareFeet($space->getLocation()->getSquareFeet());
+                $booking->setSpacePriceDaily($space->getPrice()->getDaily());
+                $booking->setSpaceWeeklyDiscount($space->getPrice()->getWeeklyDiscount());
+                $booking->setSpaceMonthlyDiscount($space->getPrice()->getMonthlyDiscount());
+
                 $em->persist($booking);
-                $price = $this->getPriceBooking($booking,$space);
+                $price = $this->getPriceBooking($booking, $space);
                 $booking->setTotalPrice($price);
                 $em->persist($booking);
                 $em->flush();

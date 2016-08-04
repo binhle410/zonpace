@@ -118,8 +118,16 @@ class ControllerService extends Controller
 
     public function getImageSpace(Space $space, $width, $height)
     {
+        return $this->getImage($space->getShape(),$width,$height);
+    }
+    public function getImageBooking(Booking $booking, $width, $height)
+    {
+        return $this->getImage($booking->getSpaceShape(),$width,$height);
+    }
+    public function getImage($shape, $width, $height)
+    {
         $googleApiKey = $this->getParameter('google_api_key');
-        $shape = json_decode($space->getShape());
+        $shape = json_decode($shape);
         if (isset($shape[0])) {
             $lat = 0;
             $lng = 0;
