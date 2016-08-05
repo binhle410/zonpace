@@ -3,6 +3,7 @@
 namespace AppBundle\Entity\Core;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  *
@@ -27,6 +28,28 @@ class Post
     public function __construct()
     {
         $this->createdAt = new \DateTime();
+    }
+
+    /**
+     * @Gedmo\Slug(fields={"title"})
+     * @ORM\Column(length=128, unique=true , nullable=true)
+     */
+    private $slug;
+
+    /**
+     * @return mixed
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param mixed $slug
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
     }
 
     /**
@@ -70,6 +93,12 @@ class Post
      * @ORM\Column(name="type",type="string"))
      */
     private $type;
+
+    /**
+     * @var integer
+     * @ORM\Column(name="number_view",type="integer"))
+     */
+    private $numberView;
 
     /**
      * @return datetime
@@ -191,6 +220,24 @@ class Post
     {
         $this->enabled = $enabled;
     }
+
+    /**
+     * @return int
+     */
+    public function getNumberView()
+    {
+        return $this->numberView;
+    }
+
+    /**
+     * @param int $numberView
+     */
+    public function setNumberView($numberView)
+    {
+        $this->numberView = $numberView;
+    }
+
+
 
 
 

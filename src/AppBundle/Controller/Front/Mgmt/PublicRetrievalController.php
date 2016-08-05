@@ -2,8 +2,11 @@
 
 namespace AppBundle\Controller\Front\Mgmt;
 
+use AppBundle\Entity\Core\Page;
+use AppBundle\Entity\Core\Post;
 use AppBundle\Entity\Core\User;
 use AppBundle\Services\Core\ControllerService;
+use Application\Sonata\ClassificationBundle\Entity\Category;
 use Doctrine\Common\Util\Debug;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -82,4 +85,51 @@ class PublicRetrievalController extends ControllerService
             'numberReviewHost'=>$numberReviewHost,
         ));
     }
+
+    /**
+     * @ParamConverter("category", options={"mapping": {"slug": "slug"}})
+     */
+    public function postAction(Request $request,$type,Category $category){
+
+
+        if($type == 'blog'){
+            return $this->render('AppBundle:Front:blogs.html.twig', array(
+
+            ));
+        }else{
+            return $this->render('AppBundle:Front:news.html.twig', array(
+
+            ));
+        }
+    }
+    /**
+     * @ParamConverter("category", options={"mapping": {"slug": "slug"}})
+     * @ParamConverter("post", options={"mapping": {"slug": "slug"}})
+     */
+    public function postDetailAction(Request $request,$type,Category $category,Post $post){
+
+
+        if($type == 'blog'){
+            return $this->render('AppBundle:Front:blog-detail.html.twig', array(
+                'post'=>$post
+            ));
+        }else{
+            return $this->render('AppBundle:Front:new-detail.html.twig', array(
+                'post'=>$post
+            ));
+        }
+    }
+    /**
+     * @ParamConverter("page", options={"mapping": {"slug": "slug"}})
+     */
+    public function pageAction(Request $request,Page $page){
+        return $this->render('AppBundle:Front:page.html.twig', array(
+            'page'=>$page
+        ));
+    }
+
+
+
+
+
 }

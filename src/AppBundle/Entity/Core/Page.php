@@ -3,6 +3,7 @@
 namespace AppBundle\Entity\Core;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  *
@@ -30,6 +31,28 @@ class Page
         $this->createdAt = new \DateTime();
     }
 
+
+    /**
+     * @Gedmo\Slug(fields={"title"})
+     * @ORM\Column(length=128, unique=true , nullable=true)
+     */
+    private $slug;
+
+    /**
+     * @return mixed
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param mixed $slug
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+    }
     /**
      * @var datetime
      * @ORM\Column(name="created_at",type="datetime")
