@@ -74,7 +74,7 @@ jQuery(function () {
                         map_in = new goo.Map(document.getElementById('map_in'),
                             {
                                 zoom: 20,
-                                center: new goo.LatLng(43, -88)
+                                center: new goo.LatLng(43, -88),
                             }),
                         shapes = [],
                         selected_shape = null,
@@ -2106,7 +2106,8 @@ jQuery(function () {
                         map_in = new goo.Map(document.getElementById('map'),
                             {
                                 zoom: 20,
-                                center: new goo.LatLng(43, -88)
+                                center: new goo.LatLng(43, -88),
+                                streetViewControl: false
                             }),
                         shapes = [],
                         selected_shape = null,
@@ -2170,6 +2171,22 @@ jQuery(function () {
                     if (byId('app_space_space_shape').value != '') {
                         shapes = IO.OUT(JSON.parse(byId('app_space_space_shape').value), map_in);
                     }
+
+                    panorama = map_in.getStreetView();
+                    panorama.setPosition(new goo.LatLng($('#map').data('lat'),$('#map').data('lng')));
+                    panorama.setPov(/** @type {google.maps.StreetViewPov} */({
+                        heading: 265,
+                        pitch: 0
+                    }));
+
+                    $('.street-view').click(function(){
+                        var toggle = panorama.getVisible();
+                        if (toggle == false) {
+                            panorama.setVisible(true);
+                        } else {
+                            panorama.setVisible(false);
+                        }
+                    });
 
                 }
 
