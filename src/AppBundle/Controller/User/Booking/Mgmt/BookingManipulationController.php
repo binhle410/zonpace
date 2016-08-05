@@ -8,6 +8,8 @@ use AppBundle\Form\PlotSpaceType;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Services\Core\ControllerService;
 use AppBundle\Services\Booking\Mgmt\CreationStep\Creator;
+use AppBundle\Entity\Core\Message;
+use AppBundle\Form\InboxMessageType;
 
 class BookingManipulationController extends ControllerService
 {
@@ -60,7 +62,7 @@ class BookingManipulationController extends ControllerService
                 ]);
             }
         }
-        return $this->render('AppBundle:User/Booking/Steps:plot-space.html.twig', array(
+        return $this->render('AppBundle:User/Booking:plot-space.html.twig', array(
             'type' => $type,
             'booking' => $booking,
             'space' => $space,
@@ -90,6 +92,29 @@ class BookingManipulationController extends ControllerService
         $em->persist($booking);
         $em->flush();
         return $this->redirectToRoute('app_user_host_control_list_booking', [
+        ]);
+    }
+
+    public function enquireSpaceAction(Request $request,Space $space)
+    {
+        $em =$this->getDoctrine()->getManager();
+        $message = new Message();
+        $form = $this->createForm(InboxMessageType::class,$message);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $message->setMessageFrom($this->getUser());
+            $message->setMessageTo($space->getUser());
+            $em->persist($message);
+            $em->flush();
+            return $this->redirectToRoute('app_user_booking_create', [
+                'space' => $space->getId(),
+                'step' => 0
+            ]);
+        }
+
+        return $this->render('AppBundle:User/Booking:enquire-space.html.twig', [
+            'form'=>$form->createView(),
+            'space'=>$space
         ]);
     }
 

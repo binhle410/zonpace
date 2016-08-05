@@ -30,7 +30,7 @@ class UserControlRetrievalController extends ControllerService
         $messageRepo = $em->getRepository('AppBundle:Core\Message');
         $qb = $messageRepo->findMyInbox($this->getUser());
         $messages = $this->pagingBuilder($request,$qb);
-        return $this->render('AppBundle:User/UserControl:list-.html.twig', [
+        return $this->render('AppBundle:User/UserControl:list-inbox.html.twig', [
             'messages'=>$messages
         ]);
     }

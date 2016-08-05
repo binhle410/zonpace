@@ -57,8 +57,12 @@
                         <div>
                             <button type="button" class="btn btn-default plot-a-space"  data-toggle="modal" data-target="#plot-space">Plot-A-Space</button>
                         </div>
+                        <div>
+                            <button type="button" class="btn btn-default"  data-toggle="modal" data-target="#enquire-space">Enquire</button>
+                        </div>
                     </form>
                     {{ render(controller('AppBundle:User/Booking/Mgmt/BookingManipulation:plotSpace',{'space':space.id,'booking':null,'type':'user'})) }}
+                    {{ render(controller('AppBundle:User/Booking/Mgmt/BookingManipulation:enquireSpace',{'space':space.id})) }}
                 </div>
 
             </div>

@@ -16,3 +16,7 @@ app_user_booking_reject_plot:
     path: /reject-plot/{booking}
     defaults: { _controller: AppBundle:User/Booking/Mgmt/BookingManipulation:rejectPlot}
 
+app_user_booking_enquire_space:
+    path: /enquire-space/{space}
+    defaults: { _controller: AppBundle:User/Booking/Mgmt/BookingManipulation:enquireSpace}
+
