@@ -60,6 +60,17 @@
                         <div>
                             <button type="button" class="btn btn-default"  data-toggle="modal" data-target="#enquire-space">Enquire</button>
                         </div>
+
+                        {% if isInWishlist(space) == false %}
+                        <div>
+                            <button onclick="window.location.href='{{ path('app_user_booking_add_wishlist',{'space':space.id}) }}'" type="button" class="btn btn-default">Add To Wishlist</button>
+                        </div>
+                            {% else %}
+                                {% set userWishlist = getOneWishlist(space) %}
+                        <div>
+                            <button onclick="window.location.href='{{ path('app_user_booking_remove_wishlist',{'space':space.id,'userWishlist':userWishlist.id}) }}'" type="button" class="btn btn-default">Remove out of Wisthlist</button>
+                        </div>
+                                {% endif %}
                     </form>
                     {{ render(controller('AppBundle:User/Booking/Mgmt/BookingManipulation:plotSpace',{'space':space.id,'booking':null,'type':'user'})) }}
                     {{ render(controller('AppBundle:User/Booking/Mgmt/BookingManipulation:enquireSpace',{'space':space.id})) }}

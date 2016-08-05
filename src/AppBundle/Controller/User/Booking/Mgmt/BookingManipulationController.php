@@ -3,6 +3,7 @@
 namespace AppBundle\Controller\User\Booking\Mgmt;
 
 use AppBundle\Entity\Booking\Booking;
+use AppBundle\Entity\Core\UserWishlist;
 use AppBundle\Entity\Space\Space;
 use AppBundle\Form\PlotSpaceType;
 use Symfony\Component\HttpFoundation\Request;
@@ -115,6 +116,30 @@ class BookingManipulationController extends ControllerService
         return $this->render('AppBundle:User/Booking:enquire-space.html.twig', [
             'form'=>$form->createView(),
             'space'=>$space
+        ]);
+    }
+
+    public function addToWishlistAction(Space $space)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $wishlist = new UserWishlist();
+        $wishlist->setUser($this->getUser());
+        $wishlist->setSpace($space);
+        $em->persist($wishlist);
+        $em->flush();
+        return $this->redirectToRoute('app_user_booking_create', [
+            'space' => $space->getId(),
+            'step' => 0
+        ]);
+    }
+    public function removeFromWishlistAction(Space $space,UserWishlist $userWishlist)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($userWishlist);
+        $em->flush();
+        return $this->redirectToRoute('app_user_booking_create', [
+            'space' => $space->getId(),
+            'step' => 0
         ]);
     }
 

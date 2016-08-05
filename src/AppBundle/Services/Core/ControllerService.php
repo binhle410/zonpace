@@ -303,5 +303,18 @@ class ControllerService extends Controller
         return true;
     }
 
+    public function isInWishlist($space){
+        $em = $this->getDoctrine()->getManager();
+        $result = $em->getRepository('AppBundle:Core\UserWishlist')->findOneWishlist($this->getUser(),$space);
+        if($result){
+            return true;
+        }
+        return false;
+    }
+    public function getOneWishlist($space){
+        $em = $this->getDoctrine()->getManager();
+        return $em->getRepository('AppBundle:Core\UserWishlist')->findOneWishlist($this->getUser(),$space);
+    }
+
 
 }

@@ -163,6 +163,13 @@ class TwigExtension extends \Twig_Extension
         return $html;
     }
 
+    public function isInWishlist($space){
+        return $this->container->get('app.controller')->isInWishlist($space);
+    }
+    public function getOneWishlist($space){
+        return $this->container->get('app.controller')->getOneWishlist($space);
+    }
+
     public function getTotalReviewSpace($space){
         return $this->container->get('app.controller')->getTotalReviewSpace($space);
     }
@@ -218,6 +225,8 @@ class TwigExtension extends \Twig_Extension
             'getStatusBookingSuccess' => new \Twig_Function_Method($this, 'getStatusBookingSuccess', array('is_safe' => array('html'))),
             'checkAvailableBooking' => new \Twig_Function_Method($this, 'checkAvailableBooking', array('is_safe' => array('html'))),
             'getLatLngSpace' => new \Twig_Function_Method($this, 'getLatLngSpace', array('is_safe' => array('html'))),
+            'isInWishlist' => new \Twig_Function_Method($this, 'isInWishlist', array('is_safe' => array('html'))),
+            'getOneWishlist' => new \Twig_Function_Method($this, 'getOneWishlist', array('is_safe' => array('html'))),
         );
     }
 

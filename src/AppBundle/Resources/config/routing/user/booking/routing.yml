@@ -20,3 +20,10 @@ app_user_booking_enquire_space:
     path: /enquire-space/{space}
     defaults: { _controller: AppBundle:User/Booking/Mgmt/BookingManipulation:enquireSpace}
 
+app_user_booking_add_wishlist:
+    path: /add-wishlist/{space}
+    defaults: { _controller: AppBundle:User/Booking/Mgmt/BookingManipulation:addToWishlist}
+app_user_booking_remove_wishlist:
+    path: /remove-wishlist/{space}/{userWishlist}
+    defaults: { _controller: AppBundle:User/Booking/Mgmt/BookingManipulation:removeFromWishlist}
+
