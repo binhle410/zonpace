@@ -85,7 +85,7 @@ class Page
 
     /**
      * @var string
-     * @ORM\Column(name="type",type="string"))
+     * @ORM\Column(name="type",type="string",nullable=true))
      */
     private $type;
 

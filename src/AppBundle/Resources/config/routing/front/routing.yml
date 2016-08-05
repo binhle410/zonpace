@@ -22,3 +22,14 @@ app_front_list_review_ajax:
 app_front_detail_space:
     path: /detail-space/{space}
     defaults: { _controller: AppBundle:Front/Mgmt/PublicRetrieval:detailSpace}
+
+app_front_post:
+    path: /post/{type}/{category}
+    defaults: { _controller: AppBundle:Front/Mgmt/PublicRetrieval:post}
+app_front_post_detail:
+    path: /post-detail/{type}/{category}/{post}
+    defaults: { _controller: AppBundle:Front/Mgmt/PublicRetrieval:postDetail}
+
+app_front_page:
+    path: /page/{page}
+    defaults: { _controller: AppBundle:Front/Mgmt/PublicRetrieval:page}
