@@ -25,3 +25,11 @@ app_user_user_control_verify_code:
 app_user_user_control_verification:
     path: /verification
     defaults: { _controller: AppBundle:User/UserControl/Mgmt/UserControlManipulation:verification}
+
+app_user_user_list_inbox:
+    path: /list-inbox
+    defaults: { _controller: AppBundle:User/UserControl/Mgmt/UserControlRetrieval:listInbox}
+
+app_user_user_reply_inbox:
+    path: /reply-inbox/user-from/{user}
+    defaults: { _controller: AppBundle:User/UserControl/Mgmt/UserControlManipulation:replyInbox}

@@ -175,6 +175,9 @@ class TwigExtension extends \Twig_Extension
     public function getImageSpace(Space $space, $width, $height){
         return $this->container->get('app.controller')->getImageSpace($space,$width,$height);
     }
+    public function getImageBooking(Booking $booking, $width, $height){
+        return $this->container->get('app.controller')->getImageBooking($booking,$width,$height);
+    }
     public function getStatusBooking(Booking $booking){
         return $this->container->get('app.controller')->getStatusBooking($booking);
     }
@@ -208,6 +211,7 @@ class TwigExtension extends \Twig_Extension
             'getTotalEarningSpace' => new \Twig_Function_Method($this, 'getTotalEarningSpace', array('is_safe' => array('html'))),
             'getTotalBookingSpace' => new \Twig_Function_Method($this, 'getTotalBookingSpace', array('is_safe' => array('html'))),
             'getImageSpace' => new \Twig_Function_Method($this, 'getImageSpace', array('is_safe' => array('html'))),
+            'getImageBooking' => new \Twig_Function_Method($this, 'getImageBooking', array('is_safe' => array('html'))),
             'getStatusBookings' => new \Twig_Function_Method($this, 'getStatusBookings', array('is_safe' => array('html'))),
             'getStatusBooking' => new \Twig_Function_Method($this, 'getStatusBooking', array('is_safe' => array('html'))),
             'getTypeSorts' => new \Twig_Function_Method($this, 'getTypeSorts', array('is_safe' => array('html'))),

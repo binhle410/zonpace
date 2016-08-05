@@ -24,6 +24,16 @@ class UserControlRetrievalController extends ControllerService
             'bookings'=>$bookings
         ]);
     }
+    public function listInboxAction(Request $request)
+    {
+        $em =$this->getDoctrine()->getManager();
+        $messageRepo = $em->getRepository('AppBundle:Core\Message');
+        $qb = $messageRepo->findMyInbox($this->getUser());
+        $messages = $this->pagingBuilder($request,$qb);
+        return $this->render('AppBundle:User/UserControl:list-.html.twig', [
+            'messages'=>$messages
+        ]);
+    }
 
 
 }

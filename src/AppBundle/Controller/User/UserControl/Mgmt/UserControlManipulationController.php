@@ -5,6 +5,8 @@ namespace AppBundle\Controller\User\UserControl\Mgmt;
 
 use AppBundle\Entity\Booking\Booking;
 use AppBundle\Entity\Booking\BookingReviewMessage;
+use AppBundle\Entity\Core\Message;
+use AppBundle\Form\InboxMessageType;
 use AppBundle\Form\SpaceBookingReviewType;
 use AppBundle\Form\UserPasswordType;
 use AppBundle\Form\UserProfileType;
@@ -12,6 +14,7 @@ use AppBundle\Form\UserSettingType;
 use Symfony\Component\Debug\Debug;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Services\Core\ControllerService;
+use AppBundle\Entity\Core\User;
 
 class UserControlManipulationController extends ControllerService
 {
@@ -117,6 +120,31 @@ class UserControlManipulationController extends ControllerService
     public function verificationAction(Request $request)
     {
         return $this->render('AppBundle:User/UserControl:verification.html.twig', [
+        ]);
+    }
+
+    public function replyInboxAction(Request $request,User $user)
+    {
+        $em =$this->getDoctrine()->getManager();
+        $messageRepo = $em->getRepository('AppBundle:Core\Message');
+        $messageInbox = $messageRepo->findMyOneInbox($this->getUser(),$user);
+
+
+        $message = new Message();
+        $form = $this->createForm(InboxMessageType::class,$message);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $message->setParent($messageInbox);
+            $message->setMessageFrom($this->getUser());
+            $message->setMessageTo($user);
+            $em->persist($message);
+            $em->flush();
+            $messageInbox = $messageRepo->findMyOneInbox($this->getUser(),$user);
+        }
+
+        return $this->render('AppBundle:User/UserControl:list-inbox-reply.html.twig', [
+            'messageInbox'=>$messageInbox,
+            'form'=>$form->createView()
         ]);
     }
 
