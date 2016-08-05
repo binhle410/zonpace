@@ -15,6 +15,8 @@ use Symfony\Component\Debug\Debug;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Services\Core\ControllerService;
 use AppBundle\Entity\Core\User;
+use AppBundle\Entity\Space\Space;
+use AppBundle\Entity\Core\UserWishlist;
 
 class UserControlManipulationController extends ControllerService
 {
@@ -145,6 +147,14 @@ class UserControlManipulationController extends ControllerService
         return $this->render('AppBundle:User/UserControl:list-inbox-reply.html.twig', [
             'messageInbox'=>$messageInbox,
             'form'=>$form->createView()
+        ]);
+    }
+    public function removeFromWishlistAction(Space $space,UserWishlist $userWishlist)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($userWishlist);
+        $em->flush();
+        return $this->redirectToRoute('app_user_user_control_wishlist', [
         ]);
     }
 

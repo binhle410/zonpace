@@ -35,5 +35,16 @@ class UserControlRetrievalController extends ControllerService
         ]);
     }
 
+    public function wishlistAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $wishlistRepo = $em->getRepository('AppBundle:Core\UserWishlist');
+        $qb = $wishlistRepo->findWishlist($this->getUser());
+        $wishlists = $this->pagingBuilder($request,$qb);
+        return $this->render('AppBundle:User/UserControl:wishlist.html.twig', [
+            'wishlists'=>$wishlists
+        ]);
+    }
+
 
 }

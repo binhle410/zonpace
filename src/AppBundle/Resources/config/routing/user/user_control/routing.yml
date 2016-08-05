@@ -33,3 +33,11 @@ app_user_user_list_inbox:
 app_user_user_reply_inbox:
     path: /reply-inbox/user-from/{user}
     defaults: { _controller: AppBundle:User/UserControl/Mgmt/UserControlManipulation:replyInbox}
+
+app_user_user_control_wishlist:
+    path: /wishlist
+    defaults: { _controller: AppBundle:User/UserControl/Mgmt/UserControlRetrieval:wishlist}
+
+app_user_user_control_remove_wishlist:
+    path: /remove-wishlist/{space}/{userWishlist}
+    defaults: { _controller: AppBundle:User/UserControl/Mgmt/UserControlManipulation:removeFromWishlist}
