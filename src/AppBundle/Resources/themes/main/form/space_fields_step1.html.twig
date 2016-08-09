@@ -1,0 +1,56 @@
+{% block app_space_location_widget %}
+    {% spaceless %}
+        <div class="frow">
+            <label for="ipt-streetadd">Street Address</label>
+            {{ form_widget(form.streetAddress,{'attr':{'class':'ipt','placeholder':'Street Address'}}) }}
+            {{ form_widget(form.lat) }}
+            {{ form_widget(form.lng) }}
+        </div>
+        <!-- END : ITM-->
+        <div class="frow">
+            <label for="ipt-typespace">Type of Space (Optional)</label>
+            {{ form_widget(form.typeSpaceOptional,{'attr':{'class':'ipt','placeholder':'Example: Apt, Suite, Bldg, etc'}}) }}
+        </div>
+
+        <!-- END : ITM-->
+        <div class="frow row">
+            <section class="col-xs-6 slect-custome">
+                <label for="ipt-state">State</label>
+                {{ form_widget(form.state,{'attr':{'class':'slect'}}) }}
+            </section>
+            <!-- END -->
+            <section class="col-xs-6">
+                <label for="ipt-zipcode">Zip Code</label>
+                {{ form_widget(form.zipCode,{'attr':{'class':'ipt','placeholder':'Zip Code'}}) }}
+            </section>
+            <!-- END -->
+        </div>
+        <!-- END : ITM-->
+        <div class="frow">
+            <label for="ipt-city">City</label>
+            {{ form_widget(form.city,{'attr':{'class':'slect'}}) }}
+        </div>
+        <!-- END : ITM-->
+        {{ form_widget(form.typeSpace) }}
+        <!-- END : ITM-->
+        <div class="frow">
+            <label for="ipt-squarefeet">Square Feet</label>
+            {{ form_widget(form.squareFeet,{'attr':{'class':'ipt','placeholder':'Square Feet'}}) }}
+        </div>
+    {% endspaceless %}
+{% endblock %}
+
+
+{% block choice_widget_expanded %}
+    {% spaceless %}
+        <div class="frow">
+            <label for="ipt-squarefeet">Type of Space</label>
+            {% for child in form %}
+                        {{form_widget(child)}}
+                        {{form_label(child,child,{'label_attr': {'class':'lbl-radio'} })}}
+            {% endfor %}
+        </div>
+    {% endspaceless %}
+{% endblock %}
+
+

@@ -1,0 +1,123 @@
+{% extends 'AppBundle::layout.html.twig' %}
+{% form_theme form 'AppBundle:form:space_fields_step2.html.twig' %}
+{% block content %}
+
+    <section class="main main-container create-space-step" data-space-create-step2="">
+        <section class="blk-lease-space blk-white">
+            <div class="container">
+                <h2 class="blk-ttl">Lease Your Space</h2>
+                {% include 'AppBundle:User/Space/Steps:_nav.html.twig' %}
+                <!-- END : LEASE NAV-->
+                <section class="blk-lease-map">
+                    <h2 class="blk-ttl-bold">Space Details</h2>
+                    <div class="row">
+                        <section class="col-xs-6">
+                            <form name="frm-space-detail" class="frm-space-detail" method="post">
+                                {{ form_row(form._token) }}
+                                <div class="frow">
+                                    <label for="ipt-namespace">Name of Space<span>50 characters left</span></label>
+                                    {{ form_widget(form.name,{'attr':{'class':'ipt','placeholder':'Name of Space'}}) }}
+                                </div>
+                                <!-- END : ITM-->
+                                <div class="frow">
+                                    <label for="ipt-description">Description<span>500 characters left</span></label>
+                                    {{ form_widget(form.description,{'attr':{'class':'txt','placeholder':'Example: Apt, Suite, Bldg, etc'}}) }}
+                                </div>
+                                <!-- END : ITM-->
+                                <div class="frow frow-border">
+                                    <label for="ipt-description">Photos</label>
+                                    <div class="frm-upload clearfix">
+                                        <div class="fileUpload"><span>Upload</span>
+                                            <div>
+                                                <input type="file" id="fileToUpload" name="app_space_upload[image][binaryContent]"
+                                                       data-href="{{ path('app_user_space_upload_image',{'space':space.id}) }}"/>
+                                            </div>
+                                        </div><span class="up-ttl">We accept .png, .jpg, files up to 3MB</span>
+                                    </div>
+                                </div>
+                                <div class="frow">
+                                    {% for galleryHasMedia in space.photo.galleryHasMedias %}
+                                        <div class="col-md-4" style="margin-top: 2px">
+                                            <img src="{{ getUrl(galleryHasMedia.media) }}">
+                                        </div>
+                                    {% endfor %}
+
+                                </div>
+                                <!-- END : ITM-->
+                                {{ form_widget(form.price) }}
+                                <!-- END : ITM-->
+                                {{ form_widget(form.features) }}
+
+                                <div class="frow frow-border">
+                                    {{ form_widget(form.instantBook) }}
+                                    {{ form_label(form.instantBook,form.instantBook,{'label_attr':{'class':'lbl-checkbox'}}) }}
+                                    </div>
+
+                                {{ form_widget(form.dateBooking) }}
+                                <div style="font-size: 11px;margin-bottom: 20px;color: red">( You must add available date for booking your space )</div>
+                                <div id="mini-clndr">
+
+                                </div>
+                                <script id="mini-clndr-template" type="text/template">
+
+                                    <div class="controls">
+                                        <div class="clndr-previous-button">&lsaquo;</div>
+                                        <div class="month"><%= month %></div>
+                                        <div class="clndr-next-button">&rsaquo;</div>
+                                    </div>
+
+                                    <div class="days-container">
+                                        <div class="days">
+                                            <div class="headers">
+                                                <% _.each(daysOfTheWeek, function(day) { %>
+                                                <div class="day-header"><%= day %></div>
+                                                <% }); %>
+                                            </div>
+                                            <% _.each(days, function(day) { %>
+                                            <div class="<%= day.classes %>" id="<%= moment(day.date).format('YYYY-MM-DD') %>">
+                                                <%= day.day %>
+                                            </div>
+                                            <% }); %>
+                                        </div>
+                                        <div class="events">
+                                            <div class="headers">
+                                                <div class="x-button">x</div>
+                                                <div class="event-header">EVENTS</div>
+                                            </div>
+                                            <div class="events-list">
+                                                <% _.each(eventsThisMonth, function(event) { %>
+                                                <div class="event">
+                                                    <a href="<%= event.url %>"><%= moment(event.date).format('MMMM Do') %>: <%=
+                                                        event.title %></a>
+                                                </div>
+                                                <% }); %>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </script>
+
+                                <!--load shape------------------------------------------------>
+                                {{ form_widget(form.shape) }}
+
+                                <!-- END : ITM-->
+                                <div class="frow">
+                                    <input type="submit" value="Next" class="btn btn-red"><a href="#" class="back_to">Back to Location</a>
+                                </div>
+                                <!-- END : ITM-->
+                            </form>
+                        </section>
+                        <!-- END : COL-->
+                        <section class="col-xs-6">
+                            <div id="location-map"></div>
+                        </section>
+                        <!-- END : COL-->
+                    </div>
+                </section>
+                <!-- END -->
+            </div>
+        </section>
+        <!-- END : SPACE DETAIL-->
+    </section>
+
+{% endblock %}

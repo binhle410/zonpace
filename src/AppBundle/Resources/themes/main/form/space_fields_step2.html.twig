@@ -1,0 +1,66 @@
+{% block choice_widget_expanded %}
+    {% spaceless %}
+        <div class="frow frow-border">
+            <div class="blk-fea">
+                <label>Feature</label>
+                <div class="fea-control"><a href="#">Tick all</a><a href="#">Untick all</a></div>
+            </div>
+            {% for group_label, group in choices %}
+            <div class="frow">
+                <label class="lb-normal">{{ group_label }}</label>
+                {% for key, choice in group %}
+                    {% if loop.index % 3 == 0 %}
+                    <p class="no-bt">
+                        {% endif %}
+                        {{ form_widget(form[key]) }}
+                        {{ form_label(form[key],form[key],{'label_attr':{'class':'lbl-checkbox'}}) }}
+                        {% if loop.index % 3 == 0 %}
+                    </p>
+                        {% endif %}
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+
+    {% endspaceless %}
+{% endblock %}
+
+{% block app_space_price_widget %}
+    {% spaceless %}
+        <div class="frow frow-border">
+            <label>Prices</label>
+            <p>
+                <input type="checkbox" class="price-daily" name="rd-price" id="price-1" checked="checked">
+                <label for="price-1" class="lbl-price">Daily</label>
+                {{ form_widget(form.daily,{'attr':{'class':'ipt ipt-150','placeholder':'Price / Day'}}) }}
+            </p>
+            <p>
+                <input type="checkbox" class="price-weekly" name="rd-price" id="price-2" checked="checked">
+                <label for="price-2" class="lbl-price">Weekly Discount</label>
+                {{ form_widget(form.weeklyDiscount,{'attr':{'class':'ipt ipt-150','placeholder':'% Discount'}}) }}
+            </p>
+            <p>
+                <input type="checkbox" class="price-monthly" name="rd-price" id="price-3" checked="checked">
+                <label for="price-3" class="lbl-price">Monthly Discount</label>
+                {{ form_widget(form.monthlyDiscount,{'attr':{'class':'ipt ipt-150','placeholder':'% Discount'}}) }}
+            </p>
+        </div>
+
+    {% endspaceless %}
+{% endblock %}
+{% block app_space_date_booking_widget %}
+    {% spaceless %}
+        <div class="frow">
+            <label for="ipt-available" class="lbl-inl">Available</label>
+            <div class="blk-inline">
+                {{ form_widget(form.dateFrom,{'attr':{'class':'ipt datepicker','placeholder':'From'}}) }}
+                <i class="ico ico-cal"></i>
+            </div>
+            <div class="blk-inline">
+                {{ form_widget(form.dateTo,{'attr':{'class':'ipt datepicker','placeholder':'To'}}) }}
+                <i class="ico ico-cal"></i>
+            </div>
+            {{ form_widget(form.blockedDateBookings) }}
+        </div>
+    {% endspaceless %}
+{% endblock %}

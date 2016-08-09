@@ -1,0 +1,55 @@
+{% extends 'AppBundle::layout.html.twig' %}
+{% block content %}
+
+    <section class="main-container" data-space-create-stepx="">
+
+        <div class="container">
+            <div class="row">
+                <div class="main col-md-6">
+                    <ul class="nav nav-pills" role="tablist">
+                        <li class=""><a href="#pill-pr-1" role="tab" data-toggle="tab" title="Step 1"
+                                        aria-expanded="false"><i class="fa fa-dot-circle-o pr-5"></i>Location</a></li>
+                        <li class=""><a href="#pill-pr-2" role="tab" data-toggle="tab" title="Step 2"
+                                        aria-expanded="false"><i class="fa fa-dot-circle-o pr-5"></i>Space
+                                    Detail</a></li>
+                        <li class=""><a href="#pill-pr-3" role="tab" data-toggle="tab" title="Step 3"
+                                        aria-expanded="true"><i class="fa fa-dot-circle-o pr-5"></i> Review Your
+                                Space</a></li>
+                        <li class="active"><a href="#pill-pr-3" role="tab" data-toggle="tab" title="Step 3"
+                                              aria-expanded="true"><i class="fa fa-dot-circle-o pr-5"></i> <strong>Activate</strong> </a></li>
+                    </ul>
+                    <h3>Activate</h3>
+                    <p>Explain why we ask to phone number Description: Whether it is a space in a town centre for few hours, or secure look-up venue close to where you live</p>
+                    <form role="form" id="form-space" method="post">
+                        <div class="form-group">
+                            <label class="control-label">Phone Number</label>
+                            <input type="text" id="" name="app_space_space[name]" required="required" class="form-control" placeholder="" value="">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Activation Code</label>
+                            <input type="text" id="" name="app_space_space[name]" required="required" class="form-control" placeholder="" value="">
+                        </div>
+                        <input type="hidden" value="{{ space.shape }}" id="app_space_space_shape">
+                        <!--button------------------------------------------------------------------------------------------>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <button type="submit" class="btn btn-default">Activate</button>
+                            </div>
+                            <div class="col-md-6 back-link">
+                                <a href='{{ path('app_user_space_create',{'step':4,'space':space.id}) }}' class="pull-right">Resend Activation Code</a>
+                            </div>
+                        </div>
+
+
+                    </form>
+
+                </div>
+                <div class="col-md-6">
+                    <div class="map" id="map_in"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
