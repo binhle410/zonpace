@@ -190,6 +190,13 @@ sonata_admin:
                 label_catalogue:      ~
                 items:
                     - admin.space
+            Space Features:
+                on_top:               true
+                label:                ~
+                label_catalogue:      ~
+                items:
+                    - admin.feature
+
             Users:
                 on_top:               true
                 label:                ~

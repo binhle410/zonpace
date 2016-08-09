@@ -1,4 +1,9 @@
 services:
+    admin.feature:
+            class: AppBundle\Admin\FeatureAdmin
+            arguments: [~, AppBundle\Entity\Space\Feature, ~]
+            tags:
+                - { name: sonata.admin, manager_type: orm, label: Feature }
     admin.category:
             class: AppBundle\Admin\CategoryAdmin
             arguments: [~, AppBundle\Entity\Category, ~]

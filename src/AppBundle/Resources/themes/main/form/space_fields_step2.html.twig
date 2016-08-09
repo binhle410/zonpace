@@ -9,12 +9,12 @@
             <div class="frow">
                 <label class="lb-normal">{{ group_label }}</label>
                 {% for key, choice in group %}
-                    {% if loop.index % 3 == 0 %}
+                    {% if (loop.index-1) % 3 == 0 %}
                     <p class="no-bt">
                         {% endif %}
                         {{ form_widget(form[key]) }}
                         {{ form_label(form[key],form[key],{'label_attr':{'class':'lbl-checkbox'}}) }}
-                        {% if loop.index % 3 == 0 %}
+                        {% if (loop.index) % 3 == 0 %}
                     </p>
                         {% endif %}
                 {% endfor %}

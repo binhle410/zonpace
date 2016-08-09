@@ -22,14 +22,14 @@ class CategoryAdmin extends ContextAwareAdmin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper->add('name', 'text')
-        ->add('type', 'choice',[
-                'choices'=>[
-                    'FEATURE' =>'FEATURE',
-                    'POST' =>'POST',
-                ],
-                'label'=>'Type of categogy'
-            ]);
+        $formMapper->add('name', 'text');
+//        ->add('type', 'choice',[
+//                'choices'=>[
+//                    'FEATURE' =>'FEATURE',
+//                    'POST' =>'POST',
+//                ],
+//                'label'=>'Type of categogy'
+//            ]);
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
