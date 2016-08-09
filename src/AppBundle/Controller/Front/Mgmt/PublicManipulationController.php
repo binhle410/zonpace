@@ -30,4 +30,17 @@ class PublicManipulationController extends ControllerService
 
 
     }
+
+    public function contactAction(Request $request)
+    {
+
+        $name = $request->get('name');
+        $email = $request->get('email');
+        $message = $request->get('message');
+        if ($name != '' && $email != '' && $message != '') {
+            $data = array('name' => $name, 'email' => $email, 'message' => $message);
+            $this->get('app.email_sender')->sendEmailContact($data);
+        }
+        return $this->redirectToRoute('app_index');
+    }
 }
