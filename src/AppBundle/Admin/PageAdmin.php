@@ -16,7 +16,7 @@ class PageAdmin extends AbstractAdmin
         $formMapper->add('title', 'text')
                 ->add('shortDescription', 'textarea')
                 ->add('enabled', 'checkbox')
-                ->add('description', 'textarea');
+                ->add('description', 'textarea',['attr'=>['class'=>'summernote']]);
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)

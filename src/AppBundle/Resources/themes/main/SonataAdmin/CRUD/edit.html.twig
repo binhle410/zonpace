@@ -1,0 +1,16 @@
+{% extends 'SonataAdminBundle:CRUD:edit.html.twig' %}
+
+        {% block stylesheets %}
+            {{ parent() }}
+            <link rel="stylesheet" href="{{ asset('bundles/app/main/plugin/summernote/dist/summernote.css') }}" />
+            <link rel="stylesheet" href="{{ asset('bundles/app/main/plugin/summernote/dist/summernote-bs3.css') }}" />
+        {% endblock %}
+        {% block javascripts %}
+            {{ parent() }}
+            <script src="{{ asset('bundles/app/main/plugin/summernote/dist/summernote.min.js') }}"></script>
+            <script type="text/javascript">
+                $(function () {
+                    $('.summernote').summernote();
+                });
+            </script>
+        {% endblock %}

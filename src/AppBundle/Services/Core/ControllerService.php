@@ -316,5 +316,12 @@ class ControllerService extends Controller
         return $em->getRepository('AppBundle:Core\UserWishlist')->findOneWishlist($this->getUser(),$space);
     }
 
+    public function getUrlPage($codePage){
+        $em = $this->getDoctrine()->getManager();
+        $page = $em->getRepository('AppBundle:Core\Page')->findOneBy(['type'=>$codePage]);
+        $url = $this->generateUrl('app_front_page',['slug'=>$page->getSlug()]);
+        return $url;
+    }
+
 
 }

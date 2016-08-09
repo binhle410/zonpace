@@ -200,6 +200,9 @@ class TwigExtension extends \Twig_Extension
             return $latLng['lng'];
         }
     }
+    public function getUrlPage($codePage){
+        return $this->container->get('app.controller')->getUrlPage($codePage);
+    }
 
 
     public function getFunctions()
@@ -227,6 +230,7 @@ class TwigExtension extends \Twig_Extension
             'getLatLngSpace' => new \Twig_Function_Method($this, 'getLatLngSpace', array('is_safe' => array('html'))),
             'isInWishlist' => new \Twig_Function_Method($this, 'isInWishlist', array('is_safe' => array('html'))),
             'getOneWishlist' => new \Twig_Function_Method($this, 'getOneWishlist', array('is_safe' => array('html'))),
+            'getUrlPage' => new \Twig_Function_Method($this, 'getUrlPage', array('is_safe' => array('html'))),
         );
     }
 

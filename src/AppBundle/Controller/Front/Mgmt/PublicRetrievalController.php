@@ -12,6 +12,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Space\Space;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class PublicRetrievalController extends ControllerService
 {

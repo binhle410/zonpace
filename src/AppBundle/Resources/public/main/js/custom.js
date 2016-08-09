@@ -1262,23 +1262,7 @@ jQuery(function () {
         Plugin.prototype = {
             init: function () {
                 var that = this;
-                that.initSlider();
                 that.searchPlace();
-            },
-            initSlider: function () {
-                $("#Slider1").slider({
-                    from: 40,
-                    to: 1000,
-                    step: 10,
-                    dimension: ''
-                });
-                $("#Slider2").slider({
-                    from: 100,
-                    to: 1000,
-                    step: 10,
-                    dimension: '&nbsp;$',
-                    heterogeneity: ['50/500'],
-                });
             },
             searchPlace: function () {
                 var that = this;
