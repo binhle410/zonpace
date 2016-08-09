@@ -41,6 +41,7 @@ class AppKernel extends Kernel
             new Vresh\TwilioBundle\VreshTwilioBundle(),
 
             new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
+            new Liip\ThemeBundle\LiipThemeBundle(),
             new AppBundle\AppBundle(),
 
         ];

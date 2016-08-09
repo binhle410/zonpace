@@ -38,7 +38,8 @@
         "liip/imagine-bundle": "^1.5",
         "beberlei/DoctrineExtensions": "^1.0",
         "vresh/twilio-bundle": "^1.0",
-        "knplabs/knp-snappy-bundle": "^1.4"
+        "knplabs/knp-snappy-bundle": "^1.4",
+        "liip/theme-bundle": "^1.4"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
