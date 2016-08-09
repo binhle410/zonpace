@@ -1,32 +1,31 @@
-header.header
-    .header-wrap
-        .container-fluid
-            .row
-                section.header-logo.col-md-6.col-sm-6.col-xs-12
-                    a(href="javascript:;", class="a_menu")
-                        i.fa.fa-bars
-                    a(href="javascript:;", class="a_search")
-                        i.fa.fa-search
-                    h1.logo
-                        a(href="index.html", title="Zone & Pace Rentals")
-                            img(src="images/zonpace-logo.png", alt="")
-                            span zone & space rentals
-                    section.header-search(data-href="ajax/countries.json")
-                        form(class="frm-search", name="frm-search")
-                            button(type="submit")
-                                i.fa.fa-search
-                            input(type="text", id="ipt-search", placeholder="Zone & space rentals", name="title")
-                    // END : SEARCH
-                // END : LOGO
-                section.header-menu.col-md-6.col-sm-6.col-xs-12
-                    ul.menu.clearfix
-                        li.active
-                            a(href="#") Lease my space
-                        li.hover-help-blk
-                            a(href="#") Help
-                            include ../blocks/topheader/help-blk.jade
-                        li
-                            a(href="#", data-toggle="modal", data-target="#mySignUp") Sign up
-                        li
-                            a(href="#", data-toggle="modal", data-target="#myLogin") log in
-                // END : LOGO
+header.header-wrap.hd-fixed
+    .container-fluid
+        .row
+            section.header-logo.col-md-6.col-sm-6.col-xs-12
+                a(href="javascript:;", class="a_menu")
+                    i.fa.fa-bars
+                a(href="javascript:;", class="a_search")
+                    i.fa.fa-search
+                h1.logo
+                    a(href="#", title="Zone & Pace Rentals")
+                        img(src="images/logo.png", alt="")
+                section.header-search
+                    form(class="frm-search", name="frm-search")
+                        button(type="submit")
+                            i.ico.ico-zoom-b
+                        input(type="text", id="ipt-search", placeholder="Seach Space...", name="title")
+                // END : SEARCH
+            // END : LOGO
+            section.header-menu.col-md-6.col-sm-6.col-xs-12
+                ul.menu.clearfix
+                    li.active
+                        a(href="#") Lease My Space
+                    li
+                        a(href="#") Home
+                    li
+                        a(href="#") How It Works
+                    li
+                        a(href="#") Help
+                    li
+                        a(href="#") Log In / Sign Up
+            // END : LOGO

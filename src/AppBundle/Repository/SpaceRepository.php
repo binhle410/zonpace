@@ -116,12 +116,12 @@ class SpaceRepository extends EntityRepository
         }
 
         if (isset($query['from']) && $query['from'] != '') {
-            $fromDate = \DateTime::createFromFormat('m/d/Y', $query['from']);
+            $fromDate = \DateTime::createFromFormat('m-d-Y', $query['from']);
             $qb->andWhere('dateBooking.dateFrom <= :from')
                 ->setParameter('from', $fromDate->format('Y-m-d'));
         }
         if (isset($query['to']) && $query['to'] != '') {
-            $toDate = \DateTime::createFromFormat('m/d/Y', $query['to']);
+            $toDate = \DateTime::createFromFormat('m-d-Y', $query['to']);
             $qb->andWhere('dateBooking.dateTo >= :to')
                 ->setParameter('to', $toDate->format('Y-m-d'));
         }

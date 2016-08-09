@@ -23,6 +23,8 @@
                 <cascade-merge/>
             </cascade>
         </one-to-many>
+        <field name="type" column="type" type="string" nullable="true">
+        </field>
 
     </entity>
 </doctrine-mapping>

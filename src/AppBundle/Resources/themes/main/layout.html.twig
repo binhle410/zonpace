@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html lang="en" class="no-js ie ie8"><![endif]-->
+<!--[if IE 9]><html lang="en" class="no-js ie ie9"><![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>Zone &amp; Space Rentals</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,100,300,700,900" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="{{asset('bundles/app/main/css/style.css')}}">
+</head>
+<body class="body-css ">
+<!--header-------------------------------------------------->
+
+{% include 'AppBundle::_header.html.twig' %}
+
+<!--content-------------------------------------------------->
+{% block content %}{% endblock %}
+
+<!--footer here ------------------------------------------->
+{% include 'AppBundle::_footer.html.twig' %}
+
+
+<script src="{{asset('bundles/app/main/js/libs.js')}}"></script>
+<script src="{{asset('bundles/app/main/js/libs/jquery-ui.min.js')}}"></script>
+<script src="{{asset('bundles/app/main/js/plugins.js')}}"></script>
+<script src="{{asset('bundles/app/main/js/start.js')}}"></script>
+<!-- ALLPAGE JS-->
+<script src="{{asset('bundles/app/main/js/actions/allpage.js')}}"></script>
+<!-- HOMEPAGE JS-->
+<script src="{{asset('bundles/app/main/js/actions/homepage.js')}}"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTISs9utCYG7sUySwP6avHdGKsoBH8rYY&libraries=drawing,geometry,places"></script>
+
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+
+<!-- MAP JS-->
+<script src="{{asset('bundles/app/main/js/custom.js')}}"></script>
+
+</body>
+</html>

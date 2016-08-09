@@ -14,293 +14,433 @@
     <link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
   </head>
-  <body class="home">
-    <header class="header">
-      <div class="header-wrap">
-        <div class="container-fluid">
-          <div class="row">
-            <section class="header-logo col-md-6 col-sm-6 col-xs-12"><a href="javascript:;" class="a_menu"><i class="fa fa-bars"></i></a><a href="javascript:;" class="a_search"><i class="fa fa-search"></i></a>
-              <h1 class="logo"><a href="index.html" title="Zone &amp; Pace Rentals"><img src="images/zonpace-logo.png" alt=""><span>zone & space rentals</span></a></h1>
-              <section data-href="ajax/countries.json" class="header-search">
-                <form name="frm-search" class="frm-search">
-                  <button type="submit"><i class="fa fa-search"></i></button>
-                  <input type="text" id="ipt-search" placeholder="Zone &amp; space rentals" name="title">
-                </form>
-              </section>
-              <!-- END : SEARCH-->
+  <body class="body-css "> 
+    <header class="header-wrap hd-fixed">
+      <div class="container-fluid">
+        <div class="row">
+          <section class="header-logo col-md-6 col-sm-6 col-xs-12"><a href="javascript:;" class="a_menu"><i class="fa fa-bars"></i></a><a href="javascript:;" class="a_search"><i class="fa fa-search"></i></a>
+            <h1 class="logo"><a href="#" title="Zone &amp; Pace Rentals"><img src="images/logo.png" alt=""></a></h1>
+            <section class="header-search">
+              <form name="frm-search" class="frm-search">
+                <button type="submit"><i class="ico ico-zoom-b"></i></button>
+                <input type="text" id="ipt-search" placeholder="Seach Space..." name="title">
+              </form>
             </section>
-            <!-- END : LOGO-->
-            <section class="header-menu col-md-6 col-sm-6 col-xs-12">
-              <ul class="menu clearfix">
-                <li class="active"><a href="#">Lease my space</a></li>
-                <li class="hover-help-blk"><a href="#">Help</a>
-                  <div class="help-blk">
-                    <div class="help-ct">
-                      <div class="help-search"> 
-                        <form><i class="fa fa-search"></i>
-                          <input type="text" placeholder="How can we help you?" class="ipt ipt-search-help">
-                        </form>
-                      </div>
-                      <div class="help-result-list">
-                        <div class="help-r-l-ct">
-                          <label>Suggested Articles</label>
-                          <ul class="h-r-list">
-                            <li><a href="#"> <i class="fa fa-file-text-o"></i><span>Getting Started Guide</span></a></li>
-                            <li><a href="#"> <i class="fa fa-file-text-o"></i><span>Getting Started Guide</span></a></li>
-                            <li><a href="#"> <i class="fa fa-file-text-o"></i><span>Getting Started Guide Getting Started Guide Getting Started Guide Getting Started Guide</span></a></li>
-                            <li><a href="#"> <i class="fa fa-file-text-o"></i><span>Getting Started Guide</span></a></li>
-                            <li><a href="#"> <i class="fa fa-file-text-o"></i><span>Getting Started Guide</span></a></li>
-                            <li><a href="#"> <i class="fa fa-file-text-o"></i><span>Getting Started Guide</span></a></li>
-                            <li><a href="#"> <i class="fa fa-file-text-o"></i><span>Getting Started Guide</span></a></li>
-                            <li><a href="#"> <i class="fa fa-file-text-o"></i><span>Getting Started Guide</span></a></li>
-                            <li><a href="#"> <i class="fa fa-file-text-o"></i><span>Getting Started Guide</span></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="help-link"><a href="#">Help center</a></div>
-                    </div>
-                  </div>
-                </li>
-                <li><a href="#" data-toggle="modal" data-target="#mySignUp">Sign up</a></li>
-                <li><a href="#" data-toggle="modal" data-target="#myLogin">log in</a></li>
-              </ul>
-            </section>
-            <!-- END : LOGO-->
-          </div>
+            <!-- END : SEARCH-->
+          </section>
+          <!-- END : LOGO-->
+          <section class="header-menu col-md-6 col-sm-6 col-xs-12">
+            <ul class="menu clearfix">
+              <li class="active"><a href="#">Lease My Space</a></li>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">How It Works</a></li>
+              <li><a href="#">Help</a></li>
+              <li><a href="#">Log In / Sign Up</a></li>
+            </ul>
+          </section>
+          <!-- END : LOGO-->
         </div>
       </div>
     </header>
     <!-- END : HEADER-->
+    <section class="menu-mobile">
+      <div class="menu-mobile-inner"><a href="#" class="a_close"><i class="fa fa-times"></i></a>
+        <ul class="menu">
+          <li class="active"><a href="#">Lease My Space</a></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">How It Works</a></li>
+          <li><a href="#">Help</a></li>
+          <li><a href="#">Log In / Sign Up</a></li>
+        </ul>
+      </div>
+    </section>
+    <!-- END : MENU MOBILE-->
     <section class="main">
       <section class="main-slider flexslider">
         <ul class="slides">
-          <li style="background-image: url('uploads/main-slider-1.jpg')"><img src="uploads/main-slider-1.jpg" alt=""></li>
-          <li style="background-image: url('uploads/main-slider-2.jpg')"><img src="uploads/main-slider-2.jpg" alt=""></li>
-          <li style="background-image: url('uploads/main-slider-3.jpg')"><img src="uploads/main-slider-3.jpg" alt=""></li>
+          <li style="background-image: url('uploads/main_slider.jpg')"></li>
+          <li style="background-image: url('uploads/main_slider_2.jpg')"></li>
+          <li style="background-image: url('uploads/main_slider_3.jpg')"></li>
+          <li style="background-image: url('uploads/main_slider_4.jpg')"></li>
         </ul>
-        <div class="text-demo">
-          <h2>welcome home</h2>
-          <h3>Rent unique places to stay from local hosts in 190+ countries.</h3>
-          <div class="t-c"><a href="javascript:;" class="how_works">How It Works</a></div>
-        </div>
-      </section>
-      <!-- END : MAIN SLIDER-->
-      <section class="blk-filter-wrap">
-        <div class="container">
-          <div class="inner">
-            <div class="row">
-              <form class="frm-filter">
-                <section class="filter-itm col-md-3 col-sm-3 col-xs-6">
-                  <label>Place for rent</label>
-                  <input type="text" placeholder="Where do you want to go?" class="ipt">
-                </section>
-                <!-- END : ITM-->
-                <section class="filter-itm col-md-4 col-sm-4 col-xs-6">
-                  <div class="input-group input-daterange">
-                    <div class="itm-ipt">
-                      <label>Start date</label>
-                      <div class="itm-ipt-w">
-                        <input type="text" placeholder="mm/dd/yyyy" class="ipt ipt-date"><i class="fa fa-calendar"></i>
-                      </div>
-                    </div>
-                    <div class="itm-ipt">
-                      <label>End date</label>
-                      <div class="itm-ipt-w">
-                        <input type="text" placeholder="mm/dd/yyyy" class="ipt ipt-date"><i class="fa fa-calendar"></i>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-                <!-- END : ITM-->
-                <section class="filter-itm col-md-3 col-sm-3 col-xs-6">
-                  <label>Price per 100 square feet</label>
-                  <div class="filter-ranger">
-                    <div id="slider-ranger" data-min="20" data-max="50"></div>
-                  </div>
-                </section>
-                <!-- END : ITM-->
-                <section class="filter-itm col-md-2 col-sm-2 col-xs-6">
-                  <label>&nbsp;</label>
-                  <input type="submit" value="search" class="btn btn-red uppercase">
-                </section>
-                <!-- END : ITM-->
-              </form>
+        <div class="main-filter">
+          <div class="container">
+            <h2>ZONE & SPACE RENTALS TO HOST AN EVENT FROM LOCAL HOSTS IN 100+ CITIES</h2>
+            <div class="more"><a href="#">Learn more on how it works<i class="fa fa-arrow-right"></i></a></div>
+            <div class="blk-filter">
+              <div class="fil-item fil-location">
+                <input type="text" placeholder="Location or ZIP code" class="ipt">
+              </div>
+              <!-- END-->
+              <div class="fil-item fil-row">
+                <div class="fil-col-6">
+                  <input type="text" placeholder="Start date" class="ipt ipt-date"><i class="ico ico-cal"></i>
+                </div>
+                <div class="fil-col-6">
+                  <input type="text" placeholder="End date" class="ipt ipt-date"><i class="ico ico-cal"></i>
+                </div>
+              </div>
+              <!-- END-->
+              <div class="fil-item fil-row">
+                <div class="fil-col-4 fil-range">Feet Square</div>
+                <div class="fil-col-8 fil-range fil-slider">
+                  <div id="feet-slider" data-min="0" data-max="1000" data-valmin="40" data-valmax="500" data-step="10" data-type="feet"></div>
+                  <div class="f-num sld-num">40</div>
+                  <div class="l-num sld-num">500+</div>
+                </div>
+              </div>
+              <!-- END-->
+              <div class="fil-item fil-row">
+                <div class="fil-col-4 fil-range">Price Range</div>
+                <div class="fil-col-8 fil-range fil-slider">
+                  <div id="price-slider" data-min="0" data-max="1000" data-valmin="100" data-valmax="800" data-step="10" data-type="price"></div>
+                  <div class="f-num sld-num">$100</div>
+                  <div class="l-num sld-num">$800+</div>
+                </div>
+              </div>
+              <!-- END-->
+              <div class="fil-item fil-checkbox">
+                <input type="checkbox" name="filter-checkbox" id="fil-daily">
+                <label for="fil-daily">Daily</label>
+                <input type="checkbox" name="filter-checkbox" id="fil-weekly">
+                <label for="fil-weekly">Weekly</label>
+                <input type="checkbox" name="filter-checkbox" id="fil-monthly">
+                <label for="fil-monthly">Monthly</label>
+              </div>
+              <!-- END-->
+              <div class="fil-item">
+                <button type="submit" class="btn btn-red">search<i class="ico ico-zoom"></i></button>
+              </div>
+              <!-- END-->
             </div>
           </div>
         </div>
       </section>
-      <!-- END : FILTER-->
+      <!-- END : MAIN SLIDER-->
+      <section class="home-offer">
+        <div class="container">
+          <h2 class="blk-ttl"> <a href="#">WHAT WE OFFER</a></h2>
+          <div class="row">
+            <section class="offer-itm col-md-4 col-sm-4 col-xs-6"><a href="#">
+                <figure style="background-image: url(uploads/fig_location.png);" class="zone-img"></figure>
+                <h3 class="offer-ttl">Vacant Lands        </h3></a></section>
+            <!-- END : ITM-->
+            <section class="offer-itm col-md-4 col-sm-4 col-xs-6"><a href="#">
+                <figure style="background-image: url(uploads/fig_house.png);" class="zone-img"></figure>
+                <h3 class="offer-ttl">Spaces Attached To Property    </h3></a></section>
+            <!-- END : ITM-->
+            <section class="offer-itm col-md-4 col-sm-4 col-xs-6"><a href="#">
+                <figure style="background-image: url(uploads/fig_build.png);" class="zone-img"></figure>
+                <h3 class="offer-ttl">Event Places      </h3></a></section>
+            <!-- END : ITM-->
+          </div>
+        </div>
+      </section>
+      <!-- END : BLK OFFER-->
       <section class="blk-area-wrap">
         <div class="container">
-          <h2 class="area-ttl">POPULAR VENUES</h2>
-          <div class="row">
-            <section class="area-itm col-md-3 col-sm-3 col-xs-6"><a href="location-category.html">
-                <figure style="background-image: url(uploads/la.jpg);" class="area-img">
-                  <h3>Los Angeles</h3>
-                </figure></a>
-              <div class="desc">
-                <ol>
-                  <li><a href="#">Los Angeles Center</a></li>
-                  <li><a href="#">Eastside Los Angeles</a></li>
-                  <li><a href="#">South Los Angeles</a></li>
-                  <li><a href="#">Los Angeles Harbor Region</a></li>
-                  <li><a href="#">Hollywood</a></li>
-                </ol>
-              </div>
-            </section>
-            <!-- END : ITM-->
-            <section class="area-itm col-md-3 col-sm-3 col-xs-6"><a href="location-category.html">
-                <figure style="background-image: url(uploads/sd.jpg);" class="area-img">
-                  <h3>San Diego</h3>
-                </figure>
+          <div class="area-inner">
+            <h2 class="blk-ttl"> <a href="#">MOST POPULAR VENUES IN CALIFORNIA</a></h2>
+            <div class="row">
+              <section class="area-itm col-md-3 col-sm-3 col-xs-6"><a href="#">
+                  <figure style="background-image: url(uploads/los.jpg);" class="area-img">
+                    <h2>CALIFORNIA</h2>
+                    <h3>Los Angeles</h3>
+                  </figure></a>
                 <div class="desc">
-                  <ol>
-                    <li><a href="#">San Diego-Imperal</a></li>
-                    <li><a href="#">San Diego County</a></li>
-                    <li><a href="#">San Diego - Tijuana</a></li>
-                    <li><a href="#">Carlsbad</a></li>
-                    <li><a href="#">San Marcos</a></li>
-                  </ol>
-                </div></a></section>
-            <!-- END : ITM-->
-            <section class="area-itm col-md-3 col-sm-3 col-xs-6"><a href="location-category.html">
-                <figure style="background-image: url(uploads/sj.jpg);" class="area-img">
-                  <h3>San Jose</h3>
-                </figure>
-                <div class="desc">
-                  <ol>
-                    <li><a href="#">Little Saigon</a></li>
-                    <li><a href="#">Silicon Valley</a></li>
-                    <li><a href="#">Downtown San Jose</a></li>
-                    <li><a href="#">Central San Jose</a></li>
-                    <li><a href="#">San Jose Convention Center</a></li>
-                  </ol>
-                </div></a></section>
-            <!-- END : ITM-->
-            <section class="area-itm col-md-3 col-sm-3 col-xs-6"><a href="location-category.html">
-                <figure style="background-image: url(uploads/sf.jpg);" class="area-img">
-                  <h3>San Francisco</h3>
-                </figure>
-                <div class="desc">
-                  <ol>
-                    <li><a href="#">Market Town</a></li>
-                    <li><a href="#">Russian Hill</a></li>
-                    <li><a href="#">North Beach</a></li>
-                    <li><a href="#">Telegraph Hill</a></li>
-                    <li><a href="#">San Francisco Chinatown</a></li>
-                  </ol>
-                </div></a></section>
-            <!-- END : ITM-->
+                  <ul>
+                    <li><a href="#">Los Angeles Center</a></li>
+                    <li><a href="#">Eastside Los Angeles</a></li>
+                    <li><a href="#">South Los Angeles</a></li>
+                    <li><a href="#">Los Angeles Harbor Region</a></li>
+                    <li><a href="#">Hollywood</a></li>
+                  </ul>
+                </div>
+              </section>
+              <!-- END : ITM-->
+              <section class="area-itm col-md-3 col-sm-3 col-xs-6"><a href="#">
+                  <figure style="background-image: url(uploads/sanjos.jpg);" class="area-img">
+                    <h2>CALIFORNIA</h2>
+                    <h3>San Diego</h3>
+                  </figure>
+                  <div class="desc">
+                    <ul>
+                      <li><a href="#">San Diego-Imperal</a></li>
+                      <li><a href="#">San Diego County</a></li>
+                      <li><a href="#">San Diego - Tijuana</a></li>
+                      <li><a href="#">Carlsbad</a></li>
+                      <li><a href="#">San Marcos</a></li>
+                    </ul>
+                  </div></a></section>
+              <!-- END : ITM-->
+              <section class="area-itm col-md-3 col-sm-3 col-xs-6"><a href="#">
+                  <figure style="background-image: url(uploads/sandie.jpg);" class="area-img">
+                    <h2>CALIFORNIA</h2>
+                    <h3>San Jose</h3>
+                  </figure>
+                  <div class="desc">
+                    <ul>
+                      <li><a href="#">Little Saigon</a></li>
+                      <li><a href="#">Silicon Valley</a></li>
+                      <li><a href="#">Downtown San Jose</a></li>
+                      <li><a href="#">Central San Jose</a></li>
+                      <li><a href="#">San Jose Convention Center</a></li>
+                    </ul>
+                  </div></a></section>
+              <!-- END : ITM-->
+              <section class="area-itm col-md-3 col-sm-3 col-xs-6"><a href="#">
+                  <figure style="background-image: url(uploads/sanfanc.jpg);" class="area-img">
+                    <h2>CALIFORNIA</h2>
+                    <h3>San Francisco</h3>
+                  </figure>
+                  <div class="desc">
+                    <ul>
+                      <li><a href="#">Market Town</a></li>
+                      <li><a href="#">Russian Hill</a></li>
+                      <li><a href="#">North Beach</a></li>
+                      <li><a href="#">Telegraph Hill</a></li>
+                      <li><a href="#">San Francisco Chinatown</a></li>
+                    </ul>
+                  </div></a></section>
+              <!-- END : ITM-->
+            </div>
           </div>
         </div>
       </section>
       <!-- END : BLK AREA-->
-      <section id="blk-park-car" class="blk-park-car">
+      <section class="blk-venues">
         <div class="container">
-          <h2>I need to park my car. Can you help?</h2>
           <div class="row">
-            <section class="blk-car-itm col-md-8 col-sm-6 col-xs-12">
-              <ul class="clearfix">
-                <li><span class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full" width="60" height="60" viewBox="0 0 76.00 76.00" enable-background="new 0 0 76.00 76.00" xml:space="preserve">
-                      <path fill="rgb(213,223,96)" fill-opacity="1" stroke-width="0.2" stroke-linejoin="round" d="M 29.2917,20.5834L 46.7083,20.5833C 48.4572,20.5833 50.6667,22.7928 50.6667,24.5417L 50.6667,46.7083C 50.6667,48.4572 48.4572,50.6667 46.7083,50.6667L 45.9167,50.6667L 45.9167,52.5667L 52.25,60.1667L 49.0833,60.1667L 43.8056,53.8333L 32.1944,53.8333L 26.9167,60.1667L 23.75,60.1667L 30.0833,52.5667L 30.0833,50.6667L 29.2917,50.6667C 27.5427,50.6667 25.3333,48.4573 25.3333,46.7083L 25.3333,24.5417C 25.3333,22.7928 27.5427,20.5834 29.2917,20.5834 Z M 34.8333,22.1667C 33.9588,22.1667 33.25,22.8756 33.25,23.7501C 33.25,24.6245 33.9588,25.3334 34.8333,25.3334L 41.1666,25.3334C 42.041,25.3334 42.7499,24.6245 42.7499,23.7501C 42.7499,22.8756 42.041,22.1667 41.1666,22.1667L 34.8333,22.1667 Z M 31.6666,26.9167C 29.9177,26.9167 28.5,28.3345 28.5,30.0834L 28.5,31.6667C 28.5,33.4156 29.9177,34.8334 31.6666,34.8334L 44.3333,34.8334C 46.0822,34.8334 47.4999,33.4156 47.4999,31.6667L 47.4999,30.0834C 47.4999,28.3345 46.0822,26.9167 44.3333,26.9167L 31.6666,26.9167 Z M 30.875,42.75C 29.5633,42.75 28.5,43.8133 28.5,45.125C 28.5,46.4367 29.5633,47.5 30.875,47.5C 32.1867,47.5 33.25,46.4367 33.25,45.125C 33.25,43.8133 32.1867,42.75 30.875,42.75 Z M 45.125,42.75C 43.8133,42.75 42.75,43.8133 42.75,45.125C 42.75,46.4367 43.8133,47.5 45.125,47.5C 46.4366,47.5 47.5,46.4367 47.5,45.125C 47.5,43.8133 46.4366,42.75 45.125,42.75 Z M 41.9583,14.25C 43.27,14.25 44.3333,15.3133 44.3333,16.625C 44.3333,17.9367 43.27,19 41.9583,19C 40.6466,19 39.5833,17.9367 39.5833,16.625C 39.5833,15.3133 40.6466,14.25 41.9583,14.25 Z M 34.0417,14.25C 35.3533,14.25 36.4167,15.3133 36.4167,16.625C 36.4167,17.9367 35.3533,19 34.0417,19C 32.73,19 31.6667,17.9367 31.6667,16.625C 31.6667,15.3133 32.73,14.25 34.0417,14.25 Z "></path>
-                    </svg></span>
-                  <p>Do you need a daily, weekly, or monthly car leasing space near a tube or train station?</p>
-                </li>
-                <li><span class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full" width="60" height="60" viewBox="0 0 76.00 76.00" enable-background="new 0 0 76.00 76.00" xml:space="preserve">
-                      <path fill="rgb(213,223,96)" fill-opacity="1" stroke-width="0.2" stroke-linejoin="round" d="M 55.4764,22.0625L 55.4134,22.1254C 55.4134,22.1254 57.5889,22.6373 48.2065,33.0244L 49.4015,39.3332L 49.8155,38.9192C 50.4338,38.3009 51.4363,38.3009 52.0546,38.9192C 52.673,39.5375 52.673,40.5401 52.0546,41.1584L 50.0536,43.1594L 50.5017,46.0701L 50.6551,45.9166C 51.2735,45.2983 52.276,45.2983 52.8943,45.9166C 53.5126,46.535 53.5126,47.5375 52.8943,48.1558L 51.0175,50.0326C 51.384,53.2996 51.5253,56.1205 51.2149,57.6723C 51.2149,57.6723 49.2557,59.6315 48.1361,58.512C 48.1361,58.512 44.343,45.6154 41.7525,39.8052C 31.7557,49.9687 31.0624,49.2754 31.0624,49.2754C 31.0624,49.2754 33.0217,55.713 30.7825,57.9522L 26.8639,50.6749L 26.9269,50.6119L 19.6496,46.6933C 21.8888,44.4541 28.3264,46.4134 28.3264,46.4134C 28.3264,46.4134 27.6331,45.7201 37.7966,35.7233C 31.9864,33.1328 19.0898,29.3397 19.0898,29.3397C 17.9702,28.2202 19.9295,26.2609 19.9295,26.2609C 21.4813,25.9505 24.3022,26.0919 27.5692,26.4583L 29.446,24.5815C 30.0643,23.9632 31.0668,23.9632 31.6852,24.5815C 32.3035,25.1998 32.3035,26.2023 31.6852,26.8207L 31.5317,26.9742L 34.4423,27.4222L 36.4434,25.4212C 37.0617,24.8028 38.0642,24.8028 38.6826,25.4212C 39.3009,26.0395 39.3009,27.042 38.6826,27.6604L 38.2686,28.0743L 44.5774,29.2693C 54.9645,19.8869 55.4764,22.0625 55.4764,22.0625 Z "></path>
-                    </svg></span>
-                  <p>Do you want to find cheaper airport leasing?</p>
-                </li>
-                <li><span class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full" width="60" height="60" viewBox="0 0 76.00 76.00" enable-background="new 0 0 76.00 76.00" xml:space="preserve">
-                      <path fill="rgb(213,223,96)" fill-opacity="1" stroke-width="0.2" stroke-linejoin="round" d="M 17.4167,50.6667C 16.5422,50.6667 15.8333,49.9578 15.8333,49.0833L 15.8333,39.5834C 15.8333,37.0877 17.2768,34.9292 19.3745,33.8972L 25.3333,19L 26.9167,19L 30.0833,19L 45.9167,19L 49.0833,19L 50.6667,19L 56.6255,33.8972C 58.7231,34.9292 60.1666,37.0877 60.1666,39.5834L 60.1667,49.0833C 60.1667,49.9578 59.4578,50.6667 58.5833,50.6667L 57,50.6667L 57,53.8333C 57,55.5822 55.5822,57 53.8333,57C 52.0844,57 50.6667,55.5822 50.6667,53.8333L 50.6667,50.6667L 25.3333,50.6667L 25.3333,53.8333C 25.3333,55.5822 23.9156,57 22.1667,57C 20.4178,57 19,55.5822 19,53.8333L 19,50.6667L 17.4167,50.6667 Z M 24.3833,33.25L 51.6166,33.25L 47.8166,23.75L 28.1833,23.75L 24.3833,33.25 Z M 24.1458,36.0209C 22.3969,36.0209 20.5833,37.8344 20.5833,39.5833C 20.5833,41.3322 22.3969,43.1458 24.1458,43.1458C 25.8947,43.1458 27.7083,41.3323 27.7083,39.5834C 27.7083,37.8345 25.8947,36.0209 24.1458,36.0209 Z M 51.8542,36.0208C 50.1053,36.0208 48.2917,37.8344 48.2917,39.5833C 48.2917,41.3322 50.1053,43.1458 51.8542,43.1458C 53.6031,43.1458 55.4167,41.3322 55.4167,39.5833C 55.4167,37.8344 53.6031,36.0208 51.8542,36.0208 Z "></path>
-                    </svg></span>
-                  <p>Are you visiting an area where you’d like to be able to park your car overnight?</p>
-                </li>
-                <li><span class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full" width="60" height="60" viewBox="0 0 76.00 76.00" enable-background="new 0 0 76.00 76.00" xml:space="preserve">
-                      <path fill="rgb(213,223,96)" fill-opacity="1" stroke-width="0.2" stroke-linejoin="round" d="M 43.5,21.0285L 48.6842,25.394L 50.3689,24.9228C 48.4338,23.092 46.0926,21.6859 43.4946,20.854L 43.5,21.0285 Z M 53.6014,39.3315L 52.5714,45.5285L 53.8558,46.5275C 55.221,43.9944 55.9969,41.0968 56,38.0182L 53.6014,39.3315 Z M 43.8214,48.7596L 38.3871,44.894L 32.1728,47.2255L 30.6427,53.6725L 32.5593,55.1631C 34.2758,55.7068 36.1036,56 38,56C 39.7036,56 41.3519,55.7633 42.9138,55.3211L 43.8214,48.7596 Z M 29.5413,53.4566L 31.0714,47.0096L 25.3871,42.644L 21.0897,44.182C 22.5587,48.1994 25.4186,51.5469 29.0863,53.6415L 29.5413,53.4566 Z M 25.5413,41.5626L 26.3214,34.1156L 21.5554,30.6696C 20.5557,32.9087 20,35.3894 20,38C 20,39.8384 20.2756,41.6124 20.7877,43.2829L 25.5413,41.5626 Z M 27.0056,33.644L 33.22,31.0625L 34.5,24.3656L 30.7276,21.5296C 26.8969,23.2235 23.768,26.2146 21.898,29.946L 27.0056,33.644 Z M 51.7199,45.2066L 52.7499,39.0096L 46.8157,34.394L 40.3514,36.7255L 39.3214,44.1725L 44.7556,48.038L 51.7199,45.2066 Z M 46.4699,33.4566L 47.4999,26.0096L 42.3157,21.6441L 35.3514,24.4755L 34.0714,31.1725L 40.0056,35.788L 46.4699,33.4566 Z M 38,18C 49.0457,18 58,26.9543 58,38C 58,49.0457 49.0457,58 38,58C 26.9543,58 18,49.0457 18,38C 18,26.9543 26.9543,18 38,18 Z "></path>
-                    </svg></span>
-                  <p>Are you driving to a concert or sporting event and would like to park close to the venue?</p>
-                </li>
-                <li><span class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full" width="60" height="60" viewBox="0 0 76.00 76.00" enable-background="new 0 0 76.00 76.00" xml:space="preserve">
-                      <path fill="rgb(213,223,96)" fill-opacity="1" stroke-width="0.2" stroke-linejoin="round" d="M 24.0033,56.0078L 24.0033,38.0053L 21.753,39.7556L 18.5026,34.8799L 38.0053,20.2528L 57.508,34.8799L 54.2576,39.7556L 52.0072,38.0053L 52.0072,56.0078L 49.0068,56.0078L 49.0068,38.0053L 27.0038,38.0053L 27.0038,56.0078L 24.0033,56.0078 Z M 47.0065,44.0061L 29.004,44.0061L 29.004,40.0056L 47.0065,40.0056L 47.0065,44.0061 Z M 47.0065,50.007L 29.004,50.007L 29.004,46.0064L 47.0065,46.0064L 47.0065,50.007 Z M 47.0065,56.0078L 29.004,56.0078L 29.004,52.0073L 47.0065,52.0073L 47.0065,56.0078 Z "></path>
-                    </svg></span>
-                  <p>Are you searching for a secure lock-up garage to store your car or for general storage use?</p>
-                </li>
-                <li><span class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full" width="60" height="60" viewBox="0 0 76.00 76.00" enable-background="new 0 0 76.00 76.00" xml:space="preserve">
-                      <path fill="rgb(213,223,96)" fill-opacity="1" stroke-width="0.2" stroke-linejoin="round" d="M 36,41L 36,48L 31,48L 31,28L 38.5,28C 43.775,28 46,30.0282 46,34.5C 46,36.6156 45.6992,37.5344 44.1976,38.8406C 42.6961,40.1469 40.5094,41 38,41L 36,41 Z M 36,32L 36,37L 37.5,37C 39.9125,37 41.5,36.725 41.5,34.5C 41.5,32.325 39.9125,32 37.5,32L 36,32 Z M 27,19L 49,19C 51.7614,19 54,21.2386 54,24L 54,52C 54,54.7614 51.7614,57 49,57L 27,57C 24.2386,57 22,54.7614 22,52L 22,24C 22,21.2386 24.2386,19 27,19 Z M 27,22C 25.8954,22 25,22.8955 25,24L 25,52C 25,53.1046 25.8954,54 27,54L 49,54C 50.1045,54 51,53.1046 51,52L 51,24C 51,22.8955 50.1045,22 49,22L 27,22 Z "></path>
-                    </svg></span>
-                  <p>Have residential leasing restrictions made leasing near your home a nightmare?</p>
-                </li>
-              </ul>
+            <section class="venues-itm col-md-3 col-sm-3 col-xs-12">
+              <h2 class="blk-ttl"> <a href="#">FEATURED VENUES</a></h2>
+              <div class="desc">Feature Venues Description: venues in California, as chosen by our customers.</div>
             </section>
-            <!-- END : ITEM-->
-            <section class="blk-car-itm col-md-4 col-sm-6 col-xs-12">
-              <p><strong>Zonepace </strong>is the online marketplace designed to make it simple to park your car. Find leasing and book online instantly - you’ll find hourly, daily and monthly leasing spaces for rent UK-wide.</p>
-              <p>Whether it's a leasing space in a town centre for a few hours, or a secure lock-up garage close to where you live, we have over 250,000 spaces across the UK, ranging from residential driveways to secure garages and commercial car parks.</p>
-              <p>Our car leasing spaces are typically significantly cheaper than local car parks. Find and rent a leasing space today in three simple steps – Search, Book, Park!</p>
-              <div class="button"><a href="#" class="btn btn-red">Find leasing <i class="fa fa-chevron-right"></i></a></div>
+            <!-- END : ITM-->
+            <section class="venues-itm col-md-3 col-sm-3 col-xs-4">
+              <section class="vens-itm">
+                <h3>Eastside Los Angeles</h3>
+                <ul>
+                  <li><a href="#"><i class="fa fa-map-marker"></i>California</a></li>
+                  <li><a href="#"><i class="fa fa-cog"></i>Vacant Land</a></li>
+                </ul>
+              </section>
+              <!-- END : ITM-->
+              <section class="vens-itm">
+                <h3>Eastside Los Angeles</h3>
+                <ul>
+                  <li><a href="#"><i class="fa fa-map-marker"></i>California</a></li>
+                  <li><a href="#"><i class="fa fa-cog"></i>Vacant Land</a></li>
+                </ul>
+              </section>
+              <!-- END : ITM-->
+              <section class="vens-itm">
+                <h3>Eastside Los Angeles</h3>
+                <ul>
+                  <li><a href="#"><i class="fa fa-map-marker"></i>California</a></li>
+                  <li><a href="#"><i class="fa fa-cog"></i>Vacant Land</a></li>
+                </ul>
+              </section>
+              <!-- END : ITM-->
             </section>
-            <!-- END : ITEM-->
+            <!-- END : ITM-->
+            <section class="venues-itm col-md-3 col-sm-3 col-xs-4">
+              <section class="vens-itm">
+                <h3>Eastside Los Angeles</h3>
+                <ul>
+                  <li><a href="#"><i class="fa fa-map-marker"></i>California</a></li>
+                  <li><a href="#"><i class="fa fa-cog"></i>Vacant Land</a></li>
+                </ul>
+              </section>
+              <!-- END : ITM-->
+              <section class="vens-itm">
+                <h3>Eastside Los Angeles</h3>
+                <ul>
+                  <li><a href="#"><i class="fa fa-map-marker"></i>California</a></li>
+                  <li><a href="#"><i class="fa fa-cog"></i>Vacant Land</a></li>
+                </ul>
+              </section>
+              <!-- END : ITM-->
+              <section class="vens-itm">
+                <h3>Eastside Los Angeles</h3>
+                <ul>
+                  <li><a href="#"><i class="fa fa-map-marker"></i>California</a></li>
+                  <li><a href="#"><i class="fa fa-cog"></i>Vacant Land</a></li>
+                </ul>
+              </section>
+              <!-- END : ITM-->
+            </section>
+            <!-- END : ITM-->
+            <section class="venues-itm col-md-3 col-sm-3 col-xs-4">
+              <section class="vens-itm">
+                <h3>Eastside Los Angeles</h3>
+                <ul>
+                  <li><a href="#"><i class="fa fa-map-marker"></i>California</a></li>
+                  <li><a href="#"><i class="fa fa-cog"></i>Vacant Land</a></li>
+                </ul>
+              </section>
+              <!-- END : ITM-->
+              <section class="vens-itm">
+                <h3>Eastside Los Angeles</h3>
+                <ul>
+                  <li><a href="#"><i class="fa fa-map-marker"></i>California</a></li>
+                  <li><a href="#"><i class="fa fa-cog"></i>Vacant Land</a></li>
+                </ul>
+              </section>
+              <!-- END : ITM-->
+              <section class="vens-itm">
+                <h3>Eastside Los Angeles</h3>
+                <ul>
+                  <li><a href="#"><i class="fa fa-map-marker"></i>California</a></li>
+                  <li><a href="#"><i class="fa fa-cog"></i>Vacant Land</a></li>
+                </ul>
+              </section>
+              <!-- END : ITM-->
+            </section>
+            <!-- END : ITM-->
           </div>
         </div>
       </section>
-      <!-- END : BLK CAR-->
-      <section class="blk-park-car blk-parking">
+      <!-- END : BLK VENUES-->
+      <section class="blk-feature">
         <div class="container">
-          <h2>I have a leasing space. Can I rent my leasing space and earn money?</h2>
+          <section class="feature-slider flexslider">
+            <ul class="slides">
+              <li class="clearfix">
+                <div style="background-image: url('uploads/avatar.jpg')" class="fea-avatar"></div>
+                <div class="fea-info">
+                  <div class="desc">Your communication with the clients is simply exemplary - fast, effecient, informative. You are one of the best companies I have ever come across.</div>
+                  <div class="fea-user">
+                    <div class="name">Jessica Justice</div>
+                    <div class="add">California, USA</div>
+                  </div>
+                </div>
+              </li>
+              <!-- END : ITM-->
+              <li class="clearfix">
+                <div style="background-image: url('uploads/avatar.jpg')" class="fea-avatar"></div>
+                <div class="fea-info">
+                  <div class="desc">Your communication with the clients is simply exemplary - fast, effecient, informative. You are one of the best companies I have ever come across.</div>
+                  <div class="fea-user">
+                    <div class="name">Jessica Justice</div>
+                    <div class="add">California, USA</div>
+                  </div>
+                </div>
+              </li>
+              <!-- END : ITM-->
+              <li class="clearfix">
+                <div style="background-image: url('uploads/avatar.jpg')" class="fea-avatar"></div>
+                <div class="fea-info">
+                  <div class="desc">Your communication with the clients is simply exemplary - fast, effecient, informative. You are one of the best companies I have ever come across.</div>
+                  <div class="fea-user">
+                    <div class="name">Jessica Justice</div>
+                    <div class="add">California, USA</div>
+                  </div>
+                </div>
+              </li>
+              <!-- END : ITM-->
+            </ul>
+          </section>
+          <!-- END : SLIDER-->
+          <section class="feature-logo">
+            <h2 class="blk-ttl">FEATURED ON</h2>
+            <ul class="logo-list">
+              <li><a href="#"><img src="uploads/p-1.png" alt=""></a></li>
+              <li><a href="#"><img src="uploads/p-2.png" alt=""></a></li>
+              <li><a href="#"><img src="uploads/p-3.png" alt=""></a></li>
+              <li><a href="#"><img src="uploads/p-4.png" alt=""></a></li>
+            </ul>
+          </section>
+          <!-- END : LOGO-->
+        </div>
+      </section>
+      <!-- END : BLK FEATURE-->
+      <section class="blk-how-works">
+        <div class="container">
+          <h2 class="blk-ttl"> <a href="#">HOW IT WORKS</a></h2>
           <div class="row">
-            <section class="blk-car-itm col-md-8 col-sm-6 col-xs-12">
-              <ul class="clearfix">
-                <li><span class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full" width="60" height="60" viewBox="0 0 76.00 76.00" enable-background="new 0 0 76.00 76.00" xml:space="preserve">
-                      <path fill="rgb(213,223,96)" fill-opacity="1" stroke-width="0.2" stroke-linejoin="round" d="M 16.3997,47.9811L 18.0607,46.7936L 25.5038,59.2898L 56.356,40.6856L 58.017,42.6648L 25.5039,62.0606L 16.3997,47.9811 Z M 17.0264,41.2053L 18.2915,40.4136L 25.7347,53.3056L 56.5869,35.0973L 57.852,37.4723L 25.7347,56.4723L 17.0264,41.2053 Z M 16.625,34.0417L 49.5339,15.0417L 59.0339,31.4962L 26.125,50.4962L 16.625,34.0417 Z M 38,25.3333C 34.065,25.3333 30.875,28.5233 30.875,32.4583C 30.875,36.3934 34.065,39.5833 38,39.5833C 41.935,39.5833 45.125,36.3934 45.125,32.4583C 45.125,28.5233 41.935,25.3333 38,25.3333 Z M 41.2778,36.9577L 40.1946,37.5831L 39.5993,36.5521L 38.4606,36.9961L 37.5089,37.1367L 37.091,35.6699L 38.0824,35.5512L 39.157,35.129C 39.4812,34.9396 39.7158,34.7233 39.8607,34.4801C 40.0056,34.2369 40.0189,34.0038 39.9008,33.781C 39.7801,33.5738 39.5707,33.4558 39.2727,33.427L 38.0917,33.5366C 37.3964,33.6816 36.784,33.6962 36.2545,33.5807C 35.7251,33.4651 35.3027,33.1441 34.9876,32.6177C 34.7014,32.1166 34.6178,31.601 34.7366,31.0709C 34.8555,30.5408 35.1846,30.0428 35.7239,29.5769L 35.1229,28.536L 36.198,27.9153L 36.7547,28.8795L 37.7516,28.4683L 38.5445,28.3282L 38.9425,29.7566L 38.2097,29.8536L 37.0885,30.3081C 36.742,30.5175 36.5343,30.7263 36.4653,30.9348C 36.3963,31.1432 36.4113,31.3272 36.5103,31.4868C 36.6061,31.6626 36.8028,31.7607 37.1005,31.7811L 38.4193,31.6438C 39.2025,31.4956 39.8317,31.5058 40.3067,31.6744C 40.7818,31.8431 41.1605,32.1794 41.4427,32.6834C 41.7325,33.1857 41.8179,33.7144 41.6988,34.2694C 41.5797,34.8245 41.2242,35.3479 40.6324,35.8398L 41.2778,36.9577 Z "></path>
-                    </svg></span>
-                  <p>Are there a lack of cheap car parks near your home?</p>
-                </li>
-                <li><span class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full" width="60" height="60" viewBox="0 0 76.00 76.00" enable-background="new 0 0 76.00 76.00" xml:space="preserve">
-                      <path fill="rgb(213,223,96)" fill-opacity="1" stroke-width="0.2" stroke-linejoin="round" d="M 12.255,50.6784C 11.7525,50.749 11.2879,50.3989 11.2173,49.8964L 10.45,44.4371C 10.2485,43.003 10.9036,41.646 12.0257,40.8835L 14.2469,31.8415L 15.1568,31.7136L 16.9765,31.4579L 26.0753,30.1791L 27.895,29.9234L 28.8049,29.7955L 33.4324,37.875C 34.7211,38.2987 35.725,39.4225 35.9265,40.8567L 36.6938,46.3159C 36.7644,46.8184 36.4143,47.283 35.9118,47.3537L 35.0019,47.4815L 35.258,49.3013C 35.3989,50.3063 34.6987,51.2355 33.6937,51.3768C 32.6886,51.518 31.7594,50.8178 31.6182,49.8128L 31.3624,47.993L 16.8044,50.039L 17.0601,51.8588C 17.2014,52.8638 16.5012,53.793 15.4961,53.9343C 14.4911,54.0755 13.5619,53.3753 13.4206,52.3703L 13.1649,50.5505L 12.255,50.6784 Z M 14.8518,40.1072L 30.5017,37.9077L 27.5507,32.7553L 16.2683,34.341L 14.8518,40.1072 Z M 14.9391,41.7186C 13.9341,41.8598 13.0384,43.0485 13.1796,44.0535C 13.3209,45.0585 14.5096,45.9543 15.5146,45.813C 16.5196,45.6718 17.4153,44.4831 17.2741,43.4781C 17.1328,42.4731 15.9442,41.5774 14.9391,41.7186 Z M 30.862,39.4808C 29.8569,39.622 28.9612,40.8107 29.1025,41.8157C 29.2437,42.8207 30.4324,43.7165 31.4374,43.5752C 32.4424,43.434 33.3382,42.2453 33.1969,41.2403C 33.0557,40.2353 31.867,39.3395 30.862,39.4808 Z M 40.0882,47.2143C 39.5857,47.1437 39.2356,46.6791 39.3062,46.1766L 40.0735,40.7173C 40.275,39.2832 41.2789,38.1593 42.5677,37.7357L 47.1951,29.6562L 48.105,29.7841L 49.9247,30.0398L 59.0235,31.3186L 60.8433,31.5743L 61.7531,31.7022L 63.9743,40.7442C 65.0964,41.5067 65.7516,42.8637 65.55,44.2978L 64.7828,49.7571C 64.7121,50.2596 64.2475,50.6097 63.745,50.5391L 62.8351,50.4112L 62.5794,52.2309C 62.4381,53.236 61.5089,53.9362 60.5039,53.795C 59.4989,53.6537 58.7986,52.7245 58.9399,51.7194L 59.1956,49.8997L 44.6376,47.8537L 44.3819,49.6735C 44.2406,50.6785 43.3114,51.3787 42.3064,51.2375C 41.3013,51.0962 40.6011,50.167 40.7424,49.1619L 40.9981,47.3422L 40.0882,47.2143 Z M 45.4983,37.7684L 61.1482,39.9678L 59.7317,34.2016L 48.4493,32.616L 45.4983,37.7684 Z M 45.138,39.3415C 44.133,39.2002 42.9444,40.0959 42.8031,41.101C 42.6619,42.106 43.5576,43.2946 44.5626,43.4359C 45.5676,43.5771 46.7563,42.6814 46.8975,41.6764C 47.0388,40.6714 46.1431,39.4827 45.138,39.3415 Z M 61.0609,41.5793C 60.0559,41.438 58.8672,42.3337 58.7259,43.3388C 58.5847,44.3438 59.4804,45.5324 60.4854,45.6737C 61.4905,45.8149 62.6791,44.9192 62.8204,43.9142C 62.9616,42.9092 62.0659,41.7205 61.0609,41.5793 Z M 28.5,19L 31.6667,17.4167L 34.8333,34.8334L 28.5,19 Z M 36.0208,17.4167L 39.1875,17.4167L 36.4167,34.8333L 36.0208,17.4167 Z M 44.3333,19L 47.5,20.5833L 39.5833,36.4167L 44.3333,19 Z "></path>
-                    </svg></span>
-                  <p>Are there simply not enough car parks for motorists to find leasing in your area?</p>
-                </li>
-                <li><span class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full" width="60" height="60" viewBox="0 0 76.00 76.00" enable-background="new 0 0 76.00 76.00" xml:space="preserve">
-                      <path fill="rgb(213,223,96)" fill-opacity="1" stroke-width="0.2" stroke-linejoin="round" d="M 29.2917,20.5834L 46.7083,20.5833C 48.4572,20.5833 50.6667,22.7928 50.6667,24.5417L 50.6667,46.7083C 50.6667,48.4572 48.4572,50.6667 46.7083,50.6667L 45.9167,50.6667L 45.9167,52.5667L 52.25,60.1667L 49.0833,60.1667L 43.8056,53.8333L 32.1944,53.8333L 26.9167,60.1667L 23.75,60.1667L 30.0833,52.5667L 30.0833,50.6667L 29.2917,50.6667C 27.5427,50.6667 25.3333,48.4573 25.3333,46.7083L 25.3333,24.5417C 25.3333,22.7928 27.5427,20.5834 29.2917,20.5834 Z M 34.8333,22.1667C 33.9588,22.1667 33.25,22.8756 33.25,23.7501C 33.25,24.6245 33.9588,25.3334 34.8333,25.3334L 41.1666,25.3334C 42.041,25.3334 42.7499,24.6245 42.7499,23.7501C 42.7499,22.8756 42.041,22.1667 41.1666,22.1667L 34.8333,22.1667 Z M 31.6666,26.9167C 29.9177,26.9167 28.5,28.3345 28.5,30.0834L 28.5,31.6667C 28.5,33.4156 29.9177,34.8334 31.6666,34.8334L 44.3333,34.8334C 46.0822,34.8334 47.4999,33.4156 47.4999,31.6667L 47.4999,30.0834C 47.4999,28.3345 46.0822,26.9167 44.3333,26.9167L 31.6666,26.9167 Z M 30.875,42.75C 29.5633,42.75 28.5,43.8133 28.5,45.125C 28.5,46.4367 29.5633,47.5 30.875,47.5C 32.1867,47.5 33.25,46.4367 33.25,45.125C 33.25,43.8133 32.1867,42.75 30.875,42.75 Z M 45.125,42.75C 43.8133,42.75 42.75,43.8133 42.75,45.125C 42.75,46.4367 43.8133,47.5 45.125,47.5C 46.4366,47.5 47.5,46.4367 47.5,45.125C 47.5,43.8133 46.4366,42.75 45.125,42.75 Z M 41.9583,14.25C 43.27,14.25 44.3333,15.3133 44.3333,16.625C 44.3333,17.9367 43.27,19 41.9583,19C 40.6466,19 39.5833,17.9367 39.5833,16.625C 39.5833,15.3133 40.6466,14.25 41.9583,14.25 Z M 34.0417,14.25C 35.3533,14.25 36.4167,15.3133 36.4167,16.625C 36.4167,17.9367 35.3533,19 34.0417,19C 32.73,19 31.6667,17.9367 31.6667,16.625C 31.6667,15.3133 32.73,14.25 34.0417,14.25 Z "></path>
-                    </svg></span>
-                  <p>Do you live in a town or city, near a train or tube station, or close to a stadium, airport, or concert venue?</p>
-                </li>
-                <li><span class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full" width="60" height="60" viewBox="0 0 76.00 76.00" enable-background="new 0 0 76.00 76.00" xml:space="preserve">
-                      <path fill="rgb(213,223,96)" fill-opacity="1" stroke-width="0.2" stroke-linejoin="round" d="M 36,41L 36,48L 31,48L 31,28L 38.5,28C 43.775,28 46,30.0282 46,34.5C 46,36.6156 45.6992,37.5344 44.1976,38.8406C 42.6961,40.1469 40.5094,41 38,41L 36,41 Z M 36,32L 36,37L 37.5,37C 39.9125,37 41.5,36.725 41.5,34.5C 41.5,32.325 39.9125,32 37.5,32L 36,32 Z M 27,19L 49,19C 51.7614,19 54,21.2386 54,24L 54,52C 54,54.7614 51.7614,57 49,57L 27,57C 24.2386,57 22,54.7614 22,52L 22,24C 22,21.2386 24.2386,19 27,19 Z M 27,22C 25.8954,22 25,22.8955 25,24L 25,52C 25,53.1046 25.8954,54 27,54L 49,54C 50.1045,54 51,53.1046 51,52L 51,24C 51,22.8955 50.1045,22 49,22L 27,22 Z "></path>
-                    </svg></span>
-                  <p>Are there residential leasing restrictions in place on the street where your house is?</p>
-                </li>
-              </ul>
+            <section class="works-itm col-xs-6">
+              <div class="desc">I am looking for a land or a space to rent to do an event. Can you help?</div>
+              <div class="wrk-step-wrap table">
+                <div class="wrk-step tbl-cell"><span class="wrk-ico"> <i class="ico ico-zoom"></i></span>
+                  <h3> <span>Search </span><span>listings</span></h3>
+                </div>
+                <!-- END-->
+                <div class="wrk-step tbl-cell"><span class="wrk-ico"> <i class="ico ico-pin"></i></span>
+                  <h3> <span>Choose </span><span>a space</span></h3>
+                </div>
+                <!-- END-->
+                <div class="wrk-step tbl-cell"><span class="wrk-ico"> <i class="ico ico-calgrid"></i></span>
+                  <h3> <span>Book </span><span>and pay</span></h3>
+                </div>
+                <!-- END-->
+                <div class="wrk-step tbl-cell"><span class="wrk-ico"> <i class="ico ico-check"></i></span>
+                  <h3> <span>Do </span><span>your event</span></h3>
+                </div>
+                <!-- END-->
+              </div>
             </section>
-            <!-- END : ITEM-->
-            <section class="blk-car-itm col-md-4 col-sm-6 col-xs-12">
-              <p>If the answer is yes to any of these questions then there's <strong>cash to be made </strong>from renting out your driveway, leasing space or lock-up garage!</p>
-              <p>Advertise your space and earn anything from £40 to £450 per month. Motorists can then find and rent leasing spaces – driveways, allocated off-street spaces, underground leasing, and secure garages for rent are all in high demand.</p>
-              <div class="button"><a href="#" class="btn btn-red">List a Space<i class="fa fa-chevron-right"></i></a></div>
+            <!-- END : ITM-->
+            <section class="works-itm col-xs-6">
+              <div class="desc">I have a land or a space for rent. Can I lease my space and earn money?</div>
+              <div class="wrk-step-wrap table">
+                <div class="wrk-step tbl-cell"><span class="wrk-ico"> <i class="ico ico-plus"></i></span>
+                  <h3> <span>Create </span><span>your listing</span></h3>
+                </div>
+                <!-- END-->
+                <div class="wrk-step tbl-cell"><span class="wrk-ico"> <i class="ico ico-calgrid"></i></span>
+                  <h3> <span>Update </span><span>calendar</span></h3>
+                </div>
+                <!-- END-->
+                <div class="wrk-step tbl-cell"><span class="wrk-ico"> <i class="ico ico-chat"></i></span>
+                  <h3> <span>Wait for  </span><span>bookings</span></h3>
+                </div>
+                <!-- END-->
+                <div class="wrk-step tbl-cell"><span class="wrk-ico"> <i class="ico ico-wallet"></i></span>
+                  <h3> <span>Managed </span><span>service</span></h3>
+                </div>
+                <!-- END-->
+              </div>
             </section>
-            <!-- END : ITEM-->
+            <!-- END : ITM-->
           </div>
         </div>
       </section>
-      <!-- END : BLK PARKING-->
+      <!-- END : BLK HOW IT WORKS-->
+      <section class="blk-make-money">
+        <div class="container">
+          <h2 class="money-ttl">Want to make money from your vacant land?</h2>
+          <div class="money-button"><a href="#" class="btn btn-red">LEASE MY SPACE</a><a href="#" class="btn btn-border">LEASING CALCULATOR</a></div>
+          <div class="money-text"><span>Thousands of hosts and guests </span><span>are part of Zonepace's trusted community.</span><a href="#">Join us by signing up<i class="fa fa-arrow-right"></i></a></div>
+        </div>
+      </section>
+      <!-- END : BLK MAKE MONEY-->
     </section>
     <!-- END : MAIN CONTENT-->
     <footer class="footer-wrap">
       <section class="footer-menu">
         <div class="container">
           <div class="row">
-            <section class="footer-company col-md-3 col-sm-3 col-xs-6">
+            <section class="footer-choice col-md-3 col-sm-3 col-xs-4">
+              <div class="foo-logo">zonepace</div>
+              <div class="blk-lang">
+                <select class="slect slect-lang">
+                  <option value="">Language (Eng)</option>
+                  <option value="en">English</option>
+                  <option value="fr">French</option>
+                </select>
+              </div>
+              <!-- END : BLK -->
+              <div class="blk-money">
+                <select class="slect slect-money">
+                  <option value="">Currency (USD)</option>
+                  <option value="VND">VND</option>
+                  <option value="$">$</option>
+                  <option value="€">€</option>
+                </select>
+              </div>
+              <!-- END : BLK -->
+            </section>
+            <section class="footer-company col-md-2 col-sm-2 col-xs-4">
               <h2 class="foo-ttl">company</h2>
               <ul>
                 <li><a href="#">About</a></li>
@@ -314,247 +454,51 @@
               </ul>
             </section>
             <!-- END : COMPANY-->
-            <section class="footer-discover col-md-3 col-sm-3 col-xs-6">
-              <h2 class="foo-ttl">discover</h2>
+            <section class="footer-discover col-md-2 col-sm-2 col-xs-4">
+              <h2 class="foo-ttl">USING ZONPACE</h2>
               <ul>
-                <li><a href="#">Trust & Safety</a></li>
-                <li><a href="#">Travel Credit</a></li>
-                <li><a href="#">Gift Cards</a></li>
-                <li><a href="#">Airbnb Picks</a></li>
-                <li><a href="#">Mobile</a></li>
-                <li><a href="#">Airbnb Action</a></li>
-                <li><a href="#">Business Travel</a></li>
-                <li><a href="#">Site map</a></li>
+                <li><a href="#">Why Host</a></li>
+                <li><a href="#">Responsible Hosting</a></li>
+                <li><a href="#">Booking Guarantee</a></li>
+                <li><a href="#">Zonpace Picks</a></li>
               </ul>
             </section>
             <!-- END : DISCOVER-->
-            <section class="footer-hosting col-md-3 col-sm-3 col-xs-6">
-              <h2 class="foo-ttl">hosting</h2>
-              <ul>
-                <li><a href="#">Why Host</a></li>
-                <li><a href="#">Hospitality</a></li>
-                <li><a href="#">Responesible Hosting</a></li>
-                <li><a href="#">Home Safety</a></li>
-              </ul>
+            <section class="footer-subscrible col-md-5 col-sm-5 col-xs-12">
+              <section class="blk-subscrible">
+                <h2 class="foo-ttl">SUBSCRIBE TO OUR NEWSLETTER</h2>
+                <form class="frm-subscrible">
+                  <input type="text" placeholder="Email address" class="ipt">
+                  <input type="submit" value="Subscribe" class="btn btn-subscrible">
+                </form>
+              </section>
+              <!-- END : SUBSCRIBLE-->
+              <section class="blk-social">
+                <h2 class="foo-ttl">JOIN US ON</h2><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-youtube-play"> </i></a><a href="#"><i class="fa fa-instagram"></i></a>
+              </section>
+              <!-- END : SOCIAL-->
             </section>
-            <!-- END : HOSTING-->
-            <section class="footer-choice col-md-3 col-sm-3 col-xs-6">
-              <div class="blk-lang">
-                <h2 class="foo-ttl">select language</h2>
-                <select class="slect slect-lang">
-                  <option value="en">English</option>
-                  <option value="fr">French</option>
-                </select>
-              </div>
-              <!-- END : BLK -->
-              <div class="blk-money">
-                <h2 class="foo-ttl">your money type</h2>
-                <select class="slect slect-money">
-                  <option value="$">$</option>
-                  <option value="€">€</option>
-                </select>
-              </div>
-              <!-- END : BLK -->
-            </section>
-            <!-- END : CHOICE-->
+            <!-- END : SUBSCRIBLE WRAP-->
           </div>
         </div>
       </section>
       <!-- END : FOOTER MENU-->
       <section class="footer-follow">
         <div class="container">
-          <h2 class="foo-ttl">follow us on</h2>
-          <ul class="clearfix">
-            <li><a href="#" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="#" title="Pinterest"><i class="fa fa-pinterest-p"></i></a></li>
-            <li><a href="#" title="Tumblr"><i class="fa fa-tumblr"></i></a></li>
-            <li><a href="#" title="Dribbble"><i class="fa fa-dribbble"></i></a></li>
-            <li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-          </ul>
-          <p class="t-c">Copyright 2016 by © <b>ZONPACE, INC.</b></p>
+          <div class="t-c">Copyright 2016 by © ZONPACE, INC</div>
         </div>
       </section>
       <!-- END : FOOTER FOLLOW-->
     </footer>
     <!-- END: FOOTER-->
-    <section class="blk-suggest-login">
-      <div class="container">Join the millions of hosts and guests in Zonepace's trusted community.<a href="#" data-toggle="modal" data-target="#myLogin" class="sg-login">Log In</a><a href="#" data-toggle="modal" data-target="#mySignUp" class="sg-signup">Sign Up</a></div>
-    </section>
-    <!-- END: SUGGESTION LOGIN-->
-    <div id="mySignUp" tabindex="-1" role="dialog" aria-labelledby="mySignUp" class="modal fade myPopup">
-      <div role="document" class="modal-dialog">
-        <div class="modal-content"><span data-dismiss="modal" aria-label="Close" aria-hidden="true" class="close">&times;</span>
-          <div class="modal-body">
-            <div class="social-button"><a href="#" class="facebook"><i class="fa fa-facebook"></i><span>Sign up with Facebook</span></a><a href="#" class="google"><i class="ico-google"></i><span>Sign up with Google</span></a></div>
-            <div class="sepe"> <span>or</span></div>
-            <div class="social-button sc-email"><a data-dismiss="modal" data-toggle="modal" data-target="#mySignUpEmail" class="email btn btn-red"><i class="fa fa-envelope-o"></i><span>Sign up with Email</span></a></div>
-            <div class="terms">By signing up, I agree to Zonepace's <a href="#">Terms of Service</a>, <a href="#">Privacy Policy</a>, <a href="#">Guest Refund Policy</a>, and <a href="#">Host Guarantee Terms.</a></div>
-            <div class="blk-redir">Already an Zonepace member? <a href="#" data-toggle="modal" data-target="#myLogin" data-dismiss="modal">Log in</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- END : MODAL SIGN UP-->
-    <div id="mySignUpEmail" tabindex="-1" role="dialog" aria-labelledby="mySignUpEmail" class="modal fade myPopup">
-      <div role="document" class="modal-dialog">
-        <div class="modal-content"><span data-dismiss="modal" aria-label="Close" aria-hidden="true" class="close">&times;</span>
-          <div class="modal-body">
-            <div class="t-c head-signup">Sign up with <a href="#">Facebook </a>or <a href="#">Google</a></div>
-            <div class="sepe"> <span>or</span></div>
-            <div class="social-button sc-email">
-              <form class="frm-signup-email">
-                <div class="itm-ipt">
-                  <input type="text" placeholder="First name" class="ipt"><i class="fa fa-user"></i>
-                </div>
-                <div class="itm-ipt">
-                  <input type="text" placeholder="Last name" class="ipt"><i class="fa fa-user"></i>
-                </div>
-                <div class="itm-ipt">
-                  <input type="email" placeholder="Email Address" class="ipt"><i class="fa fa-envelope-o"></i>
-                </div>
-                <div class="itm-ipt">
-                  <input type="password" placeholder="Password" class="ipt"><i class="fa fa-lock"></i>
-                </div>
-                <div class="itm-ipt n-bd">
-                  <label class="blk-birth">
-                     
-                    Birthday<i title="To sign up, you must be 18 or order. Other people won't see your birthday" data-toggle="tooltip" data-placement="top" class="fa fa-question-circle"></i>
-                  </label>
-                  <div class="blk-select">
-                    <select class="slect sl-month">
-                      <option value="">Month</option>
-                      <option value="1">January</option>
-                      <option value="2">February</option>
-                      <option value="3">March</option>
-                      <option value="4">April</option>
-                      <option value="5">May</option>
-                      <option value="6">June</option>
-                      <option value="7">July</option>
-                      <option value="8">August</option>
-                      <option value="9">September</option>
-                      <option value="10">October</option>
-                      <option value="11">November</option>
-                      <option value="12">December</option>
-                    </select>
-                    <select class="slect sl-date">
-                      <option value="">Day</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                      <option value="6">6</option>
-                      <option value="7">7</option>
-                      <option value="8">8</option>
-                      <option value="9">9</option>
-                      <option value="10">10</option>
-                      <option value="11">11</option>
-                      <option value="12">12</option>
-                      <option value="13">13</option>
-                      <option value="14">14</option>
-                      <option value="15">15</option>
-                      <option value="16">16</option>
-                      <option value="17">17</option>
-                      <option value="18">18</option>
-                      <option value="19">19</option>
-                      <option value="20">20</option>
-                      <option value="21">21</option>
-                      <option value="22">22</option>
-                      <option value="23">23</option>
-                      <option value="24">24</option>
-                      <option value="25">25</option>
-                      <option value="26">26</option>
-                      <option value="27">27</option>
-                      <option value="28">28</option>
-                      <option value="29">29</option>
-                      <option value="30">30</option>
-                      <option value="31">31</option>
-                    </select>
-                    <select class="slect sl-year">
-                      <option value="">Year</option>
-                      <option value="2016">2016</option>
-                      <option value="2015">2015</option>
-                      <option value="2014">2014</option>
-                      <option value="2013">2013</option>
-                      <option value="2012">2012</option>
-                      <option value="2011">2011</option>
-                      <option value="2011">2010</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="itm-remem w100"><span class="remem">
-                    <input type="checkbox" id="like_coupons">
-                    <label for="like_coupons">I’d like to receive coupons and inspiration</label></span></div>
-                <div class="terms">By signing up, I agree to Zonepace's <a href="#">Terms of Service</a>, <a href="#">Privacy Policy</a>, <a href="#">Guest Refund Policy</a>, and <a href="#">Host Guarantee Terms.</a></div>
-                <button class="btn btn-red w100">Sign Up</button>
-              </form>
-            </div>
-            <div class="blk-redir">Already an Zonepace member? <a href="#" data-toggle="modal" data-target="#myLogin" data-dismiss="modal">Log in</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- END : MODAL SIGN UP EMAIL-->
-    <div id="myLogin" tabindex="-1" role="dialog" aria-labelledby="myLogin" class="modal fade myPopup">
-      <div role="document" class="modal-dialog">
-        <div class="modal-content"><span data-dismiss="modal" aria-label="Close" aria-hidden="true" class="close">&times;</span>
-          <div class="modal-body">
-            <div class="social-button"><a href="#" class="facebook"><i class="fa fa-facebook"></i><span>Log in with Facebook</span></a><a href="#" class="google"><i class="ico-google"></i><span>Log in with Google</span></a></div>
-            <div class="sepe"> <span>or</span></div>
-            <div class="social-button sc-email">
-              <form class="frm-login">
-                <div class="itm-ipt">
-                  <input type="email" placeholder="Email Address" class="ipt"><i class="fa fa-envelope-o"></i>
-                </div>
-                <div class="itm-ipt">
-                  <input type="password" placeholder="Password" class="ipt"><i class="fa fa-lock"></i>
-                </div>
-                <div class="itm-remem"><span class="remem">
-                    <input type="checkbox" id="remem">
-                    <label for="remem">Remember me</label></span><span class="forgot"><a href="#" , data-toggle="modal" data-target="#myForgot" data-dismiss="modal">Forgot Password?</a></span></div>
-                <button class="btn btn-red">Log In</button>
-              </form>
-            </div>
-            <div class="blk-redir">Don't have an account? <a href="#" data-toggle="modal" data-target="#mySignUp" data-dismiss="modal">Sign up</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- END : MODAL LOGIN-->
-    <div id="myForgot" tabindex="-1" role="dialog" aria-labelledby="myForgot" class="modal fade myPopup">
-      <div role="document" class="modal-dialog">
-        <div class="modal-content"><span data-dismiss="modal" aria-label="Close" aria-hidden="true" class="close">&times;</span>
-          <div class="md-head">Reset Password</div>
-          <div class="modal-body">
-            <div class="social-button sc-email">
-              <form class="frm-forgot">
-                <div class="desc">Enter the email address associated with your account, and we'll email you a link to reset your password.</div>
-                <div class="itm-ipt">
-                  <input type="email" placeholder="Email Address" class="ipt"><i class="fa fa-envelope-o"></i>
-                </div>
-                <button class="btn btn-red">Send Reset Link</button>
-              </form>
-            </div>
-            <div class="blk-redir t-r">Back to <a href="#" data-toggle="modal" data-target="#mySignUp" data-dismiss="modal">Login</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- END : MODAL FORFOT PASSWORD-->
     <script src="js/libs.js"></script>
     <script src="js/libs/jquery-ui.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/start.js"></script>
     <!-- ALLPAGE JS-->
-    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
     <script src="js/actions/allpage.js"></script>
     <!-- HOMEPAGE JS-->
     <script src="js/actions/homepage.js"></script>
-    <!-- CATPAGE JS-->
-    <!-- LOCATION LIST JS-->
-    <!-- LOCATION DETAIL JS-->
-    <!-- PROFILE JS-->
-    <!-- LIST YOUR PAGE JS-->
+    <!-- MAP JS-->
   </body>
 </html>

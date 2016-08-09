@@ -8,23 +8,20 @@
  *  
  */
 body {
-	.fontLato(400);
+	.fontNovaReg();
 	font-size: 14px;
 	line-height: 1.6;
-	color: #000;
+	color: #211D1E;
 	background-color: #F4F4F4;
 }
 ul {
 	margin: 0;
 	padding: 0;
+	outline: none;
 	li {
 		list-style: none;
 		outline: none;
 	}
-}
-ol {
-	margin: 0;
-	padding: 0;
 }
 a {
 	color: #000;
@@ -33,11 +30,10 @@ a {
 	&:hover {
 		color: @red;
 		text-decoration: none;
-	}
-	&:focus {
-		outline: none;
-		text-decoration: none;
 	}	
+	&:focus {
+		text-decoration: none;
+	}
 }
 h1, h2, h3, h4, h5, h6 {
 	margin-top: 0;
@@ -54,10 +50,17 @@ h1, h2, h3, h4, h5, h6 {
 .uppercase {
 	text-transform: uppercase;
 }
+.tbl-cell {
+	display: table-cell;
+}
+.tbl-row {
+	display: table-row;
+}
+.main {
+	margin-top: 70px;
+}
 //** ------ {{ plugins }} ------------------------------------ 
 @import "blocks/plugins.less";
-@import "blocks/modal.less";
-@import "blocks/pagination.less";
 
 //** ------ {{ header }} ------------------------------------ 
 @import "blocks/header.less";
@@ -66,13 +69,26 @@ h1, h2, h3, h4, h5, h6 {
 @import "blocks/main-slider.less";
 @import "blocks/blk-filter.less";
 @import "blocks/blk-area.less";
-@import "blocks/blk-car.less";
-@import "blocks/category.less";
-@import "blocks/location-list/location.less";
-@import "blocks/location-detail/detail.less";
-@import "blocks/profile/profile.less";
-@import "blocks/blk-suggestion-login.less";
-@import "blocks/list-your-space/list-your-space.less";
+
+//** ------ {{ homepage }} ------------------------------------ 
+@import "blocks/homepage/home-offer.less";
+@import "blocks/homepage/home-venues.less";
+@import "blocks/homepage/home-money.less";
+@import "blocks/homepage/home-works.less";
+@import "blocks/homepage/blk-feature.less";
+
+//** ------ {{ About us }} ------------------------------------ 
+@import "blocks/about-us/about-offer.less";
+@import "blocks/about-us/blk-team.less";
+@import "blocks/about-us/blk-job.less";
+@import "blocks/about-us/blk-contact.less";
+
+//** ------ {{ How it work }} ------------------------------------ 
+@import "blocks/how-it-work/blk-how-it-work.less";
+@import "blocks/how-it-work/blk-faqs.less";
+
+//** ------ {{ Lease your space }} ------------------------------------ 
+@import "blocks/lease-your-space/location.less";
 
 //** ------ {{ footer }} ------------------------------------ 
 @import "blocks/footer.less";

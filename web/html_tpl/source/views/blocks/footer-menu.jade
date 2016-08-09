@@ -1,7 +1,22 @@
 section.footer-menu
     .container
         .row
-            section.footer-company.col-md-3.col-sm-3.col-xs-6
+            section.footer-choice.col-md-3.col-sm-3.col-xs-4
+                .foo-logo zonepace
+                .blk-lang
+                    select(class="slect slect-lang")
+                        option(value='') Language (Eng)
+                        option(value='en') English
+                        option(value='fr') French
+                // END : BLK 
+                .blk-money
+                    select(class="slect slect-money")
+                        option(value='') Currency (USD)
+                        option(value='VND') VND
+                        option(value='$') $
+                        option(value='€') €
+                // END : BLK 
+            section.footer-company.col-md-2.col-sm-2.col-xs-4
                 h2.foo-ttl company
                 ul
                     li
@@ -21,49 +36,36 @@ section.footer-menu
                     li
                         a(href="#") Terms & Privacy
             // END : COMPANY
-            section.footer-discover.col-md-3.col-sm-3.col-xs-6
-                h2.foo-ttl discover
-                ul
-                    li
-                        a(href="#") Trust & Safety
-                    li
-                        a(href="#") Travel Credit
-                    li
-                        a(href="#") Gift Cards
-                    li
-                        a(href="#") Airbnb Picks
-                    li
-                        a(href="#") Mobile
-                    li
-                        a(href="#") Airbnb Action
-                    li
-                        a(href="#") Business Travel
-                    li
-                        a(href="#") Site map
-            // END : DISCOVER
-            section.footer-hosting.col-md-3.col-sm-3.col-xs-6
-                h2.foo-ttl hosting
+            section.footer-discover.col-md-2.col-sm-2.col-xs-4
+                h2.foo-ttl USING ZONPACE
                 ul
                     li
                         a(href="#") Why Host
                     li
-                        a(href="#") Hospitality
+                        a(href="#") Responsible Hosting
                     li
-                        a(href="#") Responesible Hosting
+                        a(href="#") Booking Guarantee
                     li
-                        a(href="#") Home Safety
-            // END : HOSTING
-            section.footer-choice.col-md-3.col-sm-3.col-xs-6
-                .blk-lang
-                    h2.foo-ttl select language
-                    select(class="slect slect-lang")
-                        option(value='en') English
-                        option(value='fr') French
-                // END : BLK 
-                .blk-money
-                    h2.foo-ttl your money type
-                    select(class="slect slect-money")
-                        option(value='$') $
-                        option(value='€') €
-                // END : BLK 
-            // END : CHOICE
+                        a(href="#") Zonpace Picks
+            // END : DISCOVER
+            section.footer-subscrible.col-md-5.col-sm-5.col-xs-12
+                section.blk-subscrible
+                    h2.foo-ttl SUBSCRIBE TO OUR NEWSLETTER
+                    form(class="frm-subscrible")
+                        input(type='text', class="ipt", placeholder='Email address')
+                        input(type="submit", class="btn btn-subscrible",value='Subscribe')
+                // END : SUBSCRIBLE
+                section.blk-social
+                    h2.foo-ttl JOIN US ON
+                    a(href="#")
+                        i.fa.fa-facebook
+                    a(href="#")
+                        i.fa.fa-twitter
+                    a(href="#")
+                        i.fa.fa-linkedin
+                    a(href="#")
+                        i.fa.fa-youtube-play 
+                    a(href="#")
+                        i.fa.fa-instagram
+                // END : SOCIAL
+            // END : SUBSCRIBLE WRAP

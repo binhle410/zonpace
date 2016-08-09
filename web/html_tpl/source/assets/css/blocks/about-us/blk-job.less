@@ -1,0 +1,36 @@
+/**
+ * CSS JOB
+ */
+.blk-jobs {
+	padding-top: 40px;
+	padding-bottom: 40px;
+	h2.blk-ttl {
+		span {
+			display: block;
+		}
+	}
+	.job-itm {
+		display: table;
+		height: 60px;
+		width: 100%;
+		margin-bottom: 30px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+		a {
+			border: 1px solid #808184;
+			.fontNovaBold();
+			font-size: 18px;
+			line-height: 18px;
+			color: @black;
+			display: table-cell;
+			vertical-align: middle;
+			text-align: center;
+			.transition(all .3s ease);
+			&:hover {
+				background-color: #000;
+				color: #fff;
+			}
+		}
+	}
+}

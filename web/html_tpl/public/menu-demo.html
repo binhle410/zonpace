@@ -14,76 +14,54 @@
     <link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
   </head>
-  <body>
-    <header class="header">
-      <div class="header-wrap">
-        <div class="container-fluid">
-          <div class="row">
-            <section class="header-logo col-md-6 col-sm-6 col-xs-12"><a href="javascript:;" class="a_menu"><i class="fa fa-bars"></i></a><a href="javascript:;" class="a_search"><i class="fa fa-search"></i></a>
-              <h1 class="logo"><a href="index.html" title="Zone &amp; Pace Rentals"><img src="images/zonpace-logo.png" alt=""><span>zone & space rentals</span></a></h1>
-              <section data-href="ajax/countries.json" class="header-search">
-                <form name="frm-search" class="frm-search">
-                  <button type="submit"><i class="fa fa-search"></i></button>
-                  <input type="text" id="ipt-search" placeholder="Zone &amp; space rentals" name="title">
-                </form>
-              </section>
-              <!-- END : SEARCH-->
+  <body class="body-css "> 
+    <header class="header-wrap hd-fixed">
+      <div class="container-fluid">
+        <div class="row">
+          <section class="header-logo col-md-6 col-sm-6 col-xs-12"><a href="javascript:;" class="a_menu"><i class="fa fa-bars"></i></a><a href="javascript:;" class="a_search"><i class="fa fa-search"></i></a>
+            <h1 class="logo"><a href="#" title="Zone &amp; Pace Rentals"><img src="images/logo.png" alt=""></a></h1>
+            <section class="header-search">
+              <form name="frm-search" class="frm-search">
+                <button type="submit"><i class="ico ico-zoom-b"></i></button>
+                <input type="text" id="ipt-search" placeholder="Seach Space..." name="title">
+              </form>
             </section>
-            <!-- END : LOGO-->
-            <section class="header-menu col-md-6 col-sm-6 col-xs-12">
-              <ul class="menu clearfix">
-                <li class="active"><a href="#">Lease my space</a></li>
-                <li class="hover-help-blk"><a href="#">Help</a>
-                  <div class="help-blk">
-                    <div class="help-ct">
-                      <div class="help-search"> 
-                        <form><i class="fa fa-search"></i>
-                          <input type="text" placeholder="How can we help you?" class="ipt ipt-search-help">
-                        </form>
-                      </div>
-                      <div class="help-result-list">
-                        <div class="help-r-l-ct">
-                          <label>Suggested Articles</label>
-                          <ul class="h-r-list">
-                            <li><a href="#"> <i class="fa fa-file-text-o"></i><span>Getting Started Guide</span></a></li>
-                            <li><a href="#"> <i class="fa fa-file-text-o"></i><span>Getting Started Guide</span></a></li>
-                            <li><a href="#"> <i class="fa fa-file-text-o"></i><span>Getting Started Guide Getting Started Guide Getting Started Guide Getting Started Guide</span></a></li>
-                            <li><a href="#"> <i class="fa fa-file-text-o"></i><span>Getting Started Guide</span></a></li>
-                            <li><a href="#"> <i class="fa fa-file-text-o"></i><span>Getting Started Guide</span></a></li>
-                            <li><a href="#"> <i class="fa fa-file-text-o"></i><span>Getting Started Guide</span></a></li>
-                            <li><a href="#"> <i class="fa fa-file-text-o"></i><span>Getting Started Guide</span></a></li>
-                            <li><a href="#"> <i class="fa fa-file-text-o"></i><span>Getting Started Guide</span></a></li>
-                            <li><a href="#"> <i class="fa fa-file-text-o"></i><span>Getting Started Guide</span></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <div class="help-link"><a href="#">Help center</a></div>
-                    </div>
-                  </div>
-                </li>
-                <li><a href="#" data-toggle="modal" data-target="#mySignUp">Sign up</a></li>
-                <li><a href="#" data-toggle="modal" data-target="#myLogin">log in</a></li>
-              </ul>
-            </section>
-            <!-- END : LOGO-->
-          </div>
+            <!-- END : SEARCH-->
+          </section>
+          <!-- END : LOGO-->
+          <section class="header-menu col-md-6 col-sm-6 col-xs-12">
+            <ul class="menu clearfix">
+              <li class="active"><a href="#">Lease My Space</a></li>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">How It Works</a></li>
+              <li><a href="#">Help</a></li>
+              <li><a href="#">Log In / Sign Up</a></li>
+            </ul>
+          </section>
+          <!-- END : LOGO-->
         </div>
       </div>
     </header>
     <!-- END : HEADER-->
+    <section class="menu-mobile">
+      <div class="menu-mobile-inner"><a href="#" class="a_close"><i class="fa fa-times"></i></a>
+        <ul class="menu">
+          <li class="active"><a href="#">Lease My Space</a></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">How It Works</a></li>
+          <li><a href="#">Help</a></li>
+          <li><a href="#">Log In / Sign Up</a></li>
+        </ul>
+      </div>
+    </section>
+    <!-- END : MENU MOBILE-->
     <section class="main">
       <div class="container">
         <ul style="margin: 30px 0;">
-          <li style="list-style: disc inside; margin-left: 15px; margin-bottom: 10px;"><a target="_blank" href="/">Homepage</a></li>
-          <li style="list-style: disc inside; margin-left: 15px; margin-bottom: 10px;"><a target="_blank" href="location-category.html">Location category</a></li>
-          <li style="list-style: disc inside; margin-left: 15px; margin-bottom: 10px;"><a target="_blank" href="location-list.html">Location list</a></li>
-          <li style="list-style: disc inside; margin-left: 15px; margin-bottom: 10px;"><a target="_blank" href="location-detail.html">Location detail</a></li>
-          <li style="list-style: disc inside; margin-left: 15px; margin-bottom: 10px;"><a target="_blank" href="my-overview.html">My overview</a></li>
-          <li style="list-style: disc inside; margin-left: 15px; margin-bottom: 10px;"><a target="_blank" href="my-booking.html">My booking</a></li>
-          <li style="list-style: disc inside; margin-left: 15px; margin-bottom: 10px;"><a target="_blank" href="my-listing.html">My listing</a></li>
-          <li style="list-style: disc inside; margin-left: 15px; margin-bottom: 10px;"><a target="_blank" href="my-payment.html">My payment</a></li>
-          <li style="list-style: disc inside; margin-left: 15px; margin-bottom: 10px;"><a target="_blank" href="my-account.html">My account</a></li>
-          <li style="list-style: disc inside; margin-left: 15px; margin-bottom: 10px;"><a target="_blank" href="list-space-step1.html">List your space</a></li>
+          <li style="margin-bottom: 10px; list-style: circle"><a href="index.html" target="_blank">Homepage</a></li>
+          <li style="margin-bottom: 10px; list-style: circle"><a href="about-us.html" target="_blank">About us</a></li>
+          <li style="margin-bottom: 10px; list-style: circle"><a href="how-it-work.html" target="_blank">How it work</a></li>
+          <li style="margin-bottom: 10px; list-style: circle"><a href="lease-space-detail.html" target="_blank">Lease space detail</a></li>
         </ul>
       </div>
     </section>
@@ -92,7 +70,27 @@
       <section class="footer-menu">
         <div class="container">
           <div class="row">
-            <section class="footer-company col-md-3 col-sm-3 col-xs-6">
+            <section class="footer-choice col-md-3 col-sm-3 col-xs-4">
+              <div class="foo-logo">zonepace</div>
+              <div class="blk-lang">
+                <select class="slect slect-lang">
+                  <option value="">Language (Eng)</option>
+                  <option value="en">English</option>
+                  <option value="fr">French</option>
+                </select>
+              </div>
+              <!-- END : BLK -->
+              <div class="blk-money">
+                <select class="slect slect-money">
+                  <option value="">Currency (USD)</option>
+                  <option value="VND">VND</option>
+                  <option value="$">$</option>
+                  <option value="€">€</option>
+                </select>
+              </div>
+              <!-- END : BLK -->
+            </section>
+            <section class="footer-company col-md-2 col-sm-2 col-xs-4">
               <h2 class="foo-ttl">company</h2>
               <ul>
                 <li><a href="#">About</a></li>
@@ -106,246 +104,50 @@
               </ul>
             </section>
             <!-- END : COMPANY-->
-            <section class="footer-discover col-md-3 col-sm-3 col-xs-6">
-              <h2 class="foo-ttl">discover</h2>
+            <section class="footer-discover col-md-2 col-sm-2 col-xs-4">
+              <h2 class="foo-ttl">USING ZONPACE</h2>
               <ul>
-                <li><a href="#">Trust & Safety</a></li>
-                <li><a href="#">Travel Credit</a></li>
-                <li><a href="#">Gift Cards</a></li>
-                <li><a href="#">Airbnb Picks</a></li>
-                <li><a href="#">Mobile</a></li>
-                <li><a href="#">Airbnb Action</a></li>
-                <li><a href="#">Business Travel</a></li>
-                <li><a href="#">Site map</a></li>
+                <li><a href="#">Why Host</a></li>
+                <li><a href="#">Responsible Hosting</a></li>
+                <li><a href="#">Booking Guarantee</a></li>
+                <li><a href="#">Zonpace Picks</a></li>
               </ul>
             </section>
             <!-- END : DISCOVER-->
-            <section class="footer-hosting col-md-3 col-sm-3 col-xs-6">
-              <h2 class="foo-ttl">hosting</h2>
-              <ul>
-                <li><a href="#">Why Host</a></li>
-                <li><a href="#">Hospitality</a></li>
-                <li><a href="#">Responesible Hosting</a></li>
-                <li><a href="#">Home Safety</a></li>
-              </ul>
+            <section class="footer-subscrible col-md-5 col-sm-5 col-xs-12">
+              <section class="blk-subscrible">
+                <h2 class="foo-ttl">SUBSCRIBE TO OUR NEWSLETTER</h2>
+                <form class="frm-subscrible">
+                  <input type="text" placeholder="Email address" class="ipt">
+                  <input type="submit" value="Subscribe" class="btn btn-subscrible">
+                </form>
+              </section>
+              <!-- END : SUBSCRIBLE-->
+              <section class="blk-social">
+                <h2 class="foo-ttl">JOIN US ON</h2><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="#"><i class="fa fa-youtube-play"> </i></a><a href="#"><i class="fa fa-instagram"></i></a>
+              </section>
+              <!-- END : SOCIAL-->
             </section>
-            <!-- END : HOSTING-->
-            <section class="footer-choice col-md-3 col-sm-3 col-xs-6">
-              <div class="blk-lang">
-                <h2 class="foo-ttl">select language</h2>
-                <select class="slect slect-lang">
-                  <option value="en">English</option>
-                  <option value="fr">French</option>
-                </select>
-              </div>
-              <!-- END : BLK -->
-              <div class="blk-money">
-                <h2 class="foo-ttl">your money type</h2>
-                <select class="slect slect-money">
-                  <option value="$">$</option>
-                  <option value="€">€</option>
-                </select>
-              </div>
-              <!-- END : BLK -->
-            </section>
-            <!-- END : CHOICE-->
+            <!-- END : SUBSCRIBLE WRAP-->
           </div>
         </div>
       </section>
       <!-- END : FOOTER MENU-->
       <section class="footer-follow">
         <div class="container">
-          <h2 class="foo-ttl">follow us on</h2>
-          <ul class="clearfix">
-            <li><a href="#" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="#" title="Pinterest"><i class="fa fa-pinterest-p"></i></a></li>
-            <li><a href="#" title="Tumblr"><i class="fa fa-tumblr"></i></a></li>
-            <li><a href="#" title="Dribbble"><i class="fa fa-dribbble"></i></a></li>
-            <li><a href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="#" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-          </ul>
-          <p class="t-c">Copyright 2016 by © <b>ZONPACE, INC.</b></p>
+          <div class="t-c">Copyright 2016 by © ZONPACE, INC</div>
         </div>
       </section>
       <!-- END : FOOTER FOLLOW-->
     </footer>
     <!-- END: FOOTER-->
-    <section class="blk-suggest-login">
-      <div class="container">Join the millions of hosts and guests in Zonepace's trusted community.<a href="#" data-toggle="modal" data-target="#myLogin" class="sg-login">Log In</a><a href="#" data-toggle="modal" data-target="#mySignUp" class="sg-signup">Sign Up</a></div>
-    </section>
-    <!-- END: SUGGESTION LOGIN-->
-    <div id="mySignUp" tabindex="-1" role="dialog" aria-labelledby="mySignUp" class="modal fade myPopup">
-      <div role="document" class="modal-dialog">
-        <div class="modal-content"><span data-dismiss="modal" aria-label="Close" aria-hidden="true" class="close">&times;</span>
-          <div class="modal-body">
-            <div class="social-button"><a href="#" class="facebook"><i class="fa fa-facebook"></i><span>Sign up with Facebook</span></a><a href="#" class="google"><i class="ico-google"></i><span>Sign up with Google</span></a></div>
-            <div class="sepe"> <span>or</span></div>
-            <div class="social-button sc-email"><a data-dismiss="modal" data-toggle="modal" data-target="#mySignUpEmail" class="email btn btn-red"><i class="fa fa-envelope-o"></i><span>Sign up with Email</span></a></div>
-            <div class="terms">By signing up, I agree to Zonepace's <a href="#">Terms of Service</a>, <a href="#">Privacy Policy</a>, <a href="#">Guest Refund Policy</a>, and <a href="#">Host Guarantee Terms.</a></div>
-            <div class="blk-redir">Already an Zonepace member? <a href="#" data-toggle="modal" data-target="#myLogin" data-dismiss="modal">Log in</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- END : MODAL SIGN UP-->
-    <div id="mySignUpEmail" tabindex="-1" role="dialog" aria-labelledby="mySignUpEmail" class="modal fade myPopup">
-      <div role="document" class="modal-dialog">
-        <div class="modal-content"><span data-dismiss="modal" aria-label="Close" aria-hidden="true" class="close">&times;</span>
-          <div class="modal-body">
-            <div class="t-c head-signup">Sign up with <a href="#">Facebook </a>or <a href="#">Google</a></div>
-            <div class="sepe"> <span>or</span></div>
-            <div class="social-button sc-email">
-              <form class="frm-signup-email">
-                <div class="itm-ipt">
-                  <input type="text" placeholder="First name" class="ipt"><i class="fa fa-user"></i>
-                </div>
-                <div class="itm-ipt">
-                  <input type="text" placeholder="Last name" class="ipt"><i class="fa fa-user"></i>
-                </div>
-                <div class="itm-ipt">
-                  <input type="email" placeholder="Email Address" class="ipt"><i class="fa fa-envelope-o"></i>
-                </div>
-                <div class="itm-ipt">
-                  <input type="password" placeholder="Password" class="ipt"><i class="fa fa-lock"></i>
-                </div>
-                <div class="itm-ipt n-bd">
-                  <label class="blk-birth">
-                     
-                    Birthday<i title="To sign up, you must be 18 or order. Other people won't see your birthday" data-toggle="tooltip" data-placement="top" class="fa fa-question-circle"></i>
-                  </label>
-                  <div class="blk-select">
-                    <select class="slect sl-month">
-                      <option value="">Month</option>
-                      <option value="1">January</option>
-                      <option value="2">February</option>
-                      <option value="3">March</option>
-                      <option value="4">April</option>
-                      <option value="5">May</option>
-                      <option value="6">June</option>
-                      <option value="7">July</option>
-                      <option value="8">August</option>
-                      <option value="9">September</option>
-                      <option value="10">October</option>
-                      <option value="11">November</option>
-                      <option value="12">December</option>
-                    </select>
-                    <select class="slect sl-date">
-                      <option value="">Day</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                      <option value="5">5</option>
-                      <option value="6">6</option>
-                      <option value="7">7</option>
-                      <option value="8">8</option>
-                      <option value="9">9</option>
-                      <option value="10">10</option>
-                      <option value="11">11</option>
-                      <option value="12">12</option>
-                      <option value="13">13</option>
-                      <option value="14">14</option>
-                      <option value="15">15</option>
-                      <option value="16">16</option>
-                      <option value="17">17</option>
-                      <option value="18">18</option>
-                      <option value="19">19</option>
-                      <option value="20">20</option>
-                      <option value="21">21</option>
-                      <option value="22">22</option>
-                      <option value="23">23</option>
-                      <option value="24">24</option>
-                      <option value="25">25</option>
-                      <option value="26">26</option>
-                      <option value="27">27</option>
-                      <option value="28">28</option>
-                      <option value="29">29</option>
-                      <option value="30">30</option>
-                      <option value="31">31</option>
-                    </select>
-                    <select class="slect sl-year">
-                      <option value="">Year</option>
-                      <option value="2016">2016</option>
-                      <option value="2015">2015</option>
-                      <option value="2014">2014</option>
-                      <option value="2013">2013</option>
-                      <option value="2012">2012</option>
-                      <option value="2011">2011</option>
-                      <option value="2011">2010</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="itm-remem w100"><span class="remem">
-                    <input type="checkbox" id="like_coupons">
-                    <label for="like_coupons">I’d like to receive coupons and inspiration</label></span></div>
-                <div class="terms">By signing up, I agree to Zonepace's <a href="#">Terms of Service</a>, <a href="#">Privacy Policy</a>, <a href="#">Guest Refund Policy</a>, and <a href="#">Host Guarantee Terms.</a></div>
-                <button class="btn btn-red w100">Sign Up</button>
-              </form>
-            </div>
-            <div class="blk-redir">Already an Zonepace member? <a href="#" data-toggle="modal" data-target="#myLogin" data-dismiss="modal">Log in</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- END : MODAL SIGN UP EMAIL-->
-    <div id="myLogin" tabindex="-1" role="dialog" aria-labelledby="myLogin" class="modal fade myPopup">
-      <div role="document" class="modal-dialog">
-        <div class="modal-content"><span data-dismiss="modal" aria-label="Close" aria-hidden="true" class="close">&times;</span>
-          <div class="modal-body">
-            <div class="social-button"><a href="#" class="facebook"><i class="fa fa-facebook"></i><span>Log in with Facebook</span></a><a href="#" class="google"><i class="ico-google"></i><span>Log in with Google</span></a></div>
-            <div class="sepe"> <span>or</span></div>
-            <div class="social-button sc-email">
-              <form class="frm-login">
-                <div class="itm-ipt">
-                  <input type="email" placeholder="Email Address" class="ipt"><i class="fa fa-envelope-o"></i>
-                </div>
-                <div class="itm-ipt">
-                  <input type="password" placeholder="Password" class="ipt"><i class="fa fa-lock"></i>
-                </div>
-                <div class="itm-remem"><span class="remem">
-                    <input type="checkbox" id="remem">
-                    <label for="remem">Remember me</label></span><span class="forgot"><a href="#" , data-toggle="modal" data-target="#myForgot" data-dismiss="modal">Forgot Password?</a></span></div>
-                <button class="btn btn-red">Log In</button>
-              </form>
-            </div>
-            <div class="blk-redir">Don't have an account? <a href="#" data-toggle="modal" data-target="#mySignUp" data-dismiss="modal">Sign up</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- END : MODAL LOGIN-->
-    <div id="myForgot" tabindex="-1" role="dialog" aria-labelledby="myForgot" class="modal fade myPopup">
-      <div role="document" class="modal-dialog">
-        <div class="modal-content"><span data-dismiss="modal" aria-label="Close" aria-hidden="true" class="close">&times;</span>
-          <div class="md-head">Reset Password</div>
-          <div class="modal-body">
-            <div class="social-button sc-email">
-              <form class="frm-forgot">
-                <div class="desc">Enter the email address associated with your account, and we'll email you a link to reset your password.</div>
-                <div class="itm-ipt">
-                  <input type="email" placeholder="Email Address" class="ipt"><i class="fa fa-envelope-o"></i>
-                </div>
-                <button class="btn btn-red">Send Reset Link</button>
-              </form>
-            </div>
-            <div class="blk-redir t-r">Back to <a href="#" data-toggle="modal" data-target="#mySignUp" data-dismiss="modal">Login</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- END : MODAL FORFOT PASSWORD-->
     <script src="js/libs.js"></script>
     <script src="js/libs/jquery-ui.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/start.js"></script>
     <!-- ALLPAGE JS-->
-    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
     <script src="js/actions/allpage.js"></script>
     <!-- HOMEPAGE JS-->
-    <!-- CATPAGE JS-->
-    <!-- LOCATION LIST JS-->
-    <!-- LOCATION DETAIL JS-->
-    <!-- PROFILE JS-->
-    <!-- LIST YOUR PAGE JS-->
+    <!-- MAP JS-->
   </body>
 </html>

@@ -1,0 +1,399 @@
+{% extends 'AppBundle::layout.html.twig' %}
+{% block content %}
+    <section class="main" data-homepage="">
+        <section class="main-slider flexslider">
+            <ul class="slides">
+                <li style="background-image: url({{ asset('bundles/app/main/uploads/main_slider.jpg') }})"></li>
+                <li style="background-image: url({{ asset('bundles/app/main/uploads/main_slider_2.jpg') }})"></li>
+                <li style="background-image: url({{ asset('bundles/app/main/uploads/main_slider_3.jpg') }})"></li>
+                <li style="background-image: url({{ asset('bundles/app/main/uploads/main_slider_4.jpg') }})"></li>
+            </ul>
+            <div class="main-filter">
+                <div class="container">
+                    <h2>ZONE & SPACE RENTALS TO HOST AN EVENT FROM LOCAL HOSTS IN 100+ CITIES</h2>
+                    <div class="more"><a href="#">Learn more on how it works<i class="fa fa-arrow-right"></i></a></div>
+                    <div class="blk-filter">
+                        <form action="{{ path('app_front_search_spaces') }}">
+                            <div class="fil-item fil-location">
+                                <input type="hidden" name="lat" id="lat">
+                                <input type="hidden" name="lng" id="lng">
+                                <input type="text" placeholder="Location or ZIP code" required class="ipt" name="location"  id="search-space-input">
+                            </div>
+                            <!-- END-->
+                            <div class="fil-item fil-row">
+                                <div class="fil-col-6">
+                                    <input type="text" placeholder="Start date" required name="from" class="ipt ipt-date"><i
+                                            class="ico ico-cal"></i>
+                                </div>
+                                <div class="fil-col-6">
+                                    <input type="text" placeholder="End date" required  name="to" class="ipt ipt-date"><i
+                                            class="ico ico-cal"></i>
+                                </div>
+                            </div>
+                            <!-- END-->
+                            <div class="fil-item fil-row">
+                                <div class="fil-col-4 fil-range">Feet Square</div>
+                                <div class="fil-col-8 fil-range fil-slider">
+                                    <div id="feet-slider" data-min="0" data-max="1000" data-valmin="40"
+                                         data-valmax="500" data-step="10" data-type="feet"></div>
+                                    <div class="f-num sld-num">40</div>
+                                    <div class="l-num sld-num">500+</div>
+                                    <input type="hidden" value="40;500" name="square" class="data-slider">
+                                </div>
+                            </div>
+                            <!-- END-->
+                            <div class="fil-item fil-row">
+                                <div class="fil-col-4 fil-range">Price Range</div>
+                                <div class="fil-col-8 fil-range fil-slider">
+                                    <div id="price-slider" data-min="0" data-max="1000" data-valmin="100"
+                                         data-valmax="800" data-step="10" data-type="price"></div>
+                                    <div class="f-num sld-num">$100</div>
+                                    <div class="l-num sld-num">$800+</div>
+                                    <input type="hidden" value="100;800" name="price" class="data-slider">
+                                </div>
+                            </div>
+                            <!-- END-->
+                            <div class="fil-item fil-checkbox">
+                                <input type="checkbox" name="daily" id="fil-daily" value="1">
+                                <label for="fil-daily">Daily</label>
+                                <input type="checkbox" name="weekly" id="fil-weekly" value="1">
+                                <label for="fil-weekly">Weekly</label>
+                                <input type="checkbox" name="monthly" id="fil-monthly" value="1">
+                                <label for="fil-monthly">Monthly</label>
+                            </div>
+                            <!-- END-->
+                            <div class="fil-item">
+                                <button type="submit" class="btn btn-red">search<i class="ico ico-zoom"></i></button>
+                            </div>
+                        </form>
+                        <!-- END-->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END : MAIN SLIDER-->
+        <section class="home-offer">
+            <div class="container">
+                <h2 class="blk-ttl"><a href="#">WHAT WE OFFER</a></h2>
+                <div class="row">
+                    <section class="offer-itm col-md-4 col-sm-4 col-xs-6"><a href="#">
+                            <figure style="background-image: url({{ asset('bundles/app/main/uploads/fig_location.png') }});"
+                                    class="zone-img"></figure>
+                            <h3 class="offer-ttl">Vacant Lands </h3></a></section>
+                    <!-- END : ITM-->
+                    <section class="offer-itm col-md-4 col-sm-4 col-xs-6"><a href="#">
+                            <figure style="background-image: url({{ asset('bundles/app/main/uploads/fig_house.png') }});"
+                                    class="zone-img"></figure>
+                            <h3 class="offer-ttl">Spaces Attached To Property </h3></a></section>
+                    <!-- END : ITM-->
+                    <section class="offer-itm col-md-4 col-sm-4 col-xs-6"><a href="#">
+                            <figure style="background-image: url({{ asset('bundles/app/main/uploads/fig_build.png') }});"
+                                    class="zone-img"></figure>
+                            <h3 class="offer-ttl">Event Places </h3></a></section>
+                    <!-- END : ITM-->
+                </div>
+            </div>
+        </section>
+        <!-- END : BLK OFFER-->
+        <section class="blk-area-wrap">
+            <div class="container">
+                <div class="area-inner">
+                    <h2 class="blk-ttl"><a href="#">MOST POPULAR VENUES IN CALIFORNIA</a></h2>
+                    <div class="row">
+                        <section class="area-itm col-md-3 col-sm-3 col-xs-6"><a href="#">
+                                <figure style="background-image: url({{ asset('bundles/app/main/uploads/los.jpg') }});"
+                                        class="area-img">
+                                    <h2>CALIFORNIA</h2>
+                                    <h3>Los Angeles</h3>
+                                </figure>
+                            </a>
+                            <div class="desc">
+                                <ul>
+                                    <li><a href="#">Los Angeles Center</a></li>
+                                    <li><a href="#">Eastside Los Angeles</a></li>
+                                    <li><a href="#">South Los Angeles</a></li>
+                                    <li><a href="#">Los Angeles Harbor Region</a></li>
+                                    <li><a href="#">Hollywood</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <!-- END : ITM-->
+                        <section class="area-itm col-md-3 col-sm-3 col-xs-6"><a href="#">
+                                <figure style="background-image: url({{ asset('bundles/app/main/uploads/sanjos.jpg') }});"
+                                        class="area-img">
+                                    <h2>CALIFORNIA</h2>
+                                    <h3>San Diego</h3>
+                                </figure>
+                                <div class="desc">
+                                    <ul>
+                                        <li><a href="#">San Diego-Imperal</a></li>
+                                        <li><a href="#">San Diego County</a></li>
+                                        <li><a href="#">San Diego - Tijuana</a></li>
+                                        <li><a href="#">Carlsbad</a></li>
+                                        <li><a href="#">San Marcos</a></li>
+                                    </ul>
+                                </div>
+                            </a></section>
+                        <!-- END : ITM-->
+                        <section class="area-itm col-md-3 col-sm-3 col-xs-6"><a href="#">
+                                <figure style="background-image: url({{ asset('bundles/app/main/uploads/sandie.jpg') }});"
+                                        class="area-img">
+                                    <h2>CALIFORNIA</h2>
+                                    <h3>San Jose</h3>
+                                </figure>
+                                <div class="desc">
+                                    <ul>
+                                        <li><a href="#">Little Saigon</a></li>
+                                        <li><a href="#">Silicon Valley</a></li>
+                                        <li><a href="#">Downtown San Jose</a></li>
+                                        <li><a href="#">Central San Jose</a></li>
+                                        <li><a href="#">San Jose Convention Center</a></li>
+                                    </ul>
+                                </div>
+                            </a></section>
+                        <!-- END : ITM-->
+                        <section class="area-itm col-md-3 col-sm-3 col-xs-6"><a href="#">
+                                <figure style="background-image: url({{ asset('bundles/app/main/uploads/sanfanc.jpg') }});"
+                                        class="area-img">
+                                    <h2>CALIFORNIA</h2>
+                                    <h3>San Francisco</h3>
+                                </figure>
+                                <div class="desc">
+                                    <ul>
+                                        <li><a href="#">Market Town</a></li>
+                                        <li><a href="#">Russian Hill</a></li>
+                                        <li><a href="#">North Beach</a></li>
+                                        <li><a href="#">Telegraph Hill</a></li>
+                                        <li><a href="#">San Francisco Chinatown</a></li>
+                                    </ul>
+                                </div>
+                            </a></section>
+                        <!-- END : ITM-->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END : BLK AREA-->
+        <section class="blk-venues">
+            <div class="container">
+                <div class="row">
+                    <section class="venues-itm col-md-3 col-sm-3 col-xs-12">
+                        <h2 class="blk-ttl"><a href="#">FEATURED VENUES</a></h2>
+                        <div class="desc">Feature Venues Description: venues in California, as chosen by our
+                            customers.
+                        </div>
+                    </section>
+                    <!-- END : ITM-->
+                    <section class="venues-itm col-md-3 col-sm-3 col-xs-4">
+                        <section class="vens-itm">
+                            <h3>Eastside Los Angeles</h3>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-map-marker"></i>California</a></li>
+                                <li><a href="#"><i class="fa fa-cog"></i>Vacant Land</a></li>
+                            </ul>
+                        </section>
+                        <!-- END : ITM-->
+                        <section class="vens-itm">
+                            <h3>Eastside Los Angeles</h3>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-map-marker"></i>California</a></li>
+                                <li><a href="#"><i class="fa fa-cog"></i>Vacant Land</a></li>
+                            </ul>
+                        </section>
+                        <!-- END : ITM-->
+                        <section class="vens-itm">
+                            <h3>Eastside Los Angeles</h3>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-map-marker"></i>California</a></li>
+                                <li><a href="#"><i class="fa fa-cog"></i>Vacant Land</a></li>
+                            </ul>
+                        </section>
+                        <!-- END : ITM-->
+                    </section>
+                    <!-- END : ITM-->
+                    <section class="venues-itm col-md-3 col-sm-3 col-xs-4">
+                        <section class="vens-itm">
+                            <h3>Eastside Los Angeles</h3>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-map-marker"></i>California</a></li>
+                                <li><a href="#"><i class="fa fa-cog"></i>Vacant Land</a></li>
+                            </ul>
+                        </section>
+                        <!-- END : ITM-->
+                        <section class="vens-itm">
+                            <h3>Eastside Los Angeles</h3>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-map-marker"></i>California</a></li>
+                                <li><a href="#"><i class="fa fa-cog"></i>Vacant Land</a></li>
+                            </ul>
+                        </section>
+                        <!-- END : ITM-->
+                        <section class="vens-itm">
+                            <h3>Eastside Los Angeles</h3>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-map-marker"></i>California</a></li>
+                                <li><a href="#"><i class="fa fa-cog"></i>Vacant Land</a></li>
+                            </ul>
+                        </section>
+                        <!-- END : ITM-->
+                    </section>
+                    <!-- END : ITM-->
+                    <section class="venues-itm col-md-3 col-sm-3 col-xs-4">
+                        <section class="vens-itm">
+                            <h3>Eastside Los Angeles</h3>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-map-marker"></i>California</a></li>
+                                <li><a href="#"><i class="fa fa-cog"></i>Vacant Land</a></li>
+                            </ul>
+                        </section>
+                        <!-- END : ITM-->
+                        <section class="vens-itm">
+                            <h3>Eastside Los Angeles</h3>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-map-marker"></i>California</a></li>
+                                <li><a href="#"><i class="fa fa-cog"></i>Vacant Land</a></li>
+                            </ul>
+                        </section>
+                        <!-- END : ITM-->
+                        <section class="vens-itm">
+                            <h3>Eastside Los Angeles</h3>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-map-marker"></i>California</a></li>
+                                <li><a href="#"><i class="fa fa-cog"></i>Vacant Land</a></li>
+                            </ul>
+                        </section>
+                        <!-- END : ITM-->
+                    </section>
+                    <!-- END : ITM-->
+                </div>
+            </div>
+        </section>
+        <!-- END : BLK VENUES-->
+        <section class="blk-feature">
+            <div class="container">
+                <section class="feature-slider flexslider">
+                    <ul class="slides">
+                        <li class="clearfix">
+                            <div style="background-image: url({{ asset('bundles/app/main/uploads/avatar.jpg')}})" class="fea-avatar"></div>
+                            <div class="fea-info">
+                                <div class="desc">Your communication with the clients is simply exemplary - fast,
+                                    effecient, informative. You are one of the best companies I have ever come across.
+                                </div>
+                                <div class="fea-user">
+                                    <div class="name">Jessica Justice</div>
+                                    <div class="add">California, USA</div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- END : ITM-->
+                        <li class="clearfix">
+                            <div style="background-image: url({{ asset('bundles/app/main/uploads/avatar.jpg')}})" class="fea-avatar"></div>
+                            <div class="fea-info">
+                                <div class="desc">Your communication with the clients is simply exemplary - fast,
+                                    effecient, informative. You are one of the best companies I have ever come across.
+                                </div>
+                                <div class="fea-user">
+                                    <div class="name">Jessica Justice</div>
+                                    <div class="add">California, USA</div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- END : ITM-->
+                        <li class="clearfix">
+                            <div style="background-image: url({{ asset('bundles/app/main/uploads/avatar.jpg')}})" class="fea-avatar"></div>
+                            <div class="fea-info">
+                                <div class="desc">Your communication with the clients is simply exemplary - fast,
+                                    effecient, informative. You are one of the best companies I have ever come across.
+                                </div>
+                                <div class="fea-user">
+                                    <div class="name">Jessica Justice</div>
+                                    <div class="add">California, USA</div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- END : ITM-->
+                    </ul>
+                </section>
+                <!-- END : SLIDER-->
+                <section class="feature-logo">
+                    <h2 class="blk-ttl">FEATURED ON</h2>
+                    <ul class="logo-list">
+                        <li><a href="#"><img src="{{ asset('bundles/app/main/uploads/p-1.png') }}" alt=""></a></li>
+                        <li><a href="#"><img src="{{ asset('bundles/app/main/uploads/p-2.png') }}" alt=""></a></li>
+                        <li><a href="#"><img src="{{ asset('bundles/app/main/uploads/p-3.png') }}" alt=""></a></li>
+                        <li><a href="#"><img src="{{ asset('bundles/app/main/uploads/p-4.png') }}" alt=""></a></li>
+                    </ul>
+                </section>
+                <!-- END : LOGO-->
+            </div>
+        </section>
+        <!-- END : BLK FEATURE-->
+        <section class="blk-how-works">
+            <div class="container">
+                <h2 class="blk-ttl"><a href="#">HOW IT WORKS</a></h2>
+                <div class="row">
+                    <section class="works-itm col-xs-6">
+                        <div class="desc">I am looking for a land or a space to rent to do an event. Can you help?</div>
+                        <div class="wrk-step-wrap table">
+                            <div class="wrk-step tbl-cell"><span class="wrk-ico"> <i class="ico ico-zoom"></i></span>
+                                <h3><span>Search </span><span>listings</span></h3>
+                            </div>
+                            <!-- END-->
+                            <div class="wrk-step tbl-cell"><span class="wrk-ico"> <i class="ico ico-pin"></i></span>
+                                <h3><span>Choose </span><span>a space</span></h3>
+                            </div>
+                            <!-- END-->
+                            <div class="wrk-step tbl-cell"><span class="wrk-ico"> <i class="ico ico-calgrid"></i></span>
+                                <h3><span>Book </span><span>and pay</span></h3>
+                            </div>
+                            <!-- END-->
+                            <div class="wrk-step tbl-cell"><span class="wrk-ico"> <i class="ico ico-check"></i></span>
+                                <h3><span>Do </span><span>your event</span></h3>
+                            </div>
+                            <!-- END-->
+                        </div>
+                    </section>
+                    <!-- END : ITM-->
+                    <section class="works-itm col-xs-6">
+                        <div class="desc">I have a land or a space for rent. Can I lease my space and earn money?</div>
+                        <div class="wrk-step-wrap table">
+                            <div class="wrk-step tbl-cell"><span class="wrk-ico"> <i class="ico ico-plus"></i></span>
+                                <h3><span>Create </span><span>your listing</span></h3>
+                            </div>
+                            <!-- END-->
+                            <div class="wrk-step tbl-cell"><span class="wrk-ico"> <i class="ico ico-calgrid"></i></span>
+                                <h3><span>Update </span><span>calendar</span></h3>
+                            </div>
+                            <!-- END-->
+                            <div class="wrk-step tbl-cell"><span class="wrk-ico"> <i class="ico ico-chat"></i></span>
+                                <h3><span>Wait for  </span><span>bookings</span></h3>
+                            </div>
+                            <!-- END-->
+                            <div class="wrk-step tbl-cell"><span class="wrk-ico"> <i class="ico ico-wallet"></i></span>
+                                <h3><span>Managed </span><span>service</span></h3>
+                            </div>
+                            <!-- END-->
+                        </div>
+                    </section>
+                    <!-- END : ITM-->
+                </div>
+            </div>
+        </section>
+        <!-- END : BLK HOW IT WORKS-->
+        <section class="blk-make-money">
+            <div class="container">
+                <h2 class="money-ttl">Want to make money from your vacant land?</h2>
+                <div class="money-button"><a href="#" class="btn btn-red">LEASE MY SPACE</a><a href="#"
+                                                                                               class="btn btn-border">LEASING
+                        CALCULATOR</a></div>
+                <div class="money-text"><span>Thousands of hosts and guests </span><span>are part of Zonepace's trusted community.</span><a
+                            href="#">Join us by signing up<i class="fa fa-arrow-right"></i></a></div>
+            </div>
+        </section>
+        <!-- END : BLK MAKE MONEY-->
+
+    </section>
+
+{% endblock %}
+
+

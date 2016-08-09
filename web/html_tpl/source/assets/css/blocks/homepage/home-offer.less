@@ -1,0 +1,45 @@
+/**
+ * CSS HOME OFFER
+ */
+h2.blk-ttl {
+    text-transform: uppercase;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 30px;
+    color: @red;
+    .fontNovaSemibold();
+    a {
+    	color: @red;
+    }
+}
+.zone-img {
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.home-offer {
+	margin-bottom: 100px;
+	.zone-img {
+		width: 200px;
+		height: 200px;
+		background-size: 200px auto;
+		margin: 0 auto;
+		margin-bottom: 20px;
+		background-position: top center;
+	}
+	.offer-ttl {
+		.fontNovaBold();
+		font-size: 18px;
+		color: #231F20;
+		margin-bottom: 0;
+	}
+	.offer-itm {
+		text-align: center;
+		&:nth-of-type(2) {
+			.zone-img {
+				width: 300px;
+				background-size: 300px auto;
+				background-position: bottom center;
+			}
+		}
+	}
+}

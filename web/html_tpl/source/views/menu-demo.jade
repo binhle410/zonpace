@@ -1,32 +1,15 @@
 block vars
-  -title    = "Zone & Space Rentals"
-  -homejs   = false
-  -catjs    = false
-  -locatjs  = false
-  -detailjs = false
-  -profjs   = false
-  -spacejs  = false
+  -title = "Zone & Space Rentals"
+  -homejs = false
 extends layouts/layout
 block main
     .container
         ul(style="margin: 30px 0;")
-            li(style='list-style: disc inside; margin-left: 15px; margin-bottom: 10px;')
-                a(target="_blank", href="/") Homepage
-            li(style='list-style: disc inside; margin-left: 15px; margin-bottom: 10px;')
-                a(target="_blank", href="location-category.html") Location category
-            li(style='list-style: disc inside; margin-left: 15px; margin-bottom: 10px;')
-                a(target="_blank", href="location-list.html") Location list
-            li(style='list-style: disc inside; margin-left: 15px; margin-bottom: 10px;')
-                a(target="_blank", href="location-detail.html") Location detail
-            li(style='list-style: disc inside; margin-left: 15px; margin-bottom: 10px;')
-                a(target="_blank", href="my-overview.html") My overview
-            li(style='list-style: disc inside; margin-left: 15px; margin-bottom: 10px;')
-                a(target="_blank", href="my-booking.html") My booking
-            li(style='list-style: disc inside; margin-left: 15px; margin-bottom: 10px;')
-                a(target="_blank", href="my-listing.html") My listing
-            li(style='list-style: disc inside; margin-left: 15px; margin-bottom: 10px;')
-                a(target="_blank", href="my-payment.html") My payment
-            li(style='list-style: disc inside; margin-left: 15px; margin-bottom: 10px;')
-                a(target="_blank", href="my-account.html") My account
-            li(style='list-style: disc inside; margin-left: 15px; margin-bottom: 10px;')
-                a(target="_blank", href="list-space-step1.html") List your space
+            li(style="margin-bottom: 10px; list-style: circle")
+                a(href="index.html", target="_blank") Homepage
+            li(style="margin-bottom: 10px; list-style: circle")
+                a(href="about-us.html", target="_blank") About us
+            li(style="margin-bottom: 10px; list-style: circle")
+                a(href="how-it-work.html", target="_blank") How it work
+            li(style="margin-bottom: 10px; list-style: circle")
+                a(href="lease-space-detail.html", target="_blank") Lease space detail

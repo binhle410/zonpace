@@ -18,10 +18,12 @@ html(class="no-js", lang="en")
     link(rel="shortcut icon", href="icons/favicon.ico", type="image/x-icon")
     link(rel="stylesheet", href="css/style.css")
     //--script(src="js/modernizr.js")     
-  body(class= cls  )
+  body(class="body-css "  ) 
 
     include ../includes/header.jade 
     // END : HEADER
+    include ../blocks/menu-mobile.jade 
+    // END : MENU MOBILE
 
     section.main
       block main
@@ -29,14 +31,4 @@ html(class="no-js", lang="en")
             
     include ../includes/footer.jade
     // END: FOOTER
-    include ../blocks/blk-suggest-login.jade
-    // END: SUGGESTION LOGIN
-    include ../blocks/modal-signup.jade
-    // END : MODAL SIGN UP
-    include ../blocks/modal-signup-email.jade
-    // END : MODAL SIGN UP EMAIL
-    include ../blocks/modal-login.jade
-    // END : MODAL LOGIN
-    include ../blocks/modal-forgot.jade
-    // END : MODAL FORFOT PASSWORD
     include ../includes/scripts.jade

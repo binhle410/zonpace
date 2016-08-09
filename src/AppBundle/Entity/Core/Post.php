@@ -16,6 +16,11 @@ class Post
 
     const TYPE_NEW = 'NEW';
     const TYPE_BLOG = 'BLOG';
+
+    const CAT_TIPS ='TIPS';
+    const CAT_HOME_IMPROVEMENT ='HOME_IMPROVEMENT';
+    const CAT_MARKET_TRENDS ='MARKET_TRENDS';
+    const CAT_CELEBRITY_REAL_ESTATE ='CELEBRITY_REAL_ESTATE';
     /**
      * @var int
      *
@@ -77,8 +82,8 @@ class Post
     private $description;
 
     /**
-     * @var Category
-     * @ORM\ManyToOne(targetEntity="Application\Sonata\ClassificationBundle\Entity\Category")
+     * @var string
+     * @ORM\Column(name="category",type="string"))
      */
     private $category;
 

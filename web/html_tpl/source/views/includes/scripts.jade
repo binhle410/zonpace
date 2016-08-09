@@ -4,47 +4,13 @@ script(src="js/plugins.js")
 script(src="js/start.js")
 
 // ALLPAGE JS
-script(src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places")
 script(src="js/actions/allpage.js")
 
 // HOMEPAGE JS
-if(homejs == true) 
+if(homejs == true)
     script(src="js/actions/homepage.js")
 
-// CATPAGE JS
-if(catjs == true) 
-    //- script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3yiJQ-4OvbvlvKjVfme4kTh6CBofWB7U&callback=initMap"
-    //- async defer)
-    //- script(src="https://maps.googleapis.com/maps/api/js?sensor=false")
-    script(src="js/actions/catpage.js")
-
-// LOCATION LIST JS
-if(locatjs == true) 
-    //- script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3yiJQ-4OvbvlvKjVfme4kTh6CBofWB7U&callback=initMap"
-    //- async defer)
-    //- script(src="https://maps.googleapis.com/maps/api/js?v=3.exp")
-    script
-        | var script = '<script src="js/libs/richmarker';
-        | if (document.location.search.indexOf('compiled') !== -1) {
-        |   script += '-compiled';
-        | }
-        | script += '.js"><' + '/script>';
-        | document.write(script);
-    script(src="js/actions/location-list.js")
-
-// LOCATION DETAIL JS
-if(detailjs == true) 
-    //-script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3yiJQ-4OvbvlvKjVfme4kTh6CBofWB7U" , async , defer)
-    //-script(src="https://maps.googleapis.com/maps/api/js?sensor=false")
-    script(src="js/actions/location-detail.js")
-
-// PROFILE JS
-if(profjs == true)
-    script(src="js/actions/profile.js")
-
-// LIST YOUR PAGE JS
-if(spacejs == true)
-    //- script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3yiJQ-4OvbvlvKjVfme4kTh6CBofWB7U&callback=initMap"
-    //- async defer)
-    //-script(src="https://maps.googleapis.com/maps/api/js?sensor=false")
-    script(src="js/actions/listspace.js")
+// MAP JS
+if(mapjs == true)
+    script(src="https://maps.googleapis.com/maps/api/js?sensor=false")
+    script(src="js/actions/map.js")

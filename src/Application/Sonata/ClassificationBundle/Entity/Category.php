@@ -25,6 +25,15 @@ use Sonata\ClassificationBundle\Entity\BaseCategory as BaseCategory;
  */
 class Category extends BaseCategory
 {
+
+    const TYPE_FEATURE = 'FEATURE';
+    const TYPE_POST = 'POST';
+
+    public function __construct()
+    {
+        $this->enabled = true;
+    }
+
     /**
      * @var int $id
      */
@@ -32,6 +41,26 @@ class Category extends BaseCategory
 
 
     private $features;
+
+    private $type;
+
+    /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param mixed $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    
 
     /**
      * @return mixed

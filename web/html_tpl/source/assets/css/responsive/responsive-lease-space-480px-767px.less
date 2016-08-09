@@ -1,0 +1,48 @@
+/**
+ * Media 480px-767px
+ *
+ * description: css page lease your space
+ */
+@media (max-width: 767px) {
+	.blk-lease-space {
+		.blk-lease-map {
+			.col-xs-6 {
+				width: 100%;
+				&:first-child {
+					margin-bottom: 20px;
+				}
+				.col-xs-6 {
+					width: 50%;
+					&:first-child {
+						margin-bottom: 0;
+					}
+				}
+			}
+		}
+		#location-map {
+			height: 350px;
+		}
+		.lease-nav {
+			.col-xs-6 {
+				width: 100%;
+			}
+		}
+	}
+}
+@media (max-width: 480px) {
+	.blk-lease-space {
+		.blk-lease-map {
+			.col-xs-6 {
+				.col-xs-6 {
+					width: 100%;
+					&:first-child {
+						margin-bottom: 15px;
+					}
+				}
+			}
+		}
+		#location-map {
+			height: 300px;
+		}
+	}
+}

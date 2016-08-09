@@ -1,0 +1,54 @@
+/**
+ * CSS FAQs
+ */
+.blk-faqs {
+	padding-top: 40px;
+	padding-bottom: 40px;
+	.faqs-itm {
+		margin-bottom: 30px;
+		h3.faqs-title {
+			height: 60px;
+			display: table;
+			width: 100%;
+			margin-bottom: 0;
+			a {
+				display: table-cell;
+				vertical-align: middle;
+			    font-size: 18px;
+    			line-height: 18px;
+    			.fontNovaBold();
+    			border: 1px solid @gray;
+    			padding-left: 15px;
+    			color: @black;
+    			.transition(all .3s ease);
+    			&:hover{
+    				background-color: #000;
+    				border-color: #000;
+    				color: #fff;
+    			}
+			}
+		}
+		.faqs-content {
+			padding: 15px;
+			color: @gray;
+			display: none;
+			p {
+				margin-bottom: 15px;
+			}
+		}
+		&.shw {
+			.faqs-content {
+				display: block;
+			}
+			h3.faqs-title {
+				a {
+					background-color: #E6E7E8;
+    				border-color: #E6E7E8;
+    				&:hover {
+    					color: @black;
+    				}
+				}
+			}
+		}
+	}
+}

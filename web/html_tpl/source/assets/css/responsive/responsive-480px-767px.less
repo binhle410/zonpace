@@ -4,278 +4,269 @@
  * description: css rules for screen of new moderm smartphone
  */
 @media (max-width: 767px) {
-	/* CSS HEADER */
-	.header-wrap {
-		.header-logo {
-			text-align: center;
-			img {
-				width: 150px;
-				margin-top: 7px;
-			}
-		}
-		&.z-ind {
-			z-index: 60;
-		}
-		.header-menu  {
-			display: none;
-			position: absolute;
-			z-index: 10;
-			left: 0;
-			right: 0;
-			top: 100%;
-			background-color: #fff;
-			border-top: 1px solid #ddd;
-			.box-shadow(0px 2px 3px rgba(0, 0, 0, 0.5));
-			.menu {
-				> li {
-					float: none;
-					margin-right: 0;
-					padding: 7px 0;
-					> a {
-						display: inline-block;
-						font-size: 14px;
-					}
-					&.blk-has-login {
-						a {
-							background-color: transparent;
-							&:hover {
-								background-color: transparent;
-							}
-						}
-					}
-				}				
-			}
-			ul {
-				float: none;
-				margin-top: 0;
-				padding-top: 15px;
-				padding-bottom: 15px;
-			}
-			&.shw {
-				display: block;
-			}
-		}
-		.a_menu, .a_search {
-			display: block;
+    .header-wrap {
+        height: 45px;
+        .header-search{
+            position: absolute;
+            display: none;
+            z-index: 20;
+            top: 45px;
+            margin-top: 0;
+            left: 0;
+            right: 0;
+            margin-left: 0;
+            width: auto;
+            background-color: #eee;
+            text-align: left;
+            height: 50px;
+            line-height: 50px;
+            border-left: none;
+            border-right: none;
+            border: none;
+            .border-radius(0);
+            button {
+                background-color: transparent;
+                border: none;
+                position: absolute;
+                left: 15px;
+                top: 14px;
+                padding: 0;
+                line-height: normal;
+                outline: none;
+                z-index: 20;
+                width: auto;
+                height: auto;
+            }
+            #ipt-search {
+                padding-left: 50px;
+                width: 100%;
+                vertical-align: 0;
+            }
+            &.shw {
+                display: block;
+            }
+        }
+        .header-logo {
+            h1 {
+                text-align: center;
+                display: block;
+                margin-left: 0;
+                img {
+                    margin-top: 13px;
+                }
+            }
+        }
+        .a_search {
+            display: block;
+        }
+        .a_menu {
+            top: 12px;
+        }
+    }
+    .main {
+        margin-top: 45px;
+    }
+    /* CSS HOME OFFER */
+    .home-offer {
+        .offer-itm {
+            margin-bottom: 30px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+    /* CSS HOME AREA */
+    .blk-area-wrap {
+        .area-inner {
+            padding-bottom: 0;
+        }
+        .area-itm {
+            margin-bottom: 30px;
+            .area-img {
+                height: 350px;
+            }
+        }
+    }
+    h2.blk-ttl {
+		font-size: 20px;
+	}
+	.blk-make-money {
+		h2.money-ttl {
+    		font-size: 20px;
+    	}
+	}
+    /* CSS HOME VENUES */
+    .blk-venues {
+        h2.blk-ttl, .desc {
+            text-align: center;
+        }
+        .venues-itm {
+            &:first-child {
+                margin-bottom: 30px;
+            }
+        }
+    }
+    .blk-how-works {
+		.desc {
+			font-size: 14px;
 		}
 	}
-	.home {
-		.header-wrap {
-			.a_search {
-				display: none;
+	.blk-make-money {
+		.money-text {
+			span, a {
+				font-size: 14px;
 			}
-			.header-logo {
-				h1 {
-					a {
-						span {
-							vertical-align: 0;
-						}
-					}
+		}
+        .money-button {
+            .btn {
+                font-size: 14px;
+            }
+        }
+	}
+	.blk-feature {
+		.feature-slider {
+			.fea-info {
+				.desc {
+					font-size: 14px;
+					line-height: 18px;
+                    padding-top: 20px;
+                    padding-bottom: 20px;
+                    &::before, &::after {
+                        width: 15px;
+                        height: 12px;
+                        background-size: 15px auto;
+                    }
 				}
+                .fea-user {
+                    bottom: 0;
+                }
 			}
 		}
 	}
-	.header-wrap {
-		.header-search{
-		    position: absolute;
-		    display: none;
-		    z-index: 20;
-		    top: 59px;
-		    left: 0;
-		    right: 0;
-		    margin-left: 0;
-		    width: auto;
-		    background-color: #eee;
-		    text-align: left;
-  			height: 60px;
-			line-height: 60px;
-			border-left: none;
-			border-right: none;
-			button {
-				left: 15px;
-				top: 17px;
-				i {
-					font-size: 24px;
-				}
-			}
-			input[type="text"] {
-				padding-left: 50px;
-				width: 100%;
-				vertical-align: 0;
-			}
-			.easy-autocomplete {
-				width: 100% !important;
-			}
-			&.shw {
-				display: block;
-			}
-		}
-	}
-	.blk-suggest-login {
-		display: none;
-	}
-	/* CSS FOOTER */
-	.footer-wrap {
-		.footer-company, .footer-discover {
-			margin-bottom: 30px;
-		}
-		.footer-follow {
-			padding-bottom: 40px;
-		}
-	}
-	/* CSS BLK PARKING */
-	.blk-park-car {
-		h2 {
-			font-size: 18px;
-		}
-		&.blk-parking {
-			background-size: cover;
-		}
-	}
-	/* CSS PAGE CATEGORY */
-	.blk-category-wrap {
-		.blk-category {
-			margin-bottom: 30px;
-		}
-		.blk-map {
-			height: 350px;
-		}
-	}
-	/* CSS PAGE LOCATION LIST */
-	.location-wrap {
-		.location-map, .location-list {
-			width: 100%;
-			float: none;
-			height: auto;
-		}
-		.location-map {
-			display: none;
-		}
-		.location-header {
-			margin-bottom: 30px;
-		}
-		.location-list {
-			> .inner {
-				height: auto;
-			}
-			.pagination-wrap {
-				position: relative;
-			}
-			.list {
-				padding-bottom: 0;
-			}
-		}
-	}
-	.pagination-wrap {
-		ul {
-			li {
-				&:not(.prev):not(.next) {
-					display: none;
-				}
-				&.next , &.prev {
-					a {
-						margin-left: 0;
-					}
-				}
-			}
-		}
-	}
-	.md-w800 {
-		.modal-dialog {
-			width: 90%;
-		}
-	}
-	.pac-container {
-		top: 118px !important;
-	}
+    .blk-venues {
+    	.vens-itm {
+    		h3 {
+    			font-size: 14px;
+    		}
+    	}
+    }
+    .main-slider {
+        margin-bottom: 40px;
+    	.blk-filter {
+    		.fil-item {
+    			.btn-red {
+    				font-size: 14px;
+    			}
+    		}
+    	}
+    	.main-filter {
+            h2 {
+                font-size: 20px;
+                line-height: 26px;
+            }
+        }
+    }
+    .home-offer {
+    	.offer-ttl {
+    		font-size: 14px;
+    	}
+    }
+    .footer-wrap {
+        .footer-choice, .footer-company, .footer-discover  {
+            margin-bottom: 30px;
+        }
+    }
+    .blk-subscrible {
+        .ipt {
+            width: 300px;
+        }
+    }
+}
+@media (max-width: 700px) {
+   /* CSS HOME AREA */
+    .blk-area-wrap {
+        .area-itm {
+            .area-img {
+                height: 300px;
+            }
+        }
+    }
 }
 @media (max-width: 640px) {
-	/* CSS MAIN SLIDER */
-	.main-slider {
-		.slides {
-			li {
-				height: 300px;
-			}
-		}
-	}
-	/* CSS BLK FILTER */
-	.blk-filter-wrap {
-		margin-top: 30px;
-		margin-bottom: 30px;
-		.inner {
-			background-color: #fff;
-			height: auto;
-		}
-		.ipt {
-			background-color: #F4F4F4;
-		}
-		.input-daterange {
-			.itm-ipt {
-				.itm-ipt-w {
-					background-color: #F4F4F4;
-				}
-			}
-		}
-		#slider-ranger {
-			&.ui-rangeSlider {
-				.ui-rangeSlider-container, .ui-rangeSlider-arrow, .ui-rangeSlider-label {
-					background: #F4F4F4;
-				}
-				.ui-rangeSlider-label {
-					color: #575757;
-				    padding: 0px 5px;
-				    font-size: 14px;
-			        bottom: 45px;
-				}
-				.ui-rangeSlider-label-inner {
-					border-top: 5px solid #F4F4F4;
-					border-left: 5px solid transparent;
-					border-right: 5px solid transparent;
-					margin-left: -5px;
-				}
-			}
-		}
-	}
+   /* CSS HOME AREA */
+    .blk-area-wrap {
+        .area-itm {
+            .area-img {
+                height: 280px;
+            }
+        }
+    }
+    .blk-how-works {
+        .works-itm {
+            width: 100%;
+            &:first-child {
+                margin-bottom: 30px;
+            }
+        }
+    }
+    .wrk-step-wrap {
+        .wrk-step {
+            width: 200px;
+        }
+    }
+}
+@media (max-width: 600px) {
+   /* CSS HOME AREA */
+    .blk-area-wrap {
+        .area-itm {
+            .area-img {
+                height: 260px;
+            }
+        }
+    }
+    .main-slider {
+        .blk-filter {
+            width: 100%;
+        }
+    }
+    .blk-make-money {
+        .money-button {
+            .btn {
+                display: block;
+                margin-right: 0;
+                &.btn-red ,&.btn-border {
+                    width: 250px;
+                    margin: 0 auto;
+                }
+                &.btn-red {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
 }
 @media (max-width: 540px) {
-	/* CSS HEADER */
-	.header-wrap {
-		.header-logo {
-			img {
-				width: 120px;
-				margin-top: 13px;
+   /* CSS HOME AREA */
+    .blk-area-wrap {
+        .area-itm {
+            .area-img {
+                height: 220px;
+            }
+        }
+    }
+    .blk-feature {
+		.feature-slider {
+			.fea-avatar {
+				width: 170px;
+				height: 170px;
 			}
-		}
-	}
-	.home {
-		.header-wrap {
-			.header-logo {
-				img {
-					margin-top: -3px;
-				}
-				h1 {
-					a {
-						span {
-							display: block;
-							border-left: none;
-							margin-left: 0;
-							padding-left: 0;
-							font-size: 12px;
-						}
-					}
-				}
-			}
-		}
-	}
-	/* CSS BLK FILTER */
-	.blk-filter-wrap {
-		.filter-itm {
-			&:nth-of-type(1), &:nth-of-type(2) {
-				width: 100%;
+			.fea-info {
+				margin-left: 200px;
+				height: 170px;
 			}
 		}
 	}
 }
-@import 'responsive-detail-480px-767px.less';
-@import 'responsive-profile-480px-767px.less';
-@import 'responsive-listspace-480px-767px.less';
+@import "responsive-about-480px-767px.less";
+@import "responsive-how-work-480px-767px.less";
+@import 'responsive-lease-space-480px-767px.less';

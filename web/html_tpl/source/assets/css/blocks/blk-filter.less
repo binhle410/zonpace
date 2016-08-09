@@ -2,7 +2,7 @@
  * CSS FILTER
  */
 .blk-filter-wrap {
-    margin-top: -150px;
+    margin-top: -80px;
     position: relative;
     z-index: 10;
     margin-bottom: 60px;
@@ -11,9 +11,8 @@
 	}
 	.inner {
 		padding: 20px 20px 0 20px;
-		background-color: rgba(255, 255, 255, 0.7);
+		background-color: rgba(255, 255, 255, 0.5);
 		.border-radius(5px);
-		height: 100px;
 	}
 	.filter-itm {
 		position: relative;
@@ -23,36 +22,30 @@
 			width: 100%;
 		}
 	}
-	.ipt {
-		.box-shadow(1px 1px 1px rgba(0, 0, 0, 0.1));
-	}
 	.input-daterange {
 		.itm-ipt {
 			width: 48%;
 			float: left;
-			.itm-ipt-w {
-				height: 40px;
-				.border-radius(5px) !important;
-				background-color: #fff;
-				border: 1px solid transparent;
-				position: relative;
-				.box-shadow(1px 1px 1px rgba(0, 0, 0, 0.1));
+			height: 40px;
+			.border-radius(5px) !important;
+			background-color: #fff;
+			border: 1px solid transparent;
+			position: relative;
+			&:focus {
+				border-color: #999;
+			}
+			i {
+				position: absolute;
+				top: 13px;
+				right: 13px;
+				font-size: 14px;
+				color: #818181;
+			}
+			.ipt {
+				text-align: left;
+				background-color: transparent;
 				&:focus {
-					border-color: #999;
-				}
-				i {
-					position: absolute;
-					top: 13px;
-					right: 7px;
-					font-size: 14px;
-					color: #818181;
-				}
-				.ipt {
-					text-align: left;
-					background-color: transparent;
-					&:focus {
-						border-color: transparent;
-					}
+					border-color: transparent;
 				}
 			}
 			&:last-child {
@@ -68,6 +61,10 @@
 				&.active {
 					background: @red !important;  
 				}
+				&.today {
+					background: rgba(255,0,51,0.7) !important;
+					color: #fff;
+				}
 			}
 		}
 	}
@@ -75,77 +72,47 @@
 .blk-filter-wrap {
 	#slider-ranger {
 		&.ui-rangeSlider {
-			padding-top: 27px;
-			height: 40px;
+			padding-top: 0;
 			.ui-rangeSlider-container, .ui-rangeSlider-arrow {
-				height: 10px;
+				height: 40px;
 				border-top: none;
 				border-bottom: none;
 				.box-shadow(none);
 			}
 			.ui-rangeSlider-bar {
-				height: 10px;
+				height: 38px;
 				background: @red;
-				.box-shadow(none);
-				margin: 0;
-				.border-radius(2px);
 			}
 			.ui-rangeSlider-container, .ui-rangeSlider-arrow, .ui-rangeSlider-label {
 				background: #fff;
 			}
 			.ui-rangeSlider-label {
 				color: #575757;
-			    padding: 0px 5px;
-			    font-size: 14px;
-		        bottom: 45px;
 			}
 			.ui-rangeSlider-label-inner {
-				border-top: 5px solid #fff;
-				border-left: 5px solid transparent;
-				border-right: 5px solid transparent;
-				margin-left: -5px;
+				border-top: 10px solid #fff;
 			}
 			.ui-rangeSlider-leftArrow {
 				border-left: none;
-				display: none;
 				.ui-rangeSlider-arrow-inner {
 				    border-right: 10px solid @red;
 				}
 			}
 			.ui-rangeSlider-rightArrow {
 				border-right: none;
-				display: none;
 				.ui-rangeSlider-arrow-inner {
 				    border-left: 10px solid @red;
 				}
 			}
 			&.ui-rangeSlider-withArrows {
 				.ui-rangeSlider-container {
-				    margin: 0 1px;
-				    width: 100% !important;
-				    .border-radius(2px);
-				}
-			}
-			.ui-rangeSlider-label-value {
-				position: relative;
-				&::before {
-					content: "$";
-					display: inline-block;
+				    margin: 0 16px 0 14px;
+				    width: 90% !important;
 				}
 			}
 		}
 		.ui-rangeSlider-withArrows .ui-rangeSlider-container, .ui-rangeSlider-noArrow .ui-rangeSlider-container, .ui-rangeSlider-arrow {
 			.box-shadow(none);
 		}
-	}
-}
-.blk-filter-wrap {
-	label {
-		display: block;
-		margin-bottom: 0;
-		color: #000;
-	}
-	.filter-ranger {
-		height: 40px;
 	}
 }

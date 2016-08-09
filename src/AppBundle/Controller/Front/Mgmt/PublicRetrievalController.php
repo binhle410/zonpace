@@ -86,10 +86,7 @@ class PublicRetrievalController extends ControllerService
         ));
     }
 
-    /**
-     * @ParamConverter("category", options={"mapping": {"slug": "slug"}})
-     */
-    public function postAction(Request $request,$type,Category $category){
+    public function postAction(Request $request,$type){
 
 
         if($type == 'blog'){
@@ -103,10 +100,9 @@ class PublicRetrievalController extends ControllerService
         }
     }
     /**
-     * @ParamConverter("category", options={"mapping": {"slug": "slug"}})
      * @ParamConverter("post", options={"mapping": {"slug": "slug"}})
      */
-    public function postDetailAction(Request $request,$type,Category $category,Post $post){
+    public function postDetailAction(Request $request,$type,Post $post){
 
 
         if($type == 'blog'){

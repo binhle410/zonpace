@@ -4,28 +4,20 @@ section.blk-filter-wrap
             .row
                 form(class="frm-filter")
                     section.filter-itm.col-md-3.col-sm-3.col-xs-6
-                        label Place for rent
                         input(type="text", class="ipt", placeholder="Where do you want to go?")
                     // END : ITM
                     section.filter-itm.col-md-4.col-sm-4.col-xs-6
                         .input-group.input-daterange
                             .itm-ipt
-                                label Start date
-                                .itm-ipt-w
-                                    input(type="text", class="ipt ipt-date", placeholder="mm/dd/yyyy")
-                                    i.fa.fa-calendar
+                                input(type="text", class="ipt", value="Check in")
+                                i.fa.fa-calendar
                             .itm-ipt
-                                label End date
-                                .itm-ipt-w
-                                    input(type="text", class="ipt ipt-date", placeholder="mm/dd/yyyy")
-                                    i.fa.fa-calendar
+                                input(type="text", class="ipt", value="Check out")
+                                i.fa.fa-calendar
                     // END : ITM
                     section.filter-itm.col-md-3.col-sm-3.col-xs-6
-                        label Price per 100 square feet
-                        .filter-ranger
-                            #slider-ranger(data-min="20", data-max="50")
+                        #slider-ranger
                     // END : ITM
                     section.filter-itm.col-md-2.col-sm-2.col-xs-6
-                        label &nbsp;
                         input(type="submit", class="btn btn-red uppercase", value="search")
                     // END : ITM

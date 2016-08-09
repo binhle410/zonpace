@@ -42,14 +42,6 @@ module.exports = function(grunt) {
         src: 'source/assets/js/libs/jquery-ui.min.js',
         dest: 'public/js/libs/jquery-ui.min.js'
       },
-      richmarker: {
-        src: 'source/assets/js/libs/richmarker.js',
-        dest: 'public/js/libs/richmarker.js'
-      },
-      richmarker_compiled: {
-        src: 'source/assets/js/libs/richmarker-compiled.js',
-        dest: 'public/js/libs/richmarker-compiled.js'
-      },
       plugins: {
         src: ['source/assets/js/plugins/*.js', 'source/assets/js/plugins/*/*.js'],
         dest: 'public/js/plugins.js'
@@ -66,25 +58,9 @@ module.exports = function(grunt) {
         src: 'source/assets/js/actions/homepage.js',
         dest: 'public/js/actions/homepage.js'
       },
-      catpage: {
-        src: 'source/assets/js/actions/catpage.js',
-        dest: 'public/js/actions/catpage.js'
-      },
-      location: {
-        src: 'source/assets/js/actions/location-list.js',
-        dest: 'public/js/actions/location-list.js'
-      },
-      detail: {
-        src: 'source/assets/js/actions/location-detail.js',
-        dest: 'public/js/actions/location-detail.js'
-      },
-      profile: {
-        src: 'source/assets/js/actions/profile.js',
-        dest: 'public/js/actions/profile.js'
-      },
-      listspace: {
-        src: 'source/assets/js/actions/listspace.js',
-        dest: 'public/js/actions/listspace.js'
+      mapjs: {
+        src: 'source/assets/js/actions/map.js',
+        dest: 'public/js/actions/map.js'
       }
     },
     copy: {
@@ -92,7 +68,7 @@ module.exports = function(grunt) {
         files: [{
             expand: true,
             cwd: 'source/views/ajax/',
-            src: '**/*',
+            src: '*',
             dest: 'public/ajax/'
           }
         ]

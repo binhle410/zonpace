@@ -7,30 +7,42 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Doctrine\ORM\EntityRepository;
+
 
 class PostAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper->add('title', 'text')
+
+        $formMapper
+            ->add('type', 'choice',[
+                'choices'=>[
+                    'NEW' =>'NEW',
+                    'BLOG' =>'BLOG',
+                ],
+            ])
+            ->add('title', 'text')
                 ->add('shortDescription', 'textarea')
-                ->add('description', 'textarea')
+                ->add('description', 'textarea',['attr'=>['class'=>'ck']])
                 ->add('enabled', 'checkbox')
-                ->add('type', 'choice',[
-                    'choices'=>[
-                        'NEW' =>'NEW',
-                        'BLOG' =>'BLOG',
-                    ],
-                ])
-                ->add('category', 'sonata_type_model', array(
-                    'class' => 'Application\Sonata\ClassificationBundle\Entity\Category',
-                    'property' => 'name',
-                ));
+
+            ->add('category', 'choice',[
+                'choices'=>[
+                    'TIPS' =>'TIPS',
+                    'HOME_IMPROVEMENT' =>'HOME_IMPROVEMENT',
+                    'MARKET_TRENDS' =>'MARKET_TRENDS',
+                    'CELEBRITY_REAL_ESTATE' =>'CELEBRITY_REAL_ESTATE',
+                ],
+            ]);
+
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper->add('title')
+            ->add('type')
+            ->add('category')
             ->add('enabled');
     }
 
@@ -38,6 +50,8 @@ class PostAdmin extends AbstractAdmin
     {
         $listMapper
             ->addIdentifier('title')
+            ->add('type')
+            ->add('category')
             ->add('enabled', null, array('editable' => true));
     }
 
