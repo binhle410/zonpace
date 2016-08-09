@@ -12,7 +12,7 @@
                     <h2 class="blk-ttl-bold">Space Details</h2>
                     <div class="row">
                         <section class="col-xs-6">
-                            <form name="frm-space-detail" class="frm-space-detail" method="post">
+                            <form name="frm-space-detail" class="frm-space-detail" id="form-space" method="post" enctype="multipart/form-data">
                                 {{ form_row(form._token) }}
                                 <div class="frow">
                                     <label for="ipt-namespace">Name of Space<span>50 characters left</span></label>
@@ -26,6 +26,7 @@
                                 <!-- END : ITM-->
                                 <div class="frow frow-border">
                                     <label for="ipt-description">Photos</label>
+
                                     <div class="frm-upload clearfix">
                                         <div class="fileUpload"><span>Upload</span>
                                             <div>
@@ -34,13 +35,15 @@
                                             </div>
                                         </div><span class="up-ttl">We accept .png, .jpg, files up to 3MB</span>
                                     </div>
-                                </div>
-                                <div class="frow">
-                                    {% for galleryHasMedia in space.photo.galleryHasMedias %}
-                                        <div class="col-md-4" style="margin-top: 2px">
-                                            <img src="{{ getUrl(galleryHasMedia.media) }}">
-                                        </div>
-                                    {% endfor %}
+
+                                    <div class="frow clearfix wrap-img-space">
+                                        {% for galleryHasMedia in space.photo.galleryHasMedias %}
+                                            <div class="col-md-3" style="margin-top: 2px">
+                                                <img src="{{ getUrl(galleryHasMedia.media) }}">
+                                            </div>
+                                        {% endfor %}
+
+                                    </div>
 
                                 </div>
                                 <!-- END : ITM-->
@@ -102,7 +105,7 @@
 
                                 <!-- END : ITM-->
                                 <div class="frow">
-                                    <input type="submit" value="Next" class="btn btn-red"><a href="#" class="back_to">Back to Location</a>
+                                    <input type="submit" value="Next" class="btn btn-red"><a href="{{ path('app_user_space_create',{'step':1,'space':space.id}) }}" class="back_to">Back to Location</a>
                                 </div>
                                 <!-- END : ITM-->
                             </form>

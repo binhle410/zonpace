@@ -1,9 +1,10 @@
 {% block choice_widget_expanded %}
     {% spaceless %}
-        <div class="frow frow-border">
+        <div class="frow frow-border feature-space">
             <div class="blk-fea">
                 <label>Feature</label>
-                <div class="fea-control"><a href="#">Tick all</a><a href="#">Untick all</a></div>
+                <div class="fea-control"><a href="#" class="tick-all">Tick all</a>
+                    <a href="#" class="un-tick-all">Untick all</a></div>
             </div>
             {% for group_label, group in choices %}
             <div class="frow">
