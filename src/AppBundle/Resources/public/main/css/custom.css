@@ -412,22 +412,22 @@
 .create-space-step #mini-clndr .inactive{
     background: grey;
 }#mini-clndr .inactive-by-hand{
-    background: grey;
+     background: grey;
+ }
+.back-link{
+    line-height:55px;
 }
- .back-link{
-     line-height:55px;
- }
 .back-link a{
-     text-decoration: underline;
+    text-decoration: underline;
     color: darkgrey;
- }
+}
 @media (min-width: 768px)
 {
     .navbar-nav {
         float: right !important;
     }
     .with-dropdown-buttons .navbar-default .navbar-collapse {
-         padding-right: 0px !important;
+        padding-right: 0px !important;
     }
     #map_in{
         margin-top: 130px;
@@ -499,5 +499,10 @@
 }
 .booking-date-passed{
     background-color: rgba(128, 116, 102, 0.98) !important;
+}
+
+.blk-lease-map .blk-inline {
+    margin-right: 1px;
+    margin-bottom: 1px;
 }
 

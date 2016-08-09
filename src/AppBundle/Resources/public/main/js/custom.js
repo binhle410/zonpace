@@ -67,11 +67,9 @@ jQuery(function () {
             },
             drawShape: function () {
                 var that = this;
-                var width = $('.map').parent('div').width();
-                $('.map').width(width).height(width);
                 function initialize() {
                     var goo = google.maps,
-                        map_in = new goo.Map(document.getElementById('map_in'),
+                        map_in = new goo.Map(document.getElementById('location-map'),
                             {
                                 zoom: 20,
                                 center: new goo.LatLng(43, -88),
@@ -351,6 +349,7 @@ jQuery(function () {
                 that.checkPrice();
                 that.drawShape();
                 that.uploadImageSpace();
+                that.feature();
             },
             loadCalendar: function () {
                 var that = this;
@@ -449,27 +448,37 @@ jQuery(function () {
                     }
                 }
             },
+            feature: function(){
+                $('.feature-space .tick-all').click(function(e){
+                    e.preventDefault();
+                    $('.feature-space').find('.lbl-checkbox').trigger( "click" );
+                });
+                $('.feature-space .un-tick-all').click(function(e){
+                    e.preventDefault();
+                    $('.feature-space').find('.lbl-checkbox').trigger( "click" );
+                });
+            },
             checkPrice: function () {
                 var dailySel = $('#app_space_space_price_daily');
                 var weeklySel = $('#app_space_space_price_weeklyDiscount');
                 var monthlySel = $('#app_space_space_price_monthlyDiscount');
                 if (dailySel.val() != '') {
-                    dailySel.parents('div.checkbox').find(':checkbox').attr('checked', true);
+                    dailySel.parent('p').find(':checkbox').attr('checked', true);
                 } else {
                     dailySel.attr('disabled', true);
-                    dailySel.parents('div.checkbox').find(':checkbox').attr('checked', false);
+                    dailySel.parent('p').find(':checkbox').attr('checked', false);
                 }
                 if (weeklySel.val() != '') {
-                    weeklySel.parents('div.checkbox').find(':checkbox').attr('checked', true);
+                    weeklySel.parent('p').find(':checkbox').attr('checked', true);
                 } else {
                     weeklySel.attr('disabled', true);
-                    weeklySel.parents('div.checkbox').find(':checkbox').attr('checked', false);
+                    weeklySel.parent('p').find(':checkbox').attr('checked', false);
                 }
                 if (monthlySel.val() != '') {
-                    monthlySel.parents('div.checkbox').find(':checkbox').attr('checked', true);
+                    monthlySel.parent('p').find(':checkbox').attr('checked', true);
                 } else {
                     monthlySel.attr('disabled', true);
-                    monthlySel.parents('div.checkbox').find(':checkbox').attr('checked', false);
+                    monthlySel.parent('p').find(':checkbox').attr('checked', false);
                 }
 
                 $('.price-daily').click(function () {
@@ -499,11 +508,9 @@ jQuery(function () {
             },
             drawShape: function () {
                 var that = this;
-                var width = $('.map').parent('div').width();
-                $('.map').width(width).height(width);
                 function initialize() {
                     var goo = google.maps,
-                        map_in = new goo.Map(document.getElementById('map_in'),
+                        map_in = new goo.Map(document.getElementById('location-map'),
                             {
                                 zoom: 20,
                                 center: new goo.LatLng(43, -88)
@@ -724,7 +731,7 @@ jQuery(function () {
 
             },
             uploadImageSpace: function () {
-                var myFileInput = $('#space-image');
+                var myFileInput = $('#fileToUpload');
                 myFileInput.change(function () {
                     var url = myFileInput.data('href');
                     var data = document.querySelector("#form-space");
@@ -738,7 +745,7 @@ jQuery(function () {
                         contentType: false,  // tell jQuery not to set contentType
                         success: function (response) {
                             if (response.status) {
-                                var html = '<div width="165px;" height="102px;" class="col-md-4" style="margin-top: 2px"><img src="' + response.url + '"></div>';
+                                var html = '<div class="col-md-3" style="margin-top: 2px"><img src="' + response.url + '"></div>';
                                 $('.wrap-img-space').append(html);
                                 $('#space-image').val('');
                             }
