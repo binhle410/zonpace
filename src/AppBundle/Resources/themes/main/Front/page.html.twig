@@ -3,4 +3,6 @@
 
     {{ page.description|raw }}
 
+    {{ render(controller('AppBundle:Front/Mgmt/PublicManipulation:contact',{'url': app.request.requestUri|url_encode})) }}
+
 {% endblock %}
