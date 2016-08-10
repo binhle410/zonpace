@@ -34,6 +34,7 @@ class PublicManipulationController extends ControllerService
     public function contactAction(Request $request,$url)
     {
 
+        $url = urldecode($url);
         $firstName = $request->get('firstName');
         $lastName = $request->get('lastName');
 
@@ -42,9 +43,10 @@ class PublicManipulationController extends ControllerService
         if ($firstName != '' && $lastName != '' && $title != '' && $message != '') {
             $data = array('name_user' => $firstName.' '.$lastName , 'title' => $title, 'message' => $message);
             $this->get('app.email_sender')->sendEmailContact($data);
-            return $this->redirectToRoute($url);
+            return $this->redirect($url);
         }
         return $this->render('AppBundle:Front:contact.html.twig', array(
+            'url'=>$url,
         ));
     }
 }

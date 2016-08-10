@@ -33,3 +33,7 @@ app_front_post_detail:
 app_front_page:
     path: /page/{slug}
     defaults: { _controller: AppBundle:Front/Mgmt/PublicRetrieval:page}
+
+app_front_contact:
+    path: /contact-us/{url}
+    defaults: { _controller: AppBundle:Front/Mgmt/PublicManipulation:contact}

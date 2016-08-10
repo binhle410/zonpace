@@ -28,28 +28,28 @@
             <!-- END : COL-->
             <section class="col-xs-6">
                 <h2 class="contact-ttl">Send us an email</h2>
-                <form name="frm-contact" class="frm-contact">
+                <form name="frm-contact" class="frm-contact" method="post" action="{{ path('app_front_contact',{'url':url|url_encode}) }}">
                     <div class="frow row">
                         <section class="col-xs-6">
                             <label for="ipt-firstname">First Name</label>
-                            <input type="text" id="ipt-firstname" placeholder="First Name" class="ipt">
+                            <input type="text" required="required" name="firstName" id="ipt-firstname" placeholder="First Name" class="ipt">
                         </section>
                         <!-- END -->
                         <section class="col-xs-6">
                             <label for="ipt-lastname">Last Name</label>
-                            <input type="text" id="ipt-lastname" placeholder="Last Name" class="ipt">
+                            <input type="text" required="required" name="lastName" id="ipt-lastname" placeholder="Last Name" class="ipt">
                         </section>
                         <!-- END -->
                     </div>
                     <!-- END : ITM-->
                     <div class="frow">
                         <label for="ipt-title">Title<span>50 characters left</span></label>
-                        <input type="text" id="ipt-title" placeholder="Title" class="ipt">
+                        <input type="text" required="required" name="title" id="ipt-title" placeholder="Title" class="ipt">
                     </div>
                     <!-- END : ITM-->
                     <div class="frow">
                         <label for="ipt-message">Message<span>500 characters left</span></label>
-                        <textarea id="ipt-message" placeholder="Message" class="txt"></textarea>
+                        <textarea name="message" required="required" id="ipt-message" placeholder="Message" class="txt"></textarea>
                     </div>
                     <!-- END : ITM-->
                     <div class="frow">
