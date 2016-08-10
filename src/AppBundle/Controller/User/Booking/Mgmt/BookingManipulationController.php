@@ -58,7 +58,11 @@ class BookingManipulationController extends ControllerService
                     'booking'=>$booking->getId(),
                     'step'=>1
                 ]);
-                $this->get('app.email_sender')->sendEmailOfferPlot($booking->getUser()->getEmail(),$urlBooking);
+                $data['url'] = $urlBooking;
+                $data['space_name'] = $space->getName();
+                $data['host_name'] = $this->getUser()->getFirstName() .' ' .$this->getUser()->getLastName();
+                $data['user_name'] = $booking->getUser()->getFirstName() .' ' .$booking->getUser()->getLastName();
+                $this->get('app.email_sender')->sendEmailOfferPlot($booking->getUser()->getEmail(),$data);
                 return $this->redirectToRoute('app_user_host_control_list_booking', [
                 ]);
             }

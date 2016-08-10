@@ -20,14 +20,14 @@ class EmailSender
         $this->container = $container;
     }
 
-    public function prepareMessageContent($template, array $vars, $templateSubject = null, $templateBody = null)
+    public function prepareMessageContent($template, array $vars)
     {
         $keyBody = 'body';
         $keySubject = 'subject';
-        if ($template != null) {
-            $templateSubject = $template->getSubject();
-            $templateBody = $template->getBody();
-        }
+
+        $templateSubject = $template->getSubject();
+        $templateBody = $template->getBody();
+
         $templates = array($keySubject => $templateSubject, $keyBody => $templateBody);
         $env = new \Twig_Environment(new \Twig_Loader_Array($templates));
         $subject = $env->render($keySubject, $vars);
@@ -35,43 +35,23 @@ class EmailSender
         return array('subject' => $subject, 'content' => $content);
     }
 
-//    public function sendEmailContact($data)
-//    {
-//        $em = $this->container->get('doctrine')->getManager();
-//        $vars = array(
-//            'name' => $data['name'],
-//            'email' => $data['email'],
-//            'message' => $data['message'],
-//        );
-//        $temlate = $em->getRepository('AppBundle:Core\EmailTemplate')->findOneBy(array('code' => EmailTemplate::TYPE_CONTACT));
-//        $temlatePrepare = $this->prepareMessageContent($temlate, $vars);
-//        $emailTo = $this->container->getParameter('email_contact');
-//        $message = \Swift_Message::newInstance()
-//            ->setSubject($temlatePrepare['subject'])
-//            ->setFrom('noreply@magentapulse.com')
-//            ->setTo($emailTo)
-//            ->setContentType("text/html")
-//            ->setBody($temlatePrepare['content']);
-//        $mailer = $this->mailer;
-//        if (!$mailer->send($message)) {
-//
-//        }
-//        $spool = $mailer->getTransport()->getSpool();
-//        $transport = $this->container->get('swiftmailer.transport.real');
-//        $spool->flushQueue($transport);
-//    }
-
-    public function sendEmailContact($emailTo,$booking,$path)
+    public function sendEmailContact($data)
     {
         $em = $this->container->get('doctrine')->getManager();
-
+        $vars = array(
+            'TITLE' => $data['title'],
+            'NAME_USER' => $data['name_user'],
+            'MESSAGE' => $data['message'],
+        );
+        $temlate = $em->getRepository('AppBundle:Core\EmailTemplate')->findOneBy(array('code' => EmailTemplate::TYPE_CONTACT));
+        $temlatePrepare = $this->prepareMessageContent($temlate, $vars);
+        $emailTo = $this->container->getParameter('email_contact');
         $message = \Swift_Message::newInstance()
-                ->setSubject('Receipt Booking From ZONPAGE')
-                ->setFrom('noreply@zonpage.com')
-                ->setTo($emailTo)
-                ->setContentType("text/html")
-                ->setBody('Hi,<br>Here is your receipt.')
-                ->attach(\Swift_Attachment::fromPath($path));
+            ->setSubject($temlatePrepare['subject'])
+            ->setFrom('noreply@zonpage.com')
+            ->setTo($emailTo)
+            ->setContentType("text/html")
+            ->setBody($temlatePrepare['content']);
         $mailer = $this->mailer;
         if (!$mailer->send($message)) {
 
@@ -80,16 +60,46 @@ class EmailSender
         $transport = $this->container->get('swiftmailer.transport.real');
         $spool->flushQueue($transport);
     }
-    public function sendEmailOfferPlot($emailTo,$urlBooking)
+
+//    public function sendEmailContact($emailTo,$booking,$path)
+//    {
+//        $em = $this->container->get('doctrine')->getManager();
+//
+//        $message = \Swift_Message::newInstance()
+//                ->setSubject('Receipt Booking From ZONPAGE')
+//                ->setFrom('noreply@zonpage.com')
+//                ->setTo($emailTo)
+//                ->setContentType("text/html")
+//                ->setBody('Hi,<br>Here is your receipt.')
+//                ->attach(\Swift_Attachment::fromPath($path));
+//        $mailer = $this->mailer;
+//        if (!$mailer->send($message)) {
+//
+//        }
+//        $spool = $mailer->getTransport()->getSpool();
+//        $transport = $this->container->get('swiftmailer.transport.real');
+//        $spool->flushQueue($transport);
+//    }
+    public function sendEmailOfferPlot($emailTo, $data)
     {
         $em = $this->container->get('doctrine')->getManager();
-        $link = '<a href="'.$urlBooking.'">Click here to booking</a>';
+        $link = '<a href="' . $data['url'] . '">Click here to booking</a>';
+        $em = $this->container->get('doctrine')->getManager();
+        $vars = array(
+            'SPACE_NAME' => $data['space_name'],
+            'HOST_NAME' => $data['host_name'],
+            'USER_NAME' => $data['user_name'],
+            'LINK_BOOKING' => $link,
+        );
+        $temlate = $em->getRepository('AppBundle:Core\EmailTemplate')->findOneBy(array('code' => EmailTemplate::TYPE_OFFER_PLOT));
+        $temlatePrepare = $this->prepareMessageContent($temlate, $vars);
+        $emailTo = $this->container->getParameter('email_contact');
         $message = \Swift_Message::newInstance()
-                ->setSubject('Offer for rent space')
-                ->setFrom('noreply@zonpage.com')
-                ->setTo($emailTo)
-                ->setContentType("text/html")
-                ->setBody('Hi,<br>Here link below for you booking this space '.$link);
+            ->setSubject($temlatePrepare['subject'])
+            ->setFrom('noreply@zonpage.com')
+            ->setTo($emailTo)
+            ->setContentType("text/html")
+            ->setBody($temlatePrepare['content']);
         $mailer = $this->mailer;
         if (!$mailer->send($message)) {
 

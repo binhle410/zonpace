@@ -24,7 +24,7 @@ class PostAdmin extends AbstractAdmin
             ])
             ->add('title', 'text')
                 ->add('shortDescription', 'textarea')
-                ->add('description', 'textarea',['attr'=>['class'=>'ck']])
+                ->add('description', 'textarea',['attr'=>['class'=>'summernote']])
                 ->add('enabled', 'checkbox')
 
             ->add('category', 'choice',[

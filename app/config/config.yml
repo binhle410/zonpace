@@ -221,6 +221,12 @@ sonata_admin:
                 label_catalogue:      ~
                 items:
                     - admin.page
+            Email Template:
+                on_top:               true
+                label:                ~
+                label_catalogue:      ~
+                items:
+                    - admin.email_template
 
 
 #    title_logo: bundles/app/images/fancy_acme_logo.png

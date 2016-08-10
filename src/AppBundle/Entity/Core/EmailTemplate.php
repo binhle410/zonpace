@@ -14,6 +14,7 @@ class EmailTemplate {
 
 
     const TYPE_CONTACT = 'CONTACT';
+    const TYPE_OFFER_PLOT = 'OFFER_PLOT';
 
     /**
      * @ORM\Id
@@ -27,6 +28,9 @@ class EmailTemplate {
 
     /** @ORM\Column(length=255, name="code",type="string",nullable=true) */
     private $code;
+
+    /** @ORM\Column(length=255, name="param",type="string",nullable=true) */
+    private $param;
 
     /** @ORM\Column(name="body",type="text",nullable=true) */
     private $body;
@@ -79,5 +83,22 @@ class EmailTemplate {
     public function getId() {
         return $this->id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getParam()
+    {
+        return $this->param;
+    }
+
+    /**
+     * @param mixed $param
+     */
+    public function setParam($param)
+    {
+        $this->param = $param;
+    }
+    
 
 }
