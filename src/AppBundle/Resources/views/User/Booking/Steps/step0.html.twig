@@ -32,11 +32,11 @@
                         </div>
                         <div class="col-md-4">
                             <strong>${{ (space.price.daily*7)-((space.price.daily*7*space.price.weeklyDiscount)/100) }}</strong><br>Per
-                            Day
+                            Week
                         </div>
                         <div class="col-md-4">
                             <strong>${{ (space.price.daily*30)-((space.price.daily*30*space.price.monthlyDiscount)/100) }}</strong><br>Per
-                            Day
+                            Month
                         </div>
                     </div>
                     <hr class="divider">
@@ -75,7 +75,7 @@
                         </div>
                                 {% endif %}
                     </form>
-                    {{ render(controller('AppBundle:User/Booking/Mgmt/BookingManipulation:plotSpace',{'space':space.id,'booking':null,'type':'user'})) }}
+                    {{ render(controller('AppBundle:User/Booking/Mgmt/BookingManipulation:plotSpace',{'space':space.id,'booking':0,'type':'user'})) }}
                     {{ render(controller('AppBundle:User/Booking/Mgmt/BookingManipulation:enquireSpace',{'space':space.id})) }}
                 </div>
 

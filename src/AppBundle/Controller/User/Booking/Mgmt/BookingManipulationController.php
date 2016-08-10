@@ -27,10 +27,12 @@ class BookingManipulationController extends ControllerService
         }
     }
 
-    public function plotSpaceAction(Request $request, Space $space, Booking $booking = null, $type)
+    public function plotSpaceAction(Request $request, Space $space, $booking, $type)
     {
-        if ($booking == null) {
+        if($booking == 0){
             $booking = new Booking();
+        }else{
+            $booking = $this->getDoctrine()->getRepository('AppBundle:Booking\Booking')->find($booking);
         }
         $form = $this->createForm(PlotSpaceType::class, $booking);
         $form->handleRequest($request);
@@ -57,7 +59,7 @@ class BookingManipulationController extends ControllerService
                     'space'=>$space->getId(),
                     'booking'=>$booking->getId(),
                     'step'=>1
-                ]);
+                ],0);
                 $data['url'] = $urlBooking;
                 $data['space_name'] = $space->getName();
                 $data['host_name'] = $this->getUser()->getFirstName() .' ' .$this->getUser()->getLastName();
@@ -85,8 +87,13 @@ class BookingManipulationController extends ControllerService
             'space'=>$booking->getSpace()->getId(),
             'booking'=>$booking->getId(),
             'step'=>1
-        ]);
-        $this->get('app.email_sender')->sendEmailOfferPlot($booking->getUser()->getEmail(),$urlBooking);
+        ],0);
+
+        $data['url'] = $urlBooking;
+        $data['space_name'] = $booking->getSpace()->getName();
+        $data['host_name'] = $this->getUser()->getFirstName() .' ' .$this->getUser()->getLastName();
+        $data['user_name'] = $booking->getUser()->getFirstName() .' ' .$booking->getUser()->getLastName();
+        $this->get('app.email_sender')->sendEmailOfferPlot($booking->getUser()->getEmail(),$data);
         return $this->redirectToRoute('app_user_host_control_list_booking', [
         ]);
     }

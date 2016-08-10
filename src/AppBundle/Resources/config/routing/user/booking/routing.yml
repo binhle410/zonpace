@@ -7,7 +7,7 @@ app_user_booking_check_available_booking:
 
 app_user_booking_plot_space:
     path: /plot-space/{space}/{booking}/{type}
-    defaults: { _controller: AppBundle:User/Booking/Mgmt/BookingManipulation:plotSpace}
+    defaults: { _controller: AppBundle:User/Booking/Mgmt/BookingManipulation:plotSpace,booking: 0}
 
 app_user_booking_approve_plot:
     path: /approve-plot/{booking}

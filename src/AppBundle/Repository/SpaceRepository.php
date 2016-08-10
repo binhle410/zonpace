@@ -101,7 +101,8 @@ class SpaceRepository extends EntityRepository
         $qb->join('space.location', 'location')
             ->join('space.price', 'price')
             ->join('space.dateBooking', 'dateBooking')
-            ->leftJoin('space.features', 'features');
+            ->leftJoin('space.features', 'features')
+            ->where('space.enabled = 1');
 
         if (isset($query['features']) && $query['features'] != '') {
             $listFeatureId = [];

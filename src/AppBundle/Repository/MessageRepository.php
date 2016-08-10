@@ -33,6 +33,7 @@ class MessageRepository extends EntityRepository
         $expr = new Expr();
         $qb = $this->createQueryBuilder('message')
             ->where($expr->eq('message.messageTo', ':user'))
+            ->andWhere('message.parent iS NULL')
             ->andWhere($expr->eq('message.messageFrom', ':userFrom'))
             ->orderBy('message.createdAt','DESC')
             ->setParameter('userFrom', $userFrom)

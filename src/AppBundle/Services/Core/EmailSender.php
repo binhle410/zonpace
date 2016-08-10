@@ -83,13 +83,11 @@ class EmailSender
     public function sendEmailOfferPlot($emailTo, $data)
     {
         $em = $this->container->get('doctrine')->getManager();
-        $link = '<a href="' . $data['url'] . '">Click here to booking</a>';
-        $em = $this->container->get('doctrine')->getManager();
         $vars = array(
             'SPACE_NAME' => $data['space_name'],
             'HOST_NAME' => $data['host_name'],
             'USER_NAME' => $data['user_name'],
-            'LINK_BOOKING' => $link,
+            'LINK_BOOKING' => $data['url'],
         );
         $temlate = $em->getRepository('AppBundle:Core\EmailTemplate')->findOneBy(array('code' => EmailTemplate::TYPE_OFFER_PLOT));
         $temlatePrepare = $this->prepareMessageContent($temlate, $vars);

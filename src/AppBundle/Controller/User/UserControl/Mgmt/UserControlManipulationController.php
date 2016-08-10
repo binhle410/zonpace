@@ -131,7 +131,6 @@ class UserControlManipulationController extends ControllerService
         $messageRepo = $em->getRepository('AppBundle:Core\Message');
         $messageInbox = $messageRepo->findMyOneInbox($this->getUser(),$user);
 
-
         $message = new Message();
         $form = $this->createForm(InboxMessageType::class,$message);
         $form->handleRequest($request);

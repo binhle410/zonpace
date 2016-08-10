@@ -72,7 +72,8 @@ class Step0 extends Step
 
         return $this->render('AppBundle:User/Booking/Steps:step0.html.twig', array(
             'space' => $space,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'booking'=>$booking
         ));
     }
 
