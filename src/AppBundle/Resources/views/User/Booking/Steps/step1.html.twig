@@ -48,6 +48,7 @@
                             {{ form_widget(form.dateFrom,{'attr':{'class':'datepicker'}}) }}
                             {{ form_widget(form.dateTo,{'attr':{'class':'datepicker'}}) }}
                             {{ form_widget(form.bookingPeriod,{'attr':{'class':''}}) }}
+                            <p style="font-size: 9px;">( Please contact host for more information about available date )</p>
                         </div>
 
                         <div class="available" style="color: red;">
@@ -62,7 +63,7 @@
                         <div><strong>Total : $<span class="price">{{ booking.totalPrice }}</span> </strong></div>
 
                         <hr class="divider">
-                        <div><button type="submit" class="btn btn-default btn-submit">Next</button></div>
+                        <div><button type="submit" class="btn btn-default btn-submit">{{ space.instantBook ? 'Next':'Request for booking' }}</button></div>
                     </form>
                 </div>
 

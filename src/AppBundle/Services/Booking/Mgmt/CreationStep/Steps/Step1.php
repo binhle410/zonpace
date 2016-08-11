@@ -53,12 +53,24 @@ class Step1 extends Step
                 $price = $this->getPriceBooking($booking,$space);
                 $booking->setTotalPrice($price);
                 $em->persist($booking);
-                $em->flush();
-                return $this->redirectToRoute('app_user_booking_create',[
-                    'space' => $space->getId(),
-                    'booking' => $booking->getId(),
-                    'step' => 2
-                ]);
+
+                if($space->isInstantBook()){
+                    $em->flush();
+                    return $this->redirectToRoute('app_user_booking_create',[
+                        'space' => $space->getId(),
+                        'booking' => $booking->getId(),
+                        'step' => 2
+                    ]);
+                }else{
+                    $booking->setStatus(Booking::STATUS_PENDING);
+                    $em->persist($booking);
+                    $em->flush();
+                    return $this->redirectToRoute('app_user_booking_create',[
+                        'space' => $space->getId(),
+                        'booking' => $booking->getId(),
+                        'step' => 4
+                    ]);
+                }
             }
         }
 
