@@ -34,7 +34,7 @@ class BookingManipulationController extends ControllerService
         }else{
             $booking = $this->getDoctrine()->getRepository('AppBundle:Booking\Booking')->find($booking);
         }
-        $form = $this->createForm(PlotSpaceType::class, $booking);
+        $form = $this->createForm(PlotSpaceType::class, $booking,['type'=>$type]);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -42,6 +42,7 @@ class BookingManipulationController extends ControllerService
                 $booking->setSpace($space);
                 $booking->setIsPlot(true);
                 $booking->setUser($this->getUser());
+                $booking->setStatus(Booking::STATUS_PENDING);
                 $booking->setStatusPlot(Booking::PLOT_PENDING);
             } else {
                 $booking->setStatusPlot(Booking::PLOT_APPROVED);
@@ -101,6 +102,7 @@ class BookingManipulationController extends ControllerService
     {
         $em = $this->getDoctrine()->getManager();
         $booking->setStatusPlot(Booking::PLOT_REJECTED);
+        $booking->setStatus(Booking::STATUS_CANCELLED);
         $em->persist($booking);
         $em->flush();
         return $this->redirectToRoute('app_user_host_control_list_booking', [

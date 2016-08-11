@@ -23,7 +23,8 @@
                                                 <option value="">All</option>
                                                 {% set typeSpaces = getTypeSpaces() %}
                                                 {% for key,typeSpace in typeSpaces %}
-                                                    <option {{ app.request.get('type-space')==key ? 'selected' }} value="{{ key }}">{{ typeSpace }}</option>
+                                                    <option {{ app.request.get('type-space')==key ? 'selected' }}
+                                                            value="{{ key }}">{{ typeSpace }}</option>
                                                 {% endfor %}
                                             </select>
                                         </div>
@@ -35,7 +36,8 @@
                                                 <option value="">All</option>
                                                 {% set statusBookings = getStatusBookings() %}
                                                 {% for key,statusBooking in statusBookings %}
-                                                    <option {{ app.request.get('status-booking')==key ? 'selected' }} value="{{ key }}">{{ statusBooking }}</option>
+                                                    <option {{ app.request.get('status-booking')==key ? 'selected' }}
+                                                            value="{{ key }}">{{ statusBooking }}</option>
                                                 {% endfor %}
                                             </select>
                                         </div>
@@ -55,7 +57,7 @@
                                     <div class="row grid-space-0">
                                         <div class="col-sm-6 col-md-2">
                                             <div class="overlay-container">
-                                                {{ getImageSpace(space,150,150)}}
+                                                {{ getImageBooking(booking,150,150) }}
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-7" style="margin-top: -25px;">
@@ -84,7 +86,8 @@
                                                     <div class="col-sm-6"><span
                                                                 class="">Check-in: {{ booking.dateFrom|date('M d, Y') }}</span>
                                                     </div>
-                                                    <div class="col-sm-6"><span class="">Leases: {{ booking.space.user.firstName ~' '~booking.space.user.lastName }}</span>
+                                                    <div class="col-sm-6"><span
+                                                                class="">Leases: {{ booking.space.user.firstName ~' '~booking.space.user.lastName }}</span>
                                                     </div>
                                                 </div>
                                                 <div class="row" style="margin-left: 0px;">
@@ -101,24 +104,23 @@
                                             <div style="margin-bottom: 50px;text-align: right;">Book
                                                 on {{ booking.createdAt|date('M d, Y') }}
                                             </div>
-                                            {% if booking.isPlot and booking.statusPlot == 'PENDING' %}
-                                            <div>
-                                                <a href="{{ path('app_user_booking_approve_plot',{'booking':booking.id}) }}" style="color: red">Approve</a>/
-                                                <a href="{{ path('app_user_booking_reject_plot',{'booking':booking.id}) }}" style="color: red">Reject</a>/
-                                                <a href="javascript:void(0)" style="color: red" data-toggle="modal" data-target="#plot-space">Make a offer</a>
-                                                {{ render(controller('AppBundle:User/Booking/Mgmt/BookingManipulation:plotSpace',{'space':space.id,'booking':booking.id,'type':'host'})) }}
-                                            </div>
-                                                {% else %}
-                                                    <div class="space-enabled" style="text-align: right;">
-                                                        {{ booking.statusPlot }} PLOT
+                                                {% if booking.isPlot and booking.statusPlot == 'PENDING' %}
+                                                    <div>
+                                                        <a href="javascript:void(0)" style="color: red"
+                                                           data-toggle="modal" data-target="#plot-space">Make a
+                                                            offer</a>/
+                                                        <a href="{{ path('app_user_booking_reject_plot',{'booking':booking.id}) }}"
+                                                           style="color: red">Reject</a>
+
+                                                        {{ render(controller('AppBundle:User/Booking/Mgmt/BookingManipulation:plotSpace',{'space':space.id,'booking':booking.id,'type':'host'})) }}
                                                     </div>
-                                                    {% endif %}
+                                            {% endif %}
                                         </div>
 
                                     </div>
                                     <div class="row">
                                         <div class="col-md-2">
-                                            </div>
+                                        </div>
                                         <div class="col-md-4">
                                             <p>Guest's info</p>
                                             <div class="row">
@@ -127,14 +129,14 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     {{ booking.user.firstName ~' '~booking.user.lastName }}<br>
-                                                    {{ booking.user.city.name ~ ' '~booking.user.state.name ~', USA'}}
+                                                    {{ booking.user.city.name ~ ' '~booking.user.state.name ~', USA' }}
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <p>Guest's noted to Host:</p>
                                             <p>{{ booking.isReview == true ? booking.bookingReviewMessages[0].message|raw }}</p>
-                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             {% endfor %}

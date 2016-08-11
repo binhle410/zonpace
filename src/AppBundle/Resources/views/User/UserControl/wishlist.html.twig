@@ -56,7 +56,6 @@
                                             </div>
                                         </div>
                                         <div class="col-md-2">
-                                            <div class="space-enabled"><strong>{{ space.enabled ? 'Enabled':'Disabled'  }}</strong></div>
                                             <input onclick="window.location.href='{{ path('app_user_booking_create',{'step':0,'space':space.id}) }}'" type="button" value="Book Now"
                                                    class="margin-clear btn btn-default btn-custom">
                                             <input onclick="window.location.href='{{ path('app_user_user_control_remove_wishlist',{'space':space.id,'userWishlist':wishlist.id}) }}'"

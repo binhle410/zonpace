@@ -16,6 +16,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 class Booking
 {
 
+    const STATUS_DRAFT ='DRAFT';
     const STATUS_PENDING ='PENDING';
     const STATUS_CANCELLED ='CANCELLED';
     const STATUS_SUCCESS ='SUCCESS'; //Active , Completed
@@ -42,7 +43,7 @@ class Booking
         $this->isReview = false;
         $this->isPlot = false;
         $this->bookingType = self::BOOKING_TYPE_DAILY;
-        $this->status = self::STATUS_PENDING;
+        $this->status = self::STATUS_DRAFT;
         $this->totalPrice = 0;
         $this->ratingCommunication =0;
         $this->ratingLocation=0;
@@ -67,7 +68,7 @@ class Booking
 
     /**
      * @var string
-     * @ORM\Column(name="status_plot",type="string",nullable=null)
+     * @ORM\Column(name="status_plot",type="string",nullable=true)
      */
     private $statusPlot;
 
@@ -131,6 +132,18 @@ class Booking
      * @ORM\Column(name="space_square_feet",type="integer",nullable=true)
      */
     private $spaceSquareFeet;
+
+    /**
+     * @var float
+     * @ORM\Column(name="space_proposed_price",type="float",precision=4,scale=2,nullable=true)
+     */
+    private $spaceProposedPrice;
+
+    /**
+     * @var string
+     * @ORM\Column(name="space_proposedbooking_type",type="string",nullable=true)
+     */
+    private $spaceProposedbookingType;
 
     /**
      * @var integer
@@ -539,6 +552,39 @@ class Booking
     {
         $this->statusPlot = $statusPlot;
     }
+
+    /**
+     * @return float
+     */
+    public function getSpaceProposedPrice()
+    {
+        return $this->spaceProposedPrice;
+    }
+
+    /**
+     * @param float $spaceProposedPrice
+     */
+    public function setSpaceProposedPrice($spaceProposedPrice)
+    {
+        $this->spaceProposedPrice = $spaceProposedPrice;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSpaceProposedbookingType()
+    {
+        return $this->spaceProposedbookingType;
+    }
+
+    /**
+     * @param string $spaceProposedbookingType
+     */
+    public function setSpaceProposedbookingType($spaceProposedbookingType)
+    {
+        $this->spaceProposedbookingType = $spaceProposedbookingType;
+    }
+    
 
 
     

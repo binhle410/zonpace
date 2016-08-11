@@ -54,8 +54,8 @@
                         <input {{ booking.bookingType =='MONTHLY' ? 'checked' }} type="radio" id="app_booking_bookingType_2" name="app_booking[bookingType]"  value="MONTHLY">
                         <label for="app_booking_bookingType_2">Monthly</label>
                     </div>
-                    <input type="text" id="app_booking_dateFrom" name="app_booking[dateFrom]"  class="datepicker" value="{{ booking.dateFrom|date('m/d/Y') }}">
-                    <input type="text" id="app_booking_dateTo" name="app_booking[dateTo]"  class="datepicker" value="{{ booking.dateTo|date('m/d/Y') }}">
+                    <input type="text" disabled id="app_booking_dateFrom" name="app_booking[dateFrom]"  class="datepicker" value="{{ booking.dateFrom|date('m/d/Y') }}">
+                    <input type="text" disabled id="app_booking_dateTo" name="app_booking[dateTo]"  class="datepicker" value="{{ booking.dateTo|date('m/d/Y') }}">
 
                     <div><strong>Total : ${{ price }} </strong></div>
 

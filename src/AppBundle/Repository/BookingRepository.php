@@ -29,6 +29,8 @@ class BookingRepository extends EntityRepository
         $expr = new Expr();
         $qb = $this->createQueryBuilder('booking')
             ->where($expr->eq('booking.user', ':user'))
+             ->andWhere('booking.status <> :statusDraft')
+            ->setParameter('statusDraft', Booking::STATUS_DRAFT)
             ->setParameter('user', $user);
         if (isset($query['type-space']) && $query['type-space'] != '') {
             $qb->andWhere('location.typeSpace = :typeSpace')
@@ -66,6 +68,8 @@ class BookingRepository extends EntityRepository
             ->join('booking.space', 'space')
             ->join('space.location', 'location')
             ->where($expr->eq('space.user', ':user'))
+            ->andWhere('booking.status <> :statusDraft')
+            ->setParameter('statusDraft', Booking::STATUS_DRAFT)
             ->setParameter('user', $user);
         if (isset($query['type-space']) && $query['type-space'] != '') {
             $qb->andWhere('location.typeSpace = :typeSpace')

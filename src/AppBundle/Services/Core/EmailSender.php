@@ -95,7 +95,7 @@ class EmailSender
         $message = \Swift_Message::newInstance()
             ->setSubject($temlatePrepare['subject'])
             ->setFrom('noreply@zonpage.com')
-            ->setTo($emailTo)
+            ->setTo('tuandumikedu@gmail.com')
             ->setContentType("text/html")
             ->setBody($temlatePrepare['content']);
         $mailer = $this->mailer;

@@ -1,4 +1,4 @@
-<div class="modal fade bs-modal-sm-review" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+<div class="modal fade bs-modal-sm-review-{{ booking.id }}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
      aria-hidden="true">
     <div class="modal-dialog modal-sm" data-review-space="">
         <form action="{{ path('app_user_user_control_review_space',{'booking':booking.id}) }}" method="post">

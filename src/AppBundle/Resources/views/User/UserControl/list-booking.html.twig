@@ -20,7 +20,8 @@
                                         <option value="">All</option>
                                         {% set typeSpaces = getTypeSpaces() %}
                                         {% for key,typeSpace in typeSpaces %}
-                                            <option {{ app.request.get('type-space')==key ? 'selected' }} value="{{ key }}">{{ typeSpace }}</option>
+                                            <option {{ app.request.get('type-space')==key ? 'selected' }}
+                                                    value="{{ key }}">{{ typeSpace }}</option>
                                         {% endfor %}
                                     </select>
                                 </div>
@@ -32,7 +33,8 @@
                                         <option value="">All</option>
                                         {% set statusBookings = getStatusBookings() %}
                                         {% for key,statusBooking in statusBookings %}
-                                            <option {{ app.request.get('status-booking')==key ? 'selected' }} value="{{ key }}">{{ statusBooking }}</option>
+                                            <option {{ app.request.get('status-booking')==key ? 'selected' }}
+                                                    value="{{ key }}">{{ statusBooking }}</option>
                                         {% endfor %}
                                     </select>
                                 </div>
@@ -49,7 +51,7 @@
                                     <div class="row grid-space-0">
                                         <div class="col-sm-6 col-md-2">
                                             <div class="overlay-container">
-                                                {{ getImageBooking(booking,150,150)}}
+                                                {{ getImageBooking(booking,150,150) }}
                                             </div>
                                         </div>
                                         <div class="col-sm-6 col-md-7" style="margin-top: -25px;">
@@ -95,7 +97,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="row" style="margin-left: 0px;">
-                                                    <div class="col-sm-6"><span class="">Leases: {{ booking.space.user.firstName ~' '~booking.space.user.lastName }}</span>
+                                                    <div class="col-sm-6"><span
+                                                                class="">Leases: {{ booking.space.user.firstName ~' '~booking.space.user.lastName }}</span>
                                                     </div>
                                                 </div>
 
@@ -107,16 +110,21 @@
                                             <div style="margin-bottom: 50px;text-align: right;">Book
                                                 on {{ booking.createdAt|date('M d, Y') }}
                                             </div>
-                                            <input onclick="window.location.href='{{ path('app_user_booking_create',{'step':0,'space':booking.space.id}) }}'" style="width: 153px;margin-bottom: 5px !important;"
-                                                   type="button" value="Book Again"
-                                                   class="margin-clear btn btn-default pull-right">
-                                            {% if booking.isReview == false %}
+                                            {% if booking.status == 'SUCCESS' %}
+                                                <input onclick="window.location.href='{{ path('app_user_booking_create',{'step':0,'space':booking.space.id}) }}'"
+                                                       style="width: 153px;margin-bottom: 5px !important;"
+                                                       type="button" value="Book Again"
+                                                       class="margin-clear btn btn-default pull-right">
+                                            {% endif %}
+                                            {% if booking.isReview == false and booking.status == 'SUCCESS' %}
                                                 <input style=""
                                                        type="button" value="Review this space"
                                                        class="margin-clear btn btn-default pull-right"
-                                                       data-toggle="modal" data-target=".bs-modal-sm-review">
+                                                       data-toggle="modal"
+                                                       data-target=".bs-modal-sm-review-{{ booking.id }}">
                                                 {% include 'AppBundle:User/UserControl:_list-booking_review.html.twig' %}
-                                            {% else %}
+                                            {% endif %}
+                                            {% if booking.isReview == true %}
                                                 <div class="space-enabled" style="text-align: right;">
                                                     <strong>Review Submitted</strong></div>
                                             {% endif %}

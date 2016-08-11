@@ -19,14 +19,24 @@
                         <input id="save" class="btn btn-primary" value="Save" type="button"/>
                     </div>
                 </div>
-                {% set bookingId = booking.id is not null ? booking.id : 0  %}
-                <form action="{{ path('app_user_booking_plot_space',{'space':space.id,'booking':bookingId,'type':type}) }}" method="post">
+                {% set bookingId = booking.id is not null ? booking.id : 0 %}
+                <form action="{{ path('app_user_booking_plot_space',{'space':space.id,'booking':bookingId,'type':type}) }}"
+                      method="post">
                     {{ form_row(form._token) }}
+                    {% if type != 'user' %}
+                        <p>Proposed Booking Type : {{ booking.spaceProposedbookingType }}</p>
+                        <p>Proposed Price : ${{ booking.spaceProposedPrice }}</p>
+                    {% endif %}
                     {{ form_widget(form.spaceShape,{'attr':{'class':'form-control','placeholder':''}}) }}
                     {{ form_widget(form.spaceSquareFeet,{'attr':{'class':'form-control','placeholder':'Square Feet'}}) }}
-                    {{ form_widget(form.spacePriceDaily,{'attr':{'class':'form-control','placeholder':'Price Daily'}}) }}
-                    {{ form_widget(form.spaceWeeklyDiscount,{'attr':{'class':'form-control','placeholder':'Discount Weekly'}}) }}
-                    {{ form_widget(form.spaceMonthlyDiscount,{'attr':{'class':'form-control','placeholder':'Discount Monthly'}}) }}
+                    {% if type != 'user' %}
+                        {{ form_widget(form.spacePriceDaily,{'attr':{'class':'form-control','placeholder':'Price Daily'}}) }}
+                        {{ form_widget(form.spaceWeeklyDiscount,{'attr':{'class':'form-control','placeholder':'Discount Weekly'}}) }}
+                        {{ form_widget(form.spaceMonthlyDiscount,{'attr':{'class':'form-control','placeholder':'Discount Monthly'}}) }}
+                    {% else %}
+                        {{ form_widget(form.spaceProposedPrice,{'attr':{'class':'form-control','placeholder':'Proposed Price'}}) }}
+                        {{ form_widget(form.spaceProposedbookingType,{'attr':{'class':'form-control','placeholder':''}}) }}
+                    {% endif %}
                     {#{{ form_widget(form.message,{'attr':{'class':'form-control','rows':'3'}}) }}#}
                     <button type="submit" class="btn btn-sm btn-default">Send</button>
                 </form>

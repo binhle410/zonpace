@@ -6,6 +6,7 @@ namespace AppBundle\Services\Booking\Mgmt\CreationStep\Steps;
 use AppBundle\Services\Booking\Mgmt\CreationStep\Step;
 use AppBundle\Form\SpaceType;
 use Doctrine\Common\Util\Debug;
+use AppBundle\Entity\Booking\Booking;
 
 class Step2 extends Step
 {
