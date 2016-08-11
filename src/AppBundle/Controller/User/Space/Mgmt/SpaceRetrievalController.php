@@ -24,7 +24,7 @@ class SpaceRetrievalController extends ControllerService
     public function viewAction(Request $request,Space $space)
     {
         $entityManager = $this->getDoctrine()->getManager();
-        $bookings = $entityManager->getRepository('AppBundle:Booking\Booking')->findHostBooking($this->getUser(),['status-booking'=>Booking::STATUS_SUCCESS]);
+        $bookings = $entityManager->getRepository('AppBundle:Booking\Booking')->findHostBooking($this->getUser(),['status-booking'=>Booking::STATUS_SUCCESS])->getQuery()->getResult();
         $dataBookings =  $this->generateDataBookings($bookings);
         return $this->render('AppBundle:User/Space:view.html.twig',[
             'space'=>$space,
