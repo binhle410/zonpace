@@ -19,6 +19,9 @@ class Step2 extends Step
         if($booking->isIsPlot() && $booking->getStatusPlot() != Booking::PLOT_APPROVED){
             throw $this->createAccessDeniedException();
         }
+        if(!$booking->isSpaceInstantBook()){
+            throw $this->createAccessDeniedException();
+        }
 
         //booking
             $stripe = array(

@@ -117,6 +117,10 @@ class BookingManipulationController extends ControllerService
     }
     public function approveBookingAction(Booking $booking)
     {
+        $em = $this->getDoctrine()->getManager();
+        $booking->setSpaceInstantBook(true);
+        $em->persist($booking);
+        $em->flush();
         $urlBooking = $this->generateUrl('app_user_booking_create',[
             'space'=>$booking->getSpace()->getId(),
             'booking'=>$booking->getId(),

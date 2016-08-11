@@ -104,7 +104,10 @@
                                             <div style="margin-bottom: 50px;text-align: right;">Book
                                                 on {{ booking.createdAt|date('M d, Y') }}
                                             </div>
+
+                                            <!-- solve approve plot space  -->
                                                 {% if booking.isPlot and booking.statusPlot == 'PENDING' %}
+                                                    <p><strong>Plot space from user</strong></p>
                                                     <div>
                                                         <a href="javascript:void(0)" style="color: red"
                                                            data-toggle="modal" data-target="#plot-space">Make a
@@ -115,7 +118,13 @@
                                                         {{ render(controller('AppBundle:User/Booking/Mgmt/BookingManipulation:plotSpace',{'space':space.id,'booking':booking.id,'type':'host'})) }}
                                                     </div>
                                             {% endif %}
-                                            {% if space.instantBook == false and booking.status == 'PENDING' %}
+                                            {% if booking.isPlot and booking.statusPlot == 'APPROVED' and booking.status=='PENDING' %}
+                                                    <p><strong>Approved plot space and waiting user booking</strong></p>
+                                            {% endif %}
+
+                                            <!-- solve approve booking when instant booking =false -->
+                                            {% if booking.isPlot == false and booking.spaceInstantBook == false and booking.status == 'PENDING' %}
+                                                <p><strong>Booking space waiting approval</strong></p>
                                                     <div>
                                                         <a href="{{ path('app_user_booking_approve_booking',{'booking':booking.id}) }}" style="color: red">Approve</a>/
                                                         <a href="{{ path('app_user_booking_reject',{'booking':booking.id}) }}"
@@ -123,6 +132,9 @@
 
                                                         {{ render(controller('AppBundle:User/Booking/Mgmt/BookingManipulation:plotSpace',{'space':space.id,'booking':booking.id,'type':'host'})) }}
                                                     </div>
+                                            {% endif %}
+                                            {% if booking.isPlot == false and booking.spaceInstantBook == true and booking.status == 'PENDING' %}
+                                                <p><strong>Approved booking and waiting user payment to commplete this booking</strong></p>
                                             {% endif %}
                                         </div>
 
