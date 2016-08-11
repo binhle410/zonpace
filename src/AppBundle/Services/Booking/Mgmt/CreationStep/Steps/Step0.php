@@ -56,6 +56,7 @@ class Step0 extends Step
                 $booking->setSpacePriceDaily($space->getPrice()->getDaily());
                 $booking->setSpaceWeeklyDiscount($space->getPrice()->getWeeklyDiscount());
                 $booking->setSpaceMonthlyDiscount($space->getPrice()->getMonthlyDiscount());
+                $booking->setSpaceInstantBook($space->isInstantBook());
 
                 $em->persist($booking);
                 $price = $this->getPriceBooking($booking, $space);

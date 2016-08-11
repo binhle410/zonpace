@@ -15,6 +15,7 @@ class EmailTemplate {
 
     const TYPE_CONTACT = 'CONTACT';
     const TYPE_OFFER_PLOT = 'OFFER_PLOT';
+    const TYPE_APPROVE_BOOKING = 'APPROVE_BOOKING';
 
     /**
      * @ORM\Id

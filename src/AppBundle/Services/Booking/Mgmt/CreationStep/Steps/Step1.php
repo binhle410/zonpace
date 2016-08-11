@@ -54,7 +54,7 @@ class Step1 extends Step
                 $booking->setTotalPrice($price);
                 $em->persist($booking);
 
-                if($space->isInstantBook()){
+                if($booking->isSpaceInstantBook()){
                     $em->flush();
                     return $this->redirectToRoute('app_user_booking_create',[
                         'space' => $space->getId(),

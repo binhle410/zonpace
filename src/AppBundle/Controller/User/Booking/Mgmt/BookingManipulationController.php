@@ -27,6 +27,15 @@ class BookingManipulationController extends ControllerService
         }
     }
 
+    /**
+     * User create a plot , then host give a offer for user => approved
+     *
+     * @param Request $request
+     * @param Space $space
+     * @param $booking
+     * @param $type
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
     public function plotSpaceAction(Request $request, Space $space, $booking, $type)
     {
         if($booking == 0){
@@ -44,8 +53,10 @@ class BookingManipulationController extends ControllerService
                 $booking->setUser($this->getUser());
                 $booking->setStatus(Booking::STATUS_PENDING);
                 $booking->setStatusPlot(Booking::PLOT_PENDING);
+                $booking->setSpaceInstantBook($space->isInstantBook());
             } else {
                 $booking->setStatusPlot(Booking::PLOT_APPROVED);
+                $booking->setSpaceInstantBook(true);
             }
             $em->persist($booking);
             $em->flush();
@@ -78,10 +89,16 @@ class BookingManipulationController extends ControllerService
         ));
     }
 
+    /**
+     * Not use this function anymore
+     * @param Booking $booking
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
     public function approvePlotAction(Booking $booking)
     {
         $em = $this->getDoctrine()->getManager();
         $booking->setStatusPlot(Booking::PLOT_APPROVED);
+        $booking->setSpaceInstantBook(true);
         $em->persist($booking);
         $em->flush();
         $urlBooking = $this->generateUrl('app_user_booking_create',[
@@ -95,6 +112,22 @@ class BookingManipulationController extends ControllerService
         $data['host_name'] = $this->getUser()->getFirstName() .' ' .$this->getUser()->getLastName();
         $data['user_name'] = $booking->getUser()->getFirstName() .' ' .$booking->getUser()->getLastName();
         $this->get('app.email_sender')->sendEmailOfferPlot($booking->getUser()->getEmail(),$data);
+        return $this->redirectToRoute('app_user_host_control_list_booking', [
+        ]);
+    }
+    public function approveBookingAction(Booking $booking)
+    {
+        $urlBooking = $this->generateUrl('app_user_booking_create',[
+            'space'=>$booking->getSpace()->getId(),
+            'booking'=>$booking->getId(),
+            'step'=>2
+        ],0);
+
+        $data['url'] = $urlBooking;
+        $data['space_name'] = $booking->getSpace()->getName();
+        $data['host_name'] = $this->getUser()->getFirstName() .' ' .$this->getUser()->getLastName();
+        $data['user_name'] = $booking->getUser()->getFirstName() .' ' .$booking->getUser()->getLastName();
+        $this->get('app.email_sender')->sendEmailApproveBooking($booking->getUser()->getEmail(),$data);
         return $this->redirectToRoute('app_user_host_control_list_booking', [
         ]);
     }

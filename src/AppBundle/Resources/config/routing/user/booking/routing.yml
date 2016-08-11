@@ -12,8 +12,8 @@ app_user_booking_plot_space:
 app_user_booking_approve_plot:
     path: /approve-plot/{booking}
     defaults: { _controller: AppBundle:User/Booking/Mgmt/BookingManipulation:approvePlot}
-app_user_booking_reject_plot:
-    path: /reject-plot/{booking}
+app_user_booking_reject:
+    path: /reject/{booking}
     defaults: { _controller: AppBundle:User/Booking/Mgmt/BookingManipulation:rejectPlot}
 
 app_user_booking_enquire_space:
@@ -26,4 +26,8 @@ app_user_booking_add_wishlist:
 app_user_booking_remove_wishlist:
     path: /remove-wishlist/{space}/{userWishlist}
     defaults: { _controller: AppBundle:User/Booking/Mgmt/BookingManipulation:removeFromWishlist}
+
+app_user_booking_approve_booking:
+    path: /approve-booking/{booking}
+    defaults: { _controller: AppBundle:User/Booking/Mgmt/BookingManipulation:approveBooking}
 

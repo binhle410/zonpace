@@ -109,7 +109,16 @@
                                                         <a href="javascript:void(0)" style="color: red"
                                                            data-toggle="modal" data-target="#plot-space">Make a
                                                             offer</a>/
-                                                        <a href="{{ path('app_user_booking_reject_plot',{'booking':booking.id}) }}"
+                                                        <a href="{{ path('app_user_booking_reject',{'booking':booking.id}) }}"
+                                                           style="color: red">Reject</a>
+
+                                                        {{ render(controller('AppBundle:User/Booking/Mgmt/BookingManipulation:plotSpace',{'space':space.id,'booking':booking.id,'type':'host'})) }}
+                                                    </div>
+                                            {% endif %}
+                                            {% if space.instantBook == false and booking.status == 'PENDING' %}
+                                                    <div>
+                                                        <a href="{{ path('app_user_booking_approve_booking',{'booking':booking.id}) }}" style="color: red">Approve</a>/
+                                                        <a href="{{ path('app_user_booking_reject',{'booking':booking.id}) }}"
                                                            style="color: red">Reject</a>
 
                                                         {{ render(controller('AppBundle:User/Booking/Mgmt/BookingManipulation:plotSpace',{'space':space.id,'booking':booking.id,'type':'host'})) }}

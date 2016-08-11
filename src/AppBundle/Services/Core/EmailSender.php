@@ -91,11 +91,40 @@ class EmailSender
         );
         $temlate = $em->getRepository('AppBundle:Core\EmailTemplate')->findOneBy(array('code' => EmailTemplate::TYPE_OFFER_PLOT));
         $temlatePrepare = $this->prepareMessageContent($temlate, $vars);
-        $emailTo = $this->container->getParameter('email_contact');
         $message = \Swift_Message::newInstance()
             ->setSubject($temlatePrepare['subject'])
             ->setFrom('noreply@zonpage.com')
-            ->setTo('tuandumikedu@gmail.com')
+            ->setTo($emailTo)
+            ->setContentType("text/html")
+            ->setBody($temlatePrepare['content']);
+        $mailer = $this->mailer;
+        if (!$mailer->send($message)) {
+
+        }
+        $spool = $mailer->getTransport()->getSpool();
+        $transport = $this->container->get('swiftmailer.transport.real');
+        $spool->flushQueue($transport);
+    }
+    public function sendEmailApproveBooking($emailTo, $data)
+    {
+        $em = $this->container->get('doctrine')->getManager();
+        $vars = array(
+            'SPACE_NAME' => $data['space_name'],
+            'HOST_NAME' => $data['host_name'],
+            'USER_NAME' => $data['user_name'],
+            'LINK_BOOKING' => $data['url'],
+        );
+        $temlate = $em->getRepository('AppBundle:Core\EmailTemplate')->findOneBy(array('code' => EmailTemplate::TYPE_APPROVE_BOOKING));
+        $temlatePrepare = $this->prepareMessageContent($temlate, $vars);
+
+        //for testttttttttttttttttttttttt
+        $emailTo = $this->container->getParameter('email_contact');
+
+
+        $message = \Swift_Message::newInstance()
+            ->setSubject($temlatePrepare['subject'])
+            ->setFrom('noreply@zonpage.com')
+            ->setTo($emailTo)
             ->setContentType("text/html")
             ->setBody($temlatePrepare['content']);
         $mailer = $this->mailer;

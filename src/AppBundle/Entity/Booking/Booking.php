@@ -146,6 +146,12 @@ class Booking
     private $spaceProposedbookingType;
 
     /**
+     * @var boolean
+     * @ORM\Column(name="space_instant_book",type="boolean")
+     */
+    private $spaceInstantBook;
+
+    /**
      * @var integer
      * @ORM\Column(name="rating_location",type="integer",options={"default"=0})
      */
@@ -584,7 +590,24 @@ class Booking
     {
         $this->spaceProposedbookingType = $spaceProposedbookingType;
     }
+
+    /**
+     * @return boolean
+     */
+    public function isSpaceInstantBook()
+    {
+        return $this->spaceInstantBook;
+    }
+
+    /**
+     * @param boolean $spaceInstantBook
+     */
+    public function setSpaceInstantBook($spaceInstantBook)
+    {
+        $this->spaceInstantBook = $spaceInstantBook;
+    }
     
+
 
 
     
