@@ -22,23 +22,11 @@ class MessageRepository extends EntityRepository
     {
         $expr = new Expr();
         $qb = $this->createQueryBuilder('message')
-            ->where($expr->eq('message.messageTo', ':user'))
+            ->where($expr->orX($expr->eq('message.messageTo', ':user'),$expr->eq('message.messageFrom', ':user')))
             ->andWhere($expr->isNull('message.parent'))
             ->orderBy('message.createdAt','DESC')
             ->setParameter('user', $user);
         return $qb;
-    }
-    public function findMyOneInbox($user,$userFrom)
-    {
-        $expr = new Expr();
-        $qb = $this->createQueryBuilder('message')
-            ->where($expr->eq('message.messageTo', ':user'))
-            ->andWhere('message.parent iS NULL')
-            ->andWhere($expr->eq('message.messageFrom', ':userFrom'))
-            ->orderBy('message.createdAt','DESC')
-            ->setParameter('userFrom', $userFrom)
-            ->setParameter('user', $user);
-        return $qb->getQuery()->getSingleResult();
     }
 
 }

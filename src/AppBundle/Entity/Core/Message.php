@@ -66,6 +66,11 @@ class Message
      */
     private $parent;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Space\Space")
+     */
+    private $space;
+
 
     /**
      * @return int
@@ -187,6 +192,23 @@ class Message
     {
         $this->parent = $parent;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getSpace()
+    {
+        return $this->space;
+    }
+
+    /**
+     * @param mixed $space
+     */
+    public function setSpace($space)
+    {
+        $this->space = $space;
+    }
+    
 
     
     

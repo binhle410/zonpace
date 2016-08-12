@@ -43,7 +43,7 @@
                                             </li>
                                             <li>
                                                 {% if app.user %}
-                                                    <a href="index.html">Hello, {{ app.user.firstName }}</a>
+                                                    <a href="{{ path('app_user_user_control_profile') }}">Hello, {{ app.user.firstName }}</a>
                                                 {% else %}
                                                     <a href="index.html">Log In/Sign Up</a>
                                                 {% endif %}

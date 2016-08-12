@@ -31,7 +31,7 @@ app_user_user_control_list_inbox:
     defaults: { _controller: AppBundle:User/UserControl/Mgmt/UserControlRetrieval:listInbox}
 
 app_user_user_control_reply_inbox:
-    path: /reply-inbox/user-from/{user}
+    path: /reply-inbox/user-from/{user}/{messageInbox}
     defaults: { _controller: AppBundle:User/UserControl/Mgmt/UserControlManipulation:replyInbox}
 
 app_user_user_control_wishlist:

@@ -125,12 +125,9 @@ class UserControlManipulationController extends ControllerService
         ]);
     }
 
-    public function replyInboxAction(Request $request,User $user)
+    public function replyInboxAction(Request $request,User $user,Message $messageInbox)
     {
         $em =$this->getDoctrine()->getManager();
-        $messageRepo = $em->getRepository('AppBundle:Core\Message');
-        $messageInbox = $messageRepo->findMyOneInbox($this->getUser(),$user);
-
         $message = new Message();
         $form = $this->createForm(InboxMessageType::class,$message);
         $form->handleRequest($request);
@@ -140,7 +137,6 @@ class UserControlManipulationController extends ControllerService
             $message->setMessageTo($user);
             $em->persist($message);
             $em->flush();
-            $messageInbox = $messageRepo->findMyOneInbox($this->getUser(),$user);
         }
 
         return $this->render('AppBundle:User/UserControl:list-inbox-reply.html.twig', [

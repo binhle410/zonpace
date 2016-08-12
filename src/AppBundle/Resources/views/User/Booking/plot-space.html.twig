@@ -34,8 +34,9 @@
                         {{ form_widget(form.spaceWeeklyDiscount,{'attr':{'class':'form-control','placeholder':'Discount Weekly'}}) }}
                         {{ form_widget(form.spaceMonthlyDiscount,{'attr':{'class':'form-control','placeholder':'Discount Monthly'}}) }}
                     {% else %}
-                        {{ form_widget(form.spaceProposedPrice,{'attr':{'class':'form-control','placeholder':'Proposed Price'}}) }}
                         {{ form_widget(form.spaceProposedbookingType,{'attr':{'class':'form-control','placeholder':''}}) }}
+                        {{ form_widget(form.spaceProposedPrice,{'attr':{'class':'form-control','placeholder':'Proposed Price'}}) }}
+                        {{ form_widget(form.message,{'attr':{'class':'form-control','placeholder':'Your message to host'}}) }}
                     {% endif %}
                     {#{{ form_widget(form.message,{'attr':{'class':'form-control','rows':'3'}}) }}#}
                     <button type="submit" class="btn btn-sm btn-default">Send</button>

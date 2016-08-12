@@ -1,5 +1,4 @@
 <div class="modal fade" id="contact-host" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <form action="{{ path('app_front_contact_host',{'user':user.id}) }}" method="post">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -8,13 +7,15 @@
                     <h4 class="modal-title" id="myModalLabel">Contact Host</h4>
                 </div>
                 <div class="modal-body">
-                    <textarea name="message" class="form-control" required placeholder="Input your message"></textarea>
+                    <form action="{{ path('app_front_contact_host',{'user':user.id}) }}" method="post">
+                        {{ form_row(form._token) }}
+                        {{ form_widget(form.title,{'attr':{'class':'form-control','placeholder':'Title'}}) }}
+                        {{ form_widget(form.message,{'attr':{'class':'form-control','placeholder':'Message'}}) }}
+
+                        <button type="submit" class="btn btn-sm btn-default">Send</button>
+                    </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-sm btn-dark" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-sm btn-default">Submit</button>
-                </div>
+
             </div>
         </div>
-    </form>
 </div>

@@ -29,22 +29,23 @@ class PlotSpaceType extends AbstractType
         $builder
             ->add('spaceShape', HiddenType::class)
             ->add('spaceSquareFeet', NumberType::class);
-        if ($options['type']!='user') {
+        if ($options['type'] != 'user') {
             $builder->add('spacePriceDaily', MoneyType::class, ['currency' => ''])
                 ->add('spaceWeeklyDiscount', NumberType::class)
                 ->add('spaceMonthlyDiscount', NumberType::class);
 
         } else {
             $builder->add('spaceProposedPrice', MoneyType::class, ['currency' => ''])
-            ->add('spaceProposedbookingType', ChoiceType::class,[
-                'choices'=>[
-                    'Daily' =>Booking::BOOKING_TYPE_DAILY,
-                    'Weekly' =>Booking::BOOKING_TYPE_WEEKLY,
-                    'Monthly' =>Booking::BOOKING_TYPE_MONTHLY,
-                ],
-                'expanded'=>true,
-                'multiple'=>false,
-            ]);
+                ->add('spaceProposedbookingType', ChoiceType::class, [
+                    'choices' => [
+                        'Daily' => Booking::BOOKING_TYPE_DAILY,
+                        'Weekly' => Booking::BOOKING_TYPE_WEEKLY,
+                        'Monthly' => Booking::BOOKING_TYPE_MONTHLY,
+                    ],
+                    'expanded' => true,
+                    'multiple' => false,
+                ])
+                ->add('message', TextareaType::class, ['mapped' => false]);
         }
     }
 
@@ -52,7 +53,7 @@ class PlotSpaceType extends AbstractType
     {
         $resolver->setDefaults(array(
             'data_class' => 'AppBundle\Entity\Booking\Booking',
-            'type'=>null,
+            'type' => null,
         ));
     }
 

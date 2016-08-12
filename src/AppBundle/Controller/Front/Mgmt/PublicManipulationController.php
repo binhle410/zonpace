@@ -11,6 +11,8 @@ use Doctrine\Common\Util\Debug;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Entity\Core\Message;
+use AppBundle\Form\InboxMessageType;
 
 class PublicManipulationController extends ControllerService
 {
@@ -18,14 +20,17 @@ class PublicManipulationController extends ControllerService
     public function contactHostAction(Request $request,User $user){
 
         if($request->isMethod('post')){
-            $em = $this->getDoctrine()->getManager();
-            $message = $request->get('message');
-            $userMassage = new UserMessage();
-            $userMassage->setMessage($message);
-            $userMassage->setUser($user);
-            $em->persist($userMassage);
-            $em->flush();
-            return $this->redirectToRoute('app_front_host_profile',['user'=>$user->getId()]);
+            $em =$this->getDoctrine()->getManager();
+            $message = new Message();
+            $form = $this->createForm(InboxMessageType::class,$message);
+            $form->handleRequest($request);
+            if($form->isSubmitted() && $form->isValid()){
+                $message->setMessageFrom($this->getUser());
+                $message->setMessageTo($user);
+                $em->persist($message);
+                $em->flush();
+                return $this->redirectToRoute('app_front_host_profile',['user'=>$user->getId()]);
+            }
         }
 
 

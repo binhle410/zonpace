@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Entity\Space\Space;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use AppBundle\Form\InboxMessageType;
 
 class PublicRetrievalController extends ControllerService
 {
@@ -55,12 +56,15 @@ class PublicRetrievalController extends ControllerService
         $reviewsQb = $bookingRepo->findHostBooking($user,['is-review'=>true]);
         $reviews = $this->pagingBuilder($request,$reviewsQb);
 
+        $form = $this->createForm(InboxMessageType::class);
         return $this->render('AppBundle:Front:host-profile.html.twig',[
             'user'=>$user,
             'numberActiveListing'=>$numberActiveListing,
             'listings'=>$listings,
             'reviews'=>$reviews,
-            'numberReview'=>$numberReview
+            'numberReview'=>$numberReview,
+            'form'=>$form->createView(),
+
 
         ]);
     }
@@ -76,6 +80,7 @@ class PublicRetrievalController extends ControllerService
 
         $numberActiveListingHost = $spaceRepo->getNumberActiveListing($space->getUser());
         $numberReviewHost = $bookingRepo->getTotalReviewHost($space->getUser());
+
 
         return $this->render('AppBundle:Front:detail.html.twig', array(
             'space'=>$space,

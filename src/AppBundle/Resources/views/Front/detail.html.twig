@@ -3,9 +3,9 @@
         <h3><strong>Description</strong></h3>
         <p>{{ space.description }}</p>
         <div class="row" style="margin-left: 5px;">
-            {#{% for galleryHasMedia in space.photo.galleryHasMedias %}#}
-                {#<img src="{{ getUrl(galleryHasMedia.media,'default','big') }}">#}
-            {#{% endfor %}#}
+            {% for galleryHasMedia in space.photo.galleryHasMedias %}
+                <img src="{{ getUrl(galleryHasMedia.media,'default','big') }}">
+            {% endfor %}
 
         </div>
         <h3><strong>Features</strong></h3>
@@ -57,8 +57,8 @@
                 <div class="row">
                     <div class="col-md-4">
                         <a href="{{ path('app_front_host_profile',{'user':user.id}) }}">
-                            {#<img src="{{ getUrl(user.photo,'default','small') }}">#}
-                            {#<p>{{ user.firstName ~', '~ user.city.name ~', '~ user.state.name }}</p>#}
+                            <img src="{{ getUrl(user.photo,'default','small') }}">
+                            <p>{{ user.firstName ~', '~ user.city.name ~', '~ user.state.name }}</p>
                         </a>
                     </div>
                     <div class="col-md-8">

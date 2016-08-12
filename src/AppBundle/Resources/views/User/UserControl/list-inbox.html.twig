@@ -33,6 +33,9 @@
                                                             href="shop-product.html">{{ message.messageFrom.firstName ~' '~ message.messageFrom.lastName}}</a></h3>
                                                 <div class="row">
                                                     {{ message.title }}
+                                                    {% if message.space %}
+                                                    <p>( Associate to space <a target="_blank" href="{{ path('app_user_booking_create',{'step':0,'space':message.space.id}) }}">{{ message.space.name }}</a> )</p>
+                                                        {% endif %}
                                                 </div>
                                                 <div class="row">
                                                     {{ message.createdAt|date('m/d/Y') }}
@@ -44,7 +47,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-3">
-                                            <input onclick="window.location.href='{{ path('app_user_user_control_reply_inbox',{'user':message.messageFrom.id}) }}'" style="width: 153px;margin-bottom: 5px !important;"
+                                            <input onclick="window.location.href='{{ path('app_user_user_control_reply_inbox',{'user':message.messageFrom.id,'messageInbox':message.id}) }}'" style="width: 153px;margin-bottom: 5px !important;"
                                                    type="button" value="Reply"
                                                    class="margin-clear btn btn-default pull-right">
                                         </div>

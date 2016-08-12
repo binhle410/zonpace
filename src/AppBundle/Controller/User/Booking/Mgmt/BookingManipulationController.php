@@ -54,11 +54,21 @@ class BookingManipulationController extends ControllerService
                 $booking->setStatus(Booking::STATUS_PENDING);
                 $booking->setStatusPlot(Booking::PLOT_PENDING);
                 $booking->setSpaceInstantBook($space->isInstantBook());
+                $em->persist($booking);
+
+                //new a inbox message
+                $message = new Message();
+                $message->setMessageFrom($this->getUser());
+                $message->setMessageTo($space->getUser());
+                $message->setSpace($space);
+                $message->getTitle('Message plot a space');
+                $message->setMessage($form->get('message')->getData());
+                $em->persist($message);
             } else {
                 $booking->setStatusPlot(Booking::PLOT_APPROVED);
                 $booking->setSpaceInstantBook(true);
+                $em->persist($booking);
             }
-            $em->persist($booking);
             $em->flush();
 
             if ($type == 'user') {
@@ -155,6 +165,7 @@ class BookingManipulationController extends ControllerService
         if($form->isSubmitted() && $form->isValid()){
             $message->setMessageFrom($this->getUser());
             $message->setMessageTo($space->getUser());
+            $message->setSpace($space);
             $em->persist($message);
             $em->flush();
             return $this->redirectToRoute('app_user_booking_create', [
