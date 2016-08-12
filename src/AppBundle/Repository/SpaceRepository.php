@@ -74,13 +74,13 @@ class SpaceRepository extends EntityRepository
         $expr = new Expr();
         $fields = [];
         $fields[] = "DISTINCT space";
-            $lat = $query['lat'];
-            $lng = $query['lng'];
-            $fields[] = "( 3959 * acos( cos( radians('$lat') ) * cos( radians( location.lat ) ) * cos( radians( location.lng ) - radians('$lng') ) + sin( radians('$lat') ) * sin( radians( location.lat ) ) ) ) AS distance";
+        $lat = $query['lat'];
+        $lng = $query['lng'];
+        $fields[] = "( 3959 * acos( cos( radians('$lat') ) * cos( radians( location.lat ) ) * cos( radians( location.lng ) - radians('$lng') ) + sin( radians('$lat') ) * sin( radians( location.lat ) ) ) ) AS distance";
         $qb = $this->createQueryBuilder('space')
             ->select($fields)
-            ->orderBy('distance','ASC');
-        $qb = $this->createBuilderSearch($qb,$query,$radius);
+            ->orderBy('distance', 'ASC');
+        $qb = $this->createBuilderSearch($qb, $query, $radius);
         return $qb;
 
     }
@@ -90,12 +90,12 @@ class SpaceRepository extends EntityRepository
         $expr = new Expr();
         $qb = $this->createQueryBuilder('space')
             ->select($expr->countDistinct('space.id'));
-        $qb = $this->createBuilderSearch($qb, $query,$radius);
+        $qb = $this->createBuilderSearch($qb, $query, $radius);
 
         return $qb->getQuery()->getSingleScalarResult();
     }
 
-    public function createBuilderSearch($qb,$query, $radius)
+    public function createBuilderSearch($qb, $query, $radius)
     {
         $expr = new Expr();
         $qb->join('space.location', 'location')
@@ -112,6 +112,15 @@ class SpaceRepository extends EntityRepository
             $qb->andWhere($expr->in('features.id', ':featuresId'))
                 ->setParameter('featuresId', $listFeatureId);
         }
+        if (isset($query['daily']) && $query['daily'] != '') {
+            $qb->andWhere($expr->isNotNull('price.daily'));
+        }
+        if (isset($query['weekly']) && $query['weekly'] != '') {
+            $qb->andWhere($expr->isNotNull('price.weeklyDiscount'));
+        }
+        if (isset($query['monthly']) && $query['monthly'] != '') {
+            $qb->andWhere($expr->isNotNull('price.monthlyDiscount'));
+        }
         if (isset($query['instant-booking']) && $query['instant-booking'] != '') {
             $qb->andWhere('space.instantBook = 1');
         }
@@ -127,7 +136,7 @@ class SpaceRepository extends EntityRepository
                 ->setParameter('to', $toDate->format('Y-m-d'));
         }
         if (isset($query['price']) && $query['price'] != '') {
-            $price = explode(';',$query['price']);
+            $price = explode(';', $query['price']);
             $priceFrom = $price[0];
             $priceTo = $price[1];
             $qb->andWhere('price.daily >= :priceFrom AND price.daily <= :priceTo')
@@ -135,7 +144,7 @@ class SpaceRepository extends EntityRepository
                 ->setParameter('priceTo', $priceTo);
         }
         if (isset($query['square']) && $query['square'] != '') {
-            $square = explode(';',$query['square']);
+            $square = explode(';', $query['square']);
             $squareFrom = $square[0];
             $squareTo = $square[1];
             $qb->andWhere('location.squareFeet >= :squareFrom AND location.squareFeet <= :squareTo')
@@ -143,11 +152,11 @@ class SpaceRepository extends EntityRepository
                 ->setParameter('squareTo', $squareTo);
         }
 
-            $lat = $query['lat'];
-            $lng = $query['lng'];
-            $distance = "( 3959 * acos( cos( radians('$lat') ) * cos( radians( location.lat ) ) * cos( radians( location.lng ) - radians('$lng') ) + sin( radians('$lat') ) * sin( radians( location.lat ) ) ))";
-            $qb->andWhere($distance . " <= :radius")
-                ->setParameter('radius', $radius);
+        $lat = $query['lat'];
+        $lng = $query['lng'];
+        $distance = "( 3959 * acos( cos( radians('$lat') ) * cos( radians( location.lat ) ) * cos( radians( location.lng ) - radians('$lng') ) + sin( radians('$lat') ) * sin( radians( location.lat ) ) ))";
+        $qb->andWhere($distance . " <= :radius")
+            ->setParameter('radius', $radius);
         return $qb;
     }
 }

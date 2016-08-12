@@ -21,7 +21,7 @@ class Step1 extends Step
             throw $this->createAccessDeniedException();
         }
 
-        $form = $this->createForm(BookingType::class,$booking);
+        $form = $this->createForm(BookingType::class,$booking,['space'=>$space]);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
             if($booking->getBookingType() == Booking::BOOKING_TYPE_DAILY){

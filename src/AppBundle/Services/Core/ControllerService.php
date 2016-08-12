@@ -203,19 +203,19 @@ class ControllerService extends Controller
             case Booking::BOOKING_TYPE_DAILY:
                 $dateFrom = $booking->getDateFrom()->format('Y-m-d');
                 $dateTo = $booking->getDateTo()->format('Y-m-d');
-                $pricePerDay = $booking->isIsPlot() == true ? $booking->getSpacePriceDaily() : $space->getPrice()->getDaily();
+                $pricePerDay = $booking->getSpacePriceDaily();
                 $numberDate = $this->getNumberDate($dateFrom,$dateTo);
                 $price = $numberDate * $pricePerDay;
                 break;
             case Booking::BOOKING_TYPE_WEEKLY:
                 $pricePerDay = $booking->isIsPlot() == true ? $booking->getSpacePriceDaily() : $space->getPrice()->getDaily();
-                $discountWeekly = $booking->isIsPlot() == true ? $booking->getSpaceWeeklyDiscount() :$space->getPrice()->getWeeklyDiscount();
+                $discountWeekly = $booking->getSpaceWeeklyDiscount();
                 $pricePerWeek = ($pricePerDay * 7) - (($pricePerDay * 7)*($discountWeekly/100));
                 $price = $pricePerWeek * $booking->getBookingPeriod();
                 break;
             case Booking::BOOKING_TYPE_MONTHLY:
                 $pricePerDay = $space->getPrice()->getDaily();
-                $discountMonthly = $booking->isIsPlot() == true ? $booking->getSpaceMonthlyDiscount() :$space->getPrice()->getMonthlyDiscount();
+                $discountMonthly = $booking->getSpaceMonthlyDiscount();
                 $pricePerMonth = ($pricePerDay * 30) - (($pricePerDay * 30)*($discountMonthly/100));
                 $price = $pricePerMonth * $booking->getBookingPeriod();
                 break;
