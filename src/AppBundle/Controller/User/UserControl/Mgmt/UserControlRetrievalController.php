@@ -34,7 +34,6 @@ class UserControlRetrievalController extends ControllerService
             'messages'=>$messages
         ]);
     }
-
     public function wishlistAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
