@@ -29,6 +29,12 @@ class PublicManipulationController extends ControllerService
                 $message->setMessageTo($user);
                 $em->persist($message);
                 $em->flush();
+                //notify to email and phone
+                $dataTo = ['email_to'=>$user->getEmail(),'phone_to'=>$user->getPhone()];
+                $data['name_user_to'] = $user->getFirstName().' '.$user->getLastName();
+                $data['name_user_from'] = $this->getUser()->getFirstName().' '.$this->getUser()->getLastName();
+                $data['message']=$form->get('message')->getData();
+                $this->notifyInbox($dataTo,$data);
                 return $this->redirectToRoute('app_front_host_profile',['user'=>$user->getId()]);
             }
         }

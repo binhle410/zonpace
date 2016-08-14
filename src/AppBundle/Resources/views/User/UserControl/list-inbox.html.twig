@@ -18,11 +18,12 @@
                             {% for message in  messages %}
                                 <div class="listing-item mb-20">
                                     <div class="row grid-space-0">
+                                        {% set userShow = app.user.id == message.messageTo.id ? message.messageFrom :message.messageTo  %}
                                         <div class="col-sm-6 col-md-2">
                                             <div class="overlay-container">
-                                                {% if message.messageFrom.photo %}
+                                                {% if message.messageTo.photo %}
                                                     <div class="form-group">
-                                                        <img src="{{ getUrl(message.messageFrom.photo,'default','medium') }}">
+                                                        <img src="{{ getUrl(userShow.photo,'default','medium') }}">
                                                     </div>
                                                 {% endif %}
                                             </div>
@@ -30,7 +31,7 @@
                                         <div class="col-sm-6 col-md-7" style="margin-top: -25px;">
                                             <div class="body">
                                                 <h3 class="margin-clear"><a
-                                                            href="shop-product.html">{{ message.messageFrom.firstName ~' '~ message.messageFrom.lastName}}</a></h3>
+                                                            href="shop-product.html">{{ userShow.firstName ~' '~ userShow.lastName}}</a></h3>
                                                 <div class="row">
                                                     {{ message.title }}
                                                     {% if message.space %}
@@ -48,7 +49,7 @@
                                         </div>
                                         <div class="col-md-3">
                                             <input onclick="window.location.href='{{ path('app_user_user_control_reply_inbox',{'user':message.messageFrom.id,'messageInbox':message.id}) }}'" style="width: 153px;margin-bottom: 5px !important;"
-                                                   type="button" value="Reply"
+                                                   type="button" value="View Detail"
                                                    class="margin-clear btn btn-default pull-right">
                                         </div>
 
