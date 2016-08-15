@@ -1,120 +1,171 @@
 {% extends 'AppBundle::layout.html.twig' %}
 {% form_theme form 'AppBundle:form:space_fields_step2.html.twig' %}
 {% block content %}
-    <section class="main-container create-space-step" data-space-create-step2="">
 
+    <section class="blk-lease-space blk-white" data-space-create-step2="">
         <div class="container">
-            <div class="row">
-                <div class="main col-md-6">
-                    <ul class="nav nav-pills" role="tablist">
-                        <li class=""><a href="#pill-pr-1" role="tab" data-toggle="tab" title="Step 1"
-                                        aria-expanded="false"><i class="fa fa-dot-circle-o pr-5"></i>Location</a></li>
-                        <li class=""><a href="#pill-pr-2" role="tab" data-toggle="tab" title="Step 2"
-                                              aria-expanded="false"><i class="fa fa-dot-circle-o pr-5"></i>Space
-                                    Detail</a></li>
-                        <li class="active"><a href="#pill-pr-3" role="tab" data-toggle="tab" title="Step 3"
-                                        aria-expanded="true"><i class="fa fa-dot-circle-o pr-5"></i><strong> Review Your
-                                Space</strong></a></li>
-                        <li class=""><a href="#pill-pr-3" role="tab" data-toggle="tab" title="Step 3"
-                                        aria-expanded="true"><i class="fa fa-dot-circle-o pr-5"></i> Activate</a></li>
-                    </ul>
-                    <h3>Review Your Space</h3>
-                    <h3>Space Details</h3>
-                    <p>{{ space.name }}</p>
-                    <p>{{ space.location.streetAddress }}</p>
-                    <p>{{ space.description }}</p>
-                    <form role="form" id="form-space" method="post" enctype="multipart/form-data">
-                        {{ form_row(form._token) }}
+            <h2 class="blk-ttl">Lease Your Space</h2>
+            {% include 'AppBundle:User/Space/Steps:_nav.html.twig' %}
+            <!-- END : LEASE NAV-->
+            <section class="blk-lease-map">
+                <h2 class="blk-ttl-bold">Review Your Space</h2>
+                <div class="row">
+                    <section class="col-xs-6">
+                        <form name="frm-space-detail" class="frm-space-detail" id="form-space" method="post"
+                              enctype="multipart/form-data">
+                            {{ form_row(form._token) }}
+                            <p>
+                                <label for="ipt-namespace">Space Details</label>
+                            </p>
+                            <p>
+                                {{ space.name }}<br>
+                                {{ space.location.streetAddress }}
+                            </p>
+                            <p style="color: #808184;">{{ space.description }}</p>
+                            <p style="color: #808184;">
+                                <span class="type-space">Type of space</span> {{ getStringTypeSpace(space.location.typeSpace) }}
+                                <br>
+                                <span class="type-space">Square Feet</span> {{ space.location.squareFeet }} <br>
+                                <span class="type-space">Date Available</span> {{ space.dateBooking.dateFrom|date('m/d/Y') ~' - '~space.dateBooking.dateTo|date('m/d/Y') }}
+                            </p>
+                            <!-- END : ITM-->
+                            <div class="frow frow-border">
 
+                                <div class="frow clearfix wrap-img-space">
+                                    {% for galleryHasMedia in space.photo.galleryHasMedias %}
+                                        <div class="col-md-3" style="margin-top: 2px">
+                                            <img src="{{ getUrl(galleryHasMedia.media) }}">
+                                        </div>
+                                    {% endfor %}
 
-                        <!--file------------------------------------------------------------------------------------------>
-                        <div class="row wrap-img-space">
-                            {% for galleryHasMedia in space.photo.galleryHasMedias %}
-                                <div class="col-md-4" style="margin-top: 2px">
-                                    <img src="{{ getUrl(galleryHasMedia.media) }}">
                                 </div>
-                            {% endfor %}
 
-                        </div>
-
-                        <!--price------------------------------------------------------------------------------------------>
-                        <hr class="divider">
-                        {{ form_widget(form.price) }}
-
-                        <!--feature------------------------------------------------------------------------------------------>
-                        <hr class="divider">
-                        {{ form_widget(form.features) }}
-
-                        <!--callendar------------------------------------------------------------------------------------------>
-                        <hr class="divider">
-                        {{ form_widget(form.dateBooking) }}
-
-                        <div id="mini-clndr">
-
-                        </div>
-                        <script id="mini-clndr-template" type="text/template">
-
-                            <div class="controls">
-                                <div class="clndr-previous-button">&lsaquo;</div>
-                                <div class="month"><%= month %></div>
-                                <div class="clndr-next-button">&rsaquo;</div>
+                            </div>
+                            <!-- END : ITM-->
+                            <div class="frow frow-border">
+                                <label>Prices</label>
+                                <p>
+                                    <input type="checkbox" class="price-daily" name="rd-price" id="price-1"
+                                           checked="checked">
+                                    <label for="price-1" class="lbl-price">Daily</label>
+                                    <input type="text" id="app_space_space_price_daily" required="required"
+                                           class="ipt ipt-150" placeholder="Price / Day"
+                                           value="{{ space.price.daily }}"></p>
+                                {% if space.price.weeklyDiscount is not null %}
+                                    <p>
+                                        <input type="checkbox" class="price-weekly" name="rd-price" id="price-2"
+                                               checked="checked">
+                                        <label for="price-2" class="lbl-price">Weekly Discount</label>
+                                        <input type="text" id="app_space_space_price_weeklyDiscount" required="required"
+                                               class="ipt ipt-150" placeholder="% Discount"
+                                               value="{{ space.price.weeklyDiscount }}">
+                                    </p>
+                                {% endif %}
+                                {% if space.price.monthlyDiscount is not null %}
+                                    <p>
+                                        <input type="checkbox" class="price-monthly" name="rd-price" id="price-3">
+                                        <label for="price-3" class="lbl-price">Monthly Discount</label>
+                                        <input type="text" id="app_space_space_price_monthlyDiscount"
+                                               required="required"
+                                               class="ipt ipt-150" placeholder="{{ space.price.monthlyDiscount }}">
+                                    </p>
+                                {% endif %}
+                            </div>
+                            <!-- END : ITM-->
+                            <div class="frow frow-border feature-space">
+                                <div class="blk-fea">
+                                    <label>Feature</label>
+                                </div>
+                                {% set featuresWithCat = getFeatureSpace(space) %}
+                                {% for cat,features in featuresWithCat %}
+                                    <div class="frow">
+                                        <label class="lb-normal">{{ cat }}</label>
+                                        {% for feature in features %}
+                                            {% if (loop.index-1) % 3 == 0 %}
+                                                <p class="no-bt">
+                                            {% endif %}
+                                            <input type="checkbox" name="rd-wedding" id="" checked="checked">
+                                            <label for="" class="lbl-checkbox">{{ feature }}</label>
+                                            {% if (loop.index) % 3 == 0 %}
+                                                </p>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                {% endfor %}
                             </div>
 
-                            <div class="days-container">
-                                <div class="days">
-                                    <div class="headers">
-                                        <% _.each(daysOfTheWeek, function(day) { %>
-                                        <div class="day-header"><%= day %></div>
-                                        <% }); %>
-                                    </div>
-                                    <% _.each(days, function(day) { %>
-                                    <div class="<%= day.classes %>" id="<%= moment(day.date).format('YYYY-MM-DD') %>">
-                                        <%= day.day %>
-                                    </div>
-                                    <% }); %>
+                            <div class="frow frow-border">
+                                {{ form_widget(form.instantBook) }}
+                                {{ form_label(form.instantBook,form.instantBook,{'label_attr':{'class':'lbl-checkbox'}}) }}
+                            </div>
+
+                            {{ form_widget(form.dateBooking) }}
+                            <div id="mini-clndr">
+
+                            </div>
+                            <script id="mini-clndr-template" type="text/template">
+
+                                <div class="controls">
+                                    <div class="clndr-previous-button">&lsaquo;</div>
+                                    <div class="month"><%= month %></div>
+                                    <div class="clndr-next-button">&rsaquo;</div>
                                 </div>
-                                <div class="events">
-                                    <div class="headers">
-                                        <div class="x-button">x</div>
-                                        <div class="event-header">EVENTS</div>
-                                    </div>
-                                    <div class="events-list">
-                                        <% _.each(eventsThisMonth, function(event) { %>
-                                        <div class="event">
-                                            <a href="<%= event.url %>"><%= moment(event.date).format('MMMM Do') %>: <%=
-                                                event.title %></a>
+
+                                <div class="days-container">
+                                    <div class="days">
+                                        <div class="headers">
+                                            <% _.each(daysOfTheWeek, function(day) { %>
+                                            <div class="day-header"><%= day %></div>
+                                            <% }); %>
+                                        </div>
+                                        <% _.each(days, function(day) { %>
+                                        <div class="<%= day.classes %>"
+                                             id="<%= moment(day.date).format('YYYY-MM-DD') %>">
+                                            <%= day.day %>
                                         </div>
                                         <% }); %>
                                     </div>
+                                    <div class="events">
+                                        <div class="headers">
+                                            <div class="x-button">x</div>
+                                            <div class="event-header">EVENTS</div>
+                                        </div>
+                                        <div class="events-list">
+                                            <% _.each(eventsThisMonth, function(event) { %>
+                                            <div class="event">
+                                                <a href="<%= event.url %>"><%= moment(event.date).format('MMMM Do') %>:
+                                                    <%=
+                                                    event.title %></a>
+                                            </div>
+                                            <% }); %>
+                                        </div>
+                                    </div>
                                 </div>
+
+                            </script>
+
+                            <!--load shape------------------------------------------------>
+                            {{ form_widget(form.shape) }}
+
+                            <!-- END : ITM-->
+                            <div class="frow">
+                                <input type="submit" value="Next" class="btn btn-red"><a
+                                        href="{{ path('app_user_space_create',{'step':2,'space':space.id}) }}"
+                                        class="back_to">Back to Location</a>
                             </div>
-
-                        </script>
-
-                        <!--load shape------------------------------------------------>
-                        {{ form_widget(form.shape) }}
-
-                        <!--button------------------------------------------------------------------------------------------>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <button type="submit" class="btn btn-default">Next</button>
-                            </div>
-                            <div class="col-md-6 back-link">
-                                <a href='{{ path('app_user_space_create',{'step':2,'space':space.id}) }}' class="pull-right">Back
-                                    to Space Details</a>
-                            </div>
-                        </div>
-
-
-                    </form>
-
+                            <!-- END : ITM-->
+                        </form>
+                    </section>
+                    <!-- END : COL-->
+                    <section class="col-xs-6">
+                        <div id="location-map"></div>
+                    </section>
+                    <!-- END : COL-->
                 </div>
-                <div class="col-md-6">
-                    <div class="map" id="map_in"></div>
-                </div>
-
-            </div>
+            </section>
+            <!-- END -->
         </div>
     </section>
+    <!-- END : SPACE DETAIL-->
 
 {% endblock %}
