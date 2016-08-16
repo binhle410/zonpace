@@ -348,6 +348,6 @@ knp_snappy:
 
 liip_theme:
     themes: ['main']
-#    active_theme: 'main'
+    active_theme: 'main'
 
 
