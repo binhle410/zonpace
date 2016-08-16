@@ -1,44 +1,34 @@
 {% extends 'AppBundle::layout.html.twig' %}
+{% form_theme form 'AppBundle:form:space_fields_step2.html.twig' %}
 {% block content %}
 
-    <section class="main-container" data-space-create-stepx="">
-
+    <section class="blk-lease-space blk-white" data-space-create-stepx="">
         <div class="container">
-            <div class="row">
-                <div class="main col-md-6">
-                    <ul class="nav nav-pills" role="tablist">
-                        <li class=""><a href="#pill-pr-1" role="tab" data-toggle="tab" title="Step 1"
-                                        aria-expanded="false"><i class="fa fa-dot-circle-o pr-5"></i>Location</a></li>
-                        <li class=""><a href="#pill-pr-2" role="tab" data-toggle="tab" title="Step 2"
-                                        aria-expanded="false"><i class="fa fa-dot-circle-o pr-5"></i>Space
-                                    Detail</a></li>
-                        <li class=""><a href="#pill-pr-3" role="tab" data-toggle="tab" title="Step 3"
-                                        aria-expanded="true"><i class="fa fa-dot-circle-o pr-5"></i> Review Your
-                                Space</a></li>
-                        <li class="active"><a href="#pill-pr-3" role="tab" data-toggle="tab" title="Step 3"
-                                              aria-expanded="true"><i class="fa fa-dot-circle-o pr-5"></i> <strong>Activate</strong> </a></li>
-                    </ul>
-                    <h3>Activation Successful</h3>
-                    <p>Explain why we ask to phone number Description: Whether it is a space in a town centre for few hours, or secure look-up venue close to where you live</p>
-                    <form role="form" id="form-space" method="post" action="{{ path('app_user_space_list') }}">
-                        <input type="hidden" value="{{ space.shape }}" id="app_space_space_shape">
-                        <!--button------------------------------------------------------------------------------------------>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <button type="submit" class="btn btn-default">Homepage</button>
+            <h2 class="blk-ttl">Lease Your Space</h2>
+            {% include 'AppBundle:User/Space/Steps:_nav.html.twig' %}
+            <!-- END : LEASE NAV-->
+            <section class="blk-lease-map">
+                <h2 class="blk-ttl-bold">Activation Successful</h2>
+                <div class="row">
+                    <section class="col-xs-6">
+                        <p style="color: #808184;">Explain why we ask to phone number Space Description: Whether it is a space in a town centre for few hours, or secure look-up venue close to where you live</p>
+                        <form role="form" id="form-space" method="post">
+                            <div class="frow">
+                                <input type="submit" value="Homepage" class="btn btn-red">
                             </div>
-                        </div>
-
-
-                    </form>
-
+                            <input type="hidden" value="{{ space.shape }}" id="app_space_space_shape">
+                        </form>
+                    </section>
+                    <!-- END : COL-->
+                    <section class="col-xs-6">
+                        <div id="location-map"></div>
+                    </section>
+                    <!-- END : COL-->
                 </div>
-                <div class="col-md-6">
-                    <div class="map" id="map_in"></div>
-                </div>
-
-            </div>
+            </section>
+            <!-- END -->
         </div>
     </section>
+    <!-- END : SPACE DETAIL-->
 
 {% endblock %}

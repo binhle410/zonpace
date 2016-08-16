@@ -168,6 +168,14 @@ class BookingManipulationController extends ControllerService
             $message->setSpace($space);
             $em->persist($message);
             $em->flush();
+
+            //notify to email and phone
+            $dataTo = ['email_to'=>$space->getUser()->getEmail(),'phone_to'=>$space->getUser()->getPhone()];
+            $data['name_user_to'] = $space->getUser()->getFirstName().' '.$space->getUser()->getLastName();
+            $data['name_user_from'] = $this->getUser()->getFirstName().' '.$this->getUser()->getLastName();
+            $data['message']=$form->get('message')->getData();
+            $this->notifyInbox($dataTo,$data);
+
             return $this->redirectToRoute('app_user_booking_create', [
                 'space' => $space->getId(),
                 'step' => 0

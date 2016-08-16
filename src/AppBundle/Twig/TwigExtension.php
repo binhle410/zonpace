@@ -4,6 +4,7 @@ namespace AppBundle\Twig;
 
 
 use AppBundle\Entity\Booking\Booking;
+use AppBundle\Entity\Space\Location;
 use AppBundle\Entity\Space\Space;
 use Application\Sonata\MediaBundle\Entity\Media;
 
@@ -203,6 +204,23 @@ class TwigExtension extends \Twig_Extension
     public function getUrlPage($codePage){
         return $this->container->get('app.controller')->getUrlPage($codePage);
     }
+    public function getStringTypeSpace($key){
+
+        $data= [
+            Location::TYPE_SPACE_EVENT_SPACE => 'Event Space',
+            Location::TYPE_SPACE_SPACE_ATTACHED_TO_PROPERTY => 'Space Sttached To Property',
+            Location::TYPE_SPACE_VACANT_LAND=>'Vacant Land'
+        ];
+        return $data[$key];
+    }
+    public function getFeatureSpace(Space $space){
+        $features = $space->getFeatures();
+        $data = [];
+        foreach ($features as $feature){
+            $data[$feature->getCategory()->getName()][] = $feature->getName();
+        }
+        return $data;
+    }
 
 
     public function getFunctions()
@@ -231,6 +249,8 @@ class TwigExtension extends \Twig_Extension
             'isInWishlist' => new \Twig_Function_Method($this, 'isInWishlist', array('is_safe' => array('html'))),
             'getOneWishlist' => new \Twig_Function_Method($this, 'getOneWishlist', array('is_safe' => array('html'))),
             'getUrlPage' => new \Twig_Function_Method($this, 'getUrlPage', array('is_safe' => array('html'))),
+            'getStringTypeSpace' => new \Twig_Function_Method($this, 'getStringTypeSpace', array('is_safe' => array('html'))),
+            'getFeatureSpace' => new \Twig_Function_Method($this, 'getFeatureSpace', array('is_safe' => array('html'))),
         );
     }
 

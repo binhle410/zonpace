@@ -118,6 +118,35 @@ class EmailSender
         $temlatePrepare = $this->prepareMessageContent($temlate, $vars);
 
         //for testttttttttttttttttttttttt
+//        $emailTo = $this->container->getParameter('email_contact');
+
+
+        $message = \Swift_Message::newInstance()
+            ->setSubject($temlatePrepare['subject'])
+            ->setFrom('noreply@zonpage.com')
+            ->setTo($emailTo)
+            ->setContentType("text/html")
+            ->setBody($temlatePrepare['content']);
+        $mailer = $this->mailer;
+        if (!$mailer->send($message)) {
+
+        }
+        $spool = $mailer->getTransport()->getSpool();
+        $transport = $this->container->get('swiftmailer.transport.real');
+        $spool->flushQueue($transport);
+    }
+    public function sendEmailInbox($emailTo, $data)
+    {
+        $em = $this->container->get('doctrine')->getManager();
+        $vars = array(
+            'NAME_USER_TO' => $data['name_user_to'],
+            'NAME_USER_FROM' => $data['name_user_from'],
+            'MESSAGE' => $data['message'],
+        );
+        $temlate = $em->getRepository('AppBundle:Core\EmailTemplate')->findOneBy(array('code' => EmailTemplate::TYPE_INBOX));
+        $temlatePrepare = $this->prepareMessageContent($temlate, $vars);
+
+        //for testttttttttttttttttttttttt
         $emailTo = $this->container->getParameter('email_contact');
 
 

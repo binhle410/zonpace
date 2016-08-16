@@ -323,5 +323,14 @@ class ControllerService extends Controller
         return $url;
     }
 
+    public function notifyInbox($dataTo,$data){
+        $emailTo = $dataTo['email_to'];
+        $phoneTo = $dataTo['phone_to'];
+        //1.notify to email
+        $this->get('app.email_sender')->sendEmailInbox($emailTo,$data);
+        //2.notify to phone
+
+    }
+
 
 }
