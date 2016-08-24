@@ -1,0 +1,82 @@
+{% extends 'AppBundle::layout.html.twig' %}
+{% block content %}
+    <div class="career_wrapper">
+        <div class="col-md-12">
+            <div class="cr_col_left col-md-4">
+                <div>
+                    <h2>Become a <br/>
+                        General Manager <br/>
+                        at Zonpace</h2>
+                </div>
+                <div>
+                    <form name="frm-career" class="frm-career" method="post" action="">
+                        <div class="frow row">
+                            <section class="col-xs-6">
+                                <label for="cr_firstName">First Name</label>
+                                <input type="text" required="required" name="firstName" id="cr_firstName" placeholder="First Name" class="ipt">
+                            </section>
+                            <!-- END -->
+                            <section class="col-xs-6">
+                                <label for="cr_lastName">Last Name</label>
+                                <input type="text" required="required" name="lastName" id="cr_lastName" placeholder="Last Name" class="ipt">
+                            </section>
+                            <!-- END -->
+                        </div>
+                        <!-- END : ITM-->
+                        <div class="frow">
+                            <label for="cr_email">Email Address<span>50 characters left</span></label>
+                            <input type="text" required="required" name="title" id="cr_email" placeholder="Email Address" class="ipt">
+                        </div>
+                        <!-- END : ITM-->
+                        <div class="frow">
+                            <label for="cr_ipt_upload">Upload Your CV</label>
+                            <input id="cr_ipt_upload" type="submit" value="Upload">&nbsp;&nbsp;&nbsp;We accept .docx, .pdf, files up to 2MB</input>
+                        </div>
+                        <div class="frow">
+                            <label for="cr_message">Message<span>500 characters left</span></label>
+                            <textarea name="message" required="required" id="cr_message" placeholder="Message" class="txt"></textarea>
+                        </div>
+                        <div class="frow">
+                            {#<input id="cr_submit" type="submit" value="Apply"></input>#}
+                            <a class="btn btn-danger" href="{{ path('app_front_career_apply') }}">Apply</a>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <div class="col-md-8">
+                <div>
+                    <img class="blog_bg_img" src="{{asset('bundles/app/main/images/career_bg.png')}}">
+                </div>
+                <div class="cr_text_right">
+                    <p>
+                        Our team is growing and we are searching for a hands-on, collaborative, mobile-focused General Manager
+                        to work as part of the product team. The perfect candidate has a clean, modern design aesthetic and a
+                        passion to get the details right.
+                    </p>
+                    <h4>Responsibilities</h4>
+                    <p>
+                        - Lead technical research and evaluation in a variety of areas including: complex partnership contracts, lease agreements, equity arrangements and technical guidance contemplated by the FASB and other governing bodies
+                        - Monitor and prepare for US GAAP and IFRS developments, including ownership of how Airbnb will transition to the new standards impacting its operations, including revenue and lease accounting standards
+                        - Responsible for technical accounting memos and conclusions including review and approval by management and the Company’s independent auditor
+                        - Collaborate with members of the global accounting team on writing and maintaining accounting policies
+                        - Assistance with preparation and review of monthly financial statements and annual audits
+                    </p>
+                    <h4>Qualifications</h4>
+                    <p>
+                        - BA/BS in Accounting or Finance
+                        - CPA certification
+                        - At least 10 years experience, including concluding on complex accounting and reporting issues
+                        - Experience with presenting to audit committees and board of directors on reporting and accounting matters
+                        - Mix of public company experience and Big 4 audit experience preferable
+                        - Attention to detail
+                        - Self starter with the ability to form conclusions and present findings
+                        - Strong organizational and project management skills
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

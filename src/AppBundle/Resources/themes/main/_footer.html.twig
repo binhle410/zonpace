@@ -27,11 +27,11 @@
                     <h2 class="foo-ttl">company</h2>
                     <ul>
                         <li><a href="{{ getUrlPage('ABOUT_US') }}">About</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Press</a></li>
+                        <li><a href="{{ path('app_front_career')}}">Careers</a></li>
+                        <li><a href="{{ path('app_front_news_press')}}">Press</a></li>
                         <li><a href="{{ path('app_front_post', {'type': 'blog'}) }}">Blog</a></li>
                         <li><a href="#">Help</a></li>
-                        <li><a href="#">Policies</a></li>
+                        <li><a href="{{ path('app_front_policies')}}">Policies</a></li>
                         <li><a href="#">Disaster Respone</a></li>
                         <li><a href="#">Terms & Privacy</a></li>
                     </ul>

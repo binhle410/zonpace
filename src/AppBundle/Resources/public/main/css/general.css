@@ -112,6 +112,79 @@
 .bl_post_detail_categories a {
     color: #53A2F9;
 }
+
+
+.career_wrapper {
+    min-height: 1000px;
+    background: white;
+    margin-top: -20px;
+}
+.cr_text_right {
+    padding-left:12%;
+
+}
+.cr_text_right p {
+    color:#808184;
+}
+.cr_text_right h4 {
+    color:black;
+}
+.cr_col_left {
+    margin-top: 100px;
+}
+.cr_col_left h2 {
+    color: red;
+}
+#cr_firstName , #cr_lastName ,#cr_email ,#cr_message {
+    border: 1px solid;
+}
+#cr_submit {
+    width: 25%;
+    background: red;
+    border: none;
+    color: white;
+    height: 35px;
+}
+.cr_apply_result {
+    margin-top : 50px;
+}
+.cr_apply_result p {
+    color : #808184;
+}
+
+.pp_container {
+    width: 70%;
+    margin: 30px auto ;
+}
+.pp_container h2 {
+    color : red;
+    text-align: center;
+}
+.pp_container p {
+    color : #808184;
+}
+.news_press_wrapper {
+    min-height: 1000px;
+    background: white;
+    margin-top: -23px;
+    margin-bottom: 30px;
+}
+.news_press_wrapper h2{
+    color : red;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 50px;
+}
+.news_wrapper {
+    border-bottom: 1px solid;
+    padding: 20px;
+    margin: 20px auto;
+}
+
+
+
+
+
 /* Responsive */
 @media screen and (max-width: 1367px) {
     .bl_post_detai_container h3 {

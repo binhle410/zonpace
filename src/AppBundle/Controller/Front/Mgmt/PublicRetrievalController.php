@@ -130,6 +130,23 @@ class PublicRetrievalController extends ControllerService
         ));
     }
 
+    public function careerAction(Request $request){
+        return $this->render('AppBundle:Front:career.html.twig');
+    }
+
+    public function careerSuccessAction(Request $request){
+        return $this->render('AppBundle:Front:career_apply.html.twig');
+    }
+
+    public function newsPressAction(){
+        return $this->render('AppBundle:Front:newsPress.html.twig');
+    }
+
+    public function singlePressAction() {
+        return $this->render('AppBundle:Front:singlePress.html.twig');
+
+    }
+
 
 
 
