@@ -14,17 +14,20 @@ parameters:
     mailer_host:       127.0.0.1
     mailer_user:       ~
     mailer_password:   ~
+    mailer_port: ~
+    mailer_encryption: ~
+
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
     pagination_limit: 2
 
     #s3
-    s3_bucket_name:
-    s3_access_key:
-    s3_secret_key:
-    s3_region:
-    s3_directory:
+    s3_bucket_name: ~
+    s3_access_key: ~
+    s3_secret_key: ~
+    s3_region: ~
+    s3_directory: ~
 
     vresh_twilio_sid: AC0a029cf4f26824f60ffad661b9d4a874
     vresh_twilio_authToken: 45fabaaecdb852879faf9186dfc6c68b
@@ -37,4 +40,4 @@ parameters:
     stripe_secret_key: sk_test_clj9PCMa3jidJqgOTFl67d0n
     stripe_publishable_key: pk_test_qBL4eoPC9zHxzA1kCXjm7kNZ
 
-    email_contact: tuan@.com
+    email_contact: tuan@yahoo.com
