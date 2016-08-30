@@ -1,0 +1,35 @@
+{% extends 'AppBundle::layout.html.twig' %}
+{% block content %}
+
+
+    <section class="main-container"  data-query="{{ app.request.query.all|json_encode }}" data-search-space="" data-url-search-nearby-listing="{{ path('app_front_get_near_by_listing') }}">
+
+        <div class="wrapper general_container">
+            <div class="col-md-12">
+                <div class="main col-md-7">
+                    <div class="map" id="map"></div>
+                    <div class="near_by row">
+                        <div class="col-md-6">
+                            <h3 style="color:red;font-weight: bold;">Nearby Listings</h3>
+                            <div class="nearby-listing">
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+                            <h3 style="color:red;font-weight: bold;">Nearby Locations</h3>
+                            <div class="nearby-listing">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main col-md-5">
+                    {% include 'AppBundle:Front:_search-spaces-form.html.twig' %}
+                    {% include 'AppBundle:Front:_search-spaces-list-space.html.twig' %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

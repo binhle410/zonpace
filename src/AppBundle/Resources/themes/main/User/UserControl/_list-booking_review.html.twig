@@ -1,0 +1,41 @@
+<div class="modal fade bs-modal-sm-review-{{ booking.id }}" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-sm" data-review-space="">
+        <form action="{{ path('app_user_user_control_review_space',{'booking':booking.id}) }}" method="post">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                                aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="mySmallModalLabel">Review</h4>
+                </div>
+                <div class="modal-body">
+                    <p data-type="rating-location">
+                        <span>Communication</span>
+                        {#<i class="fa fa-star text-default"></i>#}
+                        <i class="fa fa-star" data-point="1"></i>
+                        <i class="fa fa-star" data-point="2"></i>
+                        <i class="fa fa-star" data-point="3"></i>
+                        <i class="fa fa-star" data-point="4"></i>
+                        <i class="fa fa-star" data-point="5"></i>
+                    </p>
+                    <p data-type="rating-communication">
+                        <span style="margin-right: 49px;">Location</span>
+                        {#<i class="fa fa-star text-default"></i>#}
+                        <i class="fa fa-star" data-point="1"></i>
+                        <i class="fa fa-star" data-point="2"></i>
+                        <i class="fa fa-star" data-point="3"></i>
+                        <i class="fa fa-star" data-point="4"></i>
+                        <i class="fa fa-star" data-point="5"></i>
+                    </p>
+                    <input type="hidden" id="rating-location" name="app_space_space_booking_review[ratingCommunication]" value="0">
+                    <input type="hidden" id="rating-communication" name="app_space_space_booking_review[ratingLocation]" value="0">
+                    <textarea class="form-control" rows="3" required name="app_space_space_booking_review[ratingMassage]"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-dark" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-sm btn-default">Save changes</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

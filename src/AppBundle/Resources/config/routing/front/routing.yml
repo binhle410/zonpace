@@ -37,3 +37,31 @@ app_front_page:
 app_front_contact:
     path: /contact-us/{url}
     defaults: { _controller: AppBundle:Front/Mgmt/PublicManipulation:contact}
+
+app_front_career:
+    path: /career
+    defaults: { _controller: AppBundle:Front/Mgmt/PublicRetrieval:career}
+
+app_front_career_apply:
+    path: /career-success
+    defaults: { _controller: AppBundle:Front/Mgmt/PublicRetrieval:careerSuccess}
+
+app_front_policies:
+    path: /policies
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template:    AppBundle:Front:privacy.html.twig
+
+app_front_news_press:
+    path: /news-press
+    defaults: { _controller: AppBundle:Front/Mgmt/PublicRetrieval:newsPress}
+
+app_front_single_press:
+    path: /singe-press
+    defaults: { _controller: AppBundle:Front/Mgmt/PublicRetrieval:singlePress}
+
+app_front_single_listing:
+    path: /single-listing
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template:    AppBundle:Front:singleListing.html.twig

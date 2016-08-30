@@ -1,0 +1,76 @@
+{% extends 'AppBundle::layout.html.twig' %}
+{% block content %}
+
+
+    <section class="main-container">
+
+        <div class="general_container wrapper">
+            <div class="row">
+                <!-- main start -->
+                <!-- ================ -->
+                <div class="main col-md-8 col-lg-offset-1 col-md-push-4 col-lg-push-3">
+
+                    <hr class="divider">
+                    <!-- Tab panes -->
+                    <div class="tab-content clear-style">
+                        <div class="tab-pane active" id="pill-1">
+                            {% for message in  messages %}
+                                <div class="listing-item mb-20">
+                                    <div class="row grid-space-0">
+                                        {% set userShow = app.user.id == message.messageTo.id ? message.messageFrom :message.messageTo  %}
+                                        <div class="col-sm-6 col-md-2">
+                                            <div class="overlay-container">
+                                                {% if message.messageTo.photo %}
+                                                    <div class="form-group">
+                                                        <img src="{{ getUrl(userShow.photo,'default','medium') }}">
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-7" style="margin-top: -25px;">
+                                            <div class="body">
+                                                <h3 class="margin-clear"><a
+                                                            href="shop-product.html">{{ userShow.firstName ~' '~ userShow.lastName}}</a></h3>
+                                                <div class="row">
+                                                    {{ message.title }}
+                                                    {% if message.space %}
+                                                    <p>( Associate to space <a target="_blank" href="{{ path('app_user_booking_create',{'step':0,'space':message.space.id}) }}">{{ message.space.name }}</a> )</p>
+                                                        {% endif %}
+                                                </div>
+                                                <div class="row">
+                                                    {{ message.createdAt|date('m/d/Y') }}
+                                                </div>
+                                                <div class="row">
+                                                    {{ message.message|length > 100 ? message.message[:100]~'...':message.message  }}
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <input onclick="window.location.href='{{ path('app_user_user_control_reply_inbox',{'user':message.messageFrom.id,'messageInbox':message.id}) }}'" style="width: 153px;margin-bottom: 5px !important;"
+                                                   type="button" value="View Detail"
+                                                   class="margin-clear btn btn-default pull-right">
+                                        </div>
+
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% if messages|length %}
+                        <nav class="text-right">
+                            {{ pagerfanta(messages) }}
+                        </nav>
+                    {% endif %}
+                </div>
+
+                <!-- sidebar start -->
+                {% include 'AppBundle:User:_nav.html.twig' %}
+                <!-- ================ -->
+
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,80 @@
+<div class="search-results">
+    {% for data in spaces %}
+        {% set space = data[0] %}
+        {% set distance = data['distance'] %}
+        <div class="row search-space-item" data-lat="{{ space.location.lat }}" data-lng="{{ space.location.lng }}"
+             data-aphabet="{{ getlAphabetNameSpace(loop.index-1) }}">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <strong>{{ getlAphabetNameSpace(loop.index-1) ~' '~ space.name }}</strong>
+                </div>
+                {% if app.request.get('from') != '' and  app.request.get('to') != '' %}
+                    {% set from =  app.request.get('from')|date('Y-m-d') %}
+                    {% set to =  app.request.get('to')|date('Y-m-d') %}
+                    {% if checkAvailableBooking(space,from,to) %}
+                        <div class="col-md-6 pull-right">
+                            <span class="pull-right">Available</span>
+                        </div>
+                        {% else %}
+                            <div class="col-md-6 pull-right">
+                                <span class="pull-right">Unavailable</span>
+                            </div>
+                    {% endif %}
+                {% endif %}
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <span style="font-size: 12px">{{ space.location.squareFeet }} sqft</span>
+                    <span style="font-size: 12px">{{ getTypeSpace(space.location.typeSpace) }}</span>
+                    <span style="font-size: 12px">{{ distance|round(1) }} miles</span>
+                </div>
+                {% if space.instantBook %}
+                    <div class="col-md-4">
+                        <span class="pull-right">Instant book</span>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="separator-2"></div>
+            <div class="row">
+                <div class="col-md-4">
+                    {{ getImageSpace(space,150,150) }}
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-12">
+                            {{ space.description }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <strong>${{ space.price.daily }}</strong><br>Per Day
+                        </div>
+                        <div class="col-md-4">
+                            <strong>${{ (space.price.daily*7)-((space.price.daily*7*space.price.weeklyDiscount)/100) }}</strong><br>Per
+                            Day
+                        </div>
+                        <div class="col-md-4">
+                            <strong>${{ (space.price.daily*30)-((space.price.daily*30*space.price.monthlyDiscount)/100) }}</strong><br>Per
+                            Day
+                        </div>
+                    </div>
+                    {% if app.user %}
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input onclick="window.location.href='{{ path('app_user_booking_create',{'step':0,'space':space.id}) }}'"
+                                       type="button" value="Book Now"
+                                       class="btn btn-danger btn-sm btn-custom">
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    {% if spaces|length %}
+        <nav class="text-right">
+            {{ pagerfanta(spaces) }}
+        </nav>
+    {% endif %}
+</div>

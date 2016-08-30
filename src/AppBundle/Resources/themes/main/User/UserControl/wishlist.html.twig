@@ -1,0 +1,86 @@
+{% extends 'AppBundle::layout.html.twig' %}
+{% block content %}
+
+
+    <section class="main-container">
+
+        <div class="general_container wrapper">
+            <div class="row">
+
+                <!-- main start -->
+                <!-- ================ -->
+                <div class="main col-md-8 col-lg-offset-1 col-md-push-4 col-lg-push-3">
+
+
+                    <hr class="divider">
+                    <!-- Tab panes -->
+                    <div class="tab-content clear-style">
+                        <div class="tab-pane active" id="pill-1">
+                            {% for wishlist in  wishlists %}
+                                {% set space = wishlist.space %}
+                                <div class="listing-item mb-20">
+                                    <div class="row grid-space-0">
+                                        <div class="col-sm-6 col-md-3">
+                                            <div class="overlay-container">
+                                                {{ getImageSpace(space,150,150)}}
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-7">
+                                            <div class="body">
+                                                <h3 class="margin-clear"><a
+                                                            href="shop-product.html">{{ space.name }}</a></h3>
+                                                <div class="row">
+                                                    <div class="col-md-8">
+                                                        <span style="font-size: 12px">{{ space.location.squareFeet }} sqft</span>
+                                                        <span style="font-size: 12px">{{ getTypeSpace(space.location.typeSpace) }}</span>
+                                                    </div>
+                                                </div>
+                                                <p>
+                                            {{ getRatingSpace(space,1) }}
+                                                </p>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <strong>${{ space.price.daily }}</strong><br>Per Day
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <strong>${{ (space.price.daily*7)-((space.price.daily*7*space.price.weeklyDiscount)/100) }}</strong><br>Per
+                                                        Day
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <strong>${{ (space.price.daily*30)-((space.price.daily*30*space.price.monthlyDiscount)/100) }}</strong><br>Per
+                                                        Day
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <input onclick="window.location.href='{{ path('app_user_booking_create',{'step':0,'space':space.id}) }}'" type="button" value="Book Now"
+                                                   class="margin-clear btn btn-default btn-custom">
+                                            <input onclick="window.location.href='{{ path('app_user_user_control_remove_wishlist',{'space':space.id,'userWishlist':wishlist.id}) }}'"
+                                                   type="button" value="Remove"
+                                                   class="margin-clear btn btn-default btn-custom">
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% if wishlists|length %}
+                        <nav class="text-right">
+                            {{ pagerfanta(wishlists) }}
+                        </nav>
+                    {% endif %}
+                </div>
+
+                <!-- sidebar start -->
+                {% include 'AppBundle:User:_nav.html.twig' %}
+                <!-- ================ -->
+
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

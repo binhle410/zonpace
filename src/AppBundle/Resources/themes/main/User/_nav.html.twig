@@ -1,0 +1,45 @@
+<!-- sidebar start -->
+<!-- ================ -->
+<aside class="col-md-4 col-lg-3 col-md-pull-8 col-lg-pull-9">
+    <div class="sidebar" id="left-nav" data-request="{{ app.request.requestUri }}" data-nav="">
+        <div class="block clearfix">
+            <nav>
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a href="{{ path('app_user_user_control_profile') }}">Profile</a></li>
+                    <li><div class="separator-2"></div></li>
+                    <li><a href="{{ path('app_user_user_control_list_booking') }}">My Bookings</a></li>
+                    <li><div class="separator-2"></div></li>
+                    <li><a href="{{ path('app_user_user_control_wishlist') }}">Wishlist</a></li>
+                    <li><div class="separator-2"></div></li>
+                    <li><a href="{{ path('app_user_user_control_wishlist') }}">My Reviews</a></li>
+                    <li><div class="separator-2"></div></li>
+                    <li><a href="{{ path('app_user_user_control_list_inbox') }}">Inbox</a></li>
+                    <li><div class="separator-2"></div></li>
+                    <li><a href="{{ path('app_user_user_control_list_inbox') }}">Payment Methods</a></li>
+                    <li><div class="separator-2"></div></li>
+                    <li><a href="{{ path('app_user_user_control_verification') }}">Verifications</a></li>
+                    <li><div class="separator-2"></div></li>
+                    <li><a href="{{ path('app_user_user_control_setting') }}">Settings</a></li>
+                </ul>
+            </nav>
+        </div>
+        <h3 style="color:red;margin-left:
+        5px;" class="title">Host</h3>
+        <div class="block clearfix">
+            <nav>
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a href="{{ path('app_user_host_control_dashboard') }}">Dashboard</a></li>
+                    <li><div class="separator-2"></div></li>
+                    <li><a href="{{ path('app_user_space_list') }}">Manage Listings</a></li>
+                    <li><div class="separator-2"></div></li>
+                    <li><a href="{{ path('app_user_space_create',{'step':1}) }}">Create Listing</a></li>
+                    <li><div class="separator-2"></div></li>
+                    <li><a href="{{ path('app_user_host_control_list_booking') }}">Manage Bookings</a></li>
+                    <li><div class="separator-2"></div></li>
+                    <li><a href="{{ path('app_user_host_control_transaction_report') }}">Transaction Report</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</aside>
+<!-- sidebar end -->

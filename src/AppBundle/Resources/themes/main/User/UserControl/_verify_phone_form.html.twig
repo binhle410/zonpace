@@ -1,0 +1,20 @@
+<div class="modal fade bs-modal-sm-verify-phone" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                                aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="mySmallModalLabel">Verify your phone number</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="verified-code" data-url="{{ path('app_user_user_control_verify_code') }}" required name="verified-code" class="form-control" placeholder="Input your verified code">
+                    <span class="error display-none">Verified code incorrect.</span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-sm btn-dark" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-sm btn-default btn-verified-code">Submit</button>
+                </div>
+            </div>
+    </div>
+</div>
