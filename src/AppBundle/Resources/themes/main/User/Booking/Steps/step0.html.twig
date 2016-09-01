@@ -1,0 +1,102 @@
+{% extends 'AppBundle::layout.html.twig' %}
+{% block content %}
+    <section class="main-container create-space-step" data-booking-space="" data-paging-ajax="">
+
+        <div style="margin-top:-20px" class="general_container">
+            <div style="margin-top: -60px;" class="row">
+                <div style=" margin-top: -5px;" class="col-md-12">
+                    <input type="hidden" value="{{ space.shape }}" id="app_space_space_shape">
+                    <a class="close-ribbon"><span>Our Booking Guarantee</span></a>
+                    <div class="map " id="map" data-lat="{{ getLatLngSpace(space,'lat') }}"
+                         data-lng="{{ getLatLngSpace(space,'lng') }}"></div>
+                    <div id="floating-panel">
+                        <input type="button" value="Street View" class="street-view btn btn-default" style="border-radius:0px">                    </div>
+                </div>
+                <div class="space_form_wrapper">
+                    <h3 class="margin-clear"><a
+                                href="shop-product.html">{{ space.name }}</a></h3>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span style="font-size: 14px">{{ space.location.squareFeet }} sqft</span>
+                            <span style="font-size: 14px">{{ getTypeSpace(space.location.typeSpace) }}</span>
+                        </div>
+                    </div>
+                    <p style="color: #ffcc00;">
+                        {{ getRatingSpace(space,1) }}
+                    </p>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <strong>${{ space.price.daily }}</strong><br>Per Day
+                        </div>
+                        {% if space.price.weeklyDiscount is not null %}
+                            <div class="col-md-4">
+                                <strong>${{ (space.price.daily*7)-((space.price.daily*7*space.price.weeklyDiscount)/100) }}</strong><br>Per
+                                Week
+                            </div>
+                        {% endif %}
+                        {% if space.price.monthlyDiscount is not null %}
+                            <div class="col-md-4">
+                                <strong>${{ (space.price.daily*30)-((space.price.daily*30*space.price.monthlyDiscount)/100) }}</strong><br>Per
+                                Month
+                            </div>
+                        {% endif %}
+                    </div>
+                    <hr class="divider">
+                    <form method="post" class="booking-step-0 check-date-available"
+                          data-url-check-date="{{ path('app_user_booking_check_available_booking',{'space':space.id}) }}">
+                        {{ form_row(form._token) }}
+                        <div class="wrap-form">
+                            <div style="font-weight: bold;color: red;">Choice of Space</div>
+                            {{ form_widget(form.bookingType,{'attr':{'class':''}}) }}
+                            {{ form_widget(form.dateFrom,{'attr':{'class':'datepicker'}}) }}
+                            {{ form_widget(form.dateTo,{'attr':{'class':'datepicker'}}) }}
+                            {{ form_widget(form.bookingPeriod,{'attr':{'class':''}}) }}
+                            <p style="font-size: 9px;">( Please contact host for more information about available date
+                                )</p>
+                        </div>
+                        <div class="available" style="color: red;">
+
+                        </div>
+                        <div>
+                            {{ space.instantBook == true ? 'Instant Book' }}
+                        </div>
+                        <hr class="divider">
+                        <div>
+                            <button type="submit" class="btn btn-default btn-submit">Booking Now</button>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-default plot-a-space" data-toggle="modal"
+                                    data-target="#plot-space">Plot-A-Space
+                            </button>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-default" data-toggle="modal"
+                                    data-target="#enquire-space">Enquire
+                            </button>
+                        </div>
+
+                        {% if isInWishlist(space) == false %}
+                            <div>
+                                <button onclick="window.location.href='{{ path('app_user_booking_add_wishlist',{'space':space.id}) }}'"
+                                        type="button" class="btn btn-default">Add To Wishlist
+                                </button>
+                            </div>
+                        {% else %}
+                            {% set userWishlist = getOneWishlist(space) %}
+                            <div>
+                                <button onclick="window.location.href='{{ path('app_user_booking_remove_wishlist',{'space':space.id,'userWishlist':userWishlist.id}) }}'"
+                                        type="button" class="btn btn-default">Remove out of Wisthlist
+                                </button>
+                            </div>
+                        {% endif %}
+                    </form>
+                    {{ render(controller('AppBundle:User/Booking/Mgmt/BookingManipulation:plotSpace',{'space':space.id,'booking':0,'type':'user'})) }}
+                    {{ render(controller('AppBundle:User/Booking/Mgmt/BookingManipulation:enquireSpace',{'space':space.id})) }}
+                </div>
+
+            </div>
+        </div>
+        {{ render(controller('AppBundle:Front/Mgmt/PublicRetrieval:detailSpace',{'space':space.id})) }}
+    </section>
+
+{% endblock %}

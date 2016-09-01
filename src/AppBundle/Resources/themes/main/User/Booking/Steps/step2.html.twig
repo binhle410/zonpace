@@ -1,0 +1,76 @@
+
+
+
+
+{% extends 'AppBundle::layout.html.twig' %}
+{% block content %}
+    <section class="main-container create-space-step" data-booking-space="" data-paging-ajax="">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    {% set shape = booking.isPlot ? booking.spaceShape:space.shape  %}
+                    <input type="hidden" value="{{ shape }}" id="app_space_space_shape">
+                    <div class="map " id="map"></div>
+                </div>
+                <div class="col-md-6">
+                    <h3 class="margin-clear"><a
+                                href="shop-product.html">{{ space.name }}</a></h3>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <span style="font-size: 12px">{{ space.location.squareFeet }} sqft</span>
+                            <span style="font-size: 12px">{{ getTypeSpace(space.location.typeSpace) }}</span>
+                        </div>
+                    </div>
+                    <p>
+                        {{ getRatingSpace(space,1) }}
+                    </p>
+                    <div class="row">
+                        {% set priceDaily = booking.isPlot == true ? booking.spacePriceDaily: space.price.daily %}
+                        {% set weeklyDiscount = booking.isPlot ? booking.spaceWeeklyDiscount: space.price.weeklyDiscount %}
+                        {% set monthlyDiscount = booking.isPlot ? booking.spaceMonthlyDiscount: space.price.monthlyDiscount %}
+                        <div class="col-md-4">
+                            <strong>$<span class="price-per-day">{{ priceDaily }}</span></strong><br>Per Day
+                        </div>
+                        <div class="col-md-4">
+                            <strong>$<span class="price-per-week">{{ (priceDaily*7)-((priceDaily*7*weeklyDiscount)/100) }}</span></strong><br>Per
+                            Day
+                        </div>
+                        <div class="col-md-4">
+                            <strong>$<span class="price-per-day">{{ (priceDaily*30)-((priceDaily*30*monthlyDiscount)/100) }}</span></strong><br>Per
+                            Day
+                        </div>
+                    </div>
+                    <hr class="divider">
+                    Payment
+                    <span class="payment-errors"></span>
+                    <form id="payment-form" action="{{ path('app_user_booking_create',{'step':3,'space':space.id,'booking':booking.id}) }}" method="post" data-publishable-key="{{ publishableKey }}">
+                        <div class="form-row">
+                            <label>Card Number</label>
+                            <input type="text" size="20" autocomplete="off" class="card-number" class="card-number" />
+                        </div>
+                        <div class="form-row">
+                            <label>Card Holder</label>
+                            <input type="text" size="20" autocomplete="off" class="card-name-holder" class="card-name-holder" />
+                        </div>
+                        <div class="form-row">
+                            <label>CVC</label>
+                            <input type="text" size="4" autocomplete="off" class="card-cvc" />
+                        </div>
+                        <div class="form-row">
+                            <label>Expiration (MM/YYYY)</label>
+                            <input type="text" size="2" class="card-expiry-month"/>
+                            <span> / </span>
+                            <input type="text" size="4" class="card-expiry-year"/>
+                        </div>
+                        <button type="submit" class="submit-button">Next</button>
+                        <button onclick="window.location.href='{{ path('app_user_booking_create',{'step':1,'space':space.id,'booking':booking.id}) }}'" type="button" class="">Back to choice of land</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        {{ render(controller('AppBundle:Front/Mgmt/PublicRetrieval:detailSpace',{'space':space.id})) }}
+    </section>
+
+{% endblock %}

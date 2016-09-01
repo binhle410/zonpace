@@ -59,9 +59,3 @@ app_front_news_press:
 app_front_single_press:
     path: /singe-press
     defaults: { _controller: AppBundle:Front/Mgmt/PublicRetrieval:singlePress}
-
-app_front_single_listing:
-    path: /single-listing
-    defaults:
-        _controller: FrameworkBundle:Template:template
-        template:    AppBundle:Front:singleListing.html.twig

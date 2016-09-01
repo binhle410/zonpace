@@ -1,0 +1,23 @@
+<div class="modal fade" id="enquire-space" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Enquire about this space</h4>
+            </div>
+            <div class="modal-body">
+                <form action="{{ path('app_user_booking_enquire_space',{'space':space.id}) }}" method="post">
+                    {{ form_row(form._token) }}
+                    {{ form_widget(form.title,{'attr':{'class':'form-control','placeholder':'Title'}}) }}
+                    {{ form_widget(form.message,{'attr':{'class':'form-control','placeholder':'Message'}}) }}
+
+                    <button type="submit" class="btn btn-sm btn-default">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
