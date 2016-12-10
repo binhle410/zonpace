@@ -52,6 +52,7 @@ class ControllerService extends Controller
     {
         return $this->getDoctrine()->getManager()->getRepository('AppBundle:Booking\Booking')->getRatingSpace($space);
     }
+
     public function getLocationRatingHost($user)
     {
         return $this->getDoctrine()->getManager()->getRepository('AppBundle:Booking\Booking')->getLocationRatingHost($user);
@@ -118,12 +119,14 @@ class ControllerService extends Controller
 
     public function getImageSpace(Space $space, $width, $height)
     {
-        return $this->getImage($space->getShape(),$width,$height);
+        return $this->getImage($space->getShape(), $width, $height);
     }
+
     public function getImageBooking(Booking $booking, $width, $height)
     {
-        return $this->getImage($booking->getSpaceShape(),$width,$height);
+        return $this->getImage($booking->getSpaceShape(), $width, $height);
     }
+
     public function getImage($shape, $width, $height)
     {
         $googleApiKey = $this->getParameter('google_api_key');
@@ -155,6 +158,7 @@ class ControllerService extends Controller
             //implement after
         }
     }
+
     public function getLatLngSpace(Space $space)
     {
         $shape = json_decode($space->getShape());
@@ -170,25 +174,27 @@ class ControllerService extends Controller
             $lat = $lat / count($dataShape);
             $lng = $lng / count($dataShape);
 
-            return ['lat'=>$lat,'lng'=>$lng];
+            return ['lat' => $lat, 'lng' => $lng];
         } else {
             return '';
             //implement after
         }
     }
-    public function getStatusBooking(Booking $booking){
-        if($booking->getStatus() == Booking::STATUS_PENDING){
+
+    public function getStatusBooking(Booking $booking)
+    {
+        if ($booking->getStatus() == Booking::STATUS_PENDING) {
             return 'Pending';
         }
-        if($booking->getStatus() == Booking::STATUS_CANCELLED){
+        if ($booking->getStatus() == Booking::STATUS_CANCELLED) {
             return 'Cancelled';
         }
-        if($booking->getStatus() == Booking::STATUS_SUCCESS){
+        if ($booking->getStatus() == Booking::STATUS_SUCCESS) {
             $toDay = new \DateTime();
-            if(($booking->getDateFrom()->getTimestamp() <= $toDay->getTimestamp() && $toDay->getTimestamp() <= $booking->getDateTo()->getTimestamp()) || $toDay->getTimestamp() < $booking->getDateFrom()->getTimestamp()){
+            if (($booking->getDateFrom()->getTimestamp() <= $toDay->getTimestamp() && $toDay->getTimestamp() <= $booking->getDateTo()->getTimestamp()) || $toDay->getTimestamp() < $booking->getDateFrom()->getTimestamp()) {
                 Return 'Active';
             }
-            if( $toDay->getTimestamp() > $booking->getDateTo()->getTimestamp()){
+            if ($toDay->getTimestamp() > $booking->getDateTo()->getTimestamp()) {
                 Return 'Completed';
             }
         }
@@ -198,30 +204,32 @@ class ControllerService extends Controller
      * @param $booking
      * @param $booking
      */
-    public function getPriceBooking(Booking $booking,Space $space){
-        switch ($booking->getBookingType()){
+    public function getPriceBooking(Booking $booking, Space $space)
+    {
+        switch ($booking->getBookingType()) {
             case Booking::BOOKING_TYPE_DAILY:
                 $dateFrom = $booking->getDateFrom()->format('Y-m-d');
                 $dateTo = $booking->getDateTo()->format('Y-m-d');
                 $pricePerDay = $booking->getSpacePriceDaily();
-                $numberDate = $this->getNumberDate($dateFrom,$dateTo);
+                $numberDate = $this->getNumberDate($dateFrom, $dateTo);
                 $price = $numberDate * $pricePerDay;
                 break;
             case Booking::BOOKING_TYPE_WEEKLY:
                 $pricePerDay = $booking->isIsPlot() == true ? $booking->getSpacePriceDaily() : $space->getPrice()->getDaily();
                 $discountWeekly = $booking->getSpaceWeeklyDiscount();
-                $pricePerWeek = ($pricePerDay * 7) - (($pricePerDay * 7)*($discountWeekly/100));
+                $pricePerWeek = ($pricePerDay * 7) - (($pricePerDay * 7) * ($discountWeekly / 100));
                 $price = $pricePerWeek * $booking->getBookingPeriod();
                 break;
             case Booking::BOOKING_TYPE_MONTHLY:
                 $pricePerDay = $space->getPrice()->getDaily();
                 $discountMonthly = $booking->getSpaceMonthlyDiscount();
-                $pricePerMonth = ($pricePerDay * 30) - (($pricePerDay * 30)*($discountMonthly/100));
+                $pricePerMonth = ($pricePerDay * 30) - (($pricePerDay * 30) * ($discountMonthly / 100));
                 $price = $pricePerMonth * $booking->getBookingPeriod();
                 break;
         }
-        return round($price,1);
+        return round($price, 1);
     }
+
     /*
  * format :Y-m-d
  */
@@ -234,7 +242,7 @@ class ControllerService extends Controller
         $interval = new \DateInterval('P1D');
         $daterange = new \DatePeriod($begin, $interval, $end);
 
-        $count =0;
+        $count = 0;
         foreach ($daterange as $date) {
             $count++;
         }
@@ -242,44 +250,46 @@ class ControllerService extends Controller
     }
 
 
-
-    public function getDateRange($begin,$end){
+    public function getDateRange($begin, $end)
+    {
         $end = $end->modify('+1 day');
 
         $interval = new \DateInterval('P1D');
         $daterange = new \DatePeriod($begin, $interval, $end);
         return $daterange;
     }
+
     /**
      * @param Space $space
      * @param $dateFrom
      * @param $dateTo
      * @return bool
      */
-    public function checkAvailableBooking(Space $space,$dateFrom,$dateTo){
+    public function checkAvailableBooking(Space $space, $dateFrom, $dateTo)
+    {
         $criteriaBookingSuccess = Criteria::create()
-            ->where(Criteria::expr()->eq('status',Booking::STATUS_SUCCESS));
+            ->where(Criteria::expr()->eq('status', Booking::STATUS_SUCCESS));
         $bookingActives = $space->getBookings()->matching($criteriaBookingSuccess);
         //list booked date
         $listBookedDate = [];
-        foreach ($bookingActives as $bookingActive){
-            $daterange = $this->getDateRange($bookingActive->getDateFrom(),$bookingActive->getDateTo());
+        foreach ($bookingActives as $bookingActive) {
+            $daterange = $this->getDateRange($bookingActive->getDateFrom(), $bookingActive->getDateTo());
             foreach ($daterange as $date) {
                 $listBookedDate[] = $date->format('Y-m-d');
             }
         }
 
         //list blocked date
-        $listBlockedDate =[];
+        $listBlockedDate = [];
         $blockedDates = $space->getDateBooking()->getBlockedDateBookings();
-        foreach($blockedDates as $blockedDate){
+        foreach ($blockedDates as $blockedDate) {
             $listBlockedDate[] = $blockedDate->getBlockedDate()->format('Y-m-d');
         }
         //list available except blocked date,except the date had booked
-        $daterange = $this->getDateRange($space->getDateBooking()->getDateFrom(),$space->getDateBooking()->getDateTo());
-        $listAvailableDate=[];
+        $daterange = $this->getDateRange($space->getDateBooking()->getDateFrom(), $space->getDateBooking()->getDateTo());
+        $listAvailableDate = [];
         foreach ($daterange as $date) {
-            if(!in_array($date->format('Y-m-d'),$listBlockedDate) && !in_array($date->format('Y-m-d'),$listBookedDate)){
+            if (!in_array($date->format('Y-m-d'), $listBlockedDate) && !in_array($date->format('Y-m-d'), $listBookedDate)) {
                 $listAvailableDate[$date->format('Y-m-d')] = $date->format('Y-m-d');
             }
         }
@@ -287,47 +297,57 @@ class ControllerService extends Controller
         $listBookingDate = [];
         $begin = new \DateTime($dateFrom);
         $end = new \DateTime($dateTo);
-        if($begin->getTimestamp() > $end->getTimestamp()){
+        if ($begin->getTimestamp() > $end->getTimestamp()) {
             return false;
         }
-        $daterange = $this->getDateRange($begin,$end);
+        $daterange = $this->getDateRange($begin, $end);
         foreach ($daterange as $date) {
             $listBookingDate[] = $date->format('Y-m-d');
         }
 
-        foreach ($listBookingDate as $date){
-            if(!isset($listAvailableDate[$date])){
+        foreach ($listBookingDate as $date) {
+            if (!isset($listAvailableDate[$date])) {
                 return false;
             }
         }
         return true;
     }
 
-    public function isInWishlist($space){
+    public function isInWishlist($space)
+    {
         $em = $this->getDoctrine()->getManager();
-        $result = $em->getRepository('AppBundle:Core\UserWishlist')->findOneWishlist($this->getUser(),$space);
-        if($result){
+        $result = $em->getRepository('AppBundle:Core\UserWishlist')->findOneWishlist($this->getUser(), $space);
+        if ($result) {
             return true;
         }
         return false;
     }
-    public function getOneWishlist($space){
+
+    public function getOneWishlist($space)
+    {
         $em = $this->getDoctrine()->getManager();
-        return $em->getRepository('AppBundle:Core\UserWishlist')->findOneWishlist($this->getUser(),$space);
+        return $em->getRepository('AppBundle:Core\UserWishlist')->findOneWishlist($this->getUser(), $space);
     }
 
-    public function getUrlPage($codePage){
+    public function getUrlPage($codePage)
+    {
         $em = $this->getDoctrine()->getManager();
-        $page = $em->getRepository('AppBundle:Core\Page')->findOneBy(['type'=>$codePage]);
-        $url = $this->generateUrl('app_front_page',['slug'=>$page->getSlug()]);
+        $page = $em->getRepository('AppBundle:Core\Page')->findOneBy(['type' => $codePage]);
+        if (empty($page)) {
+            $slug = '';
+        } else {
+            $slug = $page->getSlug();
+        }
+        $url = $this->generateUrl('app_front_page', ['slug' => $slug]);
         return $url;
     }
 
-    public function notifyInbox($dataTo,$data){
+    public function notifyInbox($dataTo, $data)
+    {
         $emailTo = $dataTo['email_to'];
         $phoneTo = $dataTo['phone_to'];
         //1.notify to email
-        $this->get('app.email_sender')->sendEmailInbox($emailTo,$data);
+        $this->get('app.email_sender')->sendEmailInbox($emailTo, $data);
         //2.notify to phone
 
     }
